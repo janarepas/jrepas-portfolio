@@ -610,11 +610,19 @@ html[data-theme] .work .portfolio-card>p{color:inherit;opacity:.85;max-width:480
  .work .portfolio-card:nth-child(even) .cover-pixels{right:max(48px,calc((100vw - var(--content-width))/2))}
 }
 
-/* Darken tile artwork toward the copy instead of fading it to white. */
+/* Each tile deepens its own base colour instead of fading to white or black. */
+.work .portfolio-card{--tile-end:#bdbcb3;color:#080808}
+.work .portfolio-card:nth-child(1){--tile-end:#030303;color:#fff}
+.work .portfolio-card:nth-child(2){--tile-end:#c4a900}
+.work .portfolio-card:nth-child(3){--tile-end:#bdbcb3}
+.work .portfolio-card:nth-child(4){--tile-end:#c6c1b1}
+.work .portfolio-card:nth-child(5){--tile-end:#b84012;color:#fff}
+.work .portfolio-card:nth-child(6){--tile-end:#181818;color:#fff}
+.work .portfolio-card:nth-child(7){--tile-end:#b9b8b1}
+.work .portfolio-card:nth-child(8){--tile-end:#c79508}
 .work .portfolio-card:after,
 .work .portfolio-card:nth-child(1):after,
 .work .portfolio-card:nth-child(6):after{
  inset:24% 0 0;
- background:linear-gradient(180deg,rgba(8,8,8,0) 0%,rgba(8,8,8,.52) 55%,rgba(8,8,8,.9) 100%);
+ background:linear-gradient(180deg,transparent 0%,var(--tile-end) 100%);
 }
-.work .portfolio-card{color:#fff}
