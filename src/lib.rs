@@ -3,8 +3,7 @@ use serde_json::Value;
 use wasm_bindgen::{prelude::*, JsCast};
 use web_sys::{Document, Element, Event, MediaQueryListEvent, KeyboardEvent, Storage};
 
-const SUN: &str = r#"<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>"#;
-const MOON: &str = r#"<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5a8.5 8.5 0 1 0 9.7 9.7Z"/></svg>"#;
+const THEME_ICON: &str = r#"<svg class="theme-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><clipPath id="theme-horizon"><path d="M0 0h24v17H0Z"/></clipPath></defs><g class="theme-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></g><g class="theme-moon"><path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5a8.5 8.5 0 1 0 9.7 9.7Z"/></g><g class="theme-sunset"><g clip-path="url(#theme-horizon)"><g class="sunset-orbit"><circle cx="12" cy="10" r="4"/><path d="M12 1v2M3 10h2m14 0h2M5.5 3.5 7 5m10 0 1.5-1.5"/></g></g><path class="sunset-horizon" d="M3 17h18M7 21h10"/></g></svg>"#;
 const COPY: &str = include_str!("translations.json");
 
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -129,7 +128,9 @@ impl App {
                 .set_attribute("aria-pressed", if code == lang.code() { "true" } else { "false" })?;
         }
         let toggle = element(document, ".theme-toggle")?;
-        toggle.set_inner_html(if self.dark { SUN } else { MOON });
+        // Preserve the SVG nodes so CSS can interpolate between icon states.
+        if toggle.query_selector(".theme-icon")?.is_none() { toggle.set_inner_html(THEME_ICON); }
+        toggle.set_attribute("data-icon-theme", if self.dark { "sun" } else { "moon" })?;
         let label = if self.dark { lang.text("Világos mód", "Light mode") } else { lang.text("Sötét mód", "Dark mode") };
         toggle.set_attribute("aria-label", label)?;
         toggle.set_attribute("title", label)?;
@@ -267,6 +268,7 @@ pub fn start() -> Result<(), JsValue> {
     let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
         {
             let mut app = state.borrow_mut();
+            if let Ok(toggle) = element(&app.document, ".theme-toggle") { let _ = toggle.set_attribute("data-theme-clicked", "true"); }
             app.dark = !app.dark;
             app.manual_theme = true;
             if let Some(storage) = &app.storage { let _ = storage.set_item("jrepas-theme", if app.dark { "dark" } else { "light" }); }
@@ -282,6 +284,18 @@ pub fn start() -> Result<(), JsValue> {
     });
     element(&document, ".theme-toggle")?.add_event_listener_with_callback("click", callback.as_ref().unchecked_ref())?;
     callback.forget();
+    // A click shows the actual theme icon until the pointer leaves. A new hover
+    // starts a fresh sunset, without hiding the click animation underneath it.
+    for event_name in ["pointerenter", "pointerleave"] {
+        let toggle = element(&document, ".theme-toggle")?;
+        let target = toggle.clone();
+        let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
+            let _ = target.remove_attribute("data-theme-clicked");
+        });
+        toggle.add_event_listener_with_callback(event_name, callback.as_ref().unchecked_ref())?;
+        callback.forget();
+    }
+
     if let Some(carousel) = document.query_selector(".process-carousel")? {
         for i in 0..12 {
             let selector = if i == 10 { "[data-carousel-prev]".to_string() } else if i == 11 { "[data-carousel-next]".to_string() } else { format!("[data-carousel-dot='{i}']") };

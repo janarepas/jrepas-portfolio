@@ -447,3 +447,28 @@ html[data-theme=dark] .work>.section-heading>.small-link:hover{background:var(--
  html[data-theme=dark] .hero:before{background:rgba(8,8,8,.92)}
  .work>.section-heading>.small-link{font-size:13px;min-height:52px;padding:16px 27px}
 }
+
+/* Persistent SVG layers animate between sun and moon without replacing nodes. */
+.theme-icon{display:block;overflow:visible;width:22px;height:22px}
+.theme-icon .theme-sun,.theme-icon .theme-moon,.theme-icon .theme-sunset{
+ transform-origin:12px 12px;transition:opacity 220ms ease,transform 480ms cubic-bezier(.22,.8,.25,1);
+}
+.theme-icon .theme-sun{opacity:1;transform:rotate(0) scale(1)}
+.theme-icon .theme-moon{opacity:0;transform:rotate(-55deg) scale(.45)}
+.theme-icon .theme-sunset{opacity:0;transform:translateY(2px) scale(.9)}
+.theme-toggle[data-icon-theme=moon] .theme-sun{opacity:0;transform:rotate(70deg) scale(.45)}
+.theme-toggle[data-icon-theme=moon] .theme-moon{opacity:1;transform:rotate(0) scale(1)}
+@keyframes theme-sunset{
+ 0%{transform:translateY(-2px);opacity:1}
+ 65%{opacity:1}
+ 100%{transform:translateY(12px);opacity:0}
+}
+@media(hover:hover) and (pointer:fine){
+ .theme-toggle:hover:not([data-theme-clicked]) .theme-sun,.theme-toggle:hover:not([data-theme-clicked]) .theme-moon{opacity:0;transform:translateY(-3px) scale(.75)}
+ .theme-toggle:hover:not([data-theme-clicked]) .theme-sunset{opacity:1;transform:translateY(0) scale(1)}
+ .theme-toggle:hover:not([data-theme-clicked]) .sunset-orbit{animation:theme-sunset 950ms cubic-bezier(.3,.1,.55,1) both}
+}
+@media(prefers-reduced-motion:reduce){
+ .theme-icon *{transition:none!important;animation:none!important}
+ .theme-toggle:hover:not([data-theme-clicked]) .sunset-orbit{transform:translateY(5px);opacity:1}
+}
