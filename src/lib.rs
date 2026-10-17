@@ -167,49 +167,6 @@ fn animate_render(app: &Rc<RefCell<App>>) {
     }
 }
 
-// Scroll progress drives the intro directly, so reversing scroll reverses the motion.
-fn update_intro(document: &Document) -> Result<(), JsValue> {
-    let Some(window) = web_sys::window() else { return Ok(()); };
-    let root = element(document, "html")?;
-    let height = window.inner_height()?.as_f64().unwrap_or(800.0).max(1.0);
-    let width = window.inner_width()?.as_f64().unwrap_or(1200.0);
-    let progress = (window.scroll_y()? / (height - 120.0).max(height * 0.5)).clamp(0.0, 1.0);
-    let flight = ((progress - 0.38) / 0.62).clamp(0.0, 1.0);
-    let eased = flight * flight * (3.0 - 2.0 * flight);
-    let brand = element(document, ".site-header .brand")?;
-    let target = element(document, ".site-header .brand-word")?.get_bounding_client_rect();
-    let mark = element(document, ".intro-mark")?;
-    let mark_width = mark.dyn_ref::<web_sys::HtmlElement>().map(|el| el.offset_width() as f64).unwrap_or(500.0).max(1.0);
-    let zoom = 1.0 + 0.18 * (progress / 0.38).clamp(0.0, 1.0);
-    let scale = zoom * (1.0 - eased) + (target.width() / mark_width) * eased;
-    let x = width / 2.0 + (target.x() + target.width() / 2.0 - width / 2.0) * eased;
-    let y = height / 2.0 + (target.y() + target.height() / 2.0 - height / 2.0) * eased;
-    root.set_attribute("style", &format!("--intro-backdrop:{};--intro-nav:{};--intro-hint:{};--intro-logo:{};--intro-hero-scale:{}", (1.0 - ((progress - 0.28) / 0.58).clamp(0.0, 1.0)), ((progress - 0.65) / 0.35).clamp(0.0, 1.0), (1.0-progress*4.0).max(0.0), (1.0-((progress-0.93)/0.07).clamp(0.0,1.0)), 1.06-0.06*progress))?;
-    mark.set_attribute("style", &format!("left:{x}px;top:{y}px;transform:translate(-50%,-50%) scale({scale})"))?;
-    root.set_attribute("data-intro-complete", if progress >= 1.0 { "true" } else { "false" })?;
-    if progress >= 0.98 { brand.remove_attribute("inert")?; } else { brand.set_attribute("inert", "")?; }
-    for selector in [".site-header nav", ".site-header .site-controls"] {
-        let control = element(document, selector)?;
-        if progress >= 0.65 { control.remove_attribute("inert")?; } else { control.set_attribute("inert", "")?; }
-    }
-    let hint = element(document, ".intro-scroll")?;
-    hint.set_attribute("tabindex", if progress < 0.25 { "0" } else { "-1" })?;
-    Ok(())
-}
-fn setup_intro(document: &Document) -> Result<(), JsValue> {
-    let Some(window) = web_sys::window() else { return Ok(()); };
-    if document.query_selector(".logo-intro")?.is_none() || window.match_media("(prefers-reduced-motion: reduce)")?.is_some_and(|m| m.matches()) { return Ok(()); }
-    element(document, "html")?.set_attribute("data-intro", "true")?;
-    update_intro(document)?;
-    for event_name in ["scroll", "resize"] {
-        let document = document.clone();
-        let callback = Closure::<dyn FnMut(Event)>::new(move |_| { let _ = update_intro(&document); });
-        window.add_event_listener_with_callback(event_name, callback.as_ref().unchecked_ref())?;
-        callback.forget();
-    }
-    Ok(())
-}
-
 #[wasm_bindgen(start)]
 pub fn start() -> Result<(), JsValue> {
     let window = web_sys::window().ok_or_else(|| JsValue::from_str("Window unavailable"))?;
@@ -224,7 +181,6 @@ pub fn start() -> Result<(), JsValue> {
     let translations = serde_json::from_str(COPY).map_err(|e| JsValue::from_str(&e.to_string()))?;
     let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, carousel_index: 0, transition_version: 0 }));
     app.borrow().render()?;
-    setup_intro(&document)?;
     // Update even if the page stays open over New Year's midnight.
     let year_document = document.clone();
     let year_callback = Closure::<dyn FnMut()>::new(move || {
