@@ -16,12 +16,12 @@
     "hu": "Kapcsolat"
   },
   "4": {
-    "en": "Let's talk <span><svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></span>",
-    "hu": "Beszéljünk <span><svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></span>"
+    "en": "Let's talk",
+    "hu": "Beszéljünk"
   },
   "5": {
-    "en": "Let's talk <svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg>",
-    "hu": "Beszéljünk <svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg>"
+    "en": "Let's talk",
+    "hu": "Beszéljünk"
   },
   "6": {
     "en": "Graphic design & visual creative",
@@ -36,16 +36,16 @@
     "hu": "Vizuális megoldások márkáknak, vállalkozásoknak és kreatív projektekhez."
   },
   "9": {
-    "en": "View work <span><svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></span>",
-    "hu": "Munkáim <span><svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></span>"
+    "en": "View work",
+    "hu": "Munkáim"
   },
   "10": {
     "en": "01 / Selected work",
     "hu": "01 / Válogatott munkák"
   },
   "11": {
-    "en": "Start a project <svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg>",
-    "hu": "Tervezzünk együtt <svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg>"
+    "en": "Start a project",
+    "hu": "Tervezzünk együtt"
   },
   "12": {
     "en": "Packaging design",
@@ -96,8 +96,8 @@
     "en": "I approach design with production in mind: artwork needs to work on screen and in print. I also specialise in vector reconstruction, artwork cleanup, dielines and prepress. Clear visual communication, attention to detail and reliable, production-ready files are central to my work."
   },
   "24": {
-    "en": "Let's collaborate <svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg>",
-    "hu": "Dolgozzunk együtt <svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg>"
+    "en": "Let's collaborate",
+    "hu": "Dolgozzunk együtt"
   },
   "25": {
     "en": "03 / Contact",
@@ -108,8 +108,8 @@
     "hu": "Van egy<br><span>ötleted?</span>"
   },
   "27": {
-    "en": "Let's work together <span><svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></span>",
-    "hu": "Valósítsuk meg <span><svg class=\"icon-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></span>"
+    "en": "Let's work together",
+    "hu": "Valósítsuk meg"
   },
   "28": {
     "en": "Graphic design / visual creative",
@@ -120,8 +120,8 @@
     "hu": "Vissza az elejére ↑"
   },
   "30": {
-    "en": "← Back to work",
-    "hu": "← Vissza a munkákhoz"
+    "en": "Back to work",
+    "hu": "Vissza a munkákhoz"
   },
   "31": {
     "en": "Selected work / 01",
@@ -156,8 +156,8 @@
     "hu": "Válogatás csomagolástervezési munkáimból, az egyértelmű vizuális kommunikáció és a gyárthatóság jegyében."
   },
   "39": {
-    "en": "← More work",
-    "hu": "← További munkák"
+    "en": "More work",
+    "hu": "További munkák"
   },
   "40": {
     "en": "Back to home ↑",

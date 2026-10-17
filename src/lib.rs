@@ -65,6 +65,8 @@ impl App {
             element(document, ".process-count")?.set_text_content(Some(&format!("{:02} / 10", index + 1)));
             element(document, "[data-carousel-prev]")?.set_attribute("aria-label", lang.text("Előző lépés", "Previous step"))?;
             element(document, "[data-carousel-next]")?.set_attribute("aria-label", lang.text("Következő lépés", "Next step"))?;
+            element(document, "[data-carousel-prev]")?.set_text_content(Some(lang.text("Előző", "Previous")));
+            element(document, "[data-carousel-next]")?.set_text_content(Some(lang.text("Következő", "Next")));
             for i in 0..10 {
                 let dot = element(document, &format!("[data-carousel-dot='{i}']"))?;
                 dot.set_attribute("aria-pressed", if i == index { "true" } else { "false" })?;
