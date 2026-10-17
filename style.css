@@ -456,3 +456,10 @@ html[data-theme=dark] .work>.section-heading>.small-link:hover{background:var(--
  .theme-toggle[data-icon-theme=sun]:hover:not([data-theme-clicked]) .theme-moon{opacity:1;transform:translateY(0)}
 }
 @media(prefers-reduced-motion:reduce){.theme-icon *{transition:none!important;animation:none!important}}
+
+/* Shared darker yellow hover for both CTA button variants. */
+html[data-theme] .button:hover,
+html[data-theme] .site-header nav .button:hover,
+html[data-theme] .work>.section-heading>.small-link:hover{
+ background:var(--yellow-deep);border-color:var(--yellow-deep);color:var(--black-deep);
+}
