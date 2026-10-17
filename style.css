@@ -514,3 +514,27 @@ html[data-intro] .hero .hero-image img{transform:scale(var(--intro-hero-scale,1)
 @media(prefers-reduced-motion:reduce){.logo-intro{display:none!important}.scroll-wheel{animation:none}}
 html[data-intro] body{overflow-anchor:none}
 html[data-intro] .site-header{position:fixed;top:0;left:0;right:0;width:100%;max-width:none}
+
+/* The right panel echoes the current illustration through a heavy blur. */
+.about .process-carousel{position:relative;isolation:isolate}
+.about .process-art:not(.process-mirror){z-index:1}
+.about .process-art.process-mirror{grid-column:2;grid-row:1 / 3;align-self:stretch;height:auto;min-height:100%;filter:blur(36px);transform:scale(1.16);opacity:.2;pointer-events:none;z-index:-1}
+.about .process-copy,.about .process-controls{position:relative;z-index:1}
+.artwork-icon{display:none;width:100%;height:100%;color:var(--black-deep)}
+.about .process-art[data-step="7"] .process-shape{width:130px;height:130px;border:0;background:transparent;transform:none;top:72px;right:26%}
+.process-art[data-step="7"] .artwork-icon{display:block}
+@media(max-width:700px){
+ .about .process-art.process-mirror{grid-column:1;grid-row:2 / 4;min-height:100%;opacity:.17}
+ .about .process-art[data-step="7"] .process-shape{width:105px;height:105px;top:30px;right:23%}
+}
+
+/* Keep the full device in view while reserving a quiet reading area. */
+.hero .hero-image{background:#f7f3ed}
+.hero .hero-image img{object-fit:contain;object-position:right center}
+.hero:before{background:linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.97) 43%,rgba(255,255,255,.45) 60%,rgba(255,255,255,.04) 78%,rgba(255,255,255,.02) 100%)}
+html[data-theme=dark] .hero:before{background:linear-gradient(90deg,rgba(8,8,8,.99) 0%,rgba(8,8,8,.97) 43%,rgba(8,8,8,.6) 63%,rgba(8,8,8,.3) 100%)}
+@media(max-width:700px){
+ .hero .hero-image img{object-fit:cover;object-position:72% center}
+ .hero:before{background:rgba(255,255,255,.9)}
+ html[data-theme=dark] .hero:before{background:rgba(8,8,8,.9)}
+}

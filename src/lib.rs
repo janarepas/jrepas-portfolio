@@ -71,6 +71,10 @@ impl App {
             element(document, "[data-carousel-description]")?.set_attribute("data-i18n", &(81 + index * 2).to_string())?;
             element(document, ".process-art")?.set_attribute("data-step", &index.to_string())?;
             element(document, ".process-number")?.set_text_content(Some(&format!("{:02}", index + 1)));
+            if let Some(mirror) = document.query_selector(".process-mirror")? {
+                mirror.set_attribute("data-step", &index.to_string())?;
+                if let Some(number) = mirror.query_selector(".process-number")? { number.set_text_content(Some(&format!("{:02}", index + 1))); }
+            }
             element(document, ".process-count")?.set_text_content(Some(&format!("{:02} / 10", index + 1)));
             element(document, "[data-carousel-prev]")?.set_attribute("aria-label", lang.text("Előző lépés", "Previous step"))?;
             element(document, "[data-carousel-next]")?.set_attribute("aria-label", lang.text("Következő lépés", "Next step"))?;
@@ -116,7 +120,7 @@ impl App {
         element(document, "meta[name='description']")?.set_attribute("content", description)?;
         element(document, "meta[name='theme-color']")?.set_attribute("content", if self.dark { "#080808" } else { "#ffffff" })?;
         if let Some(image) = document.query_selector(".hero-image img")? {
-            image.set_attribute("alt", lang.text("Sárga és fekete geometrikus formák fehér stúdióháttér előtt", "Sculptural yellow and black shapes on a white studio background"))?;
+            image.set_attribute("alt", lang.text("Telefonkoncepció, kijelzőjén sárga és fekete geometrikus formákkal", "Concept phone displaying yellow and black geometric artwork"))?;
         }
         let images = document.query_selector_all(".project img, .case-image img")?;
         for i in 0..images.length() {

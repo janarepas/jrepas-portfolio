@@ -36,10 +36,11 @@ try {
     await page.waitForFunction(() => document.documentElement.lang === 'hu');
     for (let i = 1; i < 10; i++) {
       await page.locator('[data-carousel-next]').click();
-      assert.equal(await page.locator('.process-art').getAttribute('data-step'), String(i));
+      assert.equal(await page.locator('.process-art:not(.process-mirror)').getAttribute('data-step'), String(i));
+      assert.equal(await page.locator('.process-mirror').getAttribute('data-step'), String(i));
     }
     await page.locator('[data-carousel-next]').click();
-    assert.equal(await page.locator('.process-art').getAttribute('data-step'), '0');
+    assert.equal(await page.locator('.process-art:not(.process-mirror)').getAttribute('data-step'), '0');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.locator('#contact').scrollIntoViewIfNeeded();
     assert.equal(await page.locator('.site-header').evaluate(el => Math.round(el.getBoundingClientRect().top)), 0);
