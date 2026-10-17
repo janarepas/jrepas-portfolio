@@ -4,13 +4,19 @@ const country = root.dataset.country;
 // Cloudflare's country takes priority over browser language. Local preview or
 // unavailable country information falls back to the browser's primary language.
 let language = country ? (country === 'HU' ? 'hu' : 'en') : (navigator.language.startsWith('hu') ? 'hu' : 'en');
-let theme = 'light';
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+let theme = systemTheme.matches ? 'dark' : 'light';
+let hasThemePreference = false;
 try {
   const choice = localStorage.getItem('jrepas-language-choice');
   if (['hu', 'en'].includes(choice)) language = choice;
-  theme = localStorage.getItem('jrepas-theme') || 'light';
+  const savedTheme = localStorage.getItem('jrepas-theme');
+  if (['light', 'dark'].includes(savedTheme)) {
+    theme = savedTheme;
+    hasThemePreference = true;
+  }
 } catch (_) {}
-if (!['light', 'dark'].includes(theme)) theme = 'light';
+if (!['light', 'dark'].includes(theme)) theme = systemTheme.matches ? 'dark' : 'light';
 function render() {
   root.lang = language;
   root.dataset.theme = theme;
@@ -42,9 +48,16 @@ document.querySelectorAll('[data-language]').forEach(button => {
   button.addEventListener('click', () => { language = button.dataset.language; try { localStorage.setItem('jrepas-language-choice', language); } catch (_) {} render(); });
 });
 document.querySelector('.theme-toggle').addEventListener('click', () => {
+  hasThemePreference = true;
   theme = theme === 'dark' ? 'light' : 'dark'; save(); render();
 });
 function save() {
   try { localStorage.setItem('jrepas-theme', theme); } catch (_) {}
 }
+systemTheme.addEventListener('change', event => {
+  if (!hasThemePreference) {
+    theme = event.matches ? 'dark' : 'light';
+    render();
+  }
+});
 render();

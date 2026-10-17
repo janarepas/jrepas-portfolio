@@ -206,3 +206,13 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 @media(max-width:950px) and (min-width:701px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.portfolio-card .project-visual{height:235px}.portfolio-card .project-title h3{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.portfolio-card:hover .cover-mark{transform:none}}
+
+/* Serif typography, with system fonts and no external font requests. */
+body{font-family:Georgia,'Times New Roman',serif}
+button{font-family:inherit}
+.brand-word,.cover-mark,.cover-number,.pixel-letter{font-family:Arial,Helvetica,sans-serif}
+h1,h2,h3,.graphic strong{letter-spacing:-.04em}
+.site-header nav{gap:22px}
+@media(max-width:950px) and (min-width:701px){.site-header nav{gap:14px}}
+@media(max-width:700px){.site-header nav{gap:14px}}
+@media(max-width:370px){.site-header nav{gap:9px}}
