@@ -181,3 +181,28 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
   .site-header{background:#080808}
   html[data-theme=light] .site-header{background:#fff}
 }
+
+/* Portfolio topics from the designer's Upwork portfolio. */
+.work-intro{max-width:650px;margin:0 0 32px;font-size:15px;line-height:1.7;color:var(--muted)}
+.portfolio-card{display:flex;flex-direction:column}
+.portfolio-card .project-visual{height:250px}
+.portfolio-card .project-title{align-items:flex-start}
+.portfolio-card .project-title h3{font-size:17px;line-height:1.3;letter-spacing:-.02em}
+.portfolio-card>p{font-size:13px;margin-bottom:14px}
+.portfolio-source{font-size:10px;text-transform:uppercase;font-weight:800;letter-spacing:.04em;margin-top:auto;color:inherit;text-decoration:underline;text-underline-offset:4px}
+.portfolio-cover{background:#f0efe9;color:#171717;position:relative;padding:22px;border:1px solid rgba(17,17,17,.08)}
+.cover-number{font-size:11px;letter-spacing:.12em;position:relative;z-index:1}
+.cover-mark{position:absolute;left:24px;bottom:8px;font-size:130px;font-weight:900;line-height:1;letter-spacing:-.09em;transition:transform .25s}
+.portfolio-card:hover .cover-mark{transform:translateY(-6px)}
+.cover-pixels{position:absolute;right:45px;top:45px;width:24px;height:24px;background:#ffd400;box-shadow:24px 24px #e8a700,-24px 24px #ffd400,0 48px #111}
+.cover-vector{background:#171717;color:#f5f2e8}.cover-vector .cover-mark{-webkit-text-stroke:1px #ffd400;color:transparent}
+.cover-pack{background:#ffd400}.cover-pack .cover-mark{border:2px solid #111;font-size:85px;padding:20px;transform:rotate(-8deg);bottom:30px}
+.cover-retail{background:#efeee7}.cover-retail .cover-mark{font-size:90px}
+.cover-editorial{background:#f5f2e8}.cover-editorial .cover-mark{font-family:Georgia,serif;font-weight:400;font-style:italic}
+.cover-ads{background:#ffd400}.cover-ads .cover-mark{font-size:180px;bottom:0}
+.cover-social{background:#171717;color:#ffd400}
+.cover-sports{background:#e9e8e2}.cover-sports .cover-mark{font-size:210px;bottom:-25px}
+.cover-video{background:#ffd400}.cover-video .cover-mark{font-size:120px;bottom:35px;left:35px}
+@media(max-width:950px) and (min-width:701px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.portfolio-card .project-visual{height:235px}.portfolio-card .project-title h3{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.portfolio-card:hover .cover-mark{transform:none}}
