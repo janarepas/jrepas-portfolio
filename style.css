@@ -169,3 +169,15 @@ html[data-theme=light] .outline-button:hover,html[data-theme=light] .header-cont
 @media(max-width:370px){.site-header nav{gap:10px}.site-header nav .header-contact{font-size:9px;padding:6px 8px}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){html[data-theme=light] .site-header{background:#fff}}
 @media(prefers-reduced-transparency:reduce){html[data-theme=light] .site-header{background:#fff}}
+
+/* Keep navigation readable over photographs while retaining the glass blur. */
+.site-header{background:rgba(8,8,8,.88)}
+html[data-theme=light] .site-header{background:rgba(255,255,255,.9)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .site-header{background:#080808}
+  html[data-theme=light] .site-header{background:#fff}
+}
+@media(prefers-reduced-transparency:reduce){
+  .site-header{background:#080808}
+  html[data-theme=light] .site-header{background:#fff}
+}
