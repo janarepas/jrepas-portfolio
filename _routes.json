@@ -1,5 +1,13 @@
 {
   "version": 1,
-  "include": ["/*"],
-  "exclude": ["/assets/*", "/fonts/*", "/images/*", "/style.css", "/site.js", "/admin/admin.css", "/admin/admin.js", "/admin/defaults.json"]
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/fonts/*",
+    "/images/*",
+    "/style.css",
+    "/site.js"
+  ]
 }

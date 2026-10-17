@@ -1,12 +1,10 @@
 {
-  "name": "jrepas-admin",
+  "name": "jrepas-portfolio",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.js",
-    "dev:admin": "wrangler pages dev . --d1 SITE_DB --port 8788",
-    "build:rust": "bash scripts/build.sh",
-    "test:browser": "node tests/admin-browser.js"
+    "test": "node tests/site-browser.js",
+    "build:rust": "bash scripts/build.sh"
   },
   "devDependencies": {
     "playwright": "1.56.1",
