@@ -663,3 +663,22 @@ html[data-theme=dark] .site-header .brand .brand-logo-light{display:block}
  .contact-email,footer>a{display:inline-flex;align-items:center;min-height:44px}
  a,button{touch-action:manipulation}
 }
+
+/* Taller full-bleed process carousel, aligned to the content grid inside. */
+.about .process-carousel{width:100%;max-width:none;min-height:420px;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto}
+.about .process-art:not(.process-mirror){height:100%;min-height:420px}
+.about .process-copy{padding:56px max(32px,calc((100vw - var(--content-width))/2)) 24px 40px}
+.about .process-copy h3{font-size:clamp(32px,3vw,42px)}
+.about .process-controls{padding:0 max(32px,calc((100vw - var(--content-width))/2)) 40px 40px}
+.about .process-art:not(.process-mirror) .process-number{left:max(32px,calc((100vw - var(--content-width))/2));bottom:24px}
+.about .process-art:not(.process-mirror) .process-shape{top:130px;right:18%}
+.about .process-art:not(.process-mirror) .process-pixels{top:42px;right:42px}
+@media(max-width:700px){
+ .about .process-carousel{min-height:0;grid-template-columns:1fr;grid-template-rows:auto auto auto}
+ .about .process-art:not(.process-mirror){height:260px;min-height:260px}
+ .about .process-art:not(.process-mirror) .process-number{left:24px;bottom:12px;font-size:150px}
+ .about .process-art:not(.process-mirror) .process-shape{top:70px;right:22%}
+ .about .process-copy{min-height:180px;padding:32px 24px 20px}
+ .about .process-copy h3{font-size:32px}
+ .about .process-controls{padding:0 24px 28px}
+}
