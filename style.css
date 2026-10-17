@@ -490,3 +490,7 @@ html[data-runtime] .button{transition:background-color 200ms ease,color 200ms ea
 html[data-theme=dark] .footer-logo-light{display:none}
 html[data-theme=dark] .footer-logo .footer-logo-dark{display:block}
 @media(max-width:700px){.footer-agency{flex-basis:100%;gap:8px;text-align:center}.footer-logo img{width:80px}.footer-agency>[data-i18n]{min-width:0}}
+
+.site-header .brand{width:128px;padding-left:0;line-height:1;color:var(--text)}
+.jrepas-logo{display:block;width:128px;height:auto;max-height:40px;overflow:visible}
+@media(max-width:700px){.site-header .brand,.jrepas-logo{width:112px}}
