@@ -171,8 +171,8 @@ html[data-theme=light] .outline-button:hover,html[data-theme=light] .header-cont
 @media(prefers-reduced-transparency:reduce){html[data-theme=light] .site-header{background:#fff}}
 
 /* Keep navigation readable over photographs while retaining the glass blur. */
-.site-header{background:rgba(8,8,8,.88)}
-html[data-theme=light] .site-header{background:rgba(255,255,255,.9)}
+.site-header{background:rgba(8,8,8,.565)}
+html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   .site-header{background:#080808}
   html[data-theme=light] .site-header{background:#fff}
