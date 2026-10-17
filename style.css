@@ -609,3 +609,12 @@ html[data-theme] .work .portfolio-card>p{color:inherit;opacity:.85;max-width:480
  .work .portfolio-card:nth-child(even) .cover-mark{right:max(32px,calc((100vw - var(--content-width))/2))}
  .work .portfolio-card:nth-child(even) .cover-pixels{right:max(48px,calc((100vw - var(--content-width))/2))}
 }
+
+/* Darken tile artwork toward the copy instead of fading it to white. */
+.work .portfolio-card:after,
+.work .portfolio-card:nth-child(1):after,
+.work .portfolio-card:nth-child(6):after{
+ inset:24% 0 0;
+ background:linear-gradient(180deg,rgba(8,8,8,0) 0%,rgba(8,8,8,.52) 55%,rgba(8,8,8,.9) 100%);
+}
+.work .portfolio-card{color:#fff}
