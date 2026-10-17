@@ -597,3 +597,15 @@ html[data-theme] .work .portfolio-card>p{color:inherit;opacity:.85;max-width:480
  .about .process-copy{padding:24px 22px 18px}
  .about .process-controls{padding-left:16px;padding-right:16px}
 }
+
+/* Tile artwork bleeds outward; its text stays on the shared content grid. */
+.work .projects{width:100%;max-width:none}
+@media(min-width:701px){
+ .work .portfolio-card:nth-child(odd){padding-left:max(32px,calc((100vw - var(--content-width))/2))}
+ .work .portfolio-card:nth-child(even){padding-right:max(32px,calc((100vw - var(--content-width))/2))}
+ .work .portfolio-card:nth-child(odd) .cover-number{left:max(32px,calc((100vw - var(--content-width))/2))}
+ .work .portfolio-card:nth-child(even) .cover-number{left:32px}
+ .work .portfolio-card:nth-child(odd) .cover-mark{right:32px}
+ .work .portfolio-card:nth-child(even) .cover-mark{right:max(32px,calc((100vw - var(--content-width))/2))}
+ .work .portfolio-card:nth-child(even) .cover-pixels{right:max(48px,calc((100vw - var(--content-width))/2))}
+}
