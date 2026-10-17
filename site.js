@@ -21,7 +21,10 @@ function render() {
     button.setAttribute('aria-pressed', String(button.dataset.language === language));
   });
   const toggle = document.querySelector('.theme-toggle');
-  toggle.textContent = language === 'hu' ? (theme === 'dark' ? 'Világos mód' : 'Sötét mód') : (theme === 'dark' ? 'Light mode' : 'Dark mode');
+  toggle.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>';
+  const themeLabel = language === 'hu' ? (theme === 'dark' ? 'Világos mód' : 'Sötét mód') : (theme === 'dark' ? 'Light mode' : 'Dark mode');
+  toggle.setAttribute('aria-label', themeLabel);
+  toggle.title = themeLabel;
   toggle.setAttribute('aria-pressed', String(theme === 'light'));
   document.querySelector('nav').setAttribute('aria-label', language === 'hu' ? 'Főmenü' : 'Main navigation');
   document.querySelector('.brand').setAttribute('aria-label', language === 'hu' ? 'JREPAS kezdőlap' : 'JREPAS home');
