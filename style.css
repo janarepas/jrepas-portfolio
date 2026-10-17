@@ -439,23 +439,22 @@ html[data-theme=dark] .work>.section-heading>.small-link:hover{background:var(--
  .work>.section-heading>.small-link{font-size:13px;min-height:52px;padding:16px 27px}
 }
 
-/* Hover animates a small sun across the horizon; clicks animate sun and moon. */
+/* Keep the visible sun/moon shape and interpolate it into the horizon icon. */
 .theme-icon{display:block;overflow:hidden;width:22px;height:22px}
-.theme-icon .theme-sun,.theme-icon .theme-moon{transform-origin:12px 12px;transition:none;animation:none}
+.theme-icon .theme-sun,.theme-icon .theme-moon{transform-origin:12px 12px;transition:transform 550ms ease;animation:none}
 .theme-icon .theme-sun{opacity:1;transform:translateY(0)}
 .theme-icon .theme-moon{opacity:0;transform:translateY(-26px)}
-.theme-icon .theme-sunset{display:none}
 .theme-toggle[data-icon-theme=moon] .theme-sun{opacity:0;transform:translateY(-26px)}
 .theme-toggle[data-icon-theme=moon] .theme-moon{opacity:1;transform:translateY(0)}
-.theme-icon .sunset-orbit{transform:translateY(5px)}
-@keyframes horizon-sunrise{
- from{transform:translateY(12px);opacity:0}
- to{transform:translateY(0);opacity:1}
+.theme-icon .theme-moon>path{
+ d:path('M20 13 C16 16 8 11 11 3 C6 3 3 7 3 12 C3 17 7 21 12 21 C16 21 20 18 20 13 Z');
+ transition:d 550ms ease;
 }
-@keyframes horizon-sunset{
- from{transform:translateY(0);opacity:1}
- to{transform:translateY(12px);opacity:0}
-}
+.theme-icon .theme-sun>circle{transition:cy 550ms ease}
+.theme-icon .theme-sun>path{transform-origin:12px 12px;transition:transform 550ms ease,opacity 550ms ease}
+.theme-icon .theme-sunset{display:block;opacity:0;transition:opacity 350ms ease}
+.theme-icon .sunset-orbit{display:none}
+.theme-icon .sunset-horizon{transform:translateY(4px) scaleX(.4);transform-origin:center;transition:transform 550ms ease}
 @keyframes theme-icon-enter{from{opacity:0;transform:translateY(-26px)}to{opacity:1;transform:translateY(0)}}
 @keyframes theme-icon-exit{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(26px)}}
 .theme-toggle[data-theme-clicked][data-icon-theme=sun] .theme-sun,
@@ -463,11 +462,13 @@ html[data-theme=dark] .work>.section-heading>.small-link:hover{background:var(--
 .theme-toggle[data-theme-clicked][data-icon-theme=sun] .theme-moon,
 .theme-toggle[data-theme-clicked][data-icon-theme=moon] .theme-sun{animation:theme-icon-exit 480ms cubic-bezier(.22,.8,.25,1) both}
 @media(hover:hover) and (pointer:fine){
- .theme-toggle:hover:not([data-theme-clicked]) .theme-sun,
- .theme-toggle:hover:not([data-theme-clicked]) .theme-moon{opacity:0;animation:none}
- .theme-toggle:hover:not([data-theme-clicked]) .theme-sunset{display:block}
- .theme-toggle[data-icon-theme=sun]:hover:not([data-theme-clicked]) .sunset-orbit{animation:horizon-sunrise 1000ms ease-in-out both}
- .theme-toggle[data-icon-theme=moon]:hover:not([data-theme-clicked]) .sunset-orbit{animation:horizon-sunset 1000ms ease-in-out both}
+ .theme-toggle:hover:not([data-theme-clicked]) .theme-sunset{opacity:1}
+ .theme-toggle:hover:not([data-theme-clicked]) .sunset-horizon{transform:translateY(0) scaleX(1)}
+ .theme-toggle[data-icon-theme=sun]:hover:not([data-theme-clicked]) .theme-sun{clip-path:url(#theme-horizon)}
+ .theme-toggle[data-icon-theme=sun]:hover:not([data-theme-clicked]) .theme-sun>circle{cy:15px}
+ .theme-toggle[data-icon-theme=sun]:hover:not([data-theme-clicked]) .theme-sun>path{transform:scale(.75);opacity:.65}
+ .theme-toggle[data-icon-theme=moon]:hover:not([data-theme-clicked]) .theme-moon{clip-path:url(#theme-horizon)}
+ .theme-toggle[data-icon-theme=moon]:hover:not([data-theme-clicked]) .theme-moon>path{d:path('M17 14 C17 11.24 14.76 9 12 9 C9.24 9 7 11.24 7 14 C7 16.76 9.24 19 12 19 C14.76 19 17 16.76 17 14 Z')}
 }
 @media(prefers-reduced-motion:reduce){.theme-icon *{transition:none!important;animation:none!important}}
 
@@ -481,4 +482,4 @@ html[data-theme] .work>.section-heading>.small-link:hover{
 html[data-runtime] .button{transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,opacity 130ms ease}
 @media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
 
-@media(prefers-reduced-motion:reduce){.theme-toggle:hover:not([data-theme-clicked]) .sunset-orbit{transform:translateY(3px);opacity:1}}
+
