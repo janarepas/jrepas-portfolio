@@ -31,7 +31,9 @@ function render() {
   const project = location.pathname.endsWith('packaging.html');
   document.title = project ? (language === 'hu' ? 'Csomagolástervezés — JREPAS' : 'Packaging Design — JREPAS') : (language === 'hu' ? 'JREPAS — Grafikai tervezés' : 'JREPAS — Graphic Design & Visual Creative');
   document.querySelector('meta[name="description"]').content = language === 'hu' ? (project ? 'Csomagolástervezés és nyomdai kivitelezés — Répás János portfóliója.' : 'Répás János — grafikai tervezés, csomagolás és márkaarculat.') : (project ? 'Packaging design and print production — János Répás portfolio.' : 'János Répás — graphic design, packaging and visual identities.');
-  document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#ffd400' : '#080808';
+  document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#ffffff' : '#080808';
+  const heroImage = document.querySelector('.hero-image img');
+  if (heroImage) heroImage.alt = language === 'hu' ? 'Sárga és fekete geometrikus formák fehér stúdióháttér előtt' : 'Sculptural yellow and black shapes on a white studio background';
   document.querySelectorAll('.project img, .case-image img').forEach(img => {
     img.alt = language === 'hu' ? 'Csomagolástervezési projekt' : 'Packaging design project';
   });
