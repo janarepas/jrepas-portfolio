@@ -391,3 +391,18 @@ html[data-runtime] body,html[data-runtime] .site-header,html[data-runtime] .work
 html[data-runtime] .button{transition:opacity 130ms ease}
 @media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
 .contact-email{font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif}
+
+/* Make the introductory line a clear part of the hero hierarchy. */
+.hero-copy>.eyebrow{
+ font-size:clamp(16px,1.45vw,21px);font-weight:700;line-height:1.5;
+ letter-spacing:.035em;color:var(--text);max-width:490px;
+ border-left:4px solid var(--yellow-main);padding-left:15px;
+}
+.work>.section-heading{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center}
+.work>.section-heading>.eyebrow{grid-column:1;margin:0}
+.work>.section-heading>.small-link{grid-column:2;justify-self:center;text-align:center}
+@media(max-width:700px){
+ .hero-copy>.eyebrow{font-size:17px;max-width:360px}
+ .work>.section-heading{grid-template-columns:1fr;gap:22px}
+ .work>.section-heading>.small-link{grid-column:1;grid-row:2}
+}
