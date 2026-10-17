@@ -550,3 +550,29 @@ html[data-theme=dark] .about .process-carousel:after{
 .about .process-art[data-step="0"] .process-shape{width:130px;height:130px;border:0;background:transparent;transform:none;top:72px;right:26%}
 .process-art[data-step="0"] .brief-icon{display:block}
 @media(max-width:700px){.about .process-art[data-step="0"] .process-shape{width:105px;height:105px;top:30px;right:23%}}
+
+/* Edge-to-edge portfolio tiles with their copy inside each illustration. */
+.work.wrap{max-width:none;padding-left:0;padding-right:0;padding-bottom:0}
+.work>.section-heading,.work>.work-intro{margin-left:6.5%;margin-right:6.5%}
+.work .projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.work .portfolio-card{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(420px,36vw,580px);padding:clamp(28px,3.5vw,56px);display:flex;flex-direction:column;justify-content:flex-end;color:#080808}
+.work .portfolio-card .portfolio-cover{position:absolute;inset:0;height:100%;border:0;z-index:-2;padding:28px}
+.work .portfolio-card:after{content:'';position:absolute;inset:42% 0 0;z-index:-1;pointer-events:none;background:linear-gradient(transparent,rgba(255,255,255,.78))}
+.work .portfolio-card:nth-child(1),.work .portfolio-card:nth-child(6){color:#fff}
+.work .portfolio-card:nth-child(1):after,.work .portfolio-card:nth-child(6):after{background:linear-gradient(transparent,rgba(8,8,8,.92))}
+.work .portfolio-card .cover-number{font-size:12px;position:absolute;left:clamp(28px,3.5vw,56px);top:28px}
+.work .portfolio-card .cover-mark{top:18%;bottom:auto;left:auto;right:12%;font-size:clamp(110px,14vw,210px);opacity:.55}
+.work .portfolio-card .cover-pack .cover-mark{font-size:clamp(70px,8vw,125px)}
+.work .portfolio-card .cover-pixels{top:32px;right:48px}
+.work .portfolio-card .project-title{margin:0 0 12px;display:block;max-width:90%}
+.work .portfolio-card .project-title h3{font-size:clamp(28px,3vw,46px);line-height:1.12;letter-spacing:-.025em;color:inherit;overflow-wrap:normal}
+html[data-theme] .work .portfolio-card>p{color:inherit;opacity:.85;max-width:480px;font-size:16px;line-height:1.5;margin:0}
+@media(max-width:700px){
+ .work .projects{grid-template-columns:1fr}
+ .work .portfolio-card{min-height:400px;padding:28px 6%}
+ .work .portfolio-card .cover-number{left:6%}
+ .work .portfolio-card .cover-mark{font-size:150px;top:15%}
+ .work .portfolio-card .project-title{max-width:100%}
+ .work .portfolio-card .project-title h3{font-size:32px}
+ html[data-theme] .work .portfolio-card>p{font-size:15px}
+}
