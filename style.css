@@ -24,3 +24,33 @@ html[data-theme=light]{--bg:#ffd400;--text:#111;--muted:#4e451c;--accent:#111;--
 .site-controls .language-switch button{border:0;background:transparent;color:var(--muted);padding:10px 8px}
 .site-controls .language-switch button[aria-pressed=true]{color:var(--text);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
 .site-controls .theme-toggle{border:0;color:var(--accent)}
+
+/* Persistent translucent navigation, with a backdrop blur while scrolling. */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  min-height:100px;
+  background:rgba(8,8,8,.76);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  backdrop-filter:blur(24px) saturate(160%);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+html[data-theme=light] .site-header{
+  background:rgba(255,212,0,.72);
+  border-bottom-color:rgba(17,17,17,.12);
+}
+html{scroll-padding-top:120px}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .site-header{background:#080808}
+  html[data-theme=light] .site-header{background:#ffd400}
+}
+@media(max-width:700px){
+  .site-header{min-height:100px;padding-top:12px;padding-bottom:10px;gap:7px 18px}
+  .site-header nav a{padding:7px 0}
+}
+@media(prefers-reduced-transparency:reduce){
+  .site-header{background:#080808;-webkit-backdrop-filter:none;backdrop-filter:none}
+  html[data-theme=light] .site-header{background:#ffd400}
+}
