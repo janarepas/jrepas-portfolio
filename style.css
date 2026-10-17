@@ -128,3 +128,17 @@ html{scroll-padding-top:70px}
   .site-header nav a{padding:8px 0;font-size:12px}
   html{scroll-padding-top:106px}
 }
+
+/* Keep the contact action alongside navigation, without a header shadow. */
+.site-header{box-shadow:none}
+.site-header nav{align-items:center}
+.site-header nav .header-contact{
+  margin:0;padding:8px 13px;min-height:32px;border-radius:10px;
+  position:static;font-size:10px;
+}
+.site-header nav .header-contact:hover{color:var(--text)}
+@media(max-width:700px){
+  .site-header nav{gap:18px}
+  .site-header nav .header-contact{padding:6px 10px;min-height:28px;font-size:10px}
+}
+@media(max-width:370px){.site-header nav{gap:13px}}
