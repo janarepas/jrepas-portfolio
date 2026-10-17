@@ -439,21 +439,29 @@ html[data-theme=dark] .work>.section-heading>.small-link:hover{background:var(--
  .work>.section-heading>.small-link{font-size:13px;min-height:52px;padding:16px 27px}
 }
 
-/* The current icon drops out; the alternate icon enters from above on hover. */
+/* Hover is a static sunrise/sunset; only a click animates sun and moon. */
 .theme-icon{display:block;overflow:hidden;width:22px;height:22px}
-.theme-icon .theme-sun,.theme-icon .theme-moon{
- transform-origin:12px 12px;transition:opacity 240ms ease,transform 480ms cubic-bezier(.22,.8,.25,1);
-}
+.theme-icon .theme-sun,.theme-icon .theme-moon{transform-origin:12px 12px;transition:none;animation:none}
 .theme-icon .theme-sun{opacity:1;transform:translateY(0)}
 .theme-icon .theme-moon{opacity:0;transform:translateY(-26px)}
 .theme-icon .theme-sunset{display:none}
 .theme-toggle[data-icon-theme=moon] .theme-sun{opacity:0;transform:translateY(-26px)}
 .theme-toggle[data-icon-theme=moon] .theme-moon{opacity:1;transform:translateY(0)}
+.theme-icon .sunset-orbit{transform:translateY(5px)}
+.theme-icon .sunset-orbit>path{display:none}
+.theme-icon .sunrise-direction{display:none}
+.theme-toggle[data-icon-theme=sun] .sunrise-direction{display:block}
+.theme-toggle[data-icon-theme=sun] .sunset-direction{display:none}
+@keyframes theme-icon-enter{from{opacity:0;transform:translateY(-26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes theme-icon-exit{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(26px)}}
+.theme-toggle[data-theme-clicked][data-icon-theme=sun] .theme-sun,
+.theme-toggle[data-theme-clicked][data-icon-theme=moon] .theme-moon{animation:theme-icon-enter 480ms cubic-bezier(.22,.8,.25,1) both}
+.theme-toggle[data-theme-clicked][data-icon-theme=sun] .theme-moon,
+.theme-toggle[data-theme-clicked][data-icon-theme=moon] .theme-sun{animation:theme-icon-exit 480ms cubic-bezier(.22,.8,.25,1) both}
 @media(hover:hover) and (pointer:fine){
- .theme-toggle[data-icon-theme=moon]:hover:not([data-theme-clicked]) .theme-moon,
- .theme-toggle[data-icon-theme=sun]:hover:not([data-theme-clicked]) .theme-sun{opacity:0;transform:translateY(26px)}
- .theme-toggle[data-icon-theme=moon]:hover:not([data-theme-clicked]) .theme-sun,
- .theme-toggle[data-icon-theme=sun]:hover:not([data-theme-clicked]) .theme-moon{opacity:1;transform:translateY(0)}
+ .theme-toggle:hover:not([data-theme-clicked]) .theme-sun,
+ .theme-toggle:hover:not([data-theme-clicked]) .theme-moon{opacity:0;animation:none}
+ .theme-toggle:hover:not([data-theme-clicked]) .theme-sunset{display:block}
 }
 @media(prefers-reduced-motion:reduce){.theme-icon *{transition:none!important;animation:none!important}}
 
@@ -463,3 +471,6 @@ html[data-theme] .site-header nav .button:hover,
 html[data-theme] .work>.section-heading>.small-link:hover{
  background:var(--yellow-deep);border-color:var(--yellow-deep);color:var(--black-deep);
 }
+
+html[data-runtime] .button{transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,opacity 130ms ease}
+@media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
