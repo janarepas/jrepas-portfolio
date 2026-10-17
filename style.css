@@ -195,7 +195,7 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 .portfolio-cover{background:#f0efe9;color:#171717;position:relative;padding:22px;border:1px solid rgba(17,17,17,.08)}
 .cover-number{font-size:11px;letter-spacing:.12em;position:relative;z-index:1}
 .cover-mark{position:absolute;left:24px;bottom:8px;font-size:130px;font-weight:900;line-height:1;letter-spacing:-.09em;transition:transform .25s}
-.portfolio-card:hover .cover-mark{transform:translateY(-6px)}
+
 .cover-pixels{position:absolute;right:45px;top:45px;width:24px;height:24px;background:#ffd400;box-shadow:24px 24px #e8a700,-24px 24px #ffd400,0 48px #111}
 .cover-vector{background:#171717;color:#f5f2e8}.cover-vector .cover-mark{-webkit-text-stroke:1px #ffd400;color:transparent}
 .cover-pack{background:#ffd400}.cover-pack .cover-mark{border:2px solid #111;font-size:85px;padding:20px;transform:rotate(-8deg);bottom:30px}
@@ -207,7 +207,7 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 .cover-video{background:#ffd400}.cover-video .cover-mark{font-size:120px;bottom:35px;left:35px}
 @media(max-width:950px) and (min-width:701px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.portfolio-card .project-visual{height:235px}.portfolio-card .project-title h3{font-size:18px}}
-@media(prefers-reduced-motion:reduce){.portfolio-card:hover .cover-mark{transform:none}}
+@media(prefers-reduced-motion:reduce){}
 
 /* Serif typography, with system fonts and no external font requests. */
 body{font-family:'DM Sans',Arial,sans-serif}
@@ -336,3 +336,5 @@ html[data-theme=light] .contact-panel{background:#fff}
  .contact-panel h3{font-size:36px}
  .contact-actions .button{padding:13px 17px}
 }
+
+.site-header nav>a:not(.button){font-weight:500}

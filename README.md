@@ -55,6 +55,6 @@ Pushing to `main` triggers the existing automatic deployment. No Rust server or
 new hosting service is required. The root `functions/` directory retains the
 Cloudflare Pages country middleware.
 
-The eight portfolio entries come from the designer's Upwork portfolio and link
-to the profile. Their graphic covers are placeholders, not original project
+The eight portfolio entries come from the designer's Upwork portfolio and are
+non-clickable cards. The contact section provides a separate Upwork profile link. Their graphic covers are placeholders, not original project
 images. Contact: `jrepas@icloud.com`.

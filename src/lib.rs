@@ -39,6 +39,14 @@ fn stored(storage: &Option<Storage>, key: &str) -> Option<String> {
 fn element(document: &Document, selector: &str) -> Result<Element, JsValue> {
     document.query_selector(selector)?.ok_or_else(|| JsValue::from_str(&format!("Missing element: {selector}")))
 }
+fn update_year(document: &Document) -> Result<(), JsValue> {
+    let year = js_sys::Date::new_0().get_full_year().to_string();
+    let label = element(document, "[data-current-year]")?;
+    if label.text_content().as_deref() != Some(year.as_str()) {
+        label.set_text_content(Some(&year));
+    }
+    Ok(())
+}
 struct App {
     document: Document,
     storage: Option<Storage>,
@@ -51,6 +59,7 @@ struct App {
 impl App {
     fn render(&self) -> Result<(), JsValue> {
         let document = &self.document;
+        update_year(document)?;
         let root = element(document, "html")?;
         let lang = self.language;
         root.set_attribute("lang", lang.code())?;
@@ -135,6 +144,14 @@ pub fn start() -> Result<(), JsValue> {
     let translations = serde_json::from_str(COPY).map_err(|e| JsValue::from_str(&e.to_string()))?;
     let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, carousel_index: 0 }));
     app.borrow().render()?;
+    // Update even if the page stays open over New Year's midnight.
+    let year_document = document.clone();
+    let year_callback = Closure::<dyn FnMut()>::new(move || {
+        if let Err(error) = update_year(&year_document) { web_sys::console::error_1(&error); }
+    });
+    window.set_interval_with_callback_and_timeout_and_arguments_0(year_callback.as_ref().unchecked_ref(), 1_000)?;
+    year_callback.forget();
+
     for code in ["hu", "en"] {
         let state = Rc::clone(&app);
         let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
