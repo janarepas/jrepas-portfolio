@@ -19,3 +19,8 @@ html[data-theme=light]{--bg:#ffd400;--text:#111;--muted:#4e451c;--accent:#111;--
 @media(max-width:700px){.brand{width:112px}.brand-word{font-size:27px}}
 
 .site-controls .theme-toggle{min-width:40px;width:40px;height:40px;padding:9px;display:inline-flex;align-items:center;justify-content:center}
+
+/* Minimal language and appearance controls. */
+.site-controls .language-switch button{border:0;background:transparent;color:var(--muted);padding:10px 8px}
+.site-controls .language-switch button[aria-pressed=true]{color:var(--text);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.site-controls .theme-toggle{border:0;color:var(--accent)}
