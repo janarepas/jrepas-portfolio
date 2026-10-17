@@ -344,3 +344,15 @@ h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-desc
   font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-style:italic;
 }
 h1 em,h2 span,.hero h1 em,.case-hero h1 em{font-style:inherit;font-weight:inherit}
+
+/* Small, coordinated fades for language and colour-scheme changes. */
+html[data-runtime] [data-i18n],html[data-runtime] .theme-toggle,html[data-runtime] [data-carousel-prev],html[data-runtime] [data-carousel-next]{transition:opacity 130ms ease}
+html[data-switching] [data-i18n],html[data-switching] .theme-toggle,html[data-switching] [data-carousel-prev],html[data-switching] [data-carousel-next]{opacity:0}
+html[data-runtime] body,html[data-runtime] .site-header,html[data-runtime] .work,html[data-runtime] .about,html[data-runtime] .contact,html[data-runtime] .contact-panel,html[data-runtime] .process-carousel,html[data-runtime] .portfolio-cover,html[data-runtime] footer{
+ transition:background-color 320ms ease,color 320ms ease,border-color 320ms ease;
+}
+html[data-runtime] .button{transition:background-color 320ms ease,color 320ms ease,border-color 320ms ease,opacity 130ms ease}
+@media(prefers-reduced-motion:reduce){
+ html[data-runtime] *,html[data-runtime] *:before,html[data-runtime] *:after{transition:none!important;animation:none!important}
+ html[data-switching] [data-i18n],html[data-switching] .theme-toggle,html[data-switching] [data-carousel-prev],html[data-switching] [data-carousel-next]{opacity:1}
+}

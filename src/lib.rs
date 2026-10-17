@@ -55,6 +55,7 @@ struct App {
     manual_theme: bool,
     translations: Value,
     carousel_index: usize,
+    transition_version: u32,
 }
 impl App {
     fn render(&self) -> Result<(), JsValue> {
@@ -130,6 +131,37 @@ impl App {
     }
 }
 
+
+// Fade out the current copy, apply the latest requested state, then fade in.
+// A version guard keeps rapid language/theme clicks from applying stale renders.
+fn animate_render(app: &Rc<RefCell<App>>) {
+    let Some(window) = web_sys::window() else { app.borrow().render_or_log(); return; };
+    let reduced_motion = window.match_media("(prefers-reduced-motion: reduce)")
+        .ok().flatten().is_some_and(|query| query.matches());
+    let mut state = app.borrow_mut();
+    state.transition_version = state.transition_version.wrapping_add(1);
+    let version = state.transition_version;
+    let Ok(root) = element(&state.document, "html") else { state.render_or_log(); return; };
+    if reduced_motion {
+        let _ = root.remove_attribute("data-switching");
+        state.render_or_log();
+        return;
+    }
+    let _ = root.set_attribute("data-switching", "true");
+    drop(state);
+    let pending = Rc::clone(app);
+    let callback = Closure::once_into_js(move || {
+        let state = pending.borrow();
+        if state.transition_version != version { return; }
+        state.render_or_log();
+        let _ = root.remove_attribute("data-switching");
+    });
+    if window.set_timeout_with_callback_and_timeout_and_arguments_0(callback.unchecked_ref(), 130).is_err() {
+        app.borrow().render_or_log();
+        if let Ok(root) = element(&app.borrow().document, "html") { let _ = root.remove_attribute("data-switching"); }
+    }
+}
+
 #[wasm_bindgen(start)]
 pub fn start() -> Result<(), JsValue> {
     let window = web_sys::window().ok_or_else(|| JsValue::from_str("Window unavailable"))?;
@@ -142,7 +174,7 @@ pub fn start() -> Result<(), JsValue> {
     let media = window.match_media("(prefers-color-scheme: dark)")?;
     let (dark, manual_theme) = saved_theme(stored(&storage, "jrepas-theme").as_deref(), media.as_ref().is_some_and(|m| m.matches()));
     let translations = serde_json::from_str(COPY).map_err(|e| JsValue::from_str(&e.to_string()))?;
-    let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, carousel_index: 0 }));
+    let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, carousel_index: 0, transition_version: 0 }));
     app.borrow().render()?;
     // Update even if the page stays open over New Year's midnight.
     let year_document = document.clone();
@@ -155,21 +187,28 @@ pub fn start() -> Result<(), JsValue> {
     for code in ["hu", "en"] {
         let state = Rc::clone(&app);
         let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
-            let mut state = state.borrow_mut();
-            if let Some(language) = Language::parse(code) { state.language = language; }
-            if let Some(storage) = &state.storage { let _ = storage.set_item("jrepas-language-choice", code); }
-            state.render_or_log();
+            {
+                let mut app = state.borrow_mut();
+                if let Some(language) = Language::parse(code) {
+                    if app.language == language { return; }
+                    app.language = language;
+                }
+                if let Some(storage) = &app.storage { let _ = storage.set_item("jrepas-language-choice", code); }
+            }
+            animate_render(&state);
         });
         element(&document, &format!("[data-language='{code}']"))?.add_event_listener_with_callback("click", callback.as_ref().unchecked_ref())?;
         callback.forget();
     }
     let state = Rc::clone(&app);
     let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
-        let mut state = state.borrow_mut();
-        state.dark = !state.dark;
-        state.manual_theme = true;
-        if let Some(storage) = &state.storage { let _ = storage.set_item("jrepas-theme", if state.dark { "dark" } else { "light" }); }
-        state.render_or_log();
+        {
+            let mut app = state.borrow_mut();
+            app.dark = !app.dark;
+            app.manual_theme = true;
+            if let Some(storage) = &app.storage { let _ = storage.set_item("jrepas-theme", if app.dark { "dark" } else { "light" }); }
+        }
+        animate_render(&state);
     });
     element(&document, ".theme-toggle")?.add_event_listener_with_callback("click", callback.as_ref().unchecked_ref())?;
     callback.forget();
@@ -202,8 +241,12 @@ pub fn start() -> Result<(), JsValue> {
     if let Some(media) = media {
         let state = Rc::clone(&app);
         let callback = Closure::<dyn FnMut(MediaQueryListEvent)>::new(move |event: MediaQueryListEvent| {
-            let mut state = state.borrow_mut();
-            if !state.manual_theme { state.dark = event.matches(); state.render_or_log(); }
+            {
+                let mut app = state.borrow_mut();
+                if app.manual_theme || app.dark == event.matches() { return; }
+                app.dark = event.matches();
+            }
+            animate_render(&state);
         });
         media.add_event_listener_with_callback("change", callback.as_ref().unchecked_ref())?;
         callback.forget();
