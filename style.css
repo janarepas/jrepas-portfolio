@@ -557,3 +557,8 @@ html[data-theme=dark] .about .process-carousel:after{
  .about .process-art.process-mirror{opacity:0}
  .about .process-carousel:after{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--surface)}
 }
+
+/* A wired desktop mouse with its cable continuing to the viewport edge. */
+.intro-scroll{bottom:12vh;padding:10px 18px;overflow:visible}
+.retro-mouse{display:block;overflow:visible;position:relative;z-index:1}
+.mouse-cable{position:absolute;left:calc(50% + 10px);top:calc(100% - 12px);width:3px;height:calc(12vh + 13px);background:currentColor;border-radius:2px;pointer-events:none}
