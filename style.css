@@ -646,3 +646,20 @@ html[data-theme=dark] .site-header .brand .brand-logo-light{display:block}
 @media(max-width:700px){
  .hero .hero-image img{width:100%;object-fit:cover;object-position:72% center;-webkit-mask-image:none;mask-image:none}
 }
+
+/* Comfortable touch targets on phones, including every carousel dot. */
+@media(max-width:700px){
+ html{scroll-padding-top:132px}
+ .site-header{height:112px;min-height:112px;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:48px 48px;padding-top:8px;padding-bottom:8px;gap:0 10px}
+ .site-header .site-controls{grid-column:2;gap:0}
+ .site-controls .language-switch button,.site-controls .theme-toggle{min-width:44px;min-height:44px;padding:10px}
+ .site-header nav{gap:8px;grid-column:1 / -1}
+ .site-header nav a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:10px 12px}
+ .site-header nav .header-contact{min-height:44px;padding:10px 16px;font-size:11px}
+ .button,.contact-actions .button,.process-arrow.button{min-height:48px;min-width:48px}
+ .about .process-controls{flex-wrap:wrap;gap:12px}
+ .about .process-dots{display:grid;grid-template-columns:repeat(5,minmax(44px,1fr));gap:4px;flex-basis:100%;width:100%;max-width:320px;margin:auto;order:3}
+ .about .process-dots button{width:100%;min-width:44px;height:44px;min-height:44px;touch-action:manipulation}
+ .contact-email,footer>a{display:inline-flex;align-items:center;min-height:44px}
+ a,button{touch-action:manipulation}
+}
