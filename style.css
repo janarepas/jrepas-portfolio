@@ -482,4 +482,10 @@ html[data-theme] .work>.section-heading>.small-link:hover{
 html[data-runtime] .button{transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,opacity 130ms ease}
 @media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
 
-
+/* Original vector paths in pure black/white, adapted to each theme. */
+.footer-logo{display:block;flex:0 0 auto}
+.footer-logo img{display:block;width:128px;height:auto}
+.footer-logo .footer-logo-dark{display:none}
+html[data-theme=dark] .footer-logo-light{display:none}
+html[data-theme=dark] .footer-logo .footer-logo-dark{display:block}
+@media(max-width:700px){.footer-logo{flex-basis:100%;margin-bottom:4px}.footer-logo img{width:112px}}
