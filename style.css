@@ -338,3 +338,9 @@ html[data-theme=light] .contact-panel{background:#fff}
 }
 
 .site-header nav>a:not(.button){font-weight:500}
+
+@font-face{font-family:'DM Serif Display';src:url('fonts/dm-serif-display-italic-latin.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3,.portfolio-card .project-title h3{
+  font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-style:italic;
+}
+h1 em,h2 span,.hero h1 em,.case-hero h1 em{font-style:inherit;font-weight:inherit}
