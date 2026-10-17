@@ -208,7 +208,14 @@ pub fn start() -> Result<(), JsValue> {
             app.manual_theme = true;
             if let Some(storage) = &app.storage { let _ = storage.set_item("jrepas-theme", if app.dark { "dark" } else { "light" }); }
         }
-        animate_render(&state);
+        {
+            let mut app = state.borrow_mut();
+            // If a language fade is running, let it finish with the latest theme.
+            if !element(&app.document, "html").ok().is_some_and(|root| root.has_attribute("data-switching")) {
+                app.transition_version = app.transition_version.wrapping_add(1);
+                app.render_or_log();
+            }
+        }
     });
     element(&document, ".theme-toggle")?.add_event_listener_with_callback("click", callback.as_ref().unchecked_ref())?;
     callback.forget();
@@ -246,7 +253,12 @@ pub fn start() -> Result<(), JsValue> {
                 if app.manual_theme || app.dark == event.matches() { return; }
                 app.dark = event.matches();
             }
-            animate_render(&state);
+            {
+                let app = state.borrow();
+                if !element(&app.document, "html").ok().is_some_and(|root| root.has_attribute("data-switching")) {
+                    app.render_or_log();
+                }
+            }
         });
         media.add_event_listener_with_callback("change", callback.as_ref().unchecked_ref())?;
         callback.forget();

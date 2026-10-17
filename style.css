@@ -356,3 +356,38 @@ html[data-runtime] .button{transition:background-color 320ms ease,color 320ms ea
  html[data-runtime] *,html[data-runtime] *:before,html[data-runtime] *:after{transition:none!important;animation:none!important}
  html[data-switching] [data-i18n],html[data-switching] .theme-toggle,html[data-switching] [data-carousel-prev],html[data-switching] [data-carousel-next]{opacity:1}
 }
+
+/* Three yellows and three dark tones, always paired with readable text. */
+:root{
+ --yellow-light:#ffe45c;--yellow-main:#ffd400;--yellow-deep:#d6a600;
+ --black-deep:#080808;--black-ink:#171717;--black-soft:#292929;
+}
+html[data-theme=dark]{--bg:var(--black-deep);--text:#faf8ef;--muted:#c3c0b5;--surface:var(--black-ink);--line:#48483e;--accent:var(--yellow-main)}
+body{font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif}
+button,.button,.site-header nav .header-contact,.site-controls .language-switch button,.site-controls .theme-toggle,.process-arrow{font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif}
+h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3,.portfolio-card .project-title h3{
+ font-family:'ivypresto-display','IvyPresto Display','DM Serif Display',Georgia,serif;
+}
+.button-yellow,html[data-theme=light] .button-yellow,.site-header nav .button-yellow{background:var(--yellow-main);border-color:var(--yellow-main);color:var(--black-deep)}
+.button-yellow:hover,html[data-theme=light] .button-yellow:hover,.site-header nav .button-yellow:hover{background:var(--yellow-light);border-color:var(--yellow-light);color:var(--black-deep)}
+.button-black,html[data-theme=light] .button-black{background:var(--black-deep);border-color:var(--black-deep);color:#fff}
+.button-black:hover,html[data-theme=light] .button-black:hover{background:var(--black-soft);border-color:var(--black-soft);color:#fff}
+html[data-theme=dark] .button-black{border-color:#62625a}
+.cover-vector{background:var(--black-deep)}
+.cover-social{background:var(--black-soft);color:var(--yellow-light)}
+.cover-pack{background:var(--yellow-main);color:var(--black-deep)}
+.cover-video{background:var(--yellow-light);color:var(--black-deep)}
+.cover-ads{background:var(--yellow-deep);color:var(--black-deep)}
+.cover-pixels{background:var(--yellow-main);box-shadow:24px 24px var(--yellow-deep),-24px 24px var(--yellow-light),0 48px var(--black-ink)}
+.process-art{background:var(--yellow-main);color:var(--black-deep)}
+.process-art[data-step="1"],.process-art[data-step="4"],.process-art[data-step="7"]{background:var(--yellow-light)}
+.process-art[data-step="2"],.process-art[data-step="5"],.process-art[data-step="8"]{background:var(--yellow-deep)}
+.process-shape{background:var(--black-ink);border-color:var(--black-ink)}
+.process-pixels{background:var(--yellow-light);box-shadow:18px 18px var(--yellow-deep),-18px 18px var(--black-soft),0 36px #fff}
+html[data-theme=dark] .process-carousel,html[data-theme=dark] .contact-panel{background:var(--black-soft)}
+.contact-panel{border-top-color:var(--yellow-main)}
+/* Theme changes are immediate; only language changes fade. */
+html[data-runtime] body,html[data-runtime] .site-header,html[data-runtime] .work,html[data-runtime] .about,html[data-runtime] .contact,html[data-runtime] .contact-panel,html[data-runtime] .process-carousel,html[data-runtime] .portfolio-cover,html[data-runtime] footer{transition:none}
+html[data-runtime] .button{transition:opacity 130ms ease}
+@media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
+.contact-email{font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif}

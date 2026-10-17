@@ -58,3 +58,15 @@ Cloudflare Pages country middleware.
 The eight portfolio entries come from the designer's Upwork portfolio and are
 non-clickable cards. The contact section provides a separate Upwork profile link. Their graphic covers are placeholders, not original project
 images. Contact: `jrepas@icloud.com`.
+
+## Requested premium typography
+
+The CSS font stacks are prepared for IvyPresto Display headings and Freight Text
+body copy. Their webfont files or an Adobe Fonts web-project stylesheet have not
+yet been supplied. Until they are supplied, the bundled DM Serif Display Italic
+and DM Sans fonts remain the fallbacks. Do not claim the premium fonts are loaded
+or copy unlicensed font files into the project.
+
+Language changes use a short opacity fade. Theme changes apply immediately.
+The colour palette defines three yellows and three dark tones; each yellow/dark
+pair exceeds 4.5:1 text contrast.
