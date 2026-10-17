@@ -1,3 +1,5 @@
+@font-face{font-family:'DM Sans';src:url('fonts/dm-sans-latin.woff2') format('woff2');font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Serif Display';src:url('fonts/dm-serif-display-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 :root{--bg:#080808;--text:#f6f4e9;--muted:#aaa99f;--accent:#ffd400;--line:#34342e;--surface:#151511;--ink:#111;--paper:#f5f2e8;--gold:#ffd400;color-scheme:dark}
 html[data-theme=light]{--bg:#ffd400;--text:#111;--muted:#4e451c;--accent:#111;--line:#b59c23;--surface:#f5f2e8;color-scheme:light}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}.wrap{max-width:1600px;margin:auto;padding-left:6%;padding-right:6%}.site-header{min-height:112px;display:flex;align-items:center;gap:28px;border-bottom:1px solid var(--line)}
@@ -198,7 +200,7 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 .cover-vector{background:#171717;color:#f5f2e8}.cover-vector .cover-mark{-webkit-text-stroke:1px #ffd400;color:transparent}
 .cover-pack{background:#ffd400}.cover-pack .cover-mark{border:2px solid #111;font-size:85px;padding:20px;transform:rotate(-8deg);bottom:30px}
 .cover-retail{background:#efeee7}.cover-retail .cover-mark{font-size:90px}
-.cover-editorial{background:#f5f2e8}.cover-editorial .cover-mark{font-family:Georgia,serif;font-weight:400;font-style:italic}
+.cover-editorial{background:#f5f2e8}.cover-editorial .cover-mark{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-style:italic}
 .cover-ads{background:#ffd400}.cover-ads .cover-mark{font-size:180px;bottom:0}
 .cover-social{background:#171717;color:#ffd400}
 .cover-sports{background:#e9e8e2}.cover-sports .cover-mark{font-size:210px;bottom:-25px}
@@ -208,7 +210,7 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 @media(prefers-reduced-motion:reduce){.portfolio-card:hover .cover-mark{transform:none}}
 
 /* Serif typography, with system fonts and no external font requests. */
-body{font-family:Georgia,'Times New Roman',serif}
+body{font-family:'DM Sans',Arial,sans-serif}
 button{font-family:inherit}
 .brand-word,.cover-mark,.cover-number,.pixel-letter{font-family:Arial,Helvetica,sans-serif}
 h1,h2,h3,.graphic strong{letter-spacing:-.04em}
@@ -217,15 +219,8 @@ h1,h2,h3,.graphic strong{letter-spacing:-.04em}
 @media(max-width:700px){.site-header nav{gap:14px}}
 @media(max-width:370px){.site-header nav{gap:9px}}
 
-@font-face{
-  font-family:'Roboto Serif Narrow';
-  src:url('fonts/roboto-serif-narrow-latin.woff2') format('woff2');
-  font-weight:100 900;
-  font-style:normal;
-  font-display:swap;
-}
-body{font-family:'Roboto Serif Narrow','Times New Roman',serif}
-.cover-editorial .cover-mark{font-family:'Roboto Serif Narrow','Times New Roman',serif}
+body{font-family:'DM Sans',Arial,sans-serif}
+.cover-editorial .cover-mark{font-family:'DM Sans',Arial,sans-serif}
 
 /* Ten-step design process, controlled by the Rust application. */
 .about-process{min-width:0;padding-top:0!important}
@@ -239,7 +234,7 @@ html[data-theme=light] .process-carousel{background:#f8f8f4;border-color:#e5e5dd
 .process-art[data-step="2"] .process-shape,.process-art[data-step="6"] .process-shape{transform:rotate(45deg);background:transparent}
 .process-art[data-step="3"] .process-shape,.process-art[data-step="7"] .process-shape{height:75px;transform:skew(-15deg);background:#fff;border-width:3px}
 .process-art[data-step="4"] .process-shape{border:0;background:transparent;width:160px;right:20px;transform:none}
-.process-art[data-step="4"] .process-shape:after{content:'Aa';font:85px/1 'Roboto Serif Narrow',serif}
+.process-art[data-step="4"] .process-shape:after{content:'Aa';font:85px/1 'DM Serif Display',serif}
 .process-art[data-step="8"] .process-shape{border:3px dashed #111;background:transparent;transform:none}
 .process-art[data-step="9"] .process-shape{border:0;background:transparent;transform:none}
 .process-art[data-step="9"] .process-shape:after{content:'✓';font:90px/1 Arial,sans-serif}
@@ -260,3 +255,9 @@ html[data-theme=light] .process-carousel{background:#f8f8f4;border-color:#e5e5dd
 .icon-arrow{display:inline-block;vertical-align:middle;flex-shrink:0;width:1.1em;height:1.1em}
 .project-title>span .icon-arrow,.visual-arrow .icon-arrow{width:20px;height:20px}
 .cover-mark .icon-arrow{width:1em;height:1em}
+
+/* Display serif headings paired with clean sans-serif reading text. */
+body,button{font-family:'DM Sans',Arial,Helvetica,sans-serif}
+h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.025em}
+.brand-word{font-family:'DM Sans',Arial,sans-serif}
+.cover-editorial .cover-mark{font-family:'DM Serif Display',Georgia,serif}
