@@ -29,7 +29,7 @@ function render() {
   document.querySelector('nav').setAttribute('aria-label', language === 'hu' ? 'Főmenü' : 'Main navigation');
   document.querySelector('.brand').setAttribute('aria-label', language === 'hu' ? 'JREPAS kezdőlap' : 'JREPAS home');
   const project = location.pathname.endsWith('packaging.html');
-  document.title = project ? (language === 'hu' ? 'Csomagolástervezés — JREPAS' : 'Packaging Design — JREPAS') : (language === 'hu' ? 'JREPAS — Grafikai tervezés' : 'JREPAS — Graphic Design & Visual Creative');
+  document.title = language === 'hu' ? 'Répás János - Grafikai tervezés' : 'János Répás - Graphic Design';
   document.querySelector('meta[name="description"]').content = language === 'hu' ? (project ? 'Csomagolástervezés és nyomdai kivitelezés — Répás János portfóliója.' : 'Répás János — grafikai tervezés, csomagolás és márkaarculat.') : (project ? 'Packaging design and print production — János Répás portfolio.' : 'János Répás — graphic design, packaging and visual identities.');
   document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#ffffff' : '#080808';
   const heroImage = document.querySelector('.hero-image img');
