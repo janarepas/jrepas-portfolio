@@ -216,3 +216,47 @@ h1,h2,h3,.graphic strong{letter-spacing:-.04em}
 @media(max-width:950px) and (min-width:701px){.site-header nav{gap:14px}}
 @media(max-width:700px){.site-header nav{gap:14px}}
 @media(max-width:370px){.site-header nav{gap:9px}}
+
+@font-face{
+  font-family:'Roboto Serif Narrow';
+  src:url('fonts/roboto-serif-narrow-latin.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
+body{font-family:'Roboto Serif Narrow','Times New Roman',serif}
+.cover-editorial .cover-mark{font-family:'Roboto Serif Narrow','Times New Roman',serif}
+
+/* Ten-step design process, controlled by the Rust application. */
+.about-process{min-width:0;padding-top:0!important}
+.process-carousel{margin-top:28px;border:1px solid #35352e;border-radius:10px;overflow:hidden;background:#181816;color:#f5f2e8}
+html[data-theme=light] .process-carousel{background:#f8f8f4;border-color:#e5e5dd;color:#111}
+.process-art{height:185px;background:#ffd400;position:relative;overflow:hidden;color:#111}
+.process-number{position:absolute;left:24px;bottom:8px;font:900 120px/1 Arial,Helvetica,sans-serif;letter-spacing:-.09em;opacity:.17}
+.process-shape{width:105px;height:105px;position:absolute;right:65px;top:40px;background:#111;transform:rotate(-12deg);border:14px solid #111}
+.process-pixels{position:absolute;width:18px;height:18px;right:38px;top:25px;background:#fff;box-shadow:18px 18px #e8a700,-18px 18px #111,0 36px #fff}
+.process-art[data-step="1"] .process-shape,.process-art[data-step="5"] .process-shape{border-radius:50%;background:transparent}
+.process-art[data-step="2"] .process-shape,.process-art[data-step="6"] .process-shape{transform:rotate(45deg);background:transparent}
+.process-art[data-step="3"] .process-shape,.process-art[data-step="7"] .process-shape{height:75px;transform:skew(-15deg);background:#fff;border-width:3px}
+.process-art[data-step="4"] .process-shape{border:0;background:transparent;width:160px;right:20px;transform:none}
+.process-art[data-step="4"] .process-shape:after{content:'Aa';font:85px/1 'Roboto Serif Narrow',serif}
+.process-art[data-step="8"] .process-shape{border:3px dashed #111;background:transparent;transform:none}
+.process-art[data-step="9"] .process-shape{border:0;background:transparent;transform:none}
+.process-art[data-step="9"] .process-shape:after{content:'✓';font:90px/1 Arial,sans-serif}
+.process-copy{padding:20px 24px 0;min-height:155px}
+.process-copy .process-count{font:700 10px/1 Arial,sans-serif;letter-spacing:.12em;color:inherit;margin:0 0 12px}
+.process-copy h3{font-size:27px;line-height:1.15;margin:0 0 10px}
+.about-grid .process-copy>p:last-child{font-size:15px;line-height:1.6;color:inherit;margin:0}
+.process-controls{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:14px 18px 18px}
+.process-arrow{border:1px solid currentColor;border-radius:10px;width:34px;height:34px;flex-shrink:0;background:transparent;color:inherit;cursor:pointer;font-family:Arial,sans-serif;font-weight:800}
+.process-dots{display:flex;justify-content:center;gap:0;flex:1;min-width:0}
+.process-dots button{border:0;padding:0;width:22px;height:32px;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:inherit}
+.process-dots button span{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.3}
+.process-dots button[aria-pressed=true] span{opacity:1;background:#bb8b00;width:8px;height:8px}
+@media(max-width:950px){.process-controls{padding-left:12px;padding-right:12px}.process-dots button{width:18px}.process-arrow{width:30px}}
+@media(max-width:700px){.process-carousel{margin-bottom:20px}.process-copy{min-height:145px}.process-dots button{width:22px}.process-copy h3{font-size:25px}.process-controls{padding-left:14px;padding-right:14px}}
+@media(max-width:370px){.process-dots button{width:17px}.process-controls{padding-left:10px;padding-right:10px;gap:3px}.process-copy{padding-left:18px;padding-right:18px}}
+
+.icon-arrow{display:inline-block;vertical-align:middle;flex-shrink:0;width:1.1em;height:1.1em}
+.project-title>span .icon-arrow,.visual-arrow .icon-arrow{width:20px;height:20px}
+.cover-mark .icon-arrow{width:1em;height:1em}

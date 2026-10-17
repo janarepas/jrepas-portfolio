@@ -1,22 +1,60 @@
 # JREPAS portfolio
 
-Static portfolio site for **jrepas.hu**, hosted with Cloudflare Pages and deployed from `janarepas/jrepas.com` (`main`).
+Bilingual graphic design portfolio for **jrepas.hu**. HTML and CSS provide the
+content and design; the interactive application is written in **Rust**, compiled
+to **WebAssembly** with wasm-bindgen. Cloudflare Pages serves the static files.
 
-## Local preview
+## Develop
 
-Run `python3 -m http.server 8000` from this directory, then open `http://localhost:8000`.
+Install Rust using rustup. `rust-toolchain.toml` pins the compiler and WebAssembly
+target. Install the matching binding generator once:
 
-## Deploy
+```sh
+cargo install wasm-bindgen-cli --version 0.2.104 --locked
+```
 
-Copy these files into the local repository, commit, and push to `main`. Cloudflare Pages builds automatically (framework: None; build command: empty; output directory: `.`).
+From the checkout root:
 
-## Content
+```sh
+cargo test --locked
+./scripts/build.sh
+python3 -m http.server 8000 --bind 127.0.0.1
+```
 
-- `index.html` — homepage
-- `packaging.html` — packaging project page
-- `style.css` — site design and responsive styles
-- `images/packaging.jpg` — existing project image
+Open the local server in a browser when developing locally. WebAssembly must be
+served over HTTP, not opened directly as a `file:` URL.
 
-The second and third portfolio cards are deliberately marked “Coming soon” until actual project images and details are available. The abstract hero graphic is made entirely in CSS; no external image dependency.
+- `src/lib.rs`: country/browser language selection, translations, language and
+  theme controls, the ten-step design carousel, accessibility labels, page titles,
+  metadata and persistence.
+- `src/translations.json`: Hungarian and English text, keyed by HTML `data-i18n`.
+- `index.html`, `packaging.html`: semantic content and fallback English copy.
+- `style.css`: responsive layout, both themes and self-hosted narrow serif font.
+- `fonts/`: Roboto Serif, width axis fixed at 75; license included.
+- `scripts/build.sh`: locked release build and wasm-bindgen packaging.
+- `assets/rust/<content-hash>/`: generated JavaScript bindings and `.wasm` binary.
+- `site.js`: generated module loader; edit Rust instead of this file.
+- `functions/_middleware.js`: small Cloudflare-specific middleware that supplies
+  the visitor's country to Rust through the HTML `data-country` attribute.
 
-Contact email is currently set to `jrepas@icloud.com`. Verify or change it before publishing if necessary.
+A Hungarian visitor starts in Hungarian; other known countries use English.
+Without country information, the browser language is used. The colour scheme
+follows the browser until explicitly changed. Manual choices persist in local
+storage. Static HTML remains readable if JavaScript/WebAssembly is unavailable.
+
+## Build and deploy
+
+After changing Rust or translations, run `./scripts/build.sh` and commit the
+updated `site.js` and generated assets alongside the sources. Keep previous
+hashed asset directories available for cached pages. The generated loader is
+served with a version query in both HTML files; bump that query on a new release.
+
+The generated files are checked in so the existing Cloudflare Pages configuration
+continues to work: **framework None, empty build command, output directory `.`**.
+Pushing to `main` triggers the existing automatic deployment. No Rust server or
+new hosting service is required. The root `functions/` directory retains the
+Cloudflare Pages country middleware.
+
+The eight portfolio entries come from the designer's Upwork portfolio and link
+to the profile. Their graphic covers are placeholders, not original project
+images. Contact: `jrepas@icloud.com`.
