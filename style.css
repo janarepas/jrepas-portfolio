@@ -94,3 +94,37 @@ html{scroll-padding-top:70px}
   .site-header{background:#080808;-webkit-backdrop-filter:none;backdrop-filter:none}
   html[data-theme=light] .site-header{background:#ffd400}
 }
+
+/* Centre the navigation independently of the wordmark and right-hand controls. */
+@media(min-width:701px){
+  .site-header{display:grid;grid-template-columns:1fr auto 1fr;gap:20px}
+  .site-header .brand{grid-column:1;grid-row:1;justify-self:start}
+  .site-header nav{grid-column:2;grid-row:1;margin-left:0;justify-self:center}
+  .site-header .header-contact{grid-column:3;grid-row:1;justify-self:end}
+  .site-header .site-controls{grid-column:3;grid-row:1;justify-self:end}
+  .site-header .header-contact{margin-right:146px}
+}
+.site-header .header-contact{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:32px;padding:8px 13px;border:1px solid var(--text);
+  background:var(--text);color:var(--bg);font-size:10px;
+  font-weight:700;letter-spacing:.04em;white-space:nowrap;
+}
+.site-header .header-contact:hover{background:transparent;color:var(--text)}
+@media(min-width:701px) and (max-width:950px){
+  .site-header{padding-left:4%;padding-right:4%;gap:12px}
+  .site-header .brand{width:auto}
+  .site-header nav{gap:16px}
+  .site-header .header-contact{margin-right:125px;padding:7px 9px;font-size:9px}
+  .site-controls{gap:6px}
+  .site-controls .language-switch button{padding:8px 6px}
+}
+@media(max-width:700px){
+  .site-header{height:86px;min-height:86px;display:grid;grid-template-columns:1fr auto auto;grid-template-rows:40px 34px;gap:0 10px;padding-top:4px;padding-bottom:8px}
+  .site-header .brand{grid-column:1;grid-row:1;justify-self:start;margin:0}
+  .site-header .site-controls{grid-column:3;grid-row:1;justify-self:end}
+  .site-header .header-contact{grid-column:2;grid-row:1;min-height:28px;padding:6px 9px;font-size:9px}
+  .site-header nav{grid-column:1 / -1;grid-row:2;justify-self:center;justify-content:center;margin:0;gap:24px}
+  .site-header nav a{padding:8px 0;font-size:12px}
+  html{scroll-padding-top:106px}
+}
