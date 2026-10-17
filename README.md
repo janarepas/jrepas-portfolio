@@ -1,36 +1,22 @@
-# jrepas.com
+# JREPAS portfolio
 
-Static portfolio site (HTML/CSS) for Cloudflare Pages.
+Static portfolio site for **jrepas.hu**, hosted with Cloudflare Pages and deployed from `janarepas/jrepas.com` (`main`).
 
 ## Local preview
 
-From this directory run `python3 -m http.server 8000` and visit http://localhost:8000.
+Run `python3 -m http.server 8000` from this directory, then open `http://localhost:8000`.
 
-## Git
+## Deploy
 
-```sh
-git init
-git add .
-git commit -m "Initial jrepas.com website"
-git branch -M main
-```
+Copy these files into the local repository, commit, and push to `main`. Cloudflare Pages builds automatically (framework: None; build command: empty; output directory: `.`).
 
-Create an empty GitHub repository named `jrepas.com`, then:
+## Content
 
-```sh
-git remote add origin https://github.com/YOUR_USERNAME/jrepas.com.git
-git push -u origin main
-```
+- `index.html` — homepage
+- `packaging.html` — packaging project page
+- `style.css` — site design and responsive styles
+- `images/packaging.jpg` — existing project image
 
-## Cloudflare Pages
+The second and third portfolio cards are deliberately marked “Coming soon” until actual project images and details are available. The abstract hero graphic is made entirely in CSS; no external image dependency.
 
-Create a Pages project using **Import an existing Git repository**. Select the repository.
-- Framework preset: None
-- Build command: leave blank
-- Build output directory: `.`
-
-Once deployed, add the custom domain `jrepas.com` under the Pages project's Custom domains settings and follow Cloudflare's DNS instructions. Do not change nameservers before verifying the required DNS setup with your domain registrar.
-
-## Later CMS
-
-Choose and configure the CMS separately; do not expose an admin interface without authentication.
+Contact email is currently set to `jrepas@icloud.com`. Verify or change it before publishing if necessary.
