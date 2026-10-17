@@ -70,3 +70,17 @@ are served by Adobe rather than copied into this repository.
 Language changes use a short opacity fade. Theme changes apply immediately.
 The colour palette defines three yellows and three dark tones; each yellow/dark
 pair exceeds 4.5:1 text contrast.
+
+
+## Admin
+
+The content editor is served at `/admin/`. It edits both languages, the existing
+portfolio cards and carousel, image URLs and contact details. Drafts, authenticated
+preview and explicit publication use Cloudflare D1 and Access; public rendering
+still uses Rust/WebAssembly. Published overrides are also included in server HTML.
+
+**Activation requires a `SITE_DB` D1 binding, the SQL migration, and an owner-only
+Cloudflare Access application.** Without these settings, the editor stays locked
+and the public site falls back to its existing static content. Follow
+[the setup guide](docs/admin-setup.md). Do not put passwords or Cloudflare API
+tokens in the repository. `npm test` and `npm run test:browser` validate the admin.

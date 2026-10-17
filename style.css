@@ -412,3 +412,38 @@ html[data-theme=dark] .hero-copy>.eyebrow{color:#b8b8ae}
 
 .hero-copy>.eyebrow{font-size:clamp(12px,1.1vw,15px);font-weight:500}
 @media(max-width:700px){.hero-copy>.eyebrow{font-size:13px}}
+
+[data-managed-text]{white-space:pre-line}
+.managed-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2}
+[data-has-managed-image]>.process-number,[data-has-managed-image]>.process-shape,[data-has-managed-image]>.process-pixels{visibility:hidden}
+.admin-preview-banner{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:18px;max-width:calc(100% - 24px);padding:12px 20px;background:#ffd400;color:#111;border:1px solid #111;border-radius:999px;font:600 12px/1.4 'DM Sans',Arial,sans-serif}
+.admin-preview-banner a{font-weight:800;color:#111;text-decoration:underline}
+@media(max-width:700px){.admin-preview-banner{border-radius:14px;font-size:10px;gap:12px;min-width:260px}}
+
+[data-managed-text]{overflow-wrap:anywhere}
+
+/* Cover image behind a protected, high-contrast reading area. */
+.hero{position:relative;isolation:isolate;max-width:none;display:grid;grid-template-columns:1fr;min-height:640px}
+.hero .hero-image{position:absolute;inset:0;z-index:-2;margin:0;width:100%;height:100%;min-width:0}
+.hero .hero-image img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:0}
+.hero .hero-image:after{display:none}
+.hero:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.96) 58%,rgba(255,255,255,.6) 78%,rgba(255,255,255,.15) 100%)}
+html[data-theme=dark] .hero:before{background:linear-gradient(90deg,rgba(8,8,8,.98) 0%,rgba(8,8,8,.96) 58%,rgba(8,8,8,.65) 78%,rgba(8,8,8,.3) 100%)}
+.hero .hero-copy{width:60%;max-width:680px;padding:100px 0}
+html[data-theme=light] .hero h1 em,html[data-theme=dark] .hero h1 em{background:none;text-decoration-line:underline;text-decoration-style:double;text-decoration-color:var(--yellow-main);text-decoration-thickness:3px;text-underline-offset:10px;text-decoration-skip-ink:none}
+/* Shared small-heading style, including section and contact-card labels. */
+html[data-theme] .eyebrow,html[data-theme] .hero-copy>.eyebrow,html[data-theme] .about>.eyebrow,html[data-theme] .section-heading .eyebrow{
+ font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif;
+ font-size:13px;font-weight:500;font-style:normal;letter-spacing:.035em;line-height:1.5;text-transform:uppercase;color:#666660;
+}
+html[data-theme=dark] .eyebrow,html[data-theme=dark] .hero-copy>.eyebrow,html[data-theme=dark] .about>.eyebrow,html[data-theme=dark] .section-heading .eyebrow{color:#b8b8ae}
+.work>.section-heading>.small-link{font-size:14px;min-height:56px;padding:18px 32px}
+html[data-theme=dark] .work>.section-heading>.small-link{background:var(--yellow-main);border-color:var(--yellow-main);color:var(--black-deep)}
+html[data-theme=dark] .work>.section-heading>.small-link:hover{background:var(--yellow-light);border-color:var(--yellow-light)}
+@media(max-width:700px){
+ .hero{min-height:540px}
+ .hero .hero-copy{width:100%;max-width:none;padding:75px 0}
+ .hero:before{background:rgba(255,255,255,.92)}
+ html[data-theme=dark] .hero:before{background:rgba(8,8,8,.92)}
+ .work>.section-heading>.small-link{font-size:13px;min-height:52px;padding:16px 27px}
+}

@@ -13,6 +13,7 @@ python3 - "$build_stage" <<'PY'
 from pathlib import Path
 import hashlib, shutil, sys
 stage = Path(sys.argv[1])
+shutil.copy2('src/translations.json', 'admin/defaults.json')
 files = sorted(stage.glob('*'))
 revision = hashlib.sha256(b''.join(p.read_bytes() for p in files)).hexdigest()[:12]
 destination = Path('assets/rust') / revision

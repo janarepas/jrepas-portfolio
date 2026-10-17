@@ -47,6 +47,28 @@ fn update_year(document: &Document) -> Result<(), JsValue> {
     }
     Ok(())
 }
+fn escape_text(text: &str) -> String {
+    text.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;")
+}
+fn managed_image(document: &Document, container: &Element, url: Option<&str>, alt: &str) -> Result<(), JsValue> {
+    let existing = container.query_selector(".managed-image")?;
+    if let Some(url) = url {
+        let image = if let Some(image) = existing { image } else {
+            let image = document.create_element("img")?;
+            image.set_attribute("class", "managed-image")?;
+            image.set_attribute("loading", "lazy")?;
+            container.append_child(&image)?;
+            image
+        };
+        image.set_attribute("src", url)?;
+        image.set_attribute("alt", alt)?;
+        container.set_attribute("data-has-managed-image", "true")?;
+    } else {
+        if let Some(image) = existing { image.remove(); }
+        container.remove_attribute("data-has-managed-image")?;
+    }
+    Ok(())
+}
 struct App {
     document: Document,
     storage: Option<Storage>,
@@ -56,6 +78,7 @@ struct App {
     translations: Value,
     carousel_index: usize,
     transition_version: u32,
+    managed_content: Value,
 }
 impl App {
     fn render(&self) -> Result<(), JsValue> {
@@ -87,8 +110,16 @@ impl App {
         for i in 0..nodes.length() {
             if let Some(el) = nodes.item(i).and_then(|n| n.dyn_into::<Element>().ok()) {
                 if let Some(key) = el.get_attribute("data-i18n") {
-                    if let Some(text) = self.translations[&key][lang.code()].as_str() {
+                    if let Some(text) = self.managed_content["translations"][&key][lang.code()].as_str() {
+                        if key == "7" {
+                            if let Some((first, second)) = text.split_once('\n') {
+                                el.set_inner_html(&format!("{}<br><em>{}</em>", escape_text(first), escape_text(second).replace('\n', "<br>")));
+                            } else { el.set_text_content(Some(text)); }
+                        } else { el.set_text_content(Some(text)); }
+                        el.set_attribute("data-managed-text", "true")?;
+                    } else if let Some(text) = self.translations[&key][lang.code()].as_str() {
                         el.set_inner_html(text);
+                        el.remove_attribute("data-managed-text")?;
                     }
                 }
             }
@@ -115,6 +146,7 @@ impl App {
         element(document, "meta[name='description']")?.set_attribute("content", description)?;
         element(document, "meta[name='theme-color']")?.set_attribute("content", if self.dark { "#080808" } else { "#ffffff" })?;
         if let Some(image) = document.query_selector(".hero-image img")? {
+            image.set_attribute("src", self.managed_content["images"]["hero"].as_str().unwrap_or("images/hero-focus.webp"))?;
             image.set_attribute("alt", lang.text("Sárga és fekete geometrikus formák fehér stúdióháttér előtt", "Sculptural yellow and black shapes on a white studio background"))?;
         }
         let images = document.query_selector_all(".project img, .case-image img")?;
@@ -122,6 +154,33 @@ impl App {
             if let Some(image) = images.item(i).and_then(|n| n.dyn_into::<Element>().ok()) {
                 image.set_attribute("alt", lang.text("Csomagolástervezési projekt", "Packaging design project"))?;
             }
+        }
+        let contact_email = self.managed_content["settings"]["email"].as_str().unwrap_or("jrepas@icloud.com");
+        if let Some(email_link) = document.query_selector(".contact-email")? { email_link.set_text_content(Some(contact_email)); }
+        let mail_links = document.query_selector_all("a[href^='mailto:']")?;
+        for i in 0..mail_links.length() {
+            if let Some(link) = mail_links.item(i).and_then(|node| node.dyn_into::<Element>().ok()) {
+                let href = link.get_attribute("href").unwrap_or_default();
+                let query = href.find('?').map(|position| &href[position..]).unwrap_or("");
+                let address = js_sys::encode_uri_component(contact_email).as_string().unwrap_or_default();
+                link.set_attribute("href", &format!("mailto:{address}{query}"))?;
+            }
+        }
+        if let Some(link) = document.query_selector(".contact-upwork")? {
+            link.set_attribute("href", self.managed_content["settings"]["upworkUrl"].as_str().unwrap_or("https://www.upwork.com/freelancers/jrepas"))?;
+        }
+        let cards = document.query_selector_all(".portfolio-card")?;
+        for i in 0..cards.length() {
+            if let Some(card) = cards.item(i).and_then(|node| node.dyn_into::<Element>().ok()) {
+                if let Some(cover) = card.query_selector(".portfolio-cover")? {
+                    let alt = card.query_selector("h3")?.and_then(|title| title.text_content()).unwrap_or_default();
+                    managed_image(document, &cover, self.managed_content["images"][format!("portfolio-{i}")].as_str(), &alt)?;
+                }
+            }
+        }
+        if let Some(art) = document.query_selector(".process-art")? {
+            let alt = element(document, "[data-carousel-title]")?.text_content().unwrap_or_default();
+            managed_image(document, &art, self.managed_content["images"][format!("carousel-{}", self.carousel_index)].as_str(), &alt)?;
         }
         root.set_attribute("data-runtime", "rust-wasm")?;
         Ok(())
@@ -174,7 +233,11 @@ pub fn start() -> Result<(), JsValue> {
     let media = window.match_media("(prefers-color-scheme: dark)")?;
     let (dark, manual_theme) = saved_theme(stored(&storage, "jrepas-theme").as_deref(), media.as_ref().is_some_and(|m| m.matches()));
     let translations = serde_json::from_str(COPY).map_err(|e| JsValue::from_str(&e.to_string()))?;
-    let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, carousel_index: 0, transition_version: 0 }));
+    let managed_content = document.get_element_by_id("site-content")
+        .and_then(|node| node.text_content())
+        .and_then(|text| serde_json::from_str::<Value>(&text).ok())
+        .unwrap_or_else(|| serde_json::json!({"translations": {}, "images": {}}));
+    let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, carousel_index: 0, transition_version: 0, managed_content }));
     app.borrow().render()?;
     // Update even if the page stays open over New Year's midnight.
     let year_document = document.clone();

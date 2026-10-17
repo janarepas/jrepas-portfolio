@@ -4,3 +4,8 @@ __MACOSX/
 .env.*
 !.env.example
 /target/
+
+/node_modules/
+/.wrangler/
+.dev.vars
+.dev.vars.*
