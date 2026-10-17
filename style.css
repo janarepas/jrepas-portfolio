@@ -483,10 +483,10 @@ html[data-runtime] .button{transition:background-color 200ms ease,color 200ms ea
 @media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
 
 /* Grayscale logo, grouped with the agency signature. */
-.footer-agency{display:flex;align-items:center;gap:16px;min-width:0}
+.footer-agency{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;padding:16px 0}
 .footer-logo{display:block;flex:0 0 auto}
 .footer-logo img{display:block;width:96px;height:auto}
 .footer-logo .footer-logo-dark{display:none}
 html[data-theme=dark] .footer-logo-light{display:none}
 html[data-theme=dark] .footer-logo .footer-logo-dark{display:block}
-@media(max-width:700px){.footer-agency{flex-basis:100%;gap:14px}.footer-logo img{width:80px}.footer-agency>[data-i18n]{min-width:0}}
+@media(max-width:700px){.footer-agency{flex-basis:100%;gap:8px;text-align:center}.footer-logo img{width:80px}.footer-agency>[data-i18n]{min-width:0}}
