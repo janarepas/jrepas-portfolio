@@ -576,3 +576,24 @@ html[data-theme] .work .portfolio-card>p{color:inherit;opacity:.85;max-width:480
  .work .portfolio-card .project-title h3{font-size:32px}
  html[data-theme] .work .portfolio-card>p{font-size:15px}
 }
+
+/* Shared 960px content measure; section backgrounds remain full bleed. */
+:root{--content-width:960px}
+.wrap{width:100%;max-width:none;padding-left:max(24px,calc((100% - var(--content-width))/2));padding-right:max(24px,calc((100% - var(--content-width))/2))}
+.hero.wrap{max-width:none}
+.hero .hero-copy{width:60%;max-width:576px}
+.work.wrap{padding-left:0;padding-right:0}
+.work>.section-heading,.work>.work-intro,.work .projects{width:calc(100% - 48px);max-width:var(--content-width);margin-left:auto;margin-right:auto}
+.work .portfolio-card{min-height:420px;padding:32px}
+.work .portfolio-card .project-title h3{font-size:clamp(28px,2.5vw,36px)}
+.about>.eyebrow,.about-process>h2{width:calc(100% - 48px);max-width:var(--content-width);padding-left:0;padding-right:0;margin-left:auto;margin-right:auto}
+.about .process-carousel{width:calc(100% - 48px);max-width:var(--content-width);margin-left:auto;margin-right:auto}
+.about .process-copy{padding:32px 28px 16px}
+.about .process-controls{padding-left:28px;padding-right:28px}
+@media(max-width:700px){
+ .hero .hero-copy{width:100%;max-width:none}
+ .work .portfolio-card{padding:28px 24px;min-height:400px}
+ .work .portfolio-card .project-title h3{font-size:30px}
+ .about .process-copy{padding:24px 22px 18px}
+ .about .process-controls{padding-left:16px;padding-right:16px}
+}
