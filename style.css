@@ -482,7 +482,7 @@ html[data-theme] .work>.section-heading>.small-link:hover{
 html[data-runtime] .button{transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,opacity 130ms ease}
 @media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
 
-/* One ink per logo, grouped with the agency signature. */
+/* Grayscale logo, grouped with the agency signature. */
 .footer-agency{display:flex;align-items:center;gap:16px;min-width:0}
 .footer-logo{display:block;flex:0 0 auto}
 .footer-logo img{display:block;width:96px;height:auto}
