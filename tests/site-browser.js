@@ -10,6 +10,16 @@ try {
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('html[data-runtime="rust-wasm"]');
+    if (await page.locator('html').getAttribute('data-intro') === 'true') {
+      assert.equal(await page.locator('html').getAttribute('data-intro-complete'), 'false');
+      const initialWidth = (await page.locator('.intro-mark').boundingBox()).width;
+      await page.evaluate(() => scrollTo({ top: innerHeight * .25, behavior: 'instant' }));
+      await page.waitForTimeout(80);
+      assert.ok((await page.locator('.intro-mark').boundingBox()).width > initialWidth);
+      await page.evaluate(() => scrollTo({ top: innerHeight, behavior: 'instant' }));
+      await page.waitForFunction(() => document.documentElement.dataset.introComplete === 'true');
+      assert.equal(await page.locator('.intro-stage').isVisible(), false);
+    }
     assert.equal(await page.locator('html').getAttribute('lang'), 'hu');
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
     assert.equal(await page.locator('.portfolio-card').count(), 8);

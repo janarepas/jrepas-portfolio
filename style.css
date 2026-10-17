@@ -491,6 +491,26 @@ html[data-theme=dark] .footer-logo-light{display:none}
 html[data-theme=dark] .footer-logo .footer-logo-dark{display:block}
 @media(max-width:700px){.footer-agency{flex-basis:100%;gap:8px;text-align:center}.footer-logo img{width:80px}.footer-agency>[data-i18n]{min-width:0}}
 
-.site-header .brand{width:128px;padding-left:0;line-height:1;color:var(--text)}
-.jrepas-logo{display:block;width:128px;height:auto;max-height:40px;overflow:visible}
-@media(max-width:700px){.site-header .brand,.jrepas-logo{width:112px}}
+/* Original jrepas wordmark. */
+.site-header .brand{width:128px;align-items:flex-start;line-height:1;color:var(--text)}
+.logo-intro{display:none}
+html[data-intro] .logo-intro{display:block;height:100svh}
+html[data-intro] .intro-stage{position:fixed;inset:0;z-index:90;pointer-events:none}
+html[data-intro] .intro-stage:before{content:'';position:absolute;inset:0;background:var(--bg);opacity:var(--intro-backdrop,1)}
+.intro-mark{position:absolute;white-space:nowrap;line-height:1;transform-origin:center;opacity:var(--intro-logo,1);will-change:transform;isolation:isolate}
+.intro-mark .brand-word{font-size:clamp(76px,17vw,230px);font-weight:900;letter-spacing:-.075em;line-height:1}
+.intro-mark .brand-word>span{color:var(--yellow-main)}
+.intro-mark .brand-pixels{display:block;left:0;top:0;transform:scale(2);transform-origin:top left}
+.intro-scroll{position:absolute;left:50%;bottom:12vh;transform:translateX(-50%);color:var(--text);pointer-events:auto;opacity:var(--intro-hint,1);padding:18px}
+.scroll-wheel{animation:scroll-wheel 1.5s ease-in-out infinite}
+@keyframes scroll-wheel{0%,100%{transform:translateY(-2px);opacity:.4}50%{transform:translateY(3px);opacity:1}}
+html[data-intro] .site-header{z-index:100}
+html[data-intro] .site-header .brand{opacity:calc(1 - var(--intro-logo,1))}
+html[data-intro] .site-header nav,html[data-intro] .site-header .site-controls{opacity:var(--intro-nav,0)}
+html[data-intro]:not([data-intro-complete=true]) .site-header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-color:transparent}
+html[data-intro][data-intro-complete=true] .intro-stage{visibility:hidden}
+html[data-intro] .hero .hero-image img{transform:scale(var(--intro-hero-scale,1));transform-origin:center}
+@media(max-width:700px){.site-header .brand{width:112px}.intro-mark .brand-pixels{transform:scale(1.2)}}
+@media(prefers-reduced-motion:reduce){.logo-intro{display:none!important}.scroll-wheel{animation:none}}
+html[data-intro] body{overflow-anchor:none}
+html[data-intro] .site-header{position:fixed;top:0;left:0;right:0;width:100%;max-width:none}
