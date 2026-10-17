@@ -30,7 +30,7 @@ served over HTTP, not opened directly as a `file:` URL.
 - `src/translations.json`: Hungarian and English text, keyed by HTML `data-i18n`.
 - `index.html`, `packaging.html`: semantic content and fallback English copy.
 - `style.css`: responsive layout, both themes and self-hosted fonts.
-- `fonts/`: DM Serif Display for headings and DM Sans for body text; licenses included.
+- `fonts/`: Cormorant Garamond Light for headings and DM Sans for body text; licenses included.
 - `scripts/build.sh`: locked release build and wasm-bindgen packaging.
 - `assets/rust/<content-hash>/`: generated JavaScript bindings and `.wasm` binary.
 - `site.js`: generated module loader; edit Rust instead of this file.

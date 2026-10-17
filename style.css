@@ -297,3 +297,42 @@ html[data-theme=dark] .button-black{border-color:#555}
 .process-arrow.button{width:auto;min-width:70px;height:34px;padding:8px 14px;font-size:10px;cursor:pointer}
 .process-dots button{font-weight:800;border-radius:var(--button-radius)}
 @media(max-width:950px){.about .process-controls{flex-wrap:wrap;gap:12px;justify-content:space-between}.process-dots{order:3;flex-basis:100%}.process-arrow.button{min-width:78px}.process-controls [data-carousel-next]{margin-left:auto}}
+
+@font-face{font-family:'Cormorant Garamond';src:url('fonts/cormorant-garamond-latin.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;letter-spacing:-.025em}
+.project-title h3,.portfolio-card .project-title h3{font-size:22px;font-weight:400;line-height:1.15}
+/* The process strip meets both edges of the viewport. */
+.about{max-width:none;padding-left:0;padding-right:0}
+.about>.eyebrow,.about-process>h2{max-width:1600px;margin-left:auto;margin-right:auto;padding-left:6%;padding-right:6%}
+.about .process-carousel{width:100%;border-left:0;border-right:0;border-radius:0;margin:30px 0 40px}
+.about .process-art{height:290px}
+.about .process-copy{padding-top:42px;padding-right:max(36px,10vw)}
+.about .process-controls{padding-right:max(36px,10vw)}
+.about-body{width:100%;padding-left:6%;padding-right:6%}
+/* A direct, useful contact section with clear routes to start a project. */
+.contact{padding-top:95px;padding-bottom:95px}
+.contact:after{display:none}
+.contact-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:7%;align-items:center}
+.contact h2{font-size:clamp(56px,6.5vw,100px);line-height:.95;margin:25px 0}
+.contact-description{max-width:460px;font-size:17px;line-height:1.75;color:var(--muted)}
+.contact-disciplines{font-size:10px;font-weight:700;letter-spacing:.08em;line-height:1.8;margin-top:28px;color:var(--muted)}
+.contact-panel{border:1px solid var(--line);border-top:4px solid #ffd400;border-radius:18px;padding:38px;background:var(--surface);min-width:0}
+html[data-theme=light] .contact-panel{background:#fff}
+.contact-panel h3{font-size:clamp(30px,3vw,44px);line-height:1.1;margin:20px 0}
+.contact-email{display:inline-block;font-family:'DM Sans',Arial,sans-serif;font-size:clamp(18px,2vw,27px);font-weight:500;letter-spacing:-.03em;border-bottom:1px solid #c5aa12;padding-bottom:6px;overflow-wrap:anywhere}
+.contact-panel>p:not(.eyebrow){font-size:14px;line-height:1.85;color:var(--muted);margin-top:25px}
+.contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center}
+.contact-actions .button{padding:14px 20px;font-size:10px;margin:0;min-height:44px}
+@media(max-width:950px){.contact-layout{gap:5%}.contact-panel{padding:26px}.about .process-copy,.about .process-controls{padding-right:6%}}
+@media(max-width:700px){
+ .about>.eyebrow,.about-process>h2{padding-left:6%;padding-right:6%}
+ .about .process-art{height:175px}
+ .about .process-copy{padding:25px 6% 20px;min-height:145px}
+ .about .process-controls{padding:0 6% 24px}
+ .contact{padding-top:60px;padding-bottom:60px}
+ .contact-layout{grid-template-columns:1fr;gap:30px}
+ .contact h2{font-size:clamp(56px,12vw,82px)}
+ .contact-panel{padding:28px 22px}
+ .contact-panel h3{font-size:36px}
+ .contact-actions .button{padding:13px 17px}
+}
