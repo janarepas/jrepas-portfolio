@@ -626,3 +626,11 @@ html[data-theme] .work .portfolio-card>p{color:inherit;opacity:.85;max-width:480
  inset:24% 0 0;
  background:linear-gradient(180deg,transparent 0%,var(--tile-end) 100%);
 }
+
+/* Supplied outlined SVG logo, with a light wordmark for the dark theme. */
+.site-header .brand{padding-left:0}
+.site-header .brand img{display:block;width:128px;height:auto}
+.site-header .brand .brand-logo-light{display:none}
+html[data-theme=dark] .site-header .brand .brand-logo-dark{display:none}
+html[data-theme=dark] .site-header .brand .brand-logo-light{display:block}
+@media(max-width:700px){.site-header .brand img{width:112px}}
