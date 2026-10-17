@@ -409,3 +409,6 @@ html[data-runtime] .button{transition:opacity 130ms ease}
 
 .hero-copy>.eyebrow{text-transform:uppercase;color:#666660}
 html[data-theme=dark] .hero-copy>.eyebrow{color:#b8b8ae}
+
+.hero-copy>.eyebrow{font-size:clamp(12px,1.1vw,15px);font-weight:500}
+@media(max-width:700px){.hero-copy>.eyebrow{font-size:13px}}
