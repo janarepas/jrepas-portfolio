@@ -406,3 +406,6 @@ html[data-runtime] .button{transition:opacity 130ms ease}
  .work>.section-heading{grid-template-columns:1fr;gap:22px}
  .work>.section-heading>.small-link{grid-column:1;grid-row:2}
 }
+
+.hero-copy>.eyebrow{text-transform:uppercase;color:#666660}
+html[data-theme=dark] .hero-copy>.eyebrow{color:#b8b8ae}
