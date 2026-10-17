@@ -1,0 +1,425 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f2ee;
+    color: #111;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 4vw;
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a:hover {
+    opacity: 0.5;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 8vw 4vw;
+}
+
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(60px, 9vw, 150px);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+
+    max-width: 1400px;
+}
+
+.intro {
+    font-size: 20px;
+    line-height: 1.5;
+
+    max-width: 550px;
+
+    margin-top: 50px;
+}
+
+
+/* WORK */
+
+.work {
+    padding: 100px 4vw;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #111;
+
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 25px;
+}
+
+.placeholder {
+    aspect-ratio: 4 / 3;
+
+    background: #ddd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 50px;
+}
+
+.project h3 {
+    font-size: 24px;
+    font-weight: 500;
+
+    margin-top: 15px;
+}
+
+.project p {
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+
+/* ABOUT */
+
+.about {
+    padding: 160px 4vw;
+}
+
+.about > p {
+    margin-bottom: 40px;
+}
+
+.about h2 {
+    font-size: clamp(40px, 6vw, 90px);
+    line-height: 1;
+    letter-spacing: -0.05em;
+
+    max-width: 1200px;
+    font-weight: 500;
+}
+
+
+/* CONTACT */
+
+.contact {
+    background: #111;
+    color: #fff;
+
+    padding: 150px 4vw;
+}
+
+.contact p {
+    margin-bottom: 20px;
+}
+
+.contact h2 {
+    font-size: clamp(60px, 9vw, 140px);
+    letter-spacing: -0.06em;
+    font-weight: 500;
+
+    margin-bottom: 60px;
+}
+
+.contact a {
+    font-size: 22px;
+    border-bottom: 1px solid white;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #111;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 30px 4vw;
+
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 20px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .hero,
+    .work,
+    .about,
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        padding: 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* PROJECT INTERACTIONS */
+
+.project-link {
+    display: block;
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #ddd;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+.project-link:hover .project-image img {
+    transform: scale(1.06);
+}
+
+.project-arrow {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+    border-radius: 50%;
+
+    font-size: 24px;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition: all 0.3s ease;
+}
+
+.project-link:hover .project-arrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.project-info h3 {
+    margin-top: 0;
+}
+
+.project-info span {
+    font-size: 13px;
+    opacity: 0.5;
+}
+
+/* CASE STUDY */
+
+.case-hero {
+    padding: 80px 4vw 100px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 100px;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    opacity: 0.5;
+}
+
+.case-hero h1 {
+    font-size: clamp(80px, 12vw, 180px);
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+    font-weight: 500;
+    margin-bottom: 100px;
+}
+
+.case-meta {
+    display: flex;
+    gap: 100px;
+    border-top: 1px solid #111;
+    padding-top: 25px;
+}
+
+.case-meta span {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+}
+
+.case-meta p {
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+.case-image {
+    padding: 0 4vw;
+}
+
+.case-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #ddd;
+}
+
+.case-description {
+    padding: 160px 4vw;
+}
+
+.case-description > p {
+    font-size: 13px;
+    margin-bottom: 40px;
+}
+
+.case-description h2 {
+    font-size: clamp(40px, 6vw, 90px);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    font-weight: 500;
+    max-width: 1100px;
+}
+
+.case-text {
+    max-width: 500px;
+    margin: 60px 0 0 auto;
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.case-next {
+    padding: 120px 4vw;
+    background: #dcdcd6;
+}
+
+.case-next p {
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.case-next a {
+    font-size: clamp(55px, 9vw, 130px);
+    letter-spacing: -0.06em;
+    line-height: 1;
+}
+
+@media (max-width: 700px) {
+    .case-hero {
+        padding: 60px 20px;
+    }
+
+    .back-link {
+        margin-bottom: 70px;
+    }
+
+    .case-hero h1 {
+        margin-bottom: 70px;
+    }
+
+    .case-meta {
+        gap: 30px;
+        flex-direction: column;
+    }
+
+    .case-image {
+        padding: 0 20px;
+    }
+
+    .case-description,
+    .case-next {
+        padding: 100px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-image img,
+    .project-arrow {
+        transition: none;
+    }
+}
