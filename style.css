@@ -1051,3 +1051,21 @@ html[data-theme] .work .portfolio-card .cover-sports .cover-mark{
  .about.process-section .process-step h3{padding:3px 0 0;font-size:32px;margin-bottom:10px}
  .about.process-section .process-flow .process-step:not(:last-child):after{left:20px;right:auto;top:40px;width:1px;height:calc(100% - 40px)}
 }
+/* Larger centered stage markers and directional arrowheads. */
+@media(min-width:801px){
+ .about.process-section .process-step{padding-top:100px!important;text-align:center}
+ .about.process-section .flow-node{height:56px}
+ .about.process-section .flow-number{width:56px;height:56px;position:relative;left:50%;transform:translateX(-50%);font-size:15px}
+ .about.process-section .flow-node svg{left:50%;top:66px;transform:translateX(-50%);width:24px;height:24px}
+ .about.process-section .process-step h3{padding-left:0;min-height:0;font-size:30px}
+ .about.process-section .process-step p{max-width:220px;margin:0 auto}
+ .about.process-section .process-flow .process-step:not(:last-child):after{top:28px;left:calc(50% + 28px);right:calc(-50% - 4px)}
+ .about.process-section .process-step:not(:last-child):before{content:'';position:absolute;top:24px;left:calc(150% + 1px);width:8px;height:8px;border-top:1px solid var(--yellow-main);border-right:1px solid var(--yellow-main);transform:rotate(45deg)}
+}
+@media(max-width:800px){
+ .about.process-section .flow-number{width:48px;height:48px;font-size:14px}
+ .about.process-section .flow-node{width:48px}
+ .about.process-section .process-flow .process-step:not(:last-child):after{left:24px;top:48px;height:calc(100% - 48px)}
+ .about.process-section .process-step:not(:last-child):before{content:'';position:absolute;left:20px;bottom:5px;width:8px;height:8px;border-bottom:1px solid var(--yellow-main);border-right:1px solid var(--yellow-main);transform:rotate(45deg)}
+}
+@media(min-width:801px){.about.process-section .process-step:not(:last-child):before{left:calc(100% + 12px)}}
