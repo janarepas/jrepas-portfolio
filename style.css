@@ -1245,3 +1245,13 @@ html[data-theme] .about.process-section .process-cta:hover:before{
 .about.process-section .process-flow .process-step:not(:last-child):after{top:61px;right:-21px}
 @media(max-width:950px){.about.process-section .process-flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.about.process-section .process-diagram{padding:52px 14px 65px}.about.process-section .process-panel{padding:18px 4px 30px}.about.process-section .process-heading{margin-bottom:42px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 14px}.about.process-section .process-step .flow-node{height:92px}.about.process-section .process-step .flow-node svg{width:52px;height:52px;padding:14px}.about.process-section .process-step h3{font-size:24px}.about.process-section .process-step p{font-size:13px}.about.process-section .process-flow .process-step:not(:last-child):after{top:49px;right:-13px}}
+
+/* Hungarian accented glyphs: use a full Latin Extended serif instead of
+   mixing the Latin-only IvyPresto subset with fallback glyphs. */
+html[lang="hu"] .about.process-section .process-heading h2,
+html[lang="hu"] .about.process-section .process-step h3{
+ font-family:Georgia,'Times New Roman',serif;
+ font-weight:400;
+ font-style:italic;
+ letter-spacing:-.045em;
+}
