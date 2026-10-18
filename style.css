@@ -763,18 +763,30 @@ html[data-theme] .site-header nav .header-contact:hover{
 .work .portfolio-card .cover-vector .cover-mark{left:max(32px,calc((100vw - var(--content-width))/2));right:auto}
 @media(max-width:700px){.work .portfolio-card .cover-vector .cover-mark{left:24px;right:auto}}
 
-/* Outline traces first; the orange fill follows after it closes. */
-html[data-theme] .site-header nav .header-contact{position:relative;isolation:isolate;overflow:hidden}
-html[data-theme] .site-header nav .header-contact:hover{background:transparent;border-color:var(--yellow-deep);color:var(--black-deep);transition:color 250ms ease 480ms,border-color 120ms ease 780ms}
-.site-header nav .header-contact:before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--yellow-deep);transform:scaleX(0);transform-origin:left center;z-index:-1;transition:transform 300ms ease}
-.site-header nav .header-contact:hover:before{transform:scaleX(1);transition:transform 400ms cubic-bezier(.2,.7,.2,1) 480ms}
+/* The whole outline changes first, then the orange fill arrives. */
+html[data-theme] .site-header nav .header-contact{position:relative;isolation:isolate;overflow:hidden;transition:border-color 220ms ease,color 220ms ease}
+html[data-theme] .site-header nav .header-contact:hover{background:transparent;border-color:var(--yellow-deep);color:var(--black-deep);transition:border-color 220ms ease,color 220ms ease 220ms}
+.site-header nav .header-contact:before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--yellow-deep);transform:scaleX(0);transform-origin:left center;z-index:-1;transition:transform 220ms ease}
+.site-header nav .header-contact:hover:before{transform:scaleX(1);transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms}
 .contact-label{position:relative;z-index:1}
-.contact-outline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.contact-outline rect{width:calc(100% - 2px);height:calc(100% - 2px);fill:none;stroke:var(--yellow-deep);stroke-width:2;stroke-dasharray:100;stroke-dashoffset:100;opacity:0;transition:stroke-dashoffset 300ms ease,opacity 200ms ease}
-.header-contact:hover .contact-outline rect{stroke-dashoffset:0;opacity:1;transition:stroke-dashoffset 480ms ease,opacity 100ms ease}
 @media(prefers-reduced-motion:reduce){
- html[data-theme] .site-header nav .header-contact:hover{transition:none}
- .site-header nav .header-contact:before,.site-header nav .header-contact:hover:before,.contact-outline rect,.header-contact:hover .contact-outline rect{transition:none}
+ html[data-theme] .site-header nav .header-contact,html[data-theme] .site-header nav .header-contact:hover,.site-header nav .header-contact:before,.site-header nav .header-contact:hover:before{transition:none}
 }
-.work .portfolio-card .cover-vector .vector-reconstruction-art{left:auto;right:0;width:min(45%,240px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
-.work .portfolio-card .cover-vector .cover-mark{font-size:clamp(110px,11vw,170px)}
+/* Swap the technical artwork and Aa while keeping their separation. */
+.work .portfolio-card .cover-vector .vector-reconstruction-art{left:max(32px,calc((100vw - var(--content-width))/2));right:auto;width:min(45%,240px);-webkit-mask-image:linear-gradient(90deg,#000 62%,transparent);mask-image:linear-gradient(90deg,#000 62%,transparent)}
+.work .portfolio-card .cover-vector .cover-mark{left:auto;right:32px;font-size:clamp(110px,11vw,170px)}
+/* Keep the agency centered independently of the copyright on its left. */
+footer.wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+footer>.footer-agency{grid-column:2;grid-row:1;justify-self:center;text-align:center}
+footer>span:not(.footer-agency){grid-column:1;grid-row:1}
+@media(max-width:700px){
+ .work .portfolio-card .cover-vector .vector-reconstruction-art{left:24px;right:auto}
+ .work .portfolio-card .cover-vector .cover-mark{left:auto;right:24px}
+ footer.wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+ footer>.footer-agency{flex-basis:auto}
+}
+
+/* A matching technical packaging illustration, retaining the yellow tile. */
+.work .portfolio-card .cover-pack .packaging-dielines-art{position:absolute;left:32px;top:0;width:min(45%,240px);height:100%;object-fit:cover;object-position:right top;opacity:.57;z-index:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent);mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent)}
+.work .portfolio-card .cover-pack .cover-mark,.work .portfolio-card .cover-pack .cover-pixels{z-index:1}
+@media(max-width:700px){.work .portfolio-card .cover-pack .packaging-dielines-art{left:24px;width:40%}}
