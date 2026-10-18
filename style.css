@@ -1122,3 +1122,24 @@ html[data-theme=dark] .about.process-section .process-step p{color:#a1a1a6}
 #about .about-vector-nodes{opacity:.1}
 html[data-theme=dark] #about .about-vector-curves{opacity:.055}
 @media(max-width:700px){#about .about-vector-art{top:48%;height:85%}#about .about-vector-curves{opacity:.055}}
+
+/* Client-first six-stage process: readable, calm and easy to follow. */
+.about.process-section .process-diagram{padding:72px 24px 86px;background:var(--bg)}
+.about.process-section .process-panel{max-width:1120px;padding:60px 54px 56px;border-radius:28px;background:#f4f4f1}
+html[data-theme=dark] .about.process-section .process-panel{background:#171717}
+.about.process-section .process-heading{max-width:780px;margin:0 auto 42px;text-align:center}
+.about.process-section .process-heading>.eyebrow{font-size:12px;color:var(--muted);margin-bottom:14px}
+.about.process-section .process-heading h2{font-size:clamp(38px,4.5vw,62px);line-height:1.06;max-width:760px;margin:0 auto}
+.about.process-section .process-subtitle{margin:20px auto 0;max-width:550px;font-size:16px;line-height:1.65;color:var(--muted)}
+.about.process-section .process-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border:0;border-radius:0;background:transparent;overflow:visible;list-style:none}
+.about.process-section .process-flow .process-step{margin:0!important;min-height:230px;padding:88px 24px 28px!important;border:1px solid var(--line)!important;border-top:3px solid var(--yellow-main)!important;border-radius:16px;background:var(--bg);text-align:left}
+.about.process-section .process-step:before,.about.process-section .process-step:after,.about.process-section .flow-node:after{content:none!important;display:none!important}
+.about.process-section .process-step .flow-node{position:absolute;top:22px;left:24px;right:24px;width:auto;height:44px;margin:0;display:flex;align-items:center;justify-content:space-between}
+.about.process-section .process-step .flow-number{position:static;transform:none;width:42px;height:42px;flex:0 0 42px;border:none;border-radius:50%;font:700 13px/1 'DM Sans',Arial,sans-serif;color:#111;background:var(--yellow-main)}
+.about.process-section .process-step .flow-node svg{display:block;position:static;transform:none;width:26px;height:26px;margin:0;color:var(--muted)}
+.about.process-section .process-step h3{margin:0 0 12px;padding:0!important;font-size:clamp(27px,2.4vw,34px);line-height:1.08;min-height:0;font-weight:400;text-align:left}
+.about.process-section .process-step p{max-width:none;margin:0;font-size:15px;line-height:1.6;text-align:left;color:var(--muted)}
+.about.process-section .process-cta{display:flex;align-items:center;justify-content:center;width:max-content;max-width:100%;margin:36px auto 0;padding:18px 30px;min-height:54px;background:var(--yellow-main);color:var(--black-deep);border:1px solid var(--yellow-main);border-radius:var(--button-radius);font:700 13px/1.4 'DM Sans',Arial,sans-serif;text-decoration:none}
+.about.process-section .process-cta:hover{background:var(--yellow-gold)}
+@media(max-width:900px){.about.process-section .process-panel{padding:44px 30px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.about.process-section .process-diagram{padding:44px 16px 56px}.about.process-section .process-panel{padding:36px 18px 34px;border-radius:20px}.about.process-section .process-heading{margin-bottom:30px}.about.process-section .process-heading h2{font-size:clamp(34px,9vw,45px)}.about.process-section .process-subtitle{font-size:14px}.about.process-section .process-flow{grid-template-columns:1fr;gap:12px}.about.process-section .process-flow .process-step{min-height:0;padding:78px 20px 24px!important}.about.process-section .process-step .flow-node{left:20px;right:20px;top:18px}.about.process-section .process-step h3{font-size:30px}.about.process-section .process-step p{font-size:15px}.about.process-section .process-cta{width:100%}}
