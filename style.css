@@ -1282,3 +1282,16 @@ html[lang="hu"] body .about.process-section .process-step h3{
  font-weight:400;
  font-style:normal;
 }
+
+/* IvyPresto Display italic is the canonical heading style, including process labels. */
+html body h1,html body h2,html body h3,
+html body .hero h1,html body .case-hero h1,
+html body .about h2,html body .contact h2,
+html body .about.process-section .process-heading h2,
+html body .about.process-section .process-step h3,
+html[lang="hu"] body .about.process-section .process-heading h2,
+html[lang="hu"] body .about.process-section .process-step h3{
+ font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-weight:400;
+ font-style:italic;
+}
