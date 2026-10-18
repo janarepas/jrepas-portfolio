@@ -4,7 +4,7 @@ const root = document.documentElement;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let lenis;
 let observer;
-const targets = [...document.querySelectorAll('.portfolio-card, .work-collage, .selected-work > h3, .process-step, .about-process > h2, .about-body > p, .contact-layout > div, .case-image, .case-description-grid > *')];
+const targets = [...document.querySelectorAll('.portfolio-card, .work-tile, .selected-work > h3, .process-step, .about-process > h2, .about-body > p, .contact-layout > div, .case-image, .case-description-grid > *')];
 
 function setupMotion() {
   lenis?.destroy();

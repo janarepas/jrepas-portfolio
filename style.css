@@ -1857,29 +1857,20 @@ html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:mi
 #about .behance-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;font-size:18px;font-weight:600;color:var(--text);text-decoration:underline;text-decoration-color:var(--yellow-gold);text-underline-offset:6px}
 #about .behance-link:hover{text-decoration-thickness:2px}
 @media(max-width:700px){#about .about-body .about-actions{grid-row:auto;flex-direction:column;gap:16px}#about .behance-link{font-size:17px}}
-/* One clickable composition of real projects, without a project listing. */
+/* Individual image tiles with no visible project captions. */
 #about .selected-work{grid-column:1/-1;grid-row:3;min-width:0;width:100%;margin-top:20px}
 #about .selected-work>h3{text-align:center;font-size:clamp(38px,4vw,52px);font-weight:400;line-height:1.12;letter-spacing:-.025em;margin:0 0 28px;text-wrap:balance}
-.work-collage{display:block;position:relative;isolation:isolate;aspect-ratio:1.7;border-radius:24px;overflow:hidden;background:var(--surface)}
-.work-collage>img{display:block;position:absolute;height:auto;aspect-ratio:808/632;object-fit:contain;border:6px solid var(--bg);border-radius:8px;box-shadow:0 12px 32px #0003}
-.work-collage>img:nth-child(1){width:49%;left:4%;top:5%;transform:rotate(-7deg);z-index:1}
-.work-collage>img:nth-child(2){width:45%;right:3%;top:6%;transform:rotate(6deg);z-index:2}
-.work-collage>img:nth-child(3){width:40%;left:10%;bottom:5%;transform:rotate(4deg);z-index:3}
-.work-collage>img:nth-child(4){width:43%;right:6%;bottom:3%;transform:rotate(-5deg);z-index:4}
-.collage-open{position:absolute;right:18px;bottom:18px;z-index:5;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--yellow-main);color:#171717;font-size:28px;line-height:1;box-shadow:0 4px 14px #0002;transition:transform .2s ease}
-.work-collage:hover .collage-open{transform:translate(2px,-2px)}
-.work-collage:focus-visible{outline:3px solid var(--yellow-gold);outline-offset:6px}
+.work-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.work-tile{display:block;position:relative;min-width:0;overflow:hidden;border-radius:16px;background:var(--surface)}
+.work-tile>img{display:block;width:100%;height:auto;aspect-ratio:808/632;object-fit:contain;transition:transform .25s ease}
+.work-tile:hover>img{transform:scale(1.025)}
+.work-tile:focus-visible{outline:3px solid var(--yellow-gold);outline-offset:6px}
 .reference-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 @media(min-width:701px){#about .about-body .about-actions{grid-row:4;margin-top:12px}}
 @media(max-width:700px){
  #about .selected-work{grid-row:auto;margin-top:12px}
  #about .selected-work>h3{font-size:38px}
- .work-collage{aspect-ratio:.95;border-radius:18px}
- .work-collage>img{border-width:4px}
- .work-collage>img:nth-child(1){width:64%;left:2%;top:6%;transform:rotate(-8deg)}
- .work-collage>img:nth-child(2){width:62%;right:2%;top:20%;transform:rotate(7deg)}
- .work-collage>img:nth-child(3){width:58%;left:5%;bottom:8%;transform:rotate(5deg)}
- .work-collage>img:nth-child(4){width:62%;right:3%;bottom:3%;transform:rotate(-6deg)}
- .collage-open{right:12px;bottom:12px;width:48px;height:48px;font-size:25px}
+ .work-tiles{gap:16px}
+ .work-tile{border-radius:10px}
 }
-@media(prefers-reduced-motion:reduce){.collage-open{transition:none}}
+@media(prefers-reduced-motion:reduce){.work-tile>img{transition:none}}
