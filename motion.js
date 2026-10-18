@@ -59,16 +59,28 @@ for (const logo of document.querySelectorAll('.footer-logo')) {
   const sample = document.createElement('canvas');
   const sampleContext = sample.getContext('2d');
   if (!context || !sampleContext) continue;
+  const layers = {};
+  for (const variant of ['black', 'white']) {
+    layers[variant] = {};
+    for (const layer of ['numbers', 'surround']) {
+      const image = new Image();
+      image.onload = () => draw();
+      image.src = `images/144p-${variant}-${layer}.svg`;
+      layers[variant][layer] = image;
+    }
+  }
   let level = 0;
   let frame;
   function draw() {
-    const image = logo.querySelector(root.dataset.theme === 'dark' ? '.footer-logo-dark' : '.footer-logo-light');
-    if (!image?.complete || !image.naturalWidth) return;
+    const layer = layers[root.dataset.theme === 'dark' ? 'white' : 'black'];
+    const image = layer.surround;
+    const numbers = layer.numbers;
+    if (!image?.complete || !image.naturalWidth || !numbers?.complete || !numbers.naturalWidth) return;
     const bounds = logo.getBoundingClientRect();
     const density = Math.min(devicePixelRatio || 1, 3);
     canvas.width = Math.max(1, Math.round(bounds.width * density));
     canvas.height = Math.max(1, Math.round(bounds.height * density));
-    const block = 1 + 5 * density * level;
+    const block = 1 + 8 * density * level;
     sample.width = Math.max(1, Math.round(canvas.width / block));
     sample.height = Math.max(1, Math.round(canvas.height / block));
     sampleContext.clearRect(0, 0, sample.width, sample.height);
@@ -76,6 +88,8 @@ for (const logo of document.querySelectorAll('.footer-logo')) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.imageSmoothingEnabled = false;
     context.drawImage(sample, 0, 0, canvas.width, canvas.height);
+    context.imageSmoothingEnabled = true;
+    context.drawImage(numbers, 0, 0, canvas.width, canvas.height);
     logo.toggleAttribute('data-pixel-active', level > 0);
     logo.dataset.pixelProgress = level.toFixed(3);
   }

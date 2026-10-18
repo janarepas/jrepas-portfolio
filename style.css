@@ -739,3 +739,6 @@ html[data-theme] .work>.section-heading>.small-link,html[data-theme] .work>.sect
 .footer-logo canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none;image-rendering:pixelated}
 .footer-logo[data-pixel-active] img{opacity:0}
 .footer-logo[data-pixel-active] canvas{opacity:1}
+
+.language-flag{display:block;overflow:hidden;border-radius:3px;box-shadow:0 0 0 1px rgba(127,127,127,.2)}
+.site-controls .language-switch button{display:inline-flex;align-items:center;justify-content:center}

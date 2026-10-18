@@ -123,7 +123,7 @@ impl App {
             source.set_attribute("media", if self.dark { "all" } else { "not all" })?;
         }
         if let Some(image) = document.query_selector(".hero-image img")? {
-            image.set_attribute("alt", lang.text("Két telefonból álló koncepció, sárga és fekete geometrikus képernyőgrafikával", "Two concept phones displaying yellow and black geometric artwork"))?;
+            image.set_attribute("alt", lang.text("Hajlítható Duo telefon, a kijelzőjén sárga és fekete geometrikus grafikával", "Foldable Duo phone displaying yellow and black geometric artwork"))?;
         }
         let images = document.query_selector_all(".project img, .case-image img")?;
         for i in 0..images.length() {
