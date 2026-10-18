@@ -1024,3 +1024,11 @@ html[data-theme] .work .portfolio-card:nth-child(7):after{background:linear-grad
 html[data-theme] .work .portfolio-card .cover-sports .cover-mark{color:#ffc20e;opacity:.5}
 /* Preserve the supplied YouTube thumbnail's original colours. */
 .work .portfolio-card .cover-video .service-scene{mix-blend-mode:normal;opacity:1}
+/* Fit the complete team before the symbols; fade only the photo's outer edge. */
+html[data-theme] .work .portfolio-card .cover-sports .service-scene{
+ inset:0 auto auto 0;width:var(--artwork-stop,75%);height:auto;aspect-ratio:16/9;
+ object-fit:contain;object-position:left top;opacity:1;filter:grayscale(1) brightness(.95);
+ -webkit-mask-image:linear-gradient(to right,#000 0%,#000 92%,transparent 100%);
+ mask-image:linear-gradient(to right,#000 0%,#000 92%,transparent 100%);
+}
+html[data-theme] .work .portfolio-card:nth-child(7):after{inset:38% 0 0;background:linear-gradient(to bottom,transparent 0%,rgba(16,16,16,.6) 55%,#101010 100%)}
