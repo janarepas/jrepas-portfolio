@@ -831,3 +831,32 @@ footer>span:not(.footer-agency){grid-column:1;grid-row:1}
 
 /* A restrained uppercase line directly below the contact section label. */
 .contact-intro .contact-disciplines{position:static;transform:none;width:auto;max-width:none;margin:10px 0 0;font-size:11px;font-weight:500;line-height:1.7;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);opacity:1;pointer-events:auto}
+
+/* Four distinct visual treatments instead of repeating dark/yellow columns. */
+.work .portfolio-card:nth-child(1){--tile-end:#030303}
+.work .portfolio-card:nth-child(1):after{inset:52% 0 0}
+.work .portfolio-card:nth-child(2){--tile-end:#e0b607}
+.work .portfolio-card:nth-child(2):after{inset:62% 0 0}
+.work .portfolio-card .cover-pack .packaging-dielines-art{width:min(46%,290px);height:285px;opacity:.8}
+/* Retail: stronger monochrome photography with a narrow yellow side accent. */
+.work .portfolio-card:nth-child(3){--tile-end:#151515}
+.work .portfolio-card .cover-retail{background:#292929}
+.work .portfolio-card .cover-retail .portfolio-scene{opacity:.68;filter:grayscale(1) contrast(1.1)}
+.work .portfolio-card .cover-retail:after{content:'';position:absolute;left:0;top:0;width:8px;height:100%;background:var(--yellow-main);z-index:1}
+.work .portfolio-card .cover-retail .cover-mark{top:28px;right:32px;left:auto;font-size:44px;letter-spacing:.04em;opacity:.55}
+.work .portfolio-card:nth-child(3):after{inset:30% 0 0;background:linear-gradient(180deg,transparent,#151515 90%)}
+/* Editorial: light paper, a grayscale flat-lay and a small typographic specimen. */
+.work .portfolio-card:nth-child(4){--tile-end:#d6d1c4;color:var(--black-deep)}
+.work .portfolio-card .cover-editorial{background:#f5f2e8;color:var(--black-deep)}
+.work .portfolio-card .cover-editorial .portfolio-scene{opacity:.55;filter:grayscale(1);mix-blend-mode:multiply;object-position:center 30%}
+.work .portfolio-card .cover-editorial .cover-mark{top:28px;right:32px;left:auto;font-size:54px;opacity:.35}
+.work .portfolio-card:nth-child(4):after{inset:34% 0 0;background:linear-gradient(180deg,rgba(245,242,232,0),#f5f2e8 78%)}
+.work .portfolio-card:nth-child(4) .project-title{padding-left:16px;border-left:3px solid var(--yellow-main)}
+@media(max-width:700px){
+ .work .portfolio-card .cover-pack .packaging-dielines-art{width:43%;height:250px}
+ .work .portfolio-card .cover-retail .cover-mark,.work .portfolio-card .cover-editorial .cover-mark{right:92px}
+}
+
+/* A crisp vector editing diagram replaces the indistinct raster illustration. */
+.work .portfolio-card .cover-vector .vector-reconstruction-art{top:36px;height:250px;opacity:1;object-fit:contain;-webkit-mask-image:none;mask-image:none}
+@media(max-width:700px){.work .portfolio-card .cover-vector .vector-reconstruction-art{top:40px;height:220px}}
