@@ -1031,3 +1031,23 @@ html[data-theme] .work .portfolio-card .cover-sports .cover-mark{
  top:28px;left:auto;right:144px;bottom:auto;font-size:42px;line-height:1;width:42px;height:42px;opacity:.65;
 }
 @media(max-width:700px){html[data-theme] .work .portfolio-card .cover-sports .cover-mark{right:132px}}
+/* One connected timeline instead of four boxed panels. */
+.about.process-section .process-diagram{background:var(--bg);padding:64px 24px}
+.about.process-section .process-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;border:0;border-radius:0;overflow:visible;background:transparent}
+.about.process-section .process-step{min-height:220px;padding:88px 0 0!important;margin:0!important;border:0!important}
+.about.process-section .flow-node{top:0;left:0;right:0;height:40px;display:block}
+.about.process-section .flow-number{position:relative;z-index:1}
+.about.process-section .flow-node svg{position:absolute;left:0;top:88px;width:26px;height:26px;display:block}
+.about.process-section .process-step h3{font-size:30px;padding-left:38px;min-height:34px;line-height:1.12;margin:0 0 14px}
+.about.process-section .process-step p{font-size:16px;line-height:1.6}
+.about.process-section .process-flow .process-step:not(:last-child):after{content:'';display:block!important;position:absolute;top:20px;left:40px;right:-32px;width:auto;height:1px;background:var(--yellow-main)}
+@media(max-width:800px){
+ .about.process-section .process-diagram{padding:40px 24px}
+ .about.process-section .process-flow{display:block}
+ .about.process-section .process-step{padding:0 0 36px 68px!important;min-height:120px}
+ .about.process-section .process-step:last-child{min-height:0;padding-bottom:0!important}
+ .about.process-section .flow-node{width:40px;height:100%;right:auto}
+ .about.process-section .flow-node svg{display:none}
+ .about.process-section .process-step h3{padding:3px 0 0;font-size:32px;margin-bottom:10px}
+ .about.process-section .process-flow .process-step:not(:last-child):after{left:20px;right:auto;top:40px;width:1px;height:calc(100% - 40px)}
+}
