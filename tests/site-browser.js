@@ -42,6 +42,8 @@ try {
       assert.ok(stages[1].left > stages[0].left);
       assert.equal(stages[2].top, stages[3].top);
       assert.ok(stages[2].top >= stages[0].bottom);
+      assert.ok(stages[2].left > stages[0].left);
+      await page.waitForSelector('.process-connector path[d]');
     } else {
       assert.equal(stages[0].left, stages[1].left);
       assert.ok(stages[1].top >= stages[0].bottom);

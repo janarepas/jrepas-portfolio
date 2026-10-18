@@ -67,3 +67,31 @@ const artworkResize = new ResizeObserver(updateArtworkSpace);
 tileCovers.forEach(cover => artworkResize.observe(cover));
 document.fonts.ready.then(updateArtworkSpace);
 updateArtworkSpace();
+
+// Route a continuous path around the text, through all four stage markers.
+const processFlow = document.querySelector('.process-flow');
+if (processFlow) {
+  const connector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  connector.classList.add('process-connector');
+  connector.setAttribute('aria-hidden', 'true');
+  const path = document.createElementNS(connector.namespaceURI, 'path');
+  connector.append(path);
+  processFlow.append(connector);
+  function drawProcessConnector() {
+    const stages = [...processFlow.querySelectorAll('.process-step')];
+    if (stages.length !== 4 || innerWidth <= 700) return;
+    const points = stages.map(stage => {
+      const marker = stage.querySelector('.flow-number');
+      return {x:stage.offsetLeft + marker.offsetWidth / 2, y:stage.offsetTop + marker.offsetHeight / 2};
+    });
+    const [a,b,c,d] = points;
+    const upper = a.y - 48;
+    const middle = (stages[0].offsetTop + stages[0].offsetHeight + stages[2].offsetTop) / 2;
+    const lower = Math.max(stages[2].offsetTop + stages[2].offsetHeight, stages[3].offsetTop + stages[3].offsetHeight) + 20;
+    path.setAttribute('d', `M ${a.x} ${a.y} V ${upper} H ${b.x} V ${middle} H ${c.x} V ${lower} H ${d.x} V ${d.y}`);
+  }
+  const processResize = new ResizeObserver(drawProcessConnector);
+  processResize.observe(processFlow);
+  document.fonts.ready.then(drawProcessConnector);
+  drawProcessConnector();
+}
