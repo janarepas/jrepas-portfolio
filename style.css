@@ -1437,3 +1437,15 @@ html[data-theme=dark] #about .about-vector-curves{opacity:.14}
 #about .about-vector-guides{opacity:.06}
 #about .about-vector-nodes{opacity:.18}
 @media(max-width:700px){#about .about-body{grid-template-columns:1fr;row-gap:26px}#about .about-body>p:nth-child(2){justify-self:start}#about .about-vector-curves,html[data-theme=dark] #about .about-vector-curves{opacity:.11}}
+
+/* Retail cover: match the first portfolio card's typographic Aa mark. */
+html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
+ top:50%;left:50%;right:auto;
+ transform:translate(-50%,-50%);
+ font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-style:italic;font-weight:400;
+ font-size:clamp(110px,11vw,170px);
+ line-height:1;letter-spacing:-.06em;
+ color:var(--yellow-main);opacity:.9;
+}
+@media(max-width:700px){html[data-theme] .work .portfolio-card .cover-retail .cover-mark{font-size:clamp(100px,23vw,145px)}}
