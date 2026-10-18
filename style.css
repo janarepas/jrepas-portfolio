@@ -1008,3 +1008,7 @@ html[data-motion=true] .hero h1 em:after{transform:scaleX(var(--hero-underline,0
 }
 /* Keep the current-year credit below the centered agency tagline. */
 footer .footer-copyright{display:block;margin-top:16px;font-size:11px;letter-spacing:.08em;color:var(--muted);text-align:center}
+/* Compact spacing beneath the agency tagline and at the foot of the page. */
+footer.wrap{min-height:0;padding-top:12px;padding-bottom:12px}
+footer .footer-agency{padding:8px 0;gap:8px}
+footer .footer-copyright{margin-top:0;line-height:1.4}
