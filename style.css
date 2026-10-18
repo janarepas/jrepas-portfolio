@@ -707,3 +707,11 @@ html[data-theme=dark] .top-glass{--edge-rgb:8,8,8}
 .top-glass>span:nth-child(1){-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 .top-glass>span:nth-child(2){-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 .top-glass>span:nth-child(3){-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);background:transparent}
+
+/* Keep navigation at the top without a separate glass bar. */
+.site-header,html[data-theme=light] .site-header,html[data-theme=dark] .site-header{
+ position:sticky;top:0;z-index:50;background:transparent;border:0;box-shadow:none;
+ -webkit-backdrop-filter:none;backdrop-filter:none;
+}
+html{scroll-padding-top:74px}
+@media(max-width:700px){html{scroll-padding-top:136px}}

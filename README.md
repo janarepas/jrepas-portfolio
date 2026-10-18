@@ -84,6 +84,6 @@ Run `npm test` against the local HTTP server to check the public site.
 `motion.js` adds locally served Lenis 1.3.27 for smooth mouse-wheel scrolling;
 touch scrolling stays native. Off-screen content reveals once as it enters the
 viewport. Reduced-motion preferences disable interpolation and reveals. A masked
-blur and theme-coloured fade soften the viewport top after scrolling. The menu
-scrolls with the document. The vendor bundle and MIT license live in
+blur and theme-coloured fade soften the viewport top after scrolling. The transparent menu
+stays at the top without its own background, border or blur. The vendor bundle and MIT license live in
 `assets/vendor/lenis-1.3.27/`. Run `npm run test:motion` with the local server.
