@@ -1026,3 +1026,8 @@ html[data-theme] .work .portfolio-card .cover-video .service-scene{filter:graysc
 html[data-theme] .work .portfolio-card:nth-child(7):after{display:block;inset:28% 0 0;background:linear-gradient(to bottom,transparent,#101010 100%)}
 html[data-theme] .work .portfolio-card:nth-child(8):after{display:block;inset:24% 0 0;background:linear-gradient(to bottom,transparent,var(--tile-end) 100%)}
 html[data-theme] .work .portfolio-card .cover-sports .cover-mark{color:#ffc20e;opacity:.5}
+/* Keep the sports symbol in the top ornament row, clear of the players. */
+html[data-theme] .work .portfolio-card .cover-sports .cover-mark{
+ top:28px;left:auto;right:144px;bottom:auto;font-size:42px;line-height:1;width:42px;height:42px;opacity:.65;
+}
+@media(max-width:700px){html[data-theme] .work .portfolio-card .cover-sports .cover-mark{right:132px}}
