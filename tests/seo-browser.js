@@ -7,7 +7,7 @@ const copy = JSON.parse(await readFile(new URL('../src/translations.json', impor
 const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
 try {
   const context = await browser.newContext({ javaScriptEnabled: false });
-  for (const [path, titleKey, descriptionKey] of [['/', '134', '135'], ['/packaging.html', '136', '137']]) {
+  for (const [path, titleKey, descriptionKey] of [['/', '134', '135']]) {
     const page = await context.newPage();
     const response = await page.goto(base + path, { waitUntil: 'domcontentloaded' });
     assert.equal(response.status(), 200);
@@ -27,7 +27,7 @@ try {
       assert.equal(await page.locator('.portfolio-card').count(), 8);
       assert.match(await page.locator('.about-body').textContent(), /Répás János/);
       assert.match(await page.locator('.work-intro').textContent(), /csomagolástervezés/);
-      assert.equal(await page.locator('.about-body a[href="/packaging"]').count(), 1);
+      assert.equal(await page.locator('a[href="/packaging"], a[href="packaging.html"]').count(), 0);
       const service = schema['@graph'].find(entity => entity['@type'] === 'Service');
       assert.equal(service.hasOfferCatalog.itemListElement.length, 8);
     }
@@ -35,7 +35,7 @@ try {
   }
   await context.close();
   const page = await browser.newPage({ locale: 'hu-HU' });
-  for (const [path, titleKey, descriptionKey] of [['/', '134', '135'], ['/packaging.html', '136', '137']]) {
+  for (const [path, titleKey, descriptionKey] of [['/', '134', '135']]) {
     await page.goto(base + path, { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('html[data-runtime="rust-wasm"]');
     await page.locator('[data-language="en"]').click();
@@ -53,7 +53,7 @@ try {
   assert.equal(sitemapResponse.status(), 200);
   const sitemap = await sitemapResponse.text();
   assert.match(sitemap, /<loc>https:\/\/jrepas.hu\/<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/jrepas.hu\/packaging<\/loc>/);
+  assert.ok(!sitemap.includes('/packaging'));
   assert.equal((await page.request.get(base + '/images/social-preview.jpg')).status(), 200);
   await page.goto(base + '/404.html');
   assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'), 'noindex, follow');
@@ -64,14 +64,18 @@ try {
     assert.equal(index.status(), 301);
     assert.equal(new URL(index.headers().location, base).pathname, '/');
     assert.equal(new URL(index.headers().location, base).search, '?source=seo-check');
-    const oldCase = await page.request.get(base + '/packaging.html', { maxRedirects: 0 });
-    assert.ok([301, 308].includes(oldCase.status()));
-    assert.equal(new URL(oldCase.headers().location, base).pathname, '/packaging');
-    assert.equal((await page.request.get(base + '/packaging')).status(), 200);
+    for (const path of ['/packaging', '/packaging/', '/packaging.html']) {
+      const oldCase = await page.request.get(base + path + '?source=old-link', { maxRedirects: 0 });
+      assert.equal(oldCase.status(), 301);
+      const target = new URL(oldCase.headers().location, base);
+      assert.equal(target.pathname, '/');
+      assert.equal(target.hash, '#service-packaging');
+      assert.equal(target.search, '?source=old-link');
+    }
     const missing = await page.request.get(base + '/not-a-real-page-seo-check');
     assert.equal(missing.status(), 404);
     assert.match(await missing.text(), /Az oldal nem található/);
-    console.log('Cloudflare route statuses: home redirect, clean case URL and real 404 passed.');
+    console.log('Cloudflare route statuses: home redirect, retired packaging page redirects and real 404 passed.');
   }
   console.log('SEO: Hungarian content without JavaScript, page metadata/schema, canonical URLs, sitemap, robots, social image and translated metadata passed.');
 } finally {

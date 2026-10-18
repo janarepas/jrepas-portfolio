@@ -102,9 +102,8 @@ impl App {
         toggle.set_attribute("aria-pressed", if self.dark { "false" } else { "true" })?;
         element(document, "nav")?.set_attribute("aria-label", lang.text("Főmenü", "Main navigation"))?;
         element(document, ".brand")?.set_attribute("aria-label", lang.text("JREPAS kezdőlap", "JREPAS home"))?;
-        let project = document.location().and_then(|l| l.pathname().ok()).is_some_and(|p| p.ends_with("/packaging.html") || p.ends_with("/packaging"));
-        let title_key = if project { "136" } else { "134" };
-        let description_key = if project { "137" } else { "135" };
+        let title_key = "134";
+        let description_key = "135";
         let title = self.translations[title_key][lang.code()].as_str().unwrap_or("Répás János – Grafikai tervezés | jrepas.hu");
         let description = self.translations[description_key][lang.code()].as_str().unwrap_or_default();
         document.set_title(title);

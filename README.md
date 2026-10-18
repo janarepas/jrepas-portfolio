@@ -28,7 +28,7 @@ served over HTTP, not opened directly as a `file:` URL.
   theme controls, the six-step illustrated design process, accessibility labels, page titles,
   metadata and persistence.
 - `src/translations.json`: Hungarian and English text, keyed by HTML `data-i18n`.
-- `index.html`, `packaging.html`: semantic content and indexable Hungarian copy.
+- `index.html`: semantic content and indexable Hungarian copy.
 - `style.css`: responsive layout, both themes and self-hosted fonts.
 - `fonts/`: DM Serif Display 400 Italic for headings and DM Sans for body text; licenses included.
 - `scripts/build.sh`: locked release build and wasm-bindgen packaging.
@@ -47,7 +47,7 @@ storage. Static HTML remains readable if JavaScript/WebAssembly is unavailable.
 After changing Rust or translations, run `./scripts/build.sh` and commit the
 updated `site.js` and generated assets alongside the sources. Keep previous
 hashed asset directories available for cached pages. The generated loader is
-served with a version query in both HTML files; bump that query on a new release.
+served with a version query in the HTML file; bump that query on a new release.
 
 The generated files are checked in so the existing Cloudflare Pages configuration
 continues to work: **framework None, empty build command, output directory `.`**.
@@ -62,7 +62,7 @@ images. Contact: `jrepas@icloud.com`.
 ## Typography
 
 The Adobe Fonts web-project stylesheet is `https://use.typekit.net/qtn2utl.css`,
-loaded by both HTML pages. Heading font stacks use `ivypresto-display` and body
+loaded by the main HTML page. Heading font stacks use `ivypresto-display` and body
 copy uses `freight-text-pro`. Bundled DM Serif Display Italic and DM Sans remain
 fallbacks if Adobe Fonts is unavailable. Font files supplied through Adobe Fonts
 are served by Adobe rather than copied into this repository.
@@ -110,3 +110,7 @@ The static HTML includes a working default mail draft for JavaScript-free visits
 The process and FAQ explain scope, approval and delivery without fixed-price or
 turnaround promises. Test navigation, narrow-screen layout, both languages/themes,
 quote selection and keyboard FAQ with `npm run test:ux`.
+
+The former `/packaging` and `/packaging.html` pages redirect permanently to
+`/#service-packaging`. Packaging design is presented only on the homepage and
+the sitemap contains only the homepage.

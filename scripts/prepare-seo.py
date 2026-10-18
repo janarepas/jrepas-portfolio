@@ -16,7 +16,7 @@ PERSON = {'@type': 'Person', '@id': BASE + '/#janos-repas', 'name': 'Répás Já
           'knowsAbout': ['Grafikai tervezés', 'Vektorgrafika', 'Csomagolástervezés',
                          'Nyomdai előkészítés', 'Kiadványszerkesztés', 'Digitális kreatívok']}
 
-for filename, title_key, description_key in [('index.html', '134', '135'), ('packaging.html', '136', '137')]:
+for filename, title_key, description_key in [('index.html', '134', '135')]:
     file = ROOT / filename
     source = file.read_text()
     # Preserve markup and layout, including inline SVGs, while replacing only copy.
@@ -24,7 +24,7 @@ for filename, title_key, description_key in [('index.html', '134', '135'), ('pac
                     lambda m: m[1] + COPY[m[3]]['hu'] + m[4], source, flags=re.S)
     source = re.sub(r'(<html\b[^>]*\blang=")[^"]+', r'\g<1>hu', source)
     title, description = COPY[title_key]['hu'], COPY[description_key]['hu']
-    url = BASE + ('/' if filename == 'index.html' else '/packaging')
+    url = BASE + '/'
     source = re.sub(r'<title>.*?</title>', '<title>' + html.escape(title) + '</title>', source, flags=re.S)
     source = re.sub(r'<meta name="description" content="[^"]*">',
                     '<meta name="description" content="' + html.escape(description, quote=True) + '">', source)
@@ -70,7 +70,6 @@ for filename, title_key, description_key in [('index.html', '134', '135'), ('pac
     source = source.replace('</head>', metadata + '</head>', 1)
     if 'rel="preconnect"' not in source:
         source = source.replace('<meta charset="utf-8">', '<meta charset="utf-8"><link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="preconnect" href="https://p.typekit.net" crossorigin>', 1)
-    source = source.replace('href="packaging.html"', 'href="/packaging"')
     source = source.replace('href="index.html', 'href="/')
     source = source.replace('aria-label="Main navigation"', 'aria-label="Főmenü"')
     source = source.replace('aria-label="JREPAS home"', 'aria-label="JREPAS kezdőlap"')
@@ -94,7 +93,6 @@ for filename, title_key, description_key in [('index.html', '134', '135'), ('pac
 (ROOT / 'sitemap.xml').write_text('''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jrepas.hu/</loc></url>
-  <url><loc>https://jrepas.hu/packaging</loc></url>
 </urlset>
 ''')
 print('Prepared indexable Hungarian HTML, canonical metadata, schema, robots.txt and sitemap.xml.')

@@ -1,6 +1,11 @@
 // Canonical home redirect and country detection; no database or authentication.
 export async function onRequest({ request, next }) {
   const url = new URL(request.url);
+  if (['/packaging', '/packaging/', '/packaging.html'].includes(url.pathname)) {
+    url.pathname = '/';
+    url.hash = 'service-packaging';
+    return Response.redirect(url.href, 301);
+  }
   if (url.pathname === '/index.html') {
     url.pathname = '/';
     return Response.redirect(url.href, 301);
