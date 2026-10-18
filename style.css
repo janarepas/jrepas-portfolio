@@ -1384,3 +1384,45 @@ html[data-theme] body .site-header nav .header-contact:focus-visible{
  outline:2px solid var(--text);
  outline-offset:4px;
 }
+
+/* Borderless animated primary CTAs. Animate the button's own background,
+   rather than an inset overlay that leaves a yellow rim on rounded edges. */
+html[data-theme] body .hero a.outline-button,
+html[data-theme] body .about.process-section a.process-cta,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{
+ border:0!important;
+ box-shadow:none!important;
+ outline:0;
+ background-color:var(--yellow-main)!important;
+ background-image:linear-gradient(var(--yellow-deep),var(--yellow-deep))!important;
+ background-position:center bottom!important;
+ background-size:100% 0%!important;
+ background-repeat:no-repeat!important;
+ color:var(--black-deep)!important;
+ transition:background-size 360ms cubic-bezier(.2,.7,.2,1) 220ms!important;
+}
+html[data-theme] body .hero a.outline-button::before,
+html[data-theme] body .about.process-section a.process-cta::before,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow::before{
+ content:none!important;
+ display:none!important;
+}
+html[data-theme] body .hero a.outline-button:hover,
+html[data-theme] body .about.process-section a.process-cta:hover,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:hover{
+ border:0!important;
+ box-shadow:none!important;
+ background-color:var(--yellow-main)!important;
+ background-size:100% 100%!important;
+}
+html[data-theme] body .hero a.outline-button:focus-visible,
+html[data-theme] body .about.process-section a.process-cta:focus-visible,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme] body .hero a.outline-button,
+ html[data-theme] body .about.process-section a.process-cta,
+ html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{transition:none!important}
+}
