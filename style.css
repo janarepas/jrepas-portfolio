@@ -1808,3 +1808,14 @@ html[data-theme] .contact .contact-panel{padding:0;border:0;border-radius:0;back
  #about .about-body .about-paragraph+.about-paragraph{margin-top:28px}
  #about .about-body .text-link{grid-row:auto}
 }
+/* A taller, more relaxed transparent header. */
+html body .site-header{height:96px;min-height:96px;padding-top:22px;padding-bottom:22px}
+html body .site-header nav{gap:28px}
+html body .site-header .site-controls{gap:12px}
+@media(min-width:701px){.hero .hero-copy{padding-top:144px}}
+@media(min-width:701px) and (max-width:1000px){html body .site-header nav{gap:20px}html body .site-header .site-controls{gap:6px}}
+@media(max-width:700px){
+ html body .site-header{height:152px;min-height:152px;padding-top:20px;padding-bottom:20px;grid-template-rows:48px 48px;row-gap:16px}
+ html body .site-header .site-controls{gap:8px}
+ .hero .hero-copy{padding-top:192px}
+}
