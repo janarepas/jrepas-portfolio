@@ -8,6 +8,7 @@
     "/fonts/*",
     "/images/*",
     "/style.css",
-    "/site.js"
+    "/site.js",
+    "/motion.js"
   ]
 }

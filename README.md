@@ -78,3 +78,12 @@ The site runs without a database, admin panel or Cloudflare Access subscription.
 Edit bilingual text in `src/translations.json`, structure in the HTML files, and
 images in `images/`, then rebuild Rust assets when translations change.
 Run `npm test` against the local HTTP server to check the public site.
+
+## Scroll and progressive display
+
+`motion.js` adds locally served Lenis 1.3.27 for smooth mouse-wheel scrolling;
+touch scrolling stays native. Off-screen content reveals once as it enters the
+viewport. Reduced-motion preferences disable interpolation and reveals. A masked
+blur and theme-coloured fade soften the viewport top after scrolling. The menu
+scrolls with the document. The vendor bundle and MIT license live in
+`assets/vendor/lenis-1.3.27/`. Run `npm run test:motion` with the local server.

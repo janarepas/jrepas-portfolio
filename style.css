@@ -682,3 +682,28 @@ html[data-theme=dark] .site-header .brand .brand-logo-light{display:block}
  .about .process-copy h3{font-size:32px}
  .about .process-controls{padding:0 24px 28px}
 }
+
+/* The menu stays at the document top; only a light glass veil follows the viewport. */
+.site-header{position:relative;top:auto}
+html{scroll-padding-top:24px}
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto!important}
+html[data-motion] [data-reveal]{transition:opacity 650ms ease,transform 750ms cubic-bezier(.2,.7,.2,1)}
+html[data-motion] [data-reveal=pending]{opacity:0;transform:translateY(24px)}
+html[data-motion] [data-reveal=visible]{opacity:1;transform:translateY(0)}
+.top-glass{position:fixed;inset:0 0 auto;height:72px;z-index:40;pointer-events:none;opacity:0;transition:opacity 220ms ease}
+html[data-scrolled=true] .top-glass{opacity:1}
+.top-glass>span{position:absolute;inset:0;-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
+.top-glass>span:nth-child(1){-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.top-glass>span:nth-child(2){height:70%;-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+.top-glass>span:nth-child(3){height:40%;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);background:rgba(255,255,255,.04)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}html[data-motion] [data-reveal]{transition:none;opacity:1;transform:none}.top-glass{transition:none}}
+@media(prefers-reduced-transparency:reduce){.top-glass{display:none}}
+
+/* A soft viewport-edge fade like the supplied reference. */
+.top-glass{height:clamp(110px,16vh,170px);--edge-rgb:255,255,255}
+html[data-theme=dark] .top-glass{--edge-rgb:8,8,8}
+.top-glass:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--edge-rgb),.94),rgba(var(--edge-rgb),.58) 32%,rgba(var(--edge-rgb),.15) 68%,rgba(var(--edge-rgb),0))}
+.top-glass>span:nth-child(1){-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.top-glass>span:nth-child(2){-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.top-glass>span:nth-child(3){-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);background:transparent}
