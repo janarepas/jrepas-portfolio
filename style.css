@@ -1084,3 +1084,33 @@ html[data-motion=true] .about-vector-curves path{stroke-dasharray:1;stroke-dasho
 html[data-theme=dark] .about-vector-curves{opacity:.14}
 @media(max-width:700px){.about-vector-art{width:150%;max-width:none;left:-25%}.about-vector-curves{opacity:.15}}
 @media(prefers-reduced-motion:reduce){.about-vector-art{transform:none}.about-vector-curves path{stroke-dashoffset:0!important}}
+/* One calm editorial surface frames the connected process. */
+.about.process-section .process-diagram{padding:64px 24px;background:var(--bg)}
+.process-panel{max-width:960px;margin:0 auto;padding:52px 40px 48px;background:#f5f5f3;border-radius:28px}
+html[data-theme=dark] .process-panel{background:#171717}
+.process-heading{text-align:center;max-width:680px;margin:0 auto 56px}
+.process-heading>svg{display:block;width:48px;height:48px;color:var(--yellow-gold);margin:0 auto 20px}
+.process-heading>.eyebrow{font-size:11px;letter-spacing:.13em;color:var(--muted);margin:0 0 16px;font-weight:500}
+.about .process-heading h2{font-size:clamp(36px,4.2vw,56px);font-weight:400;line-height:1.06;letter-spacing:-.035em;margin:0;color:var(--text);text-wrap:balance}
+.about.process-section .process-flow{gap:24px}
+.about.process-section .process-step{min-height:210px}
+.about.process-section .process-step p{color:#747478;font-size:15px;line-height:1.6}
+html[data-theme=dark] .about.process-section .process-step p{color:#a1a1a6}
+@media(min-width:801px){
+ .about.process-section .process-step h3{font-size:27px}
+ .about.process-section .flow-number{width:48px;height:48px;font-size:13px;background:var(--yellow-main)}
+ .about.process-section .flow-node{height:48px}
+ .about.process-section .flow-node svg{top:62px;width:24px;height:24px}
+ .about.process-section .process-flow .process-step:not(:last-child):after{top:24px;left:calc(50% + 24px);right:calc(-50%)}
+ .about.process-section .process-step:not(:last-child):before{top:20px;left:calc(100% + 8px)}
+}
+@media(max-width:800px){
+ .about.process-section .process-diagram{padding:40px 24px}
+ .process-panel{padding:36px 24px;border-radius:22px}
+ .process-heading{margin-bottom:36px}
+ .about .process-heading h2{font-size:38px}
+ .about.process-section .process-step{min-height:120px}
+ .about.process-section .process-step:last-child{min-height:0}
+ .about.process-section .process-step h3{font-size:30px}
+ .about.process-section .process-step p{font-size:16px}
+}
