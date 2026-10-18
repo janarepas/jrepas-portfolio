@@ -1229,3 +1229,19 @@ html[data-theme] .about.process-section .process-cta:hover:before{
  html[data-theme] .hero .outline-button,html[data-theme] .about.process-section .process-cta,
  html[data-theme] .hero .outline-button:before,html[data-theme] .about.process-section .process-cta:before{transition:none}
 }
+
+/* Final reference match: open six-column editorial process and soft lower arc. */
+.about.process-section .process-diagram{position:relative;overflow:hidden;padding:100px 20px 96px;background:var(--bg)}
+.about.process-section .process-diagram:after{content:"";position:absolute;z-index:0;pointer-events:none;left:-10%;bottom:-112px;width:120%;height:170px;border-radius:50% 50% 0 0 / 85% 85% 0 0;background:rgba(127,127,127,.025)}
+.about.process-section .process-panel{position:relative;z-index:1;max-width:1440px;padding:35px 20px 42px;border-radius:0;background:transparent}
+.about.process-section .process-heading{max-width:920px;margin:0 auto 70px}
+.about.process-section .process-heading h2{font-size:clamp(42px,5.2vw,74px)}
+.about.process-section .process-flow{grid-template-columns:repeat(6,minmax(0,1fr));column-gap:26px;row-gap:36px}
+.about.process-section .process-step .flow-node{height:110px;margin-bottom:19px}
+.about.process-section .process-step .flow-number{width:34px;height:34px;flex-basis:34px}
+.about.process-section .process-step .flow-node svg{width:66px;height:66px;padding:18px}
+.about.process-section .process-step h3{font-size:clamp(23px,2.1vw,31px)}
+.about.process-section .process-step p{font-size:15px;line-height:1.65;max-width:205px}
+.about.process-section .process-flow .process-step:not(:last-child):after{top:61px;right:-21px}
+@media(max-width:950px){.about.process-section .process-flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.about.process-section .process-diagram{padding:52px 14px 65px}.about.process-section .process-panel{padding:18px 4px 30px}.about.process-section .process-heading{margin-bottom:42px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 14px}.about.process-section .process-step .flow-node{height:92px}.about.process-section .process-step .flow-node svg{width:52px;height:52px;padding:14px}.about.process-section .process-step h3{font-size:24px}.about.process-section .process-step p{font-size:13px}.about.process-section .process-flow .process-step:not(:last-child):after{top:49px;right:-13px}}
