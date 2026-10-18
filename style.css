@@ -1306,3 +1306,26 @@ html[lang="hu"] body .about.process-section .process-step h3{
 .about.process-section .process-step h3{margin-bottom:28px}
 @media(max-width:950px){.about.process-section .process-flow{column-gap:34px}}
 @media(max-width:600px){.about.process-section .process-flow{column-gap:22px}.about.process-section .process-step p{font-size:12px;line-height:1.65;max-width:170px}.about.process-section .process-step h3{margin-bottom:16px}}
+
+/* Yellow primary CTAs: no outline at rest or on hover; keep fill animation. */
+html[data-theme] .hero .outline-button,
+html[data-theme] .about.process-section .process-cta,
+html[data-theme] .about .about-body .text-link,
+html[data-theme] .site-header .header-contact{
+ border-color:transparent!important;
+ outline:none;
+}
+html[data-theme] .hero .outline-button:hover,
+html[data-theme] .about.process-section .process-cta:hover,
+html[data-theme] .about .about-body .text-link:hover,
+html[data-theme] .site-header .header-contact:hover{
+ border-color:transparent!important;
+ box-shadow:none;
+}
+html[data-theme] .hero .outline-button:focus-visible,
+html[data-theme] .about.process-section .process-cta:focus-visible,
+html[data-theme] .about .about-body .text-link:focus-visible,
+html[data-theme] .site-header .header-contact:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
