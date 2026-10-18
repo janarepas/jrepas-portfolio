@@ -736,9 +736,6 @@ html{scroll-padding-top:74px}
 html[data-theme] .hero .outline-button,html[data-theme] .hero .outline-button:hover{background:var(--yellow-main);border-color:var(--yellow-main);color:var(--black-deep)}
 html[data-theme] .work>.section-heading>.small-link,html[data-theme] .work>.section-heading>.small-link:hover{background:var(--black-deep);border-color:var(--black-deep);color:#fff}
 .footer-logo{position:relative}
-.footer-logo canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none;image-rendering:pixelated}
-.footer-logo[data-pixel-active] img{opacity:0}
-.footer-logo[data-pixel-active] canvas{opacity:1}
 
 .site-controls .language-switch button{display:inline-flex;align-items:center;justify-content:center}
 
@@ -760,3 +757,24 @@ html[data-theme] .site-header nav .header-contact:hover{
  background:var(--yellow-deep);border-color:var(--yellow-deep);color:var(--black-deep);
 }
 @media(prefers-reduced-motion:reduce){html[data-theme] .site-header nav .header-contact{transition:none}}
+
+/* Keep the reconstruction artwork away from the existing Aa lettering. */
+.work .portfolio-card .cover-vector .vector-reconstruction-art{opacity:.57;object-position:right top;-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 46%,#000 76%);mask-image:linear-gradient(90deg,transparent 0%,transparent 46%,#000 76%)}
+.work .portfolio-card .cover-vector .cover-mark{left:max(32px,calc((100vw - var(--content-width))/2));right:auto}
+@media(max-width:700px){.work .portfolio-card .cover-vector .cover-mark{left:24px;right:auto}}
+
+/* Outline traces first; the orange fill follows after it closes. */
+html[data-theme] .site-header nav .header-contact{position:relative;isolation:isolate;overflow:hidden}
+html[data-theme] .site-header nav .header-contact:hover{background:transparent;border-color:var(--yellow-deep);color:var(--black-deep);transition:color 250ms ease 480ms,border-color 120ms ease 780ms}
+.site-header nav .header-contact:before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--yellow-deep);transform:scaleX(0);transform-origin:left center;z-index:-1;transition:transform 300ms ease}
+.site-header nav .header-contact:hover:before{transform:scaleX(1);transition:transform 400ms cubic-bezier(.2,.7,.2,1) 480ms}
+.contact-label{position:relative;z-index:1}
+.contact-outline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.contact-outline rect{width:calc(100% - 2px);height:calc(100% - 2px);fill:none;stroke:var(--yellow-deep);stroke-width:2;stroke-dasharray:100;stroke-dashoffset:100;opacity:0;transition:stroke-dashoffset 300ms ease,opacity 200ms ease}
+.header-contact:hover .contact-outline rect{stroke-dashoffset:0;opacity:1;transition:stroke-dashoffset 480ms ease,opacity 100ms ease}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme] .site-header nav .header-contact:hover{transition:none}
+ .site-header nav .header-contact:before,.site-header nav .header-contact:hover:before,.contact-outline rect,.header-contact:hover .contact-outline rect{transition:none}
+}
+.work .portfolio-card .cover-vector .vector-reconstruction-art{left:auto;right:0;width:min(45%,240px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
+.work .portfolio-card .cover-vector .cover-mark{font-size:clamp(110px,11vw,170px)}
