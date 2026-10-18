@@ -31,8 +31,14 @@ try {
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     }
     const rects = await tiles.evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
-    assert.ok(Math.abs(rects[0].top - rects[1].top) < 1);
-    assert.ok(rects[1].left > rects[0].right);
+    if (width > 700) {
+      assert.ok(Math.abs(rects[0].top - rects[1].top) < 1);
+      assert.ok(rects[1].left > rects[0].right);
+      assert.ok(rects[0].width >= 600);
+    } else {
+      assert.ok(rects[1].top > rects[0].bottom);
+      assert.ok(rects[0].width >= width - 48);
+    }
     assert.ok(rects[2].top > rects[0].bottom);
     await context.route('https://www.behance.net/gallery/**', route => route.fulfill({ contentType: 'text/html', body: '<title>Project destination fixture</title>' }));
     const [popup] = await Promise.all([context.waitForEvent('page'), tiles.first().click()]);
