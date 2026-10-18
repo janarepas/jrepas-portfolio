@@ -1822,3 +1822,5 @@ html body .site-header .site-controls{gap:12px}
 /* Keep illustration and title measures safe at the two-column breakpoint. */
 @media(min-width:701px){.work .portfolio-card .cover-pack .packaging-dielines-art{height:260px}}
 @media(min-width:701px) and (max-width:820px){.work .portfolio-card .project-title h3{font-size:30px}}
+/* Give process illustrations enough weight beside the larger card type. */
+#process .process-illustration{stroke-width:3.2}
