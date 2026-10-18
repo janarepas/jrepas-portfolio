@@ -924,3 +924,23 @@ html[data-theme] .hero h1 em{position:relative;display:inline-block;text-decorat
 .hero h1 em:after{content:'';position:absolute;left:0;right:0;bottom:-12px;height:9px;background:linear-gradient(to bottom,var(--yellow-main) 0 3px,transparent 3px 6px,var(--yellow-main) 6px 9px);transform-origin:left center;pointer-events:none}
 html[data-motion=true] .hero h1 em:after{transform:scaleX(var(--hero-underline,0));will-change:transform}
 @media(prefers-reduced-motion:reduce){.hero h1 em:after{transform:none}}
+/* Two balanced rows make full use of the process section's content width. */
+@media(min-width:701px){
+ .about.process-section .process-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 56px}
+ .about.process-section .process-step{min-height:100px;padding:0 0 0 104px}
+ .about.process-section .process-step:not(:last-child) .flow-node:after{display:none}
+ .about.process-section .process-step:nth-child(-n+2):after{content:'';position:absolute;left:20px;top:42px;width:1px;height:calc(100% + 36px - 42px);background:var(--yellow-main)}
+ .about.process-section .process-step h3{font-size:30px}
+ .about.process-section .process-step p{max-width:320px}
+}
+@media(min-width:701px) and (max-width:900px){
+ .about.process-section .process-flow{gap:32px}
+ .about.process-section .process-step{padding-left:66px}
+ .about.process-section .flow-node svg{display:none}
+ .about.process-section .process-step:nth-child(-n+2):after{height:calc(100% + 32px - 42px)}
+}
+@media(min-width:701px){
+ .about.process-section .process-step:nth-child(-n+2):after{display:none}
+ .about.process-section .process-step:nth-child(odd):after{content:'';display:block;position:absolute;left:auto;right:-40px;top:21px;width:24px;height:1px;background:var(--yellow-main)}
+}
+@media(min-width:701px) and (max-width:900px){.about.process-section .process-step:nth-child(odd):after{right:-24px;width:16px}}

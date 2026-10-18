@@ -37,8 +37,15 @@ try {
     assert.equal(await page.locator('#about > .eyebrow').textContent(), '01 / Rólam');
     assert.equal(await page.locator('#work .eyebrow').textContent(), '02 / Szolgáltatások');
     const stages = await page.locator('.process-step').evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
-    assert.equal(stages[0].left, stages[1].left);
-    assert.ok(stages[1].top >= stages[0].bottom);
+    if (width > 700) {
+      assert.equal(stages[0].top, stages[1].top);
+      assert.ok(stages[1].left > stages[0].left);
+      assert.equal(stages[2].top, stages[3].top);
+      assert.ok(stages[2].top >= stages[0].bottom);
+    } else {
+      assert.equal(stages[0].left, stages[1].left);
+      assert.ok(stages[1].top >= stages[0].bottom);
+    }
     for (const step of await page.locator('.process-step').all()) {
       assert.ok(await step.isVisible());
       assert.ok((await step.locator('h3').textContent()).length > 0);
