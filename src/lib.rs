@@ -119,8 +119,11 @@ impl App {
         };
         element(document, "meta[name='description']")?.set_attribute("content", description)?;
         element(document, "meta[name='theme-color']")?.set_attribute("content", if self.dark { "#080808" } else { "#ffffff" })?;
+        if let Some(source) = document.query_selector(".hero-image source")? {
+            source.set_attribute("media", if self.dark { "all" } else { "not all" })?;
+        }
         if let Some(image) = document.query_selector(".hero-image img")? {
-            image.set_attribute("alt", lang.text("Telefonkoncepció, kijelzőjén sárga és fekete geometrikus formákkal", "Concept phone displaying yellow and black geometric artwork"))?;
+            image.set_attribute("alt", lang.text("Két telefonból álló koncepció, sárga és fekete geometrikus képernyőgrafikával", "Two concept phones displaying yellow and black geometric artwork"))?;
         }
         let images = document.query_selector_all(".project img, .case-image img")?;
         for i in 0..images.length() {
