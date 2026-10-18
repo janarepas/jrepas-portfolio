@@ -29,9 +29,13 @@ try {
     assert.match(await page.locator('h1').textContent(), /Ideas/);
     await page.locator('[data-language="hu"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'hu');
-    assert.equal(await page.locator('.process-step').count(), 2);
+    assert.equal(await page.locator('.process-step').count(), 4);
     assert.equal(await page.locator('[data-carousel-next]').count(), 0);
     assert.ok(await page.locator('.about-body').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.process-diagram')) & Node.DOCUMENT_POSITION_FOLLOWING)));
+    assert.ok(await page.locator('#about').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('#work')) & Node.DOCUMENT_POSITION_FOLLOWING)));
+    assert.ok(await page.locator('#work').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.process-diagram')) & Node.DOCUMENT_POSITION_FOLLOWING)));
+    assert.equal(await page.locator('#about > .eyebrow').textContent(), '01 / Rólam');
+    assert.equal(await page.locator('#work .eyebrow').textContent(), '02 / Szolgáltatások');
     const stages = await page.locator('.process-step').evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
     assert.equal(stages[0].left, stages[1].left);
     assert.ok(stages[1].top >= stages[0].bottom);

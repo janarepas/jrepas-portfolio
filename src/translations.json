@@ -4,8 +4,8 @@
     "hu": "Kezdőlap"
   },
   "1": {
-    "en": "Work",
-    "hu": "Munkák"
+    "hu": "Szolgáltatások",
+    "en": "Services"
   },
   "2": {
     "en": "About",
@@ -40,8 +40,8 @@
     "en": "Services"
   },
   "10": {
-    "en": "01 / Selected work",
-    "hu": "01 / Válogatott munkák"
+    "hu": "02 / Szolgáltatások",
+    "en": "02 / Services"
   },
   "11": {
     "hu": "Tervezzünk együtt!",
@@ -80,8 +80,8 @@
     "hu": "Arculat / Grafikai tervezés · Hamarosan"
   },
   "20": {
-    "en": "02 / About",
-    "hu": "02 / Rólam"
+    "hu": "01 / Rólam",
+    "en": "01 / About"
   },
   "21": {
     "en": "Design <span>with purpose.</span>",
