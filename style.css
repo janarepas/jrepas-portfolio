@@ -1851,47 +1851,7 @@ html body section.about.process-section .process-flow>li.process-step>p{grid-row
 .contact-panel .contact-actions{display:flex;justify-content:center;margin-top:0}
 html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:min(260px,100%);padding:18px 36px}
 .contact-panel .contact-email{margin-top:24px}
-/* Direct access to the designer's actual portfolio. */
-#about .about-body .about-actions{grid-column:1/-1;grid-row:3;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 28px;margin-top:12px}
-#about .about-body .about-actions .text-link{margin:0}
-#about .behance-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;font-size:18px;font-weight:600;color:var(--text);text-decoration:underline;text-decoration-color:var(--yellow-gold);text-underline-offset:6px}
-#about .behance-link:hover{text-decoration-thickness:2px}
-@media(max-width:700px){#about .about-body .about-actions{grid-row:auto;flex-direction:column;gap:16px}#about .behance-link{font-size:17px}}
-/* Individual image tiles with no visible project captions. */
-#about .selected-work{grid-column:1/-1;grid-row:3;min-width:0;width:100%;margin-top:20px}
-#about .selected-work>h3{text-align:center;font-size:clamp(38px,4vw,52px);font-weight:400;line-height:1.12;letter-spacing:-.025em;margin:0 0 28px;text-wrap:balance}
-.work-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.work-tile{display:block;position:relative;min-width:0;overflow:hidden;border-radius:16px;background:var(--surface)}
-.work-tile>img{display:block;width:100%;height:auto;aspect-ratio:808/632;object-fit:contain;transition:transform .25s ease}
-.work-tile:hover>img{transform:scale(1.025)}
-.work-tile:focus-visible{outline:3px solid var(--yellow-gold);outline-offset:6px}
-.reference-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-@media(min-width:701px){#about .about-body .about-actions{grid-row:4;margin-top:12px}}
-@media(max-width:700px){
- #about .selected-work{grid-row:auto;margin-top:12px}
- #about .selected-work>h3{font-size:38px}
- .work-tiles{gap:16px}
- .work-tile{border-radius:10px}
-}
-@media(prefers-reduced-motion:reduce){.work-tile>img{transition:none}}
-/* Give the portfolio previews more room than the text columns. */
-@media(min-width:1009px){
- #about .selected-work{width:min(1280px,calc(100vw - 64px));justify-self:center}
-}
-.work-tiles{gap:28px}
-@media(max-width:700px){.work-tiles{grid-template-columns:1fr;gap:24px}.work-tile{border-radius:16px}}
-/* An uninterrupted image mosaic without a heading or secondary quote action. */
-#about .work-tiles{gap:0}
-#about .work-tile{border-radius:0}
-#about .work-tile:hover>img{transform:none}
-/* Four bold campaign colours frame the edge-to-edge image tiles. */
-#about .selected-work{
- padding:clamp(16px,2.5vw,32px);
- background:linear-gradient(135deg,#07143d 0 38%,#ed1c24 38% 54%,#f26522 54% 70%,#ffc20e 70% 100%);
-}
-/* Keep the portfolio mosaic free of decorative ribbons and framing. */
-#about .selected-work{padding:0;background:transparent}
-/* Let the image mosaic extend well beyond the reading column. */
-#about .selected-work{width:min(1800px,100vw);max-width:none;justify-self:center}
+/* Keep the introduction text within its columns without an empty gallery row. */
 #about .about-process{min-width:0}
-@media(max-width:700px){#about .about-body{grid-template-columns:minmax(0,1fr)}}
+@supports(grid-template-rows:subgrid){#about .about-body{grid-template-rows:auto auto}}
+@media(max-width:700px){#about .about-body{grid-template-columns:minmax(0,1fr);grid-template-rows:none}}

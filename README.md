@@ -56,8 +56,7 @@ new hosting service is required. The root `functions/` directory retains the
 Cloudflare Pages country middleware.
 
 The eight service entries are non-clickable illustrated cards. Their graphic
-covers illustrate the services. The about section separately presents four real
-Behance project covers, each linking to its corresponding project.
+covers illustrate the services. The about section is a concise text introduction.
 Contact: `jrepas@icloud.com`.
 
 ## Typography
@@ -123,13 +122,3 @@ both languages and themes, including the 700/701 and 1000/1001 breakpoints. It
 asserts text/card containment, separation of service illustrations and titles,
 header item bounds and spacing above the hero. Tests run in Chromium; native
 select labels may truncate while their popup retains the full option text.
-
-## Selected Behance work
-
-The about section shows four real local Behance covers as separate image tiles
-in a wider, gapless two-column grid (one full-width column on mobile). Tiles
-have square corners, no visible captions, no gallery heading and no quote CTA. Each tile opens its own
-project in a safe new tab. Accessible names are bilingual and 404/808px WebP
-sources load lazily. Source URLs are recorded in `docs/portfolio-sources.json`.
-Run `npm run test:portfolio` to verify image decoding, individual destinations,
-layout and the JavaScript-free fallback.
