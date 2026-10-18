@@ -1528,3 +1528,7 @@ html body section.about.process-section .process-flow>li.process-step .process-i
 html body section.about.process-section .process-flow>li.process-step h3{margin:0 0 14px!important;min-height:0!important;padding:0!important}
 @media(max-width:700px){html body section.about.process-section .process-diagram{padding:40px 24px!important}html body section.about.process-section .process-flow>li.process-step{padding:28px!important}}
 html body section.about.process-section .process-heading .process-subtitle{margin-left:0!important;margin-right:0!important;max-width:640px!important}
+/* Selected stages use tangible editorial imagery alongside the retained drawings. */
+html body section.about.process-section .process-flow>li.process-step .process-photo{display:block;width:calc(100% + 40px);max-width:none;height:178px;margin:-28px -20px 24px;object-fit:cover;object-position:center;border-radius:24px 24px 0 0}
+html body section.about.process-section .process-flow>li.process-step .flow-node{z-index:1}
+@media(max-width:700px){html body section.about.process-section .process-flow>li.process-step .process-photo{width:calc(100% + 56px);margin-left:-28px;margin-right:-28px}}
