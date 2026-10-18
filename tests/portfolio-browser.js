@@ -39,7 +39,7 @@ try {
       assert.ok(rects[0].width >= 600);
     } else {
       assert.ok(Math.abs(rects[1].top - rects[0].bottom) < 1);
-      assert.ok(rects[0].width >= width - 48);
+      assert.ok(rects[0].width >= width - 80);
     }
     assert.ok(rects[2].top >= rects[0].bottom - 1);
     await context.route('https://www.behance.net/gallery/**', route => route.fulfill({ contentType: 'text/html', body: '<title>Project destination fixture</title>' }));

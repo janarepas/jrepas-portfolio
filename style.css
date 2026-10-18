@@ -1884,3 +1884,8 @@ html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:mi
 #about .work-tiles{gap:0}
 #about .work-tile{border-radius:0}
 #about .work-tile:hover>img{transform:none}
+/* Four bold campaign colours frame the edge-to-edge image tiles. */
+#about .selected-work{
+ padding:clamp(16px,2.5vw,32px);
+ background:linear-gradient(135deg,#07143d 0 38%,#ed1c24 38% 54%,#f26522 54% 70%,#ffc20e 70% 100%);
+}
