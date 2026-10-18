@@ -1891,3 +1891,7 @@ html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:mi
 }
 /* Keep the portfolio mosaic free of decorative ribbons and framing. */
 #about .selected-work{padding:0;background:transparent}
+/* Let the image mosaic extend well beyond the reading column. */
+#about .selected-work{width:min(1800px,100vw);max-width:none;justify-self:center}
+#about .about-process{min-width:0}
+@media(max-width:700px){#about .about-body{grid-template-columns:minmax(0,1fr)}}
