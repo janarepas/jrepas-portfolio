@@ -90,7 +90,7 @@ if (aboutVectorSection) {
 }
 
 // Override the embedded Rust translation snapshot after every language render.
-const localizedCopyUrl = './src/translations.json?v=processcopy9';
+const localizedCopyUrl = './src/translations.json?v=aboutbalance15';
 fetch(localizedCopyUrl).then(response => {
   if (!response.ok) throw new Error('Translation file unavailable');
   return response.json();
