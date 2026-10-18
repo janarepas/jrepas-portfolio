@@ -1073,3 +1073,14 @@ html[data-theme] .work .portfolio-card .cover-sports .cover-mark{
 html[data-theme=light] .about .about-body>p{color:#747478}
 html[data-theme=dark] .about .about-body>p{color:#a1a1a6}
 html[data-theme] .about .about-body strong{font-weight:400;color:var(--text)}
+/* Subtle vector construction lives behind the introduction's content. */
+#about{position:relative;isolation:isolate;overflow:hidden}
+.about-vector-art{position:absolute;inset:-40px 0;width:100%;height:calc(100% + 80px);z-index:-1;pointer-events:none;transform:translateY(calc(var(--vector-progress,1) * -28px));color:var(--yellow-gold)}
+.about-vector-curves{stroke:currentColor;stroke-width:1.5;opacity:.2}
+.about-vector-curves path{vector-effect:non-scaling-stroke}
+.about-vector-guides{stroke:var(--text);stroke-width:1;opacity:.07}
+.about-vector-nodes{stroke:currentColor;stroke-width:1.5;fill:var(--bg);opacity:.28}
+html[data-motion=true] .about-vector-curves path{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--vector-progress,0))}
+html[data-theme=dark] .about-vector-curves{opacity:.14}
+@media(max-width:700px){.about-vector-art{width:150%;max-width:none;left:-25%}.about-vector-curves{opacity:.15}}
+@media(prefers-reduced-motion:reduce){.about-vector-art{transform:none}.about-vector-curves path{stroke-dashoffset:0!important}}

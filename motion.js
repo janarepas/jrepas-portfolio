@@ -67,3 +67,24 @@ const artworkResize = new ResizeObserver(updateArtworkSpace);
 tileCovers.forEach(cover => artworkResize.observe(cover));
 document.fonts.ready.then(updateArtworkSpace);
 updateArtworkSpace();
+
+// Gently draw the introduction's Bezier artwork as it enters the viewport.
+const aboutVectorSection = document.querySelector('#about');
+if (aboutVectorSection) {
+  let vectorFrame = 0;
+  function updateVectorArtwork() {
+    vectorFrame = 0;
+    const bounds = aboutVectorSection.getBoundingClientRect();
+    const progress = reducedMotion.matches ? 1 : Math.min(1, Math.max(0,
+      (innerHeight - bounds.top) / (innerHeight * .85 + bounds.height * .25)));
+    aboutVectorSection.style.setProperty('--vector-progress', progress.toFixed(4));
+  }
+  function scheduleVectorArtwork() {
+    if (!vectorFrame) vectorFrame = requestAnimationFrame(updateVectorArtwork);
+  }
+  addEventListener('scroll', scheduleVectorArtwork, {passive:true});
+  addEventListener('resize', scheduleVectorArtwork);
+  addEventListener('pageshow', scheduleVectorArtwork);
+  reducedMotion.addEventListener('change', scheduleVectorArtwork);
+  updateVectorArtwork();
+}
