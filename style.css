@@ -740,7 +740,23 @@ html[data-theme] .work>.section-heading>.small-link,html[data-theme] .work>.sect
 .footer-logo[data-pixel-active] img{opacity:0}
 .footer-logo[data-pixel-active] canvas{opacity:1}
 
-.language-flag{display:block;overflow:hidden;border-radius:3px;box-shadow:0 0 0 1px rgba(127,127,127,.2)}
 .site-controls .language-switch button{display:inline-flex;align-items:center;justify-content:center}
 
-.language-flag{width:20px;height:14px;filter:grayscale(1);border-radius:2px}
+
+/* Technical vector artwork keeps the original dark tile and existing marks. */
+.work .portfolio-card .cover-vector{background:var(--black-deep)}
+.work .portfolio-card .cover-vector .vector-reconstruction-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;z-index:0}
+.work .portfolio-card .cover-vector .cover-mark,.work .portfolio-card .cover-vector .cover-pixels{z-index:1}
+
+/* Cloudflare country detection controls language-selector availability. */
+html[data-country="HU"] .language-switch{display:none}
+
+/* The navigation contact CTA morphs from a yellow outline to orange fill. */
+html[data-theme] .site-header nav .header-contact{
+ background:transparent;border:2px solid var(--yellow-main);color:var(--text);
+ transition:background-color 360ms ease,border-color 360ms ease,color 360ms ease;
+}
+html[data-theme] .site-header nav .header-contact:hover{
+ background:var(--yellow-deep);border-color:var(--yellow-deep);color:var(--black-deep);
+}
+@media(prefers-reduced-motion:reduce){html[data-theme] .site-header nav .header-contact{transition:none}}

@@ -125,7 +125,7 @@ impl App {
         if let Some(image) = document.query_selector(".hero-image img")? {
             image.set_attribute("alt", lang.text("Hajlítható Duo telefon, a kijelzőjén sárga és fekete geometrikus grafikával", "Foldable Duo phone displaying yellow and black geometric artwork"))?;
         }
-        let images = document.query_selector_all(".project img, .case-image img")?;
+        let images = document.query_selector_all(".project img:not([alt='']), .case-image img")?;
         for i in 0..images.length() {
             if let Some(image) = images.item(i).and_then(|n| n.dyn_into::<Element>().ok()) {
                 image.set_attribute("alt", lang.text("Csomagolástervezési projekt", "Packaging design project"))?;
@@ -177,8 +177,10 @@ pub fn start() -> Result<(), JsValue> {
     let root = element(&document, "html")?;
     let country = root.get_attribute("data-country");
     let storage = window.local_storage().ok().flatten();
-    let language = stored(&storage, "jrepas-language-choice").as_deref().and_then(Language::parse)
-        .unwrap_or_else(|| default_language(country.as_deref(), &window.navigator().language().unwrap_or_default()));
+    let language = if country.as_deref() == Some("HU") { Language::Hu } else {
+        stored(&storage, "jrepas-language-choice").as_deref().and_then(Language::parse)
+            .unwrap_or_else(|| default_language(country.as_deref(), &window.navigator().language().unwrap_or_default()))
+    };
     let media = window.match_media("(prefers-color-scheme: dark)")?;
     let (dark, manual_theme) = saved_theme(stored(&storage, "jrepas-theme").as_deref(), media.as_ref().is_some_and(|m| m.matches()));
     let translations = serde_json::from_str(COPY).map_err(|e| JsValue::from_str(&e.to_string()))?;
