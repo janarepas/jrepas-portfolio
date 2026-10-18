@@ -11,6 +11,10 @@
     "/site.js",
     "/motion.js",
     "/robots.txt",
-    "/sitemap.xml"
+    "/sitemap.xml",
+    "/favicon.ico",
+    "/favicon.svg",
+    "/favicon-96x96.png",
+    "/apple-touch-icon.png"
   ]
 }
