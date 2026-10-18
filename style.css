@@ -1069,3 +1069,7 @@ html[data-theme] .work .portfolio-card .cover-sports .cover-mark{
  .about.process-section .process-step:not(:last-child):before{content:'';position:absolute;left:20px;bottom:5px;width:8px;height:8px;border-bottom:1px solid var(--yellow-main);border-right:1px solid var(--yellow-main);transform:rotate(45deg)}
 }
 @media(min-width:801px){.about.process-section .process-step:not(:last-child):before{left:calc(100% + 12px)}}
+/* Emphasise key phrases through contrast, with an even typographic weight. */
+html[data-theme=light] .about .about-body>p{color:#747478}
+html[data-theme=dark] .about .about-body>p{color:#a1a1a6}
+html[data-theme] .about .about-body strong{font-weight:400;color:var(--text)}
