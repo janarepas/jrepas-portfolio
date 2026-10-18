@@ -715,3 +715,14 @@ html[data-theme=dark] .top-glass{--edge-rgb:8,8,8}
 }
 html{scroll-padding-top:74px}
 @media(max-width:700px){html{scroll-padding-top:136px}}
+
+/* Overlay the fixed header on the page instead of reserving a white strip. */
+.site-header,html[data-theme=light] .site-header,html[data-theme=dark] .site-header{
+ position:fixed;top:0;left:0;right:0;width:100%;max-width:none;
+ background:transparent;border:0;box-shadow:none;
+}
+.top-glass:after{background:none}
+@media(max-width:700px){
+ .hero .hero-copy{padding-top:150px}
+ .case-hero{padding-top:150px}
+}
