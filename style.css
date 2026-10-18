@@ -1777,3 +1777,14 @@ html body section.about.process-section .process-flow>li.process-step .process-i
 .faq summary:after,.faq details[open] summary:after{top:50%;margin-top:-7px;transition:transform .36s cubic-bezier(.22,1,.36,1)}
 .faq details[open] summary[aria-expanded=false]:after{transform:rotate(45deg)}
 @media(prefers-reduced-motion:reduce){.faq summary:after{transition:none}}
+/* One clear, single-column path from the project introduction to the email. */
+.contact .contact-layout{display:flex;flex-direction:column;align-items:stretch;gap:36px;width:100%;max-width:640px;margin:0 auto}
+.contact-intro{text-align:center}
+.contact-intro .contact-description{max-width:36ch;margin:0 auto}
+.contact h2{margin:24px 0;line-height:1.1}
+html[data-theme] .contact .contact-panel{padding:0;border:0;border-radius:0;background:transparent;max-width:560px;width:100%;margin:0 auto}
+.contact-panel .quote-choice{margin-top:0}
+.contact-panel .contact-actions{margin-top:28px}
+.contact-panel .quote-email-note{text-align:center;max-width:48ch;margin:16px auto 0!important}
+.contact-panel .contact-email{display:table;margin:24px auto 0;font-size:18px;line-height:1.5}
+@media(max-width:700px){.contact .contact-layout{gap:32px}.contact h2{font-size:44px}.contact-intro .contact-description{font-size:21px}.contact-panel .contact-email{font-size:17px}}
