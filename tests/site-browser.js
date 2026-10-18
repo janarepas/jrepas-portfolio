@@ -26,7 +26,7 @@ try {
     assert.equal(await page.locator('.theme-toggle').getAttribute('data-icon-theme'), 'moon');
     await page.locator('[data-language="en"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'en');
-    assert.match(await page.locator('h1').textContent(), /Your idea/);
+    assert.match(await page.locator('h1').textContent(), /Graphic design/);
     await page.locator('[data-language="hu"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'hu');
     assert.equal(await page.locator('.process-step').count(), 6);

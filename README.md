@@ -100,3 +100,13 @@ consistent until the client applies the selected language.
 
 Run `npm run test:seo` against the local server. See [docs/seo.md](docs/seo.md) for
 the Google Search Console submission and the limits of local verification.
+
+## Quote-request journey
+
+The hero and about CTAs lead to `#contact`. The optional service selector builds
+an encoded, localised `mailto:` draft in Rust; the visitor sends it in their own
+email app. There is no automatic submission, order checkout or payment.
+The static HTML includes a working default mail draft for JavaScript-free visits.
+The process and FAQ explain scope, approval and delivery without fixed-price or
+turnaround promises. Test navigation, narrow-screen layout, both languages/themes,
+quote selection and keyboard FAQ with `npm run test:ux`.

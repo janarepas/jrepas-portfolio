@@ -88,28 +88,3 @@ if (aboutVectorSection) {
   reducedMotion.addEventListener('change', scheduleVectorArtwork);
   updateVectorArtwork();
 }
-
-// Override the embedded Rust translation snapshot after every language render.
-const localizedCopyUrl = './src/translations.json?v=aboutbalance15';
-fetch(localizedCopyUrl).then(response => {
-  if (!response.ok) throw new Error('Translation file unavailable');
-  return response.json();
-}).then(copy => {
-  let applying = false;
-  const applyCopy = () => {
-    if (applying) return;
-    applying = true;
-    const lang = document.documentElement.lang === 'hu' ? 'hu' : 'en';
-    document.querySelectorAll('[data-i18n]').forEach(node => {
-      const value = copy[node.dataset.i18n]?.[lang];
-      if (typeof value === 'string' && node.innerHTML !== value) node.innerHTML = value;
-    });
-    applying = false;
-  };
-  const observer = new MutationObserver(applyCopy);
-  observer.observe(document.documentElement,{attributes:true,attributeFilter:['lang'],subtree:false});
-  document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click',() => {
-    requestAnimationFrame(applyCopy);
-  }));
-  applyCopy();
-}).catch(error => console.warn('Translation update failed',error));

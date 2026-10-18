@@ -4,6 +4,7 @@ from pathlib import Path
 import html
 import json
 import re
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 COPY = json.loads((ROOT / 'src/translations.json').read_text())
@@ -67,6 +68,8 @@ for filename, title_key, description_key in [('index.html', '134', '135'), ('pac
 <!-- SEO:end -->
 '''
     source = source.replace('</head>', metadata + '</head>', 1)
+    if 'rel="preconnect"' not in source:
+        source = source.replace('<meta charset="utf-8">', '<meta charset="utf-8"><link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="preconnect" href="https://p.typekit.net" crossorigin>', 1)
     source = source.replace('href="packaging.html"', 'href="/packaging"')
     source = source.replace('href="index.html', 'href="/')
     source = source.replace('aria-label="Main navigation"', 'aria-label="Főmenü"')
@@ -78,6 +81,13 @@ for filename, title_key, description_key in [('index.html', '134', '135'), ('pac
     source = source.replace('alt="Foldable Duo phone displaying yellow and black geometric artwork"',
                             'alt="Répás János grafikai koncepciója egy hajlítható telefon kijelzőjén"')
     source = source.replace('alt="Packaging design project"', 'alt="Csomagolásgrafika és nyomdai előkészítés – Répás János"')
+    if filename == 'index.html':
+        service = COPY['173']['hu']
+        subject = COPY['166']['hu'] + ' – ' + service
+        body = (COPY['167']['hu'] + '\n\n' + COPY['168']['hu'] + ': ' + service + '\n\n' +
+                COPY['169']['hu'] + ':\n\n' + COPY['170']['hu'] + ':\n\n' + COPY['171']['hu'] + ':\n')
+        href = 'mailto:jrepas@icloud.com?subject=' + quote(subject, safe='') + '&body=' + quote(body, safe='')
+        source = re.sub(r'(<a id="quote-mail"[^>]*href=")[^"]*', lambda m: m[1] + html.escape(href, quote=True), source)
     file.write_text(source)
 
 (ROOT / 'robots.txt').write_text('User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: https://jrepas.hu/sitemap.xml\n')

@@ -46,6 +46,21 @@ fn update_year(document: &Document) -> Result<(), JsValue> {
     }
     Ok(())
 }
+fn update_quote_link(document: &Document, copy: &Value, language: Language) -> Result<(), JsValue> {
+    let Some(link) = document.query_selector("#quote-mail")? else { return Ok(()); };
+    let selected = document.query_selector("#quote-service")?
+        .and_then(|el| el.dyn_into::<web_sys::HtmlSelectElement>().ok())
+        .map(|select| select.value()).unwrap_or_default();
+    let text = |key: &str| copy[key][language.code()].as_str().unwrap_or_default();
+    let service = if selected.is_empty() { text("173") } else { text(&selected) };
+    let subject = format!("{} – {}", text("166"), service);
+    let body = format!("{}\n\n{}: {}\n\n{}:\n\n{}:\n\n{}:\n", text("167"), text("168"), service, text("169"), text("170"), text("171"));
+    let subject = String::from(js_sys::encode_uri_component(&subject));
+    let body = String::from(js_sys::encode_uri_component(&body));
+    link.set_attribute("href", &format!("mailto:jrepas@icloud.com?subject={subject}&body={body}"))?;
+    Ok(())
+}
+
 struct App {
     document: Document,
     storage: Option<Storage>,
@@ -113,8 +128,12 @@ impl App {
         let images = document.query_selector_all(".project img:not([alt='']), .case-image img")?;
         for i in 0..images.length() {
             if let Some(image) = images.item(i).and_then(|n| n.dyn_into::<Element>().ok()) {
-                image.set_attribute("alt", lang.text("Csomagolástervezési projekt", "Packaging design project"))?;
+                image.set_attribute("alt", lang.text("Doboz stancrajzának technikai illusztrációja", "Technical illustration of a box dieline"))?;
             }
+        }
+        update_quote_link(document, &self.translations, lang)?;
+        if let Some(nav) = document.query_selector(".service-jump")? {
+            nav.set_attribute("aria-label", lang.text("Szolgáltatás választása", "Choose a service"))?;
         }
         root.set_attribute("data-runtime", "rust-wasm")?;
         Ok(())
@@ -193,6 +212,17 @@ pub fn start() -> Result<(), JsValue> {
             animate_render(&state);
         });
         element(&document, &format!("[data-language='{code}']"))?.add_event_listener_with_callback("click", callback.as_ref().unchecked_ref())?;
+        callback.forget();
+    }
+    if let Some(select) = document.query_selector("#quote-service")? {
+        let state = Rc::clone(&app);
+        let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
+            let app = state.borrow();
+            if let Err(error) = update_quote_link(&app.document, &app.translations, app.language) {
+                web_sys::console::error_1(&error);
+            }
+        });
+        select.add_event_listener_with_callback("change", callback.as_ref().unchecked_ref())?;
         callback.forget();
     }
     let state = Rc::clone(&app);
