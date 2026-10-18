@@ -1012,3 +1012,13 @@ footer .footer-copyright{display:block;margin-top:16px;font-size:11px;letter-spa
 footer.wrap{min-height:0;padding-top:12px;padding-bottom:12px}
 footer .footer-agency{padding:8px 0;gap:8px}
 footer .footer-copyright{margin-top:0;line-height:1.4}
+/* Hockey artwork blends into charcoal, avoiding a washed-out paper seam. */
+html[data-theme] .work .portfolio-card:nth-child(7){--tile-end:#101010;color:#fff}
+html[data-theme] .work .portfolio-card .cover-sports{background:#171717;color:#ffdd00}
+html[data-theme] .work .portfolio-card .cover-sports .service-scene{
+ opacity:.8;mix-blend-mode:normal;filter:grayscale(1) brightness(.78);
+ -webkit-mask-image:linear-gradient(to right,#000 0%,#000 max(0px,calc(var(--artwork-stop,65%) - 240px)),rgba(0,0,0,.75) max(0px,calc(var(--artwork-stop,65%) - 160px)),rgba(0,0,0,.25) max(0px,calc(var(--artwork-stop,65%) - 70px)),transparent var(--artwork-stop,65%));
+ mask-image:linear-gradient(to right,#000 0%,#000 max(0px,calc(var(--artwork-stop,65%) - 240px)),rgba(0,0,0,.75) max(0px,calc(var(--artwork-stop,65%) - 160px)),rgba(0,0,0,.25) max(0px,calc(var(--artwork-stop,65%) - 70px)),transparent var(--artwork-stop,65%));
+}
+html[data-theme] .work .portfolio-card:nth-child(7):after{background:linear-gradient(to bottom,transparent,#101010 90%)}
+html[data-theme] .work .portfolio-card .cover-sports .cover-mark{color:#ffc20e;opacity:.5}
