@@ -1329,3 +1329,27 @@ html[data-theme] .site-header .header-contact:focus-visible{
  outline:2px solid var(--text);
  outline-offset:4px;
 }
+
+/* Match contact-panel CTA to the other primary yellow buttons, without a hover stroke. */
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow{
+ position:relative;isolation:isolate;overflow:hidden;
+ background:var(--yellow-main);color:var(--black-deep);
+ border:1px solid transparent!important;box-shadow:none;
+ transition:color 220ms ease;
+}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:before{
+ content:"";position:absolute;inset:0;border-radius:inherit;
+ background:var(--yellow-deep);transform:scaleY(0);transform-origin:center bottom;
+ z-index:-1;transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms;
+}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:hover{
+ background:var(--yellow-main);color:var(--black-deep);
+ border-color:transparent!important;box-shadow:none;
+}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:hover:before{transform:scaleY(1)}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:focus-visible{
+ outline:2px solid var(--text);outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:before{transition:none}
+}
