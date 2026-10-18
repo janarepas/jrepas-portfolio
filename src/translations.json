@@ -88,12 +88,12 @@
     "en": "An idea is where it starts."
   },
   "22": {
-    "hu": "<span class=\"about-paragraph\"><strong>Te hozod az ötletet.</strong> Lehet egy új márka, termék, kampány vagy egy grafikai feladat, amire megoldást keresel.</span><span class=\"about-paragraph\">Nem kell kész tervvel érkezned. <strong>Együtt megtaláljuk a jó irányt.</strong></span>",
-    "en": "<span class=\"about-paragraph\"><strong>You bring the idea.</strong> Maybe it’s a new brand, a product, a campaign or a visual challenge that needs solving.</span><span class=\"about-paragraph\">You don’t need a finished brief. <strong>We’ll find the right direction together.</strong></span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Te hozod az ötletet.</strong> Lehet egy új márka, termék vagy grafikai feladat.</span><span class=\"about-paragraph\">Nem kell kész tervvel érkezned. <strong>Együtt megtaláljuk a jó irányt.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>You bring the idea.</strong> It might be a new brand, product or design challenge.</span><span class=\"about-paragraph\">You don’t need a finished brief. <strong>We’ll find the right direction together.</strong></span>"
   },
   "23": {
-    "hu": "<span class=\"about-paragraph\"><strong>Az első beszélgetéstől a kész grafikáig.</strong> Az elképzelésedből átgondolt, működő vizuális megoldás születik, legyen szó nyomtatott, csomagolási vagy digitális anyagról.</span><span class=\"about-paragraph\">Nemcsak jól néz ki, hanem <strong>a gyakorlatban is működik.</strong></span>",
-    "en": "<span class=\"about-paragraph\"><strong>From the first conversation to the final design.</strong> I turn your goals into clear, considered visuals for print, packaging and digital use.</span><span class=\"about-paragraph\">Not just something that looks good, but <strong>a solution that works</strong> in the real world, too.</span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Az ötlettől a kész grafikáig.</strong> Átgondolt vizuális megoldásokat készítek nyomtatott, csomagolási és digitális felületekre.</span><span class=\"about-paragraph\">A cél egyszerű: <strong>jól nézzen ki, és a gyakorlatban is működjön.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>From idea to final design.</strong> I create considered visuals for print, packaging and digital projects.</span><span class=\"about-paragraph\">The goal is simple: <strong>great design that works in practice.</strong></span>"
   },
   "24": {
     "en": "Tell me your idea",
