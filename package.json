@@ -7,7 +7,8 @@
     "build:rust": "bash scripts/build.sh",
     "test:motion": "node tests/motion-browser.js",
     "test:seo": "node tests/seo-browser.js",
-    "test:ux": "node tests/ux-browser.js"
+    "test:ux": "node tests/ux-browser.js",
+    "test:faq": "node tests/faq-browser.js"
   },
   "devDependencies": {
     "playwright": "1.56.1",

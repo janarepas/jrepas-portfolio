@@ -1773,3 +1773,7 @@ html body section.about.process-section .process-flow>li.process-step .process-i
  .contact-panel{padding:28px 24px}
  .faq summary{padding-top:24px;padding-bottom:24px}
 }
+/* FAQ arrows track the smoothly expanding disclosure. */
+.faq summary:after,.faq details[open] summary:after{top:50%;margin-top:-7px;transition:transform .36s cubic-bezier(.22,1,.36,1)}
+.faq details[open] summary[aria-expanded=false]:after{transform:rotate(45deg)}
+@media(prefers-reduced-motion:reduce){.faq summary:after{transition:none}}

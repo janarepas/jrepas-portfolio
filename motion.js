@@ -88,3 +88,41 @@ if (aboutVectorSection) {
   reducedMotion.addEventListener('change', scheduleVectorArtwork);
   updateVectorArtwork();
 }
+
+// Animate native FAQ disclosures in both directions, including rapid reversals.
+for (const details of document.querySelectorAll('.faq details')) {
+  const summary = details.querySelector('summary');
+  let animation;
+  let targetOpen = details.open;
+  const settle = () => {
+    if (animation) {
+      animation.onfinish = null;
+      animation.cancel();
+      animation = undefined;
+      details.open = targetOpen;
+    }
+    details.style.removeProperty('overflow');
+    summary.removeAttribute('aria-expanded');
+  };
+  summary.addEventListener('click', event => {
+    if (reducedMotion.matches || !details.animate) return;
+    event.preventDefault();
+    targetOpen = animation ? !targetOpen : !details.open;
+    const startHeight = details.getBoundingClientRect().height;
+    if (animation) {
+      animation.onfinish = null;
+      animation.cancel();
+    }
+    details.open = true;
+    summary.setAttribute('aria-expanded', String(targetOpen));
+    const endHeight = targetOpen ? details.getBoundingClientRect().height :
+      summary.getBoundingClientRect().height + parseFloat(getComputedStyle(details).borderBottomWidth || 0);
+    details.style.overflow = 'hidden';
+    animation = details.animate(
+      [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+      { duration: 360, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'both' }
+    );
+    animation.onfinish = settle;
+  });
+  reducedMotion.addEventListener('change', settle);
+}
