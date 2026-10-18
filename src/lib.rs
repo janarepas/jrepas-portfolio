@@ -1,7 +1,7 @@
 use std::{cell::RefCell, rc::Rc};
 use serde_json::Value;
 use wasm_bindgen::{prelude::*, JsCast};
-use web_sys::{Document, Element, Event, MediaQueryListEvent, KeyboardEvent, Storage};
+use web_sys::{Document, Element, Event, MediaQueryListEvent, Storage};
 
 const THEME_ICON: &str = r#"<svg class="theme-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><clipPath id="theme-horizon"><path d="M0 0h24v17H0Z"/></clipPath></defs><g class="theme-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></g><g class="theme-moon"><path d="M20 13 C16 16 8 11 11 3 C6 3 3 7 3 12 C3 17 7 21 12 21 C16 21 20 18 20 13 Z"/></g><g class="theme-sunset"><g clip-path="url(#theme-horizon)"><g class="sunset-orbit"><circle cx="12" cy="10" r="4"/><path d="M12 1v2M3 10h2m14 0h2M5.5 3.5 7 5m10 0 1.5-1.5"/></g></g><path class="sunset-horizon" d="M3 17h18M7 21h10"/></g></svg>"#;
 const COPY: &str = include_str!("translations.json");
@@ -53,7 +53,6 @@ struct App {
     dark: bool,
     manual_theme: bool,
     translations: Value,
-    carousel_index: usize,
     transition_version: u32,
 }
 impl App {
@@ -64,28 +63,6 @@ impl App {
         let lang = self.language;
         root.set_attribute("lang", lang.code())?;
         root.set_attribute("data-theme", if self.dark { "dark" } else { "light" })?;
-        if let Some(carousel) = document.query_selector(".process-carousel")? {
-            let index = self.carousel_index;
-            carousel.set_attribute("aria-label", lang.text("A tervezés folyamata", "Design process"))?;
-            element(document, "[data-carousel-title]")?.set_attribute("data-i18n", &(80 + index * 2).to_string())?;
-            element(document, "[data-carousel-description]")?.set_attribute("data-i18n", &(81 + index * 2).to_string())?;
-            element(document, ".process-art")?.set_attribute("data-step", &index.to_string())?;
-            element(document, ".process-number")?.set_text_content(Some(&format!("{:02}", index + 1)));
-            if let Some(mirror) = document.query_selector(".process-mirror")? {
-                mirror.set_attribute("data-step", &index.to_string())?;
-                if let Some(number) = mirror.query_selector(".process-number")? { number.set_text_content(Some(&format!("{:02}", index + 1))); }
-            }
-            element(document, ".process-count")?.set_text_content(Some(&format!("{:02} / 10", index + 1)));
-            element(document, "[data-carousel-prev]")?.set_attribute("aria-label", lang.text("Előző lépés", "Previous step"))?;
-            element(document, "[data-carousel-next]")?.set_attribute("aria-label", lang.text("Következő lépés", "Next step"))?;
-            element(document, "[data-carousel-prev]")?.set_text_content(Some(lang.text("Előző", "Previous")));
-            element(document, "[data-carousel-next]")?.set_text_content(Some(lang.text("Következő", "Next")));
-            for i in 0..10 {
-                let dot = element(document, &format!("[data-carousel-dot='{i}']"))?;
-                dot.set_attribute("aria-pressed", if i == index { "true" } else { "false" })?;
-                dot.set_attribute("aria-label", &format!("{} {}", lang.text("Lépés", "Step"), i + 1))?;
-            }
-        }
         let nodes = document.query_selector_all("[data-i18n]")?;
         for i in 0..nodes.length() {
             if let Some(el) = nodes.item(i).and_then(|n| n.dyn_into::<Element>().ok()) {
@@ -184,7 +161,7 @@ pub fn start() -> Result<(), JsValue> {
     let media = window.match_media("(prefers-color-scheme: dark)")?;
     let (dark, manual_theme) = saved_theme(stored(&storage, "jrepas-theme").as_deref(), media.as_ref().is_some_and(|m| m.matches()));
     let translations = serde_json::from_str(COPY).map_err(|e| JsValue::from_str(&e.to_string()))?;
-    let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, carousel_index: 0, transition_version: 0 }));
+    let app = Rc::new(RefCell::new(App { document: document.clone(), storage, language, dark, manual_theme, translations, transition_version: 0 }));
     app.borrow().render()?;
     // Update even if the page stays open over New Year's midnight.
     let year_document = document.clone();
@@ -242,32 +219,6 @@ pub fn start() -> Result<(), JsValue> {
         callback.forget();
     }
 
-    if let Some(carousel) = document.query_selector(".process-carousel")? {
-        for i in 0..12 {
-            let selector = if i == 10 { "[data-carousel-prev]".to_string() } else if i == 11 { "[data-carousel-next]".to_string() } else { format!("[data-carousel-dot='{i}']") };
-            let state = Rc::clone(&app);
-            let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
-                let mut state = state.borrow_mut();
-                state.carousel_index = match i { 10 => (state.carousel_index + 9) % 10, 11 => (state.carousel_index + 1) % 10, _ => i };
-                state.render_or_log();
-            });
-            element(&document, &selector)?.add_event_listener_with_callback("click", callback.as_ref().unchecked_ref())?;
-            callback.forget();
-        }
-        let state = Rc::clone(&app);
-        let callback = Closure::<dyn FnMut(KeyboardEvent)>::new(move |event: KeyboardEvent| {
-            let mut state = state.borrow_mut();
-            match event.key().as_str() {
-                "ArrowLeft" => state.carousel_index = (state.carousel_index + 9) % 10,
-                "ArrowRight" => state.carousel_index = (state.carousel_index + 1) % 10,
-                _ => return,
-            }
-            event.prevent_default();
-            state.render_or_log();
-        });
-        carousel.add_event_listener_with_callback("keydown", callback.as_ref().unchecked_ref())?;
-        callback.forget();
-    }
     if let Some(media) = media {
         let state = Rc::clone(&app);
         let callback = Closure::<dyn FnMut(MediaQueryListEvent)>::new(move |event: MediaQueryListEvent| {

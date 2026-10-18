@@ -29,13 +29,13 @@ try {
     assert.match(await page.locator('h1').textContent(), /Ideas/);
     await page.locator('[data-language="hu"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'hu');
-    for (let i = 1; i < 10; i++) {
-      await page.locator('[data-carousel-next]').click();
-      assert.equal(await page.locator('.process-art:not(.process-mirror)').getAttribute('data-step'), String(i));
-      assert.equal(await page.locator('.process-mirror').getAttribute('data-step'), String(i));
+    assert.equal(await page.locator('.process-step').count(), 10);
+    assert.equal(await page.locator('[data-carousel-next]').count(), 0);
+    for (const step of await page.locator('.process-step').all()) {
+      assert.ok(await step.isVisible());
+      assert.ok((await step.locator('h3').textContent()).length > 0);
+      assert.ok((await step.locator('p').textContent()).length > 0);
     }
-    await page.locator('[data-carousel-next]').click();
-    assert.equal(await page.locator('.process-art:not(.process-mirror)').getAttribute('data-step'), '0');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.locator('#contact').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().bottom < 0));
@@ -44,6 +44,6 @@ try {
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
     assert.deepEqual(errors, []);
     await context.close();
-    console.log(`Public site: ${width}px, language, theme, carousel, header, layout and persistence passed`);
+    console.log(`Public site: ${width}px, language, theme, flowchart, header, layout and persistence passed`);
   }
 } finally { await browser.close(); }
