@@ -1032,3 +1032,23 @@ html[data-theme] .work .portfolio-card .cover-sports .service-scene{
  mask-image:linear-gradient(to right,#000 0%,#000 92%,transparent 100%);
 }
 html[data-theme] .work .portfolio-card:nth-child(7):after{inset:38% 0 0;background:linear-gradient(to bottom,transparent 0%,rgba(16,16,16,.6) 55%,#101010 100%)}
+/* Sports and video use the same clear image / symbol / caption layout. */
+html[data-theme] .work .portfolio-card .cover-sports .service-scene,
+html[data-theme] .work .portfolio-card .cover-video .service-scene{
+ inset:64px auto auto 24px;
+ width:max(0px,calc(var(--artwork-stop,65%) - 24px));height:200px;aspect-ratio:auto;
+ object-fit:contain;object-position:left top;
+ mask-image:none;-webkit-mask-image:none;opacity:1;mix-blend-mode:normal;
+}
+html[data-theme] .work .portfolio-card:nth-child(7):after,
+html[data-theme] .work .portfolio-card:nth-child(8):after{display:none}
+html[data-theme] .work .portfolio-card .cover-sports .service-scene{filter:grayscale(1)}
+html[data-theme] .work .portfolio-card .cover-video .service-scene{filter:none}
+html[data-theme] .work .portfolio-card:nth-child(7),
+html[data-theme] .work .portfolio-card:nth-child(8){min-height:460px}
+@media(max-width:700px){
+ html[data-theme] .work .portfolio-card .cover-sports .service-scene,
+ html[data-theme] .work .portfolio-card .cover-video .service-scene{top:72px;height:180px}
+ html[data-theme] .work .portfolio-card:nth-child(7),
+ html[data-theme] .work .portfolio-card:nth-child(8){min-height:420px}
+}
