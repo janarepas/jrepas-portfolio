@@ -955,3 +955,18 @@ html[data-motion=true] .hero h1 em:after{transform:scaleX(var(--hero-underline,0
  .about.process-section .process-step:after{display:none!important}
 }
 @media(max-width:700px){.process-connector{display:none}}
+/* Lighter markers and a descending rhythm replace the rectangular routing. */
+.about.process-section .flow-number{width:32px;height:32px;flex-basis:32px;font-size:11px}
+.about.process-section .flow-node svg{width:24px;height:24px;margin-top:4px}
+.about.process-section .process-connector path{stroke-width:1}
+@media(min-width:701px){
+ .about.process-section .process-diagram{padding-top:40px;padding-bottom:48px}
+ .about.process-section .process-flow{row-gap:48px;column-gap:80px}
+ .about.process-section .process-step{padding-left:84px;min-height:90px}
+ .about.process-section .process-step:nth-child(even){margin-top:64px}
+ .about.process-section .process-step:nth-child(n+3){margin-left:24px}
+ .about.process-section .process-step h3{font-size:28px;padding-top:0}
+}
+@media(max-width:700px){
+ .about.process-section .process-step:not(:last-child) .flow-node:after{left:15px;top:32px;height:calc(100% - 32px)}
+}

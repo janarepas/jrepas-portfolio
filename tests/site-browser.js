@@ -38,9 +38,9 @@ try {
     assert.equal(await page.locator('#work .eyebrow').textContent(), '02 / Szolgáltatások');
     const stages = await page.locator('.process-step').evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
     if (width > 700) {
-      assert.equal(stages[0].top, stages[1].top);
+      assert.ok(stages[1].top > stages[0].top);
       assert.ok(stages[1].left > stages[0].left);
-      assert.equal(stages[2].top, stages[3].top);
+      assert.ok(stages[3].top > stages[2].top);
       assert.ok(stages[2].top >= stages[0].bottom);
       assert.ok(stages[2].left > stages[0].left);
       await page.waitForSelector('.process-connector path[d]');

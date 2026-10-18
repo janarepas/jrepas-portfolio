@@ -85,10 +85,16 @@ if (processFlow) {
       return {x:stage.offsetLeft + marker.offsetWidth / 2, y:stage.offsetTop + marker.offsetHeight / 2};
     });
     const [a,b,c,d] = points;
-    const upper = a.y - 48;
-    const middle = (stages[0].offsetTop + stages[0].offsetHeight + stages[2].offsetTop) / 2;
-    const lower = Math.max(stages[2].offsetTop + stages[2].offsetHeight, stages[3].offsetTop + stages[3].offsetHeight) + 20;
-    path.setAttribute('d', `M ${a.x} ${a.y} V ${upper} H ${b.x} V ${middle} H ${c.x} V ${lower} H ${d.x} V ${d.y}`);
+    const radius = stages[0].querySelector('.flow-number').offsetWidth / 2;
+    const endOf = stage => stage.offsetLeft + stage.offsetWidth + 8;
+    const firstEnd = endOf(stages[0]);
+    const thirdEnd = endOf(stages[2]);
+    const middle = (stages[1].offsetTop + stages[1].offsetHeight + stages[2].offsetTop) / 2;
+    path.setAttribute('d',
+      `M ${firstEnd} ${a.y + 24} C ${firstEnd + 18} ${a.y + 24}, ${b.x - radius - 24} ${b.y}, ${b.x - radius - 8} ${b.y}` +
+      ` M ${b.x} ${b.y + radius + 8} C ${b.x} ${middle}, ${c.x} ${middle}, ${c.x} ${c.y - radius - 8}` +
+      ` M ${thirdEnd} ${c.y + 24} C ${thirdEnd + 18} ${c.y + 24}, ${d.x - radius - 24} ${d.y}, ${d.x - radius - 8} ${d.y}`);
+
   }
   const processResize = new ResizeObserver(drawProcessConnector);
   processResize.observe(processFlow);
