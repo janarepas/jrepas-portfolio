@@ -860,3 +860,9 @@ footer>span:not(.footer-agency){grid-column:1;grid-row:1}
 /* A crisp vector editing diagram replaces the indistinct raster illustration. */
 .work .portfolio-card .cover-vector .vector-reconstruction-art{top:36px;height:250px;opacity:1;object-fit:contain;-webkit-mask-image:none;mask-image:none}
 @media(max-width:700px){.work .portfolio-card .cover-vector .vector-reconstruction-art{top:40px;height:220px}}
+
+/* Darker supporting photos and a clear gap below the pixel motif. */
+.work .portfolio-card .cover-retail{background:#171717}
+.work .portfolio-card .cover-retail .portfolio-scene{filter:grayscale(1) brightness(.42);opacity:.68}
+.work .portfolio-card .cover-editorial .portfolio-scene{filter:grayscale(1) brightness(.42);opacity:.8}
+html[data-theme] .work .portfolio-card .cover-retail .cover-mark{top:118px;right:32px;left:auto}
