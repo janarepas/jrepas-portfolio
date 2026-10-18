@@ -1114,3 +1114,11 @@ html[data-theme=dark] .about.process-section .process-step p{color:#a1a1a6}
  .about.process-section .process-step h3{font-size:30px}
  .about.process-section .process-step p{font-size:16px}
 }
+
+/* Keep the introductory construction lines understated and start their arc lower. */
+#about .about-vector-art{top:38%;height:90%;transform:translateY(calc(var(--vector-progress,1) * -12px))}
+#about .about-vector-curves{opacity:.075}
+#about .about-vector-guides{opacity:.035}
+#about .about-vector-nodes{opacity:.1}
+html[data-theme=dark] #about .about-vector-curves{opacity:.055}
+@media(max-width:700px){#about .about-vector-art{top:48%;height:85%}#about .about-vector-curves{opacity:.055}}
