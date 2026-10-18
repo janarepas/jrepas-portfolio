@@ -44,6 +44,14 @@ try {
             const title = card.querySelector('.project-title');
             if (artwork && artwork.getBoundingClientRect().bottom > title.getBoundingClientRect().top - 8) errors.push(`Illustration too close to title: ${title.textContent}`);
           }
+          const processCards = [...document.querySelectorAll('.process-step')].map(el => ({
+            top: el.getBoundingClientRect().top,
+            heading: el.querySelector('h3').getBoundingClientRect().top,
+            text: el.querySelector('p').getBoundingClientRect().top
+          }));
+          for (const a of processCards) for (const b of processCards) {
+            if (Math.abs(a.top - b.top) < 1 && (Math.abs(a.heading - b.heading) > 1 || Math.abs(a.text - b.text) > 1)) errors.push('Process card headings/descriptions are not aligned');
+          }
           return errors;
         });
         assert.deepEqual(failures, [], `${width}px / ${language} / ${theme}`);

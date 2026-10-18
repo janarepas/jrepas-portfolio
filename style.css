@@ -1837,3 +1837,12 @@ html body section.about.process-section .process-flow>li.process-step .process-i
 html body section.about.process-section .process-flow>li.process-step h3{grid-row:2}
 html body section.about.process-section .process-flow>li.process-step>p{grid-row:3}
 @media(max-width:700px){html body section.about.process-section .process-flow>li.process-step{padding-bottom:32px!important}}
+/* Share heading and description tracks across each row of process cards. */
+@supports(grid-template-rows:subgrid){
+ html body section.about.process-section .process-flow>li.process-step{
+  grid-row:span 3;grid-template-rows:subgrid;row-gap:0;
+ }
+ html body section.about.process-section .process-flow>li.process-step .process-illustration{margin:35px auto!important}
+ html body section.about.process-section .process-flow>li.process-step h3{align-self:start}
+ html body section.about.process-section .process-flow>li.process-step>p{align-self:start}
+}
