@@ -1022,3 +1022,5 @@ html[data-theme] .work .portfolio-card .cover-sports .service-scene{
 }
 html[data-theme] .work .portfolio-card:nth-child(7):after{background:linear-gradient(to bottom,transparent,#101010 90%)}
 html[data-theme] .work .portfolio-card .cover-sports .cover-mark{color:#ffc20e;opacity:.5}
+/* Preserve the supplied YouTube thumbnail's original colours. */
+.work .portfolio-card .cover-video .service-scene{mix-blend-mode:normal;opacity:1}
