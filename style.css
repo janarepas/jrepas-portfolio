@@ -1556,7 +1556,7 @@ html{scroll-padding-top:88px}
 .site-header nav a{min-height:44px;display:inline-flex;align-items:center;font-size:14px}
 .hero .hero-copy{padding-bottom:56px}
 html body .hero h1{font-size:clamp(42px,5.4vw,76px)!important;line-height:1.08!important;letter-spacing:-.04em!important;margin-top:24px;margin-bottom:28px;text-wrap:balance}
-.hero .hero-description{font-size:18px;line-height:1.65;max-width:46ch}
+.hero .hero-description{font-size:18px;line-height:1.65;width:100%;max-width:36ch;text-wrap:pretty}
 .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px}
 .hero-actions .button,#about .about-body .text-link{min-height:56px;padding:16px 28px;font-size:14px;font-weight:700}
 .hero-secondary{display:inline-flex;align-items:center;min-height:48px;font-size:15px;font-weight:600;text-decoration:underline;text-decoration-color:var(--yellow-gold);text-underline-offset:5px}
