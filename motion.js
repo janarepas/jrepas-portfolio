@@ -49,3 +49,20 @@ function updateGlass() {
 addEventListener('scroll', updateGlass, { passive: true });
 addEventListener('pageshow', updateGlass);
 updateGlass();
+
+// Reserve a clean area for each tile's symbol and pixel motif.
+const tileCovers = [...document.querySelectorAll('.portfolio-cover')];
+function updateArtworkSpace() {
+  for (const cover of tileCovers) {
+    const image = cover.querySelector('img');
+    if (!image) continue;
+    const bounds = cover.getBoundingClientRect();
+    const marks = [...cover.querySelectorAll('.cover-mark, .cover-pixels')];
+    const edge = Math.min(...marks.map(mark => mark.getBoundingClientRect().left)) - bounds.left - 20;
+    cover.style.setProperty('--artwork-stop', `${Math.max(0, edge)}px`);
+  }
+}
+const artworkResize = new ResizeObserver(updateArtworkSpace);
+tileCovers.forEach(cover => artworkResize.observe(cover));
+document.fonts.ready.then(updateArtworkSpace);
+updateArtworkSpace();

@@ -334,5 +334,37 @@
   "105": {
     "hu": "Közvetlen kapcsolat",
     "en": "Get in touch directly"
+  },
+  "106": {
+    "hu": "Egyeztetés",
+    "en": "The brief"
+  },
+  "107": {
+    "hu": "Megbeszéljük, mire van szükséged.",
+    "en": "We discuss what you need."
+  },
+  "108": {
+    "hu": "Tervezés",
+    "en": "Design"
+  },
+  "109": {
+    "hu": "Az ötletből látvány lesz.",
+    "en": "Your idea takes shape."
+  },
+  "110": {
+    "hu": "Finomítás",
+    "en": "Refinement"
+  },
+  "111": {
+    "hu": "Közösen pontosítjuk a részleteket.",
+    "en": "We refine the details together."
+  },
+  "112": {
+    "hu": "Átadás",
+    "en": "Delivery"
+  },
+  "113": {
+    "hu": "Megkapod a kész, használható fájlokat.",
+    "en": "You receive the finished, ready-to-use files."
   }
 }

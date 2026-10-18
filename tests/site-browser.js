@@ -29,7 +29,7 @@ try {
     assert.match(await page.locator('h1').textContent(), /Ideas/);
     await page.locator('[data-language="hu"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'hu');
-    assert.equal(await page.locator('.process-step').count(), 10);
+    assert.equal(await page.locator('.process-step').count(), 4);
     assert.equal(await page.locator('[data-carousel-next]').count(), 0);
     for (const step of await page.locator('.process-step').all()) {
       assert.ok(await step.isVisible());

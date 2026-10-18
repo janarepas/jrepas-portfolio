@@ -25,7 +25,7 @@ Open the local server in a browser when developing locally. WebAssembly must be
 served over HTTP, not opened directly as a `file:` URL.
 
 - `src/lib.rs`: country/browser language selection, translations, language and
-  theme controls, the ten-step design flowchart, accessibility labels, page titles,
+  theme controls, the four-step design flowchart, accessibility labels, page titles,
   metadata and persistence.
 - `src/translations.json`: Hungarian and English text, keyed by HTML `data-i18n`.
 - `index.html`, `packaging.html`: semantic content and fallback English copy.

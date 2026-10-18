@@ -889,3 +889,17 @@ html[data-theme] .work .portfolio-card .cover-retail .cover-mark{top:118px;right
 @media(max-width:600px){.process-diagram{padding:32px 24px}.process-flow{display:block}.process-step{padding:0 0 30px 66px;min-height:108px}.process-step:last-child{padding-bottom:0;min-height:0}.flow-node{position:absolute;left:0;top:0;display:block;height:100%;margin:0}.flow-node svg{display:none}.flow-number{position:relative;z-index:1}.process-step:not(:last-child) .flow-node:after{display:block;top:42px;left:20px;right:auto;width:1px;height:calc(100% - 42px);background:#ffc20e}.process-step h3{font-size:30px;padding-top:5px;margin-bottom:8px}.process-step p{font-size:16px}}
 .flow-number{width:42px}
 .work .portfolio-card .service-scene{mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 85%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 85%)}
+
+/* Fade photos before the symbols, leaving their background unobstructed. */
+.work .portfolio-card .portfolio-cover .service-scene,
+.work .portfolio-card .portfolio-cover .portfolio-scene{
+ mask-image:linear-gradient(to right,#000 max(0px,calc(var(--artwork-stop,50%) - 64px)),transparent var(--artwork-stop,50%));
+ -webkit-mask-image:linear-gradient(to right,#000 max(0px,calc(var(--artwork-stop,50%) - 64px)),transparent var(--artwork-stop,50%));
+
+}
+/* A concise four-stage overview. */
+.process-flow{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.process-step:not(:nth-child(5n)) .flow-node:after{display:none}
+.process-step:not(:last-child) .flow-node:after{display:block}
+@media(max-width:900px) and (min-width:601px){.process-flow{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.process-step h3{font-size:25px}.flow-node svg{display:none}.process-step:not(:last-child) .flow-node:after{left:54px;right:-16px}}
+@media(max-width:600px){.process-flow{display:block}.process-step{padding-bottom:26px;min-height:96px}.process-step:not(:last-child) .flow-node:after{left:20px;right:auto}}
