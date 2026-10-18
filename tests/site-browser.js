@@ -26,22 +26,21 @@ try {
     assert.equal(await page.locator('.theme-toggle').getAttribute('data-icon-theme'), 'moon');
     await page.locator('[data-language="en"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'en');
-    assert.match(await page.locator('h1').textContent(), /Ideas/);
+    assert.match(await page.locator('h1').textContent(), /Your idea/);
     await page.locator('[data-language="hu"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'hu');
-    assert.equal(await page.locator('.process-step').count(), 4);
+    assert.equal(await page.locator('.process-step').count(), 6);
     assert.equal(await page.locator('[data-carousel-next]').count(), 0);
     assert.ok(await page.locator('.about-body').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.process-diagram')) & Node.DOCUMENT_POSITION_FOLLOWING)));
     assert.ok(await page.locator('#about').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('#work')) & Node.DOCUMENT_POSITION_FOLLOWING)));
     assert.ok(await page.locator('#work').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.process-diagram')) & Node.DOCUMENT_POSITION_FOLLOWING)));
-    assert.equal(await page.locator('#about > .eyebrow').textContent(), '01 / Rólam');
+    assert.equal(await page.locator('#about > .eyebrow').textContent(), '01 / Az ötleted');
     assert.equal(await page.locator('#work .eyebrow').textContent(), '02 / Szolgáltatások');
     const stages = await page.locator('.process-step').evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
-    if (width > 800) {
-      assert.equal(stages[0].top, stages[1].top);
-      assert.equal(stages[2].top, stages[3].top);
-      assert.ok(stages[2].top >= stages[0].bottom);
-      assert.ok(stages[3].left > stages[2].left);
+    if (width > 1000) {
+      assert.equal(stages[0].top, stages[2].top);
+      assert.equal(stages[3].top, stages[5].top);
+      assert.ok(stages[3].top >= stages[0].bottom);
     } else {
       assert.equal(stages[0].left, stages[1].left);
       assert.ok(stages[1].top >= stages[0].bottom);

@@ -1114,6 +1114,357 @@ html[data-theme=dark] .about.process-section .process-step p{color:#a1a1a6}
  .about.process-section .process-step h3{font-size:30px}
  .about.process-section .process-step p{font-size:16px}
 }
+
+/* Keep the introductory construction lines understated and start their arc lower. */
+#about .about-vector-art{top:38%;height:90%;transform:translateY(calc(var(--vector-progress,1) * -12px))}
+#about .about-vector-curves{opacity:.075}
+#about .about-vector-guides{opacity:.035}
+#about .about-vector-nodes{opacity:.1}
+html[data-theme=dark] #about .about-vector-curves{opacity:.055}
+@media(max-width:700px){#about .about-vector-art{top:48%;height:85%}#about .about-vector-curves{opacity:.055}}
+
+/* Client-first six-stage process: readable, calm and easy to follow. */
+.about.process-section .process-diagram{padding:72px 24px 86px;background:var(--bg)}
+.about.process-section .process-panel{max-width:1120px;padding:60px 54px 56px;border-radius:28px;background:#f4f4f1}
+html[data-theme=dark] .about.process-section .process-panel{background:#171717}
+.about.process-section .process-heading{max-width:780px;margin:0 auto 42px;text-align:center}
+.about.process-section .process-heading>.eyebrow{font-size:12px;color:var(--muted);margin-bottom:14px}
+.about.process-section .process-heading h2{font-size:clamp(38px,4.5vw,62px);line-height:1.06;max-width:760px;margin:0 auto}
+.about.process-section .process-subtitle{margin:20px auto 0;max-width:550px;font-size:16px;line-height:1.65;color:var(--muted)}
+.about.process-section .process-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border:0;border-radius:0;background:transparent;overflow:visible;list-style:none}
+.about.process-section .process-flow .process-step{margin:0!important;min-height:230px;padding:88px 24px 28px!important;border:1px solid var(--line)!important;border-top:3px solid var(--yellow-main)!important;border-radius:16px;background:var(--bg);text-align:left}
+.about.process-section .process-step:before,.about.process-section .process-step:after,.about.process-section .flow-node:after{content:none!important;display:none!important}
+.about.process-section .process-step .flow-node{position:absolute;top:22px;left:24px;right:24px;width:auto;height:44px;margin:0;display:flex;align-items:center;justify-content:space-between}
+.about.process-section .process-step .flow-number{position:static;transform:none;width:42px;height:42px;flex:0 0 42px;border:none;border-radius:50%;font:700 13px/1 'DM Sans',Arial,sans-serif;color:#111;background:var(--yellow-main)}
+.about.process-section .process-step .flow-node svg{display:block;position:static;transform:none;width:26px;height:26px;margin:0;color:var(--muted)}
+.about.process-section .process-step h3{margin:0 0 12px;padding:0!important;font-size:clamp(27px,2.4vw,34px);line-height:1.08;min-height:0;font-weight:400;text-align:left}
+.about.process-section .process-step p{max-width:none;margin:0;font-size:15px;line-height:1.6;text-align:left;color:var(--muted)}
+.about.process-section .process-cta{display:flex;align-items:center;justify-content:center;width:max-content;max-width:100%;margin:36px auto 0;padding:18px 30px;min-height:54px;background:var(--yellow-main);color:var(--black-deep);border:1px solid var(--yellow-main);border-radius:var(--button-radius);font:700 13px/1.4 'DM Sans',Arial,sans-serif;text-decoration:none}
+.about.process-section .process-cta:hover{background:var(--yellow-gold)}
+@media(max-width:900px){.about.process-section .process-panel{padding:44px 30px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.about.process-section .process-diagram{padding:44px 16px 56px}.about.process-section .process-panel{padding:36px 18px 34px;border-radius:20px}.about.process-section .process-heading{margin-bottom:30px}.about.process-section .process-heading h2{font-size:clamp(34px,9vw,45px)}.about.process-section .process-subtitle{font-size:14px}.about.process-section .process-flow{grid-template-columns:1fr;gap:12px}.about.process-section .process-flow .process-step{min-height:0;padding:78px 20px 24px!important}.about.process-section .process-step .flow-node{left:20px;right:20px;top:18px}.about.process-section .process-step h3{font-size:30px}.about.process-section .process-step p{font-size:15px}.about.process-section .process-cta{width:100%}}
+
+/* Safari-friendly viewport-edge glass: blur the real page, not a white overlay. */
+.top-glass{height:clamp(120px,19vh,190px);overflow:hidden;isolation:isolate}
+.top-glass>span{display:none!important}
+.top-glass::before{
+ content:"";position:absolute;inset:0;display:block;
+ -webkit-backdrop-filter:blur(20px) saturate(1.2);
+ backdrop-filter:blur(20px) saturate(1.2);
+ -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.96) 18%,rgba(0,0,0,.72) 43%,rgba(0,0,0,.25) 72%,transparent 100%);
+ mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.96) 18%,rgba(0,0,0,.72) 43%,rgba(0,0,0,.25) 72%,transparent 100%);
+}
+.top-glass::after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(to bottom,rgba(var(--edge-rgb),.38),rgba(var(--edge-rgb),.12) 38%,rgba(var(--edge-rgb),0) 82%);
+ pointer-events:none;
+}
+@media(prefers-reduced-transparency:reduce){.top-glass{display:none}}
+
+/* Quieter process layout: subtle surfaces instead of prominent cards. */
+.about.process-section .process-panel{background:#f7f7f5;padding:58px 50px 52px}
+html[data-theme=dark] .about.process-section .process-panel{background:#151515}
+.about.process-section .process-flow{gap:14px}
+.about.process-section .process-flow .process-step{background:rgba(255,255,255,.58);border:1px solid rgba(20,20,20,.065)!important;border-top:1px solid rgba(20,20,20,.065)!important;border-radius:12px;min-height:212px;box-shadow:none;padding:82px 24px 26px!important}
+html[data-theme=dark] .about.process-section .process-flow .process-step{background:rgba(255,255,255,.025);border-color:rgba(255,255,255,.09)!important}
+.about.process-section .process-step .flow-number{width:32px;height:32px;flex-basis:32px;background:rgba(255,221,0,.22);color:var(--text);font-size:11px;font-weight:600}
+.about.process-section .process-step .flow-node{top:18px;height:38px}
+.about.process-section .process-step .flow-node svg{width:22px;height:22px;opacity:.65}
+.about.process-section .process-step h3{font-size:clamp(25px,2.1vw,30px);margin-bottom:10px}
+.about.process-section .process-step p{font-size:14px;line-height:1.65}
+@media(max-width:600px){.about.process-section .process-panel{padding:34px 18px}.about.process-section .process-flow .process-step{min-height:0;padding:68px 20px 22px!important}.about.process-section .process-step .flow-node{top:15px}}
+
+/* Editorial process layout: no card frames, just six airy milestones. */
+.about.process-section .process-diagram{padding:76px 24px 88px}
+.about.process-section .process-panel{max-width:1220px;background:transparent;padding:44px 24px 38px}
+html[data-theme=dark] .about.process-section .process-panel{background:transparent}
+.about.process-section .process-heading{margin-bottom:64px}
+.about.process-section .process-flow{grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.about.process-section .process-flow .process-step,
+html[data-theme=dark] .about.process-section .process-flow .process-step{
+ background:transparent;border:0!important;border-top:0!important;box-shadow:none;border-radius:0;
+ padding:0 5px 12px!important;min-height:0;text-align:center
+}
+.about.process-section .process-step .flow-node{
+ position:relative;top:auto;left:auto;right:auto;width:100%;height:106px;
+ margin:0 auto 18px;display:flex;flex-direction:column;align-items:center;justify-content:space-between
+}
+.about.process-section .process-step .flow-number{width:30px;height:30px;flex:0 0 30px;background:rgba(255,221,0,.28);font-size:11px}
+.about.process-section .process-step .flow-node svg{
+ display:block;position:static;width:54px;height:54px;padding:15px;border-radius:50%;
+ background:rgba(127,127,127,.055);color:var(--text);opacity:.82;box-sizing:border-box
+}
+.about.process-section .process-step h3{font-size:clamp(22px,2vw,29px);line-height:1.12;text-align:center;margin:0 0 16px}
+.about.process-section .process-step p{font-size:14px;line-height:1.65;text-align:center;max-width:190px;margin:0 auto}
+.about.process-section .process-flow .process-step:not(:last-child):after{
+ content:'→'!important;display:block!important;position:absolute;top:51px;left:auto;right:-17px;
+ width:auto;height:auto;background:none;color:var(--muted);font:300 23px/1 Arial,sans-serif;opacity:.6
+}
+.about.process-section .process-cta{margin-top:50px}
+@media(max-width:950px){.about.process-section .process-flow{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 22px}.about.process-section .process-flow .process-step:nth-child(3):after{display:none!important}}
+@media(max-width:600px){.about.process-section .process-diagram{padding:46px 18px 60px}.about.process-section .process-panel{padding:20px 4px}.about.process-section .process-heading{margin-bottom:38px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 16px}.about.process-section .process-flow .process-step{padding:0 4px!important}.about.process-section .process-flow .process-step:nth-child(2n):after{display:none!important}.about.process-section .process-flow .process-step:nth-child(3):after{display:block!important}.about.process-section .process-step .flow-node{height:92px;margin-bottom:12px}.about.process-section .process-step .flow-node svg{width:48px;height:48px;padding:13px}.about.process-section .process-step h3{font-size:25px;margin-bottom:10px}.about.process-section .process-step p{font-size:13px}.about.process-section .process-cta{margin-top:36px}}
+/* All yellow calls-to-action use the same bottom-to-top fill as Contact. */
+html[data-theme] .hero .outline-button,
+html[data-theme] .about.process-section .process-cta{
+ position:relative;isolation:isolate;overflow:hidden;background:var(--yellow-main);
+ color:var(--black-deep);border-color:var(--yellow-main);
+ transition:border-color 220ms ease,color 220ms ease;
+}
+html[data-theme] .hero .outline-button:before,
+html[data-theme] .about.process-section .process-cta:before{
+ content:'';position:absolute;inset:0;border-radius:inherit;background:var(--yellow-deep);
+ transform:scaleY(0);transform-origin:center bottom;z-index:-1;
+ transition:transform 220ms ease;
+}
+html[data-theme] .hero .outline-button:hover,
+html[data-theme] .about.process-section .process-cta:hover{
+ background:var(--yellow-main);color:var(--black-deep);border-color:var(--yellow-deep);
+ transition:border-color 220ms ease,color 220ms ease 220ms;
+}
+html[data-theme] .hero .outline-button:hover:before,
+html[data-theme] .about.process-section .process-cta:hover:before{
+ transform:scaleY(1);transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms;
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme] .hero .outline-button,html[data-theme] .about.process-section .process-cta,
+ html[data-theme] .hero .outline-button:before,html[data-theme] .about.process-section .process-cta:before{transition:none}
+}
+
+/* Final reference match: open six-column editorial process and soft lower arc. */
+.about.process-section .process-diagram{position:relative;overflow:hidden;padding:100px 20px 96px;background:var(--bg)}
+.about.process-section .process-diagram:after{content:"";position:absolute;z-index:0;pointer-events:none;left:-10%;bottom:-112px;width:120%;height:170px;border-radius:50% 50% 0 0 / 85% 85% 0 0;background:rgba(127,127,127,.025)}
+.about.process-section .process-panel{position:relative;z-index:1;max-width:1440px;padding:35px 20px 42px;border-radius:0;background:transparent}
+.about.process-section .process-heading{max-width:920px;margin:0 auto 70px}
+.about.process-section .process-heading h2{font-size:clamp(42px,5.2vw,74px)}
+.about.process-section .process-flow{grid-template-columns:repeat(6,minmax(0,1fr));column-gap:26px;row-gap:36px}
+.about.process-section .process-step .flow-node{height:110px;margin-bottom:19px}
+.about.process-section .process-step .flow-number{width:34px;height:34px;flex-basis:34px}
+.about.process-section .process-step .flow-node svg{width:66px;height:66px;padding:18px}
+.about.process-section .process-step h3{font-size:clamp(23px,2.1vw,31px)}
+.about.process-section .process-step p{font-size:15px;line-height:1.65;max-width:205px}
+.about.process-section .process-flow .process-step:not(:last-child):after{top:61px;right:-21px}
+@media(max-width:950px){.about.process-section .process-flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.about.process-section .process-diagram{padding:52px 14px 65px}.about.process-section .process-panel{padding:18px 4px 30px}.about.process-section .process-heading{margin-bottom:42px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 14px}.about.process-section .process-step .flow-node{height:92px}.about.process-section .process-step .flow-node svg{width:52px;height:52px;padding:14px}.about.process-section .process-step h3{font-size:24px}.about.process-section .process-step p{font-size:13px}.about.process-section .process-flow .process-step:not(:last-child):after{top:49px;right:-13px}}
+
+/* Hungarian accented glyphs: use a full Latin Extended serif instead of
+   mixing the Latin-only IvyPresto subset with fallback glyphs. */
+html[lang="hu"] .about.process-section .process-heading h2,
+html[lang="hu"] .about.process-section .process-step h3{
+ font-family:Georgia,'Times New Roman',serif;
+ font-weight:400;
+ font-style:italic;
+ letter-spacing:-.045em;
+}
+
+/* More breathing room throughout the six-step process. */
+.about.process-section .process-diagram{padding-top:132px;padding-bottom:138px}
+.about.process-section .process-panel{max-width:1540px;padding:46px 28px 56px}
+.about.process-section .process-heading{margin-bottom:106px}
+.about.process-section .process-heading .process-subtitle{margin-top:30px;line-height:1.85}
+.about.process-section .process-flow{column-gap:38px;row-gap:72px}
+.about.process-section .process-step .flow-node{height:126px;margin-bottom:34px}
+.about.process-section .process-step h3{margin-bottom:22px;line-height:1.2}
+.about.process-section .process-step p{line-height:1.9}
+.about.process-section .process-flow .process-step:not(:last-child):after{top:65px;right:-26px}
+.about.process-section .process-cta{margin-top:90px}
+@media(max-width:950px){.about.process-section .process-diagram{padding-top:95px;padding-bottom:110px}.about.process-section .process-heading{margin-bottom:76px}.about.process-section .process-flow{column-gap:32px;row-gap:64px}.about.process-section .process-cta{margin-top:68px}}
+@media(max-width:600px){.about.process-section .process-diagram{padding:70px 18px 88px}.about.process-section .process-panel{padding:20px 4px 35px}.about.process-section .process-heading{margin-bottom:58px}.about.process-section .process-flow{column-gap:22px;row-gap:58px}.about.process-section .process-step .flow-node{height:105px;margin-bottom:22px}.about.process-section .process-step h3{margin-bottom:15px}.about.process-section .process-step p{line-height:1.75}.about.process-section .process-flow .process-step:not(:last-child):after{top:54px;right:-17px}.about.process-section .process-cta{margin-top:60px}}
+
+/* Single consistent editorial heading family throughout the site. */
+html body h1,html body h2,html body h3,
+html body .hero h1,html body .case-hero h1,
+html body .about h2,html body .contact h2,
+html body .about.process-section .process-heading h2,
+html body .about.process-section .process-step h3,
+html[lang="hu"] body .about.process-section .process-heading h2,
+html[lang="hu"] body .about.process-section .process-step h3{
+ font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-weight:400;
+ font-style:normal;
+}
+
+/* IvyPresto Display italic is the canonical heading style, including process labels. */
+html body h1,html body h2,html body h3,
+html body .hero h1,html body .case-hero h1,
+html body .about h2,html body .contact h2,
+html body .about.process-section .process-heading h2,
+html body .about.process-section .process-step h3,
+html[lang="hu"] body .about.process-section .process-heading h2,
+html[lang="hu"] body .about.process-section .process-step h3{
+ font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-weight:400;
+ font-style:italic;
+}
+
+/* Compact supporting copy with more whitespace between milestones. */
+.about.process-section .process-flow{column-gap:48px}
+.about.process-section .process-step p{
+ font-family:'DM Sans',Arial,sans-serif;
+ font-size:13px;line-height:1.75;max-width:190px;
+ font-weight:400;letter-spacing:0;
+}
+.about.process-section .process-step h3{margin-bottom:28px}
+@media(max-width:950px){.about.process-section .process-flow{column-gap:34px}}
+@media(max-width:600px){.about.process-section .process-flow{column-gap:22px}.about.process-section .process-step p{font-size:12px;line-height:1.65;max-width:170px}.about.process-section .process-step h3{margin-bottom:16px}}
+
+/* Yellow primary CTAs: no outline at rest or on hover; keep fill animation. */
+html[data-theme] .hero .outline-button,
+html[data-theme] .about.process-section .process-cta,
+html[data-theme] .about .about-body .text-link,
+html[data-theme] .site-header .header-contact{
+ border-color:transparent!important;
+ outline:none;
+}
+html[data-theme] .hero .outline-button:hover,
+html[data-theme] .about.process-section .process-cta:hover,
+html[data-theme] .about .about-body .text-link:hover,
+html[data-theme] .site-header .header-contact:hover{
+ border-color:transparent!important;
+ box-shadow:none;
+}
+html[data-theme] .hero .outline-button:focus-visible,
+html[data-theme] .about.process-section .process-cta:focus-visible,
+html[data-theme] .about .about-body .text-link:focus-visible,
+html[data-theme] .site-header .header-contact:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
+
+/* Match contact-panel CTA to the other primary yellow buttons, without a hover stroke. */
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow{
+ position:relative;isolation:isolate;overflow:hidden;
+ background:var(--yellow-main);color:var(--black-deep);
+ border:1px solid transparent!important;box-shadow:none;
+ transition:color 220ms ease;
+}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:before{
+ content:"";position:absolute;inset:0;border-radius:inherit;
+ background:var(--yellow-deep);transform:scaleY(0);transform-origin:center bottom;
+ z-index:-1;transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms;
+}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:hover{
+ background:var(--yellow-main);color:var(--black-deep);
+ border-color:transparent!important;box-shadow:none;
+}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:hover:before{transform:scaleY(1)}
+html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:focus-visible{
+ outline:2px solid var(--text);outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:before{transition:none}
+}
+
+/* Definitive contact button fix: remove the border itself, not only its color. */
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:hover,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:active{
+ border:0!important;
+ outline:0;
+ box-shadow:none!important;
+ background-clip:padding-box;
+}
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
+
+/* Restore the original outlined navigation Contact button only. */
+html[data-theme] body .site-header nav .header-contact{
+ border:2px solid var(--yellow-main)!important;
+ background:transparent;
+ color:var(--text);
+ box-shadow:none;
+}
+html[data-theme] body .site-header nav .header-contact:hover{
+ border-color:var(--yellow-deep)!important;
+ background:transparent;
+ color:var(--black-deep);
+}
+html[data-theme] body .site-header nav .header-contact:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
+
+/* Borderless animated primary CTAs. Animate the button's own background,
+   rather than an inset overlay that leaves a yellow rim on rounded edges. */
+html[data-theme] body .hero a.outline-button,
+html[data-theme] body .about.process-section a.process-cta,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{
+ border:0!important;
+ box-shadow:none!important;
+ outline:0;
+ background-color:var(--yellow-main)!important;
+ background-image:linear-gradient(var(--yellow-deep),var(--yellow-deep))!important;
+ background-position:center bottom!important;
+ background-size:100% 0%!important;
+ background-repeat:no-repeat!important;
+ color:var(--black-deep)!important;
+ transition:background-size 360ms cubic-bezier(.2,.7,.2,1) 220ms!important;
+}
+html[data-theme] body .hero a.outline-button::before,
+html[data-theme] body .about.process-section a.process-cta::before,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow::before{
+ content:none!important;
+ display:none!important;
+}
+html[data-theme] body .hero a.outline-button:hover,
+html[data-theme] body .about.process-section a.process-cta:hover,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:hover{
+ border:0!important;
+ box-shadow:none!important;
+ background-color:var(--yellow-main)!important;
+ background-size:100% 100%!important;
+}
+html[data-theme] body .hero a.outline-button:focus-visible,
+html[data-theme] body .about.process-section a.process-cta:focus-visible,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme] body .hero a.outline-button,
+ html[data-theme] body .about.process-section a.process-cta,
+ html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{transition:none!important}
+}
+
+/* Balanced two-column copy and clearer, still subtle technical curves. */
+#about .about-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(48px,6vw,110px);align-items:start}
+#about .about-body>p{max-width:650px;line-height:1.8}
+#about .about-body>p:nth-child(2){justify-self:end}
+#about .about-body .about-paragraph+.about-paragraph{margin-top:24px}
+#about .about-vector-curves{opacity:.15}
+html[data-theme=dark] #about .about-vector-curves{opacity:.14}
+#about .about-vector-guides{opacity:.06}
+#about .about-vector-nodes{opacity:.18}
+@media(max-width:700px){#about .about-body{grid-template-columns:1fr;row-gap:26px}#about .about-body>p:nth-child(2){justify-self:start}#about .about-vector-curves,html[data-theme=dark] #about .about-vector-curves{opacity:.11}}
+
+/* Retail cover: match the first portfolio card's typographic Aa mark. */
+html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
+ top:50%;left:50%;right:auto;
+ transform:translate(-50%,-50%);
+ font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-style:italic;font-weight:400;
+ font-size:clamp(110px,11vw,170px);
+ line-height:1;letter-spacing:-.06em;
+ color:var(--yellow-main);opacity:.9;
+}
+@media(max-width:700px){html[data-theme] .work .portfolio-card .cover-retail .cover-mark{font-size:clamp(100px,23vw,145px)}}
+
+/* Retail POS: same yellow vector-outline lettering treatment as the first card. */
+html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
+ top:50%;left:50%;right:auto;transform:translate(-50%,-50%);
+ font-family:'DM Sans',Arial,sans-serif;font-style:normal;font-weight:800;
+ font-size:clamp(78px,9vw,135px);letter-spacing:-.065em;line-height:1;
+ color:transparent!important;-webkit-text-fill-color:transparent;
+ -webkit-text-stroke:2px var(--yellow-main);
+ paint-order:stroke fill;opacity:1;
+}
+@media(max-width:700px){
+ html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
+ font-size:clamp(72px,18vw,118px);-webkit-text-stroke:1.5px var(--yellow-main)
+ }
+}
+
 /* Illustrated editorial cards, presented in their numbered process order. */
 .about.process-section .process-diagram{background:var(--surface)}
 .process-panel{background:transparent!important;border-radius:0;padding:0}
@@ -1141,3 +1492,39 @@ html[data-theme=dark] .about.process-section .process-step p{color:#a1a1a6}
  .process-illustration{width:136px;height:136px}
 }
 .about.process-section .process-flow .flow-node:after{display:none!important}
+
+/* Preserve the shared six-stage sequence in the supplied three-column layout. */
+.about.process-section .process-flow{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important}
+.about.process-section .process-step{border:0!important;min-height:330px!important;padding:28px 20px!important}
+.about.process-section .process-step h3{font-size:30px!important;line-height:1.15!important;letter-spacing:-.02em!important}
+.about.process-section .process-step p{font-size:16px!important;line-height:1.55!important}
+.about.process-section .flow-node{top:20px!important;left:20px!important;right:auto!important;width:40px!important;height:40px!important}
+.about.process-section .flow-number{position:static!important;transform:none!important;width:36px!important;height:36px!important;background:var(--yellow-main)!important;color:#111!important;display:grid!important;place-items:center!important}
+.about.process-section .flow-node svg{display:none!important}
+.about.process-section .process-step h3,.about.process-section .process-step p{text-align:center!important}
+.about.process-section .process-cta{display:flex;width:max-content;max-width:100%;margin:36px auto 0}
+@media(max-width:1000px) and (min-width:701px){.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:700px){.about.process-section .process-flow{grid-template-columns:1fr!important}.about.process-section .process-step{padding:28px!important}}
+/* Match the POS ornament exactly to the outlined Aa lettering. */
+html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
+ font-family:Arial,Helvetica,sans-serif!important;font-weight:900!important;font-style:normal!important;
+ letter-spacing:-.08em!important;-webkit-text-stroke:1px var(--yellow-main)!important;
+ -webkit-text-fill-color:transparent!important;color:transparent!important;opacity:.55;
+}
+/* Final illustration layout overrides earlier timeline variants. */
+html body section.about.process-section .process-diagram{background:#f5f5f3!important;padding:64px 24px!important}
+html[data-theme=dark] body section.about.process-section .process-diagram{background:#202020!important}
+html body section.about.process-section .process-panel{padding:0!important;max-width:960px!important}
+html body section.about.process-section .process-heading{margin:0 0 40px!important;text-align:left!important;max-width:720px!important}
+html body section.about.process-section .process-heading h2{font-size:clamp(36px,4.2vw,56px)!important;line-height:1.12!important;text-align:left!important}
+html body section.about.process-section .process-heading .process-subtitle{margin-top:20px!important;text-align:left!important;line-height:1.6!important}
+html body section.about.process-section .process-flow>li.process-step{position:relative!important;background:#fff!important;border:0!important;border-radius:24px!important;padding:28px 20px!important;min-height:340px!important;overflow:hidden!important}
+html[data-theme=dark] body section.about.process-section .process-flow>li.process-step{background:#080808!important}
+html body section.about.process-section .process-flow>li.process-step .flow-node{position:absolute!important;top:20px!important;left:20px!important;right:auto!important;width:36px!important;height:36px!important;margin:0!important;display:block!important}
+html body section.about.process-section .process-flow>li.process-step .flow-node:after,
+html body section.about.process-section .process-flow>li.process-step:after,
+html body section.about.process-section .process-flow>li.process-step:before{display:none!important}
+html body section.about.process-section .process-flow>li.process-step .process-illustration{margin:12px auto 22px!important;width:140px!important;height:140px!important}
+html body section.about.process-section .process-flow>li.process-step h3{margin:0 0 14px!important;min-height:0!important;padding:0!important}
+@media(max-width:700px){html body section.about.process-section .process-diagram{padding:40px 24px!important}html body section.about.process-section .process-flow>li.process-step{padding:28px!important}}
+html body section.about.process-section .process-heading .process-subtitle{margin-left:0!important;margin-right:0!important;max-width:640px!important}
