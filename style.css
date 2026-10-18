@@ -1426,3 +1426,14 @@ html[data-theme] body .contact-panel .contact-actions a.contact-link.button.butt
  html[data-theme] body .about.process-section a.process-cta,
  html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{transition:none!important}
 }
+
+/* Balanced two-column copy and clearer, still subtle technical curves. */
+#about .about-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(48px,6vw,110px);align-items:start}
+#about .about-body>p{max-width:650px;line-height:1.8}
+#about .about-body>p:nth-child(2){justify-self:end}
+#about .about-body .about-paragraph+.about-paragraph{margin-top:24px}
+#about .about-vector-curves{opacity:.15}
+html[data-theme=dark] #about .about-vector-curves{opacity:.14}
+#about .about-vector-guides{opacity:.06}
+#about .about-vector-nodes{opacity:.18}
+@media(max-width:700px){#about .about-body{grid-template-columns:1fr;row-gap:26px}#about .about-body>p:nth-child(2){justify-self:start}#about .about-vector-curves,html[data-theme=dark] #about .about-vector-curves{opacity:.11}}
