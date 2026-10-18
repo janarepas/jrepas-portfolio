@@ -726,3 +726,8 @@ html{scroll-padding-top:74px}
  .hero .hero-copy{padding-top:150px}
  .case-hero{padding-top:150px}
 }
+
+/* Navigation scrolls away while keeping the hero behind it at page start. */
+.site-header,html[data-theme=light] .site-header,html[data-theme=dark] .site-header{
+ position:absolute;top:0;left:0;right:0;
+}

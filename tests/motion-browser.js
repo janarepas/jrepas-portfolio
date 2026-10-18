@@ -14,7 +14,7 @@ try {
   assert.ok(intermediate > 0 && intermediate < 795, `wheel interpolates: ${intermediate}`);
   await page.waitForTimeout(1200);
   assert.ok(await page.evaluate(() => scrollY > 750));
-  assert.equal(await page.locator('.site-header').evaluate(el => Math.round(el.getBoundingClientRect().top)), 0);
+  assert.ok(await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().bottom < 0));
   assert.equal(await page.locator('.site-header').evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
   assert.equal(await page.locator('html').getAttribute('data-scrolled'), 'true');
   assert.equal(await page.locator('.top-glass').evaluate(el => getComputedStyle(el).pointerEvents), 'none');
@@ -25,5 +25,5 @@ try {
   await reduced.waitForSelector('.top-glass', { state: 'attached' });
   assert.equal(await reduced.locator('html').getAttribute('data-motion'), null);
   assert.equal(await reduced.locator('[data-reveal=pending]').count(), 0);
-  console.log('Passed: interpolated wheel scrolling, progressive reveal, transparent sticky menu, top fade and reduced-motion fallback');
+  console.log('Passed: interpolated wheel scrolling, progressive reveal, transparent menu scrolls away, top fade and reduced-motion fallback');
 } finally { await browser.close(); }

@@ -36,7 +36,7 @@ try {
     assert.equal(await page.locator('.process-art:not(.process-mirror)').getAttribute('data-step'), '0');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
     await page.locator('#contact').scrollIntoViewIfNeeded();
-    assert.equal(await page.locator('.site-header').evaluate(el => Math.round(el.getBoundingClientRect().top)), 0);
+    assert.ok(await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().bottom < 0));
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.waitForSelector('html[data-runtime="rust-wasm"]');
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
