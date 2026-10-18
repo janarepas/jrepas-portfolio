@@ -36,17 +36,16 @@ try {
     await page.waitForFunction(() => location.hash === '#contact');
     assert.ok(await page.locator('#contact-title').isVisible());
     assert.ok((await page.locator('#contact').boundingBox()).y >= 56, 'Contact hidden behind top glass');
-    await page.locator('#quote-service').selectOption('52');
+    assert.equal(await page.locator('#quote-service').count(), 0);
     let mail = new URL(await page.locator('#quote-mail').getAttribute('href'));
-    assert.match(mail.searchParams.get('subject'), /Csomagolás/);
+    assert.match(mail.searchParams.get('subject'), /Grafikai tervezés/);
     assert.match(mail.searchParams.get('body'), /határidő/);
     await page.evaluate(() => scrollTo(0, 0));
     await page.locator('[data-language="en"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'en');
     mail = new URL(await page.locator('#quote-mail').getAttribute('href'));
-    assert.match(mail.searchParams.get('subject'), /Packaging/);
+    assert.match(mail.searchParams.get('subject'), /Graphic design/);
     assert.match(mail.searchParams.get('body'), /deadline/i);
-    assert.equal(await page.locator('#quote-service').inputValue(), '52');
     const question = page.locator('.faq summary').first();
     await question.focus();
     await page.keyboard.press('Enter');
@@ -55,7 +54,7 @@ try {
     assert.equal(await page.locator('.faq details').first().getAttribute('open'), null);
     for (const href of await page.locator('.service-jump a').evaluateAll(links => links.map(el => el.getAttribute('href')))) assert.equal(await page.locator(href).count(), 1);
     assert.deepEqual(errors, []);
-    console.log(`UX: ${width}px, both languages/themes, navigation, headings, service selection, quote email and keyboard FAQ passed.`);
+    console.log(`UX: ${width}px, both languages/themes, navigation, headings, minimal contact, quote email and keyboard FAQ passed.`);
     await page.close();
   }
   const page = await browser.newPage({ javaScriptEnabled: false });

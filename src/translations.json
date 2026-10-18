@@ -108,8 +108,8 @@
     "en": "Request a quote."
   },
   "27": {
-    "hu": "E-mailben kérek ajánlatot",
-    "en": "Request a quote by email"
+    "hu": "Írj e-mailt",
+    "en": "Email me"
   },
   "28": {
     "hu": "144p Group — Low resolution. High standards.",
@@ -312,8 +312,8 @@
     "hu": "Rendezett, felhasználásra kész fájlok átadása nyomdai és digitális célokra."
   },
   "100": {
-    "hu": "Meséld el, mire készülsz. A részleteket együtt pontosítjuk, majd egyedi ajánlatot kapsz.",
-    "en": "Tell me what you have in mind. We’ll clarify the details together, then agree a personalised quote."
+    "hu": "Írd meg az ötleted. A többit együtt pontosítjuk.",
+    "en": "Tell me your idea. We’ll work out the details together."
   },
   "101": {
     "hu": "Mesélj a feladatról.",

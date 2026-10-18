@@ -1846,3 +1846,8 @@ html body section.about.process-section .process-flow>li.process-step>p{grid-row
  html body section.about.process-section .process-flow>li.process-step h3{align-self:start}
  html body section.about.process-section .process-flow>li.process-step>p{align-self:start}
 }
+/* A direct, minimal contact invitation. */
+.contact .contact-layout{gap:28px}
+.contact-panel .contact-actions{display:flex;justify-content:center;margin-top:0}
+html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:min(260px,100%);padding:18px 36px}
+.contact-panel .contact-email{margin-top:24px}

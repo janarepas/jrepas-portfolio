@@ -48,11 +48,8 @@ fn update_year(document: &Document) -> Result<(), JsValue> {
 }
 fn update_quote_link(document: &Document, copy: &Value, language: Language) -> Result<(), JsValue> {
     let Some(link) = document.query_selector("#quote-mail")? else { return Ok(()); };
-    let selected = document.query_selector("#quote-service")?
-        .and_then(|el| el.dyn_into::<web_sys::HtmlSelectElement>().ok())
-        .map(|select| select.value()).unwrap_or_default();
     let text = |key: &str| copy[key][language.code()].as_str().unwrap_or_default();
-    let service = if selected.is_empty() { text("173") } else { text(&selected) };
+    let service = text("173");
     let subject = format!("{} – {}", text("166"), service);
     let body = format!("{}\n\n{}: {}\n\n{}:\n\n{}:\n\n{}:\n", text("167"), text("168"), service, text("169"), text("170"), text("171"));
     let subject = String::from(js_sys::encode_uri_component(&subject));
@@ -211,17 +208,6 @@ pub fn start() -> Result<(), JsValue> {
             animate_render(&state);
         });
         element(&document, &format!("[data-language='{code}']"))?.add_event_listener_with_callback("click", callback.as_ref().unchecked_ref())?;
-        callback.forget();
-    }
-    if let Some(select) = document.query_selector("#quote-service")? {
-        let state = Rc::clone(&app);
-        let callback = Closure::<dyn FnMut(Event)>::new(move |_| {
-            let app = state.borrow();
-            if let Err(error) = update_quote_link(&app.document, &app.translations, app.language) {
-                web_sys::console::error_1(&error);
-            }
-        });
-        select.add_event_listener_with_callback("change", callback.as_ref().unchecked_ref())?;
         callback.forget();
     }
     let state = Rc::clone(&app);

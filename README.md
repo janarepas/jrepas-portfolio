@@ -103,13 +103,12 @@ the Google Search Console submission and the limits of local verification.
 
 ## Quote-request journey
 
-The hero and about CTAs lead to `#contact`. The optional service selector builds
-an encoded, localised `mailto:` draft in Rust; the visitor sends it in their own
-email app. There is no automatic submission, order checkout or payment.
-The static HTML includes a working default mail draft for JavaScript-free visits.
-The process and FAQ explain scope, approval and delivery without fixed-price or
-turnaround promises. Test navigation, narrow-screen layout, both languages/themes,
-quote selection and keyboard FAQ with `npm run test:ux`.
+The hero and about CTAs lead to `#contact`, a short invitation with one email
+button and a directly accessible email address. Rust prepares a localised
+`mailto:` draft; the visitor sends it in their own email app. There is no form,
+automatic submission, order checkout or payment. Static HTML includes the same
+working default mail draft for JavaScript-free visits. Test the journey and both
+languages/themes with `npm run test:ux`.
 
 The former `/packaging` and `/packaging.html` pages redirect permanently to
 `/#service-packaging`. Packaging design is presented only on the homepage and
