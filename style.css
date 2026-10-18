@@ -1114,3 +1114,30 @@ html[data-theme=dark] .about.process-section .process-step p{color:#a1a1a6}
  .about.process-section .process-step h3{font-size:30px}
  .about.process-section .process-step p{font-size:16px}
 }
+/* Illustrated editorial cards, presented in their numbered process order. */
+.about.process-section .process-diagram{background:var(--surface)}
+.process-panel{background:transparent!important;border-radius:0;padding:0}
+.process-heading{max-width:720px;margin:0 0 40px;text-align:left}
+.process-heading>svg{margin-left:0;width:40px;height:40px}
+.about .process-heading h2{text-wrap:balance;max-width:720px}
+.about.process-section .process-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.about.process-section .process-step{background:var(--bg);border-radius:24px;min-height:356px!important;padding:32px!important;text-align:center;overflow:hidden}
+.about.process-section .process-step:before,.about.process-section .process-flow .process-step:after{display:none!important}
+.about.process-section .flow-node{position:absolute;top:24px;left:24px;right:auto;width:40px;height:40px}
+.about.process-section .flow-number{position:static;transform:none;width:40px;height:40px;font-size:12px}
+.about.process-section .flow-node>svg{display:none}
+.process-illustration{display:block;width:148px;height:148px;margin:0 auto 24px;color:var(--muted)}
+.process-illustration .art-accent{stroke:var(--yellow-gold)}
+.about.process-section .process-step h3{font-size:36px;line-height:1.12;padding:0;margin:0 0 14px;min-height:0;text-wrap:balance}
+.about.process-section .process-step p{font-size:17px;line-height:1.55;max-width:300px;margin:0 auto;text-wrap:pretty}
+.work .portfolio-card:nth-child(3) .project-title{border:0;padding-left:0}
+.work .portfolio-card .cover-retail:after{display:none}
+.work .portfolio-card .project-title h3{text-wrap:balance;overflow-wrap:normal;hyphens:auto}
+@media(max-width:800px){
+ .about.process-section .process-flow{grid-template-columns:1fr;gap:16px}
+ .about.process-section .process-step{min-height:330px!important;padding:28px!important}
+ .about.process-section .process-step:last-child{padding-bottom:28px!important}
+ .about.process-section .process-step h3{font-size:34px}
+ .process-illustration{width:136px;height:136px}
+}
+.about.process-section .process-flow .flow-node:after{display:none!important}
