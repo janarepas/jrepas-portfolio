@@ -8,8 +8,8 @@
     "en": "Services"
   },
   "2": {
-    "en": "About",
-    "hu": "Rólam"
+    "en": "Solutions",
+    "hu": "Megoldások"
   },
   "3": {
     "en": "Contact",
@@ -28,12 +28,12 @@
     "hu": "Grafikai tervezés és vizuális kreativitás"
   },
   "7": {
-    "en": "Ideas<br><em>in focus.</em>",
-    "hu": "Ötletek<br><em>fókuszban.</em>"
+    "en": "Your idea.<br><em>Made real.</em>",
+    "hu": "Az ötletedből<br><em>valóság.</em>"
   },
   "8": {
-    "en": "Visual solutions for brands, businesses and creative projects.",
-    "hu": "Vizuális megoldások márkáknak, vállalkozásoknak és kreatív projektekhez."
+    "en": "Have an idea or something you want to bring to life? From the first concept to the finished design, let's find the right solution together.",
+    "hu": "Van egy ötleted, vagy szeretnél valamit megvalósítani? Az első elképzeléstől a kész grafikáig együtt megtaláljuk a megfelelő megoldást."
   },
   "9": {
     "hu": "Szolgáltatások",
@@ -44,8 +44,8 @@
     "en": "02 / Services"
   },
   "11": {
-    "hu": "Tervezzünk együtt!",
-    "en": "Start a project!"
+    "hu": "Valósítsuk meg!",
+    "en": "Let's make it happen"
   },
   "12": {
     "en": "Packaging design",
@@ -80,24 +80,24 @@
     "hu": "Arculat / Grafikai tervezés · Hamarosan"
   },
   "20": {
-    "hu": "01 / Rólam",
-    "en": "01 / About"
+    "hu": "01 / Az ötleted",
+    "en": "01 / Your idea"
   },
   "21": {
-    "hu": "Minden részlet számít.",
-    "en": "Every detail matters."
+    "hu": "Minden egy ötlettel kezdődik.",
+    "en": "An idea is where it starts."
   },
   "22": {
-    "hu": "<span class=\"about-paragraph\"><strong>Répás János vagyok.</strong> Több mint tíz éve adok formát ötleteknek. Arculatokban, csomagoláson, képernyőn és papíron.</span><span class=\"about-paragraph\">Az ALDI Magyarországnál és a TARSAGO-nál is azt kerestem, hogyan lesz egy üzenetből <strong>emlékezetes látvány.</strong></span>",
-    "en": "<span class=\"about-paragraph\"><strong>I’m János Répás.</strong> For over ten years, I’ve been giving ideas their shape. Through identities, packaging, screens and print.</span><span class=\"about-paragraph\">At ALDI Hungary and TARSAGO, I explored how a message becomes <strong>something worth remembering.</strong></span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Te hozod az ötletet.</strong> Lehet egy új márka, termék, kampány vagy egy grafikai feladat, amire megoldást keresel.</span><span class=\"about-paragraph\">Nem kell kész tervvel érkezned. <strong>Együtt megtaláljuk a jó irányt.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>You bring the idea.</strong> Maybe it’s a new brand, a product, a campaign or a visual challenge that needs solving.</span><span class=\"about-paragraph\">You don’t need a finished brief. <strong>We’ll find the right direction together.</strong></span>"
   },
   "23": {
-    "hu": "<span class=\"about-paragraph\"><strong>Az első vázlattól a kész anyagig.</strong> Úgy tervezek, hogy a végeredmény képernyőn, nyomtatásban és gyártásban is működjön.</span><span class=\"about-paragraph\">Tiszta vonalak. <strong>Átgondolt részletek.</strong> Gondosan előkészített fájlok. Hogy az ötleted a megvalósításkor is ugyanaz maradjon.</span>",
-    "en": "<span class=\"about-paragraph\"><strong>From the first sketch to the final file.</strong> I design for the screen, the printed page and the production line.</span><span class=\"about-paragraph\">Clean lines. <strong>Considered details.</strong> Carefully prepared files. So your idea stays true to itself when it becomes real.</span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Az első beszélgetéstől a kész grafikáig.</strong> Az elképzelésedből átgondolt, működő vizuális megoldás születik, legyen szó nyomtatott, csomagolási vagy digitális anyagról.</span><span class=\"about-paragraph\">Nemcsak jól néz ki, hanem <strong>a gyakorlatban is működik.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>From the first conversation to the final design.</strong> I turn your goals into clear, considered visuals for print, packaging and digital use.</span><span class=\"about-paragraph\">Not just something that looks good, but <strong>a solution that works</strong> in the real world, too.</span>"
   },
   "24": {
-    "en": "Let's collaborate",
-    "hu": "Dolgozzunk együtt"
+    "en": "Tell me your idea",
+    "hu": "Mesélj az ötletedről"
   },
   "25": {
     "en": "03 / Contact",
