@@ -55,9 +55,10 @@ Pushing to `main` triggers the existing automatic deployment. No Rust server or
 new hosting service is required. The root `functions/` directory retains the
 Cloudflare Pages country middleware.
 
-The eight portfolio entries come from the designer's Upwork portfolio and are
-non-clickable cards. The contact section provides a separate Upwork profile link. Their graphic covers are placeholders, not original project
-images. Contact: `jrepas@icloud.com`.
+The eight service entries are non-clickable illustrated cards. Their graphic
+covers illustrate the services. The about section separately presents four real
+Behance project covers, each linking to its corresponding project.
+Contact: `jrepas@icloud.com`.
 
 ## Typography
 
@@ -122,3 +123,14 @@ both languages and themes, including the 700/701 and 1000/1001 breakpoints. It
 asserts text/card containment, separation of service illustrations and titles,
 header item bounds and spacing above the hero. Tests run in Chromium; native
 select labels may truncate while their popup retains the full option text.
+
+## Selected Behance work
+
+The about section contains four local Behance covers in a responsive two-column
+gallery (one column on mobile). Each image opens its original project in a safe
+new tab. Titles and category labels are bilingual; 404/808px WebP sources load
+lazily. Source URLs and retrieval dates are recorded in
+`docs/portfolio-sources.json`. Run `npm run test:portfolio` to verify the gallery,
+image decoding, destinations and JavaScript-free fallback. The Behance pages
+may require a normal browser User-Agent and HTML Accept headers for read-only
+fetches; use the configured network proxy and keep TLS verification enabled.

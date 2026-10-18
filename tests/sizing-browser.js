@@ -19,7 +19,7 @@ try {
         const failures = await page.evaluate(() => {
           const errors = [];
           if (document.documentElement.scrollWidth > innerWidth + 1) errors.push('Horizontal page overflow');
-          for (const element of document.querySelectorAll('h1,h2,h3,p,label,select,.site-header a,.site-header button,.button')) {
+          for (const element of document.querySelectorAll('h1,h2,h3,h4,p,label,select,.site-header a,.site-header button,.button')) {
             const rect = element.getBoundingClientRect();
             if (!rect.width || !rect.height) continue;
             const label = element.textContent.trim().slice(0, 60);
