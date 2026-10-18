@@ -1160,3 +1160,16 @@ html[data-theme=dark] .about.process-section .process-panel{background:#171717}
  pointer-events:none;
 }
 @media(prefers-reduced-transparency:reduce){.top-glass{display:none}}
+
+/* Quieter process layout: subtle surfaces instead of prominent cards. */
+.about.process-section .process-panel{background:#f7f7f5;padding:58px 50px 52px}
+html[data-theme=dark] .about.process-section .process-panel{background:#151515}
+.about.process-section .process-flow{gap:14px}
+.about.process-section .process-flow .process-step{background:rgba(255,255,255,.58);border:1px solid rgba(20,20,20,.065)!important;border-top:1px solid rgba(20,20,20,.065)!important;border-radius:12px;min-height:212px;box-shadow:none;padding:82px 24px 26px!important}
+html[data-theme=dark] .about.process-section .process-flow .process-step{background:rgba(255,255,255,.025);border-color:rgba(255,255,255,.09)!important}
+.about.process-section .process-step .flow-number{width:32px;height:32px;flex-basis:32px;background:rgba(255,221,0,.22);color:var(--text);font-size:11px;font-weight:600}
+.about.process-section .process-step .flow-node{top:18px;height:38px}
+.about.process-section .process-step .flow-node svg{width:22px;height:22px;opacity:.65}
+.about.process-section .process-step h3{font-size:clamp(25px,2.1vw,30px);margin-bottom:10px}
+.about.process-section .process-step p{font-size:14px;line-height:1.65}
+@media(max-width:600px){.about.process-section .process-panel{padding:34px 18px}.about.process-section .process-flow .process-step{min-height:0;padding:68px 20px 22px!important}.about.process-section .process-step .flow-node{top:15px}}
