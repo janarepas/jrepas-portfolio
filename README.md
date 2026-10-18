@@ -25,10 +25,10 @@ Open the local server in a browser when developing locally. WebAssembly must be
 served over HTTP, not opened directly as a `file:` URL.
 
 - `src/lib.rs`: country/browser language selection, translations, language and
-  theme controls, the four-step vertical design flowchart, accessibility labels, page titles,
+  theme controls, the six-step illustrated design process, accessibility labels, page titles,
   metadata and persistence.
 - `src/translations.json`: Hungarian and English text, keyed by HTML `data-i18n`.
-- `index.html`, `packaging.html`: semantic content and fallback English copy.
+- `index.html`, `packaging.html`: semantic content and indexable Hungarian copy.
 - `style.css`: responsive layout, both themes and self-hosted fonts.
 - `fonts/`: DM Serif Display 400 Italic for headings and DM Sans for body text; licenses included.
 - `scripts/build.sh`: locked release build and wasm-bindgen packaging.
@@ -87,3 +87,16 @@ viewport. Reduced-motion preferences disable interpolation and reveals. A masked
 blur and theme-coloured fade soften the viewport top after scrolling. The transparent menu
 scrolls away with the page, without its own background, border or blur. The vendor bundle and MIT license live in
 `assets/vendor/lenis-1.3.27/`. Run `npm run test:motion` with the local server.
+
+## Search and indexability
+
+`scripts/prepare-seo.py` runs during the Rust build. It syncs the visible Hungarian
+HTML from `src/translations.json`, with page-specific titles and descriptions,
+canonical URLs on `https://jrepas.hu`, Open Graph/Twitter metadata, Schema.org
+Person/WebSite/WebPage/Service data, `robots.txt` and `sitemap.xml`. The body is
+readable without JavaScript; Rust preserves the existing language/theme controls.
+The middleware only supplies visitor country, leaving the static HTML language
+consistent until the client applies the selected language.
+
+Run `npm run test:seo` against the local server. See [docs/seo.md](docs/seo.md) for
+the Google Search Console submission and the limits of local verification.

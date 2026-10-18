@@ -9,6 +9,8 @@
     "/images/*",
     "/style.css",
     "/site.js",
-    "/motion.js"
+    "/motion.js",
+    "/robots.txt",
+    "/sitemap.xml"
   ]
 }

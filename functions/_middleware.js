@@ -1,5 +1,10 @@
-// Country detection only: the public site needs no database or authentication.
+// Canonical home redirect and country detection; no database or authentication.
 export async function onRequest({ request, next }) {
+  const url = new URL(request.url);
+  if (url.pathname === '/index.html') {
+    url.pathname = '/';
+    return Response.redirect(url.href, 301);
+  }
   const response = await next();
   if (!response.headers.get('content-type')?.includes('text/html')) return response;
   const country = request.cf?.country;
@@ -8,7 +13,6 @@ export async function onRequest({ request, next }) {
   const localized = new HTMLRewriter().on('html', {
     element(element) {
       element.setAttribute('data-country', country);
-      element.setAttribute('lang', country === 'HU' ? 'hu' : 'en');
     },
   }).transform(response);
   localized.headers.set('Cache-Control', 'private, no-store');

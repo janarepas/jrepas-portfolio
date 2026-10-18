@@ -34,7 +34,7 @@ try {
     assert.ok(await page.locator('.about-body').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.process-diagram')) & Node.DOCUMENT_POSITION_FOLLOWING)));
     assert.ok(await page.locator('#about').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('#work')) & Node.DOCUMENT_POSITION_FOLLOWING)));
     assert.ok(await page.locator('#work').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.process-diagram')) & Node.DOCUMENT_POSITION_FOLLOWING)));
-    assert.equal(await page.locator('#about > .eyebrow').textContent(), '01 / Az ötleted');
+    assert.equal(await page.locator('#about > .eyebrow').textContent(), '01 / Rólam');
     assert.equal(await page.locator('#work .eyebrow').textContent(), '02 / Szolgáltatások');
     const stages = await page.locator('.process-step').evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
     if (width > 1000) {

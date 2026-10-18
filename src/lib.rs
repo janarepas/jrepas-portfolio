@@ -87,14 +87,22 @@ impl App {
         toggle.set_attribute("aria-pressed", if self.dark { "false" } else { "true" })?;
         element(document, "nav")?.set_attribute("aria-label", lang.text("Főmenü", "Main navigation"))?;
         element(document, ".brand")?.set_attribute("aria-label", lang.text("JREPAS kezdőlap", "JREPAS home"))?;
-        document.set_title(lang.text("Répás János - Grafikai tervezés", "János Répás - Graphic Design"));
-        let project = document.location().and_then(|l| l.pathname().ok()).is_some_and(|p| p.ends_with("packaging.html"));
-        let description = if project {
-            lang.text("Csomagolástervezés és nyomdai kivitelezés — Répás János portfóliója.", "Packaging design and print production — János Répás portfolio.")
-        } else {
-            lang.text("Répás János — grafikai tervezés, csomagolás és márkaarculat.", "János Répás — graphic design, packaging and visual identities.")
-        };
+        let project = document.location().and_then(|l| l.pathname().ok()).is_some_and(|p| p.ends_with("/packaging.html") || p.ends_with("/packaging"));
+        let title_key = if project { "136" } else { "134" };
+        let description_key = if project { "137" } else { "135" };
+        let title = self.translations[title_key][lang.code()].as_str().unwrap_or("Répás János – Grafikai tervezés | jrepas.hu");
+        let description = self.translations[description_key][lang.code()].as_str().unwrap_or_default();
+        document.set_title(title);
         element(document, "meta[name='description']")?.set_attribute("content", description)?;
+        for selector in ["meta[property='og:title']", "meta[name='twitter:title']"] {
+            if let Some(meta) = document.query_selector(selector)? { meta.set_attribute("content", title)?; }
+        }
+        for selector in ["meta[property='og:description']", "meta[name='twitter:description']"] {
+            if let Some(meta) = document.query_selector(selector)? { meta.set_attribute("content", description)?; }
+        }
+        if let Some(meta) = document.query_selector("meta[property='og:locale']")? {
+            meta.set_attribute("content", lang.text("hu_HU", "en_US"))?;
+        }
         element(document, "meta[name='theme-color']")?.set_attribute("content", if self.dark { "#080808" } else { "#ffffff" })?;
         if let Some(source) = document.query_selector(".hero-image source")? {
             source.set_attribute("media", if self.dark { "all" } else { "not all" })?;

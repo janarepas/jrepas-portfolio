@@ -5,7 +5,8 @@
   "scripts": {
     "test": "node tests/site-browser.js",
     "build:rust": "bash scripts/build.sh",
-    "test:motion": "node tests/motion-browser.js"
+    "test:motion": "node tests/motion-browser.js",
+    "test:seo": "node tests/seo-browser.js"
   },
   "devDependencies": {
     "playwright": "1.56.1",

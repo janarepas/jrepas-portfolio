@@ -8,8 +8,8 @@
     "en": "Services"
   },
   "2": {
-    "en": "Solutions",
-    "hu": "Megoldások"
+    "hu": "Rólam",
+    "en": "About"
   },
   "3": {
     "en": "Contact",
@@ -24,16 +24,16 @@
     "hu": "Beszéljünk"
   },
   "6": {
-    "en": "Graphic design & visual creative",
-    "hu": "Grafikai tervezés és vizuális kreativitás"
+    "hu": "Grafikai tervezés és vizuális kreativitás",
+    "en": "Graphic design & visual creativity"
   },
   "7": {
     "en": "Your idea.<br><em>Made real.</em>",
     "hu": "Az ötletedből<br><em>valóság.</em>"
   },
   "8": {
-    "en": "Have an idea or something you want to bring to life? From the first concept to the finished design, let's find the right solution together.",
-    "hu": "Van egy ötleted, vagy szeretnél valamit megvalósítani? Az első elképzeléstől a kész grafikáig együtt megtaláljuk a megfelelő megoldást."
+    "hu": "Grafikai tervezés, ami láthatóvá teszi a márkád. Arculat, csomagolás és digitális kreatívok — az első ötlettől a kész fájlokig.",
+    "en": "Graphic design that brings your brand into focus. Identity, packaging and digital creatives — from the first idea to the final files."
   },
   "9": {
     "hu": "Szolgáltatások",
@@ -44,16 +44,16 @@
     "en": "02 / Services"
   },
   "11": {
-    "hu": "Valósítsuk meg!",
-    "en": "Let's make it happen"
+    "hu": "Tervezzünk együtt!",
+    "en": "Let’s create together"
   },
   "12": {
     "en": "Packaging design",
     "hu": "Csomagolástervezés"
   },
   "13": {
-    "en": "Packaging / Print Production",
-    "hu": "Csomagolás / Nyomdai kivitelezés"
+    "hu": "Csomagolásgrafika és nyomdai előkészítés",
+    "en": "Packaging artwork & prepress"
   },
   "14": {
     "en": "Point<br>of sale<span class=\"accent\">.</span>",
@@ -80,36 +80,36 @@
     "hu": "Arculat / Grafikai tervezés · Hamarosan"
   },
   "20": {
-    "hu": "01 / Az ötleted",
-    "en": "01 / Your idea"
+    "hu": "01 / Rólam",
+    "en": "01 / About"
   },
   "21": {
-    "hu": "Minden egy ötlettel kezdődik.",
-    "en": "An idea is where it starts."
+    "hu": "Minden részlet számít.",
+    "en": "Every detail matters."
   },
   "22": {
-    "hu": "<span class=\"about-paragraph\"><strong>Te hozod az ötletet.</strong> Lehet egy új márka, termék vagy grafikai feladat.</span><span class=\"about-paragraph\">Nem kell kész tervvel érkezned. <strong>Együtt megtaláljuk a jó irányt.</strong></span>",
-    "en": "<span class=\"about-paragraph\"><strong>You bring the idea.</strong> It might be a new brand, product or design challenge.</span><span class=\"about-paragraph\">You don’t need a finished brief. <strong>We’ll find the right direction together.</strong></span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Répás János vagyok, grafikus és webdesigner.</strong> Több mint tíz éve adok formát ötleteknek. Márkáknak, termékeknek és a mögöttük álló embereknek.</span><span class=\"about-paragraph\">Az ALDI Magyarországnál és a TARSAGO-nál szerzett tapasztalatot minden munkába magammal hozom. <strong>Az első vázlattól az utolsó részletig.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>I’m János Répás, graphic designer and web designer.</strong> For over ten years, I’ve been shaping ideas for brands, products and the people behind them.</span><span class=\"about-paragraph\">Experience gained at ALDI Hungary and TARSAGO informs every project. <strong>From the first sketch to the final detail.</strong></span>"
   },
   "23": {
-    "hu": "<span class=\"about-paragraph\"><strong>Az ötlettől a kész grafikáig.</strong> Átgondolt vizuális megoldásokat készítek nyomtatott, csomagolási és digitális felületekre.</span><span class=\"about-paragraph\">A cél egyszerű: <strong>jól nézzen ki, és a gyakorlatban is működjön.</strong></span>",
-    "en": "<span class=\"about-paragraph\"><strong>From idea to final design.</strong> I create considered visuals for print, packaging and digital projects.</span><span class=\"about-paragraph\">The goal is simple: <strong>great design that works in practice.</strong></span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Jól néz ki. És működik.</strong> Arculat, <a href=\"packaging.html\">csomagolástervezés</a>, nyomtatott kiadvány vagy digitális kampány: minden felületen a márkád története számít.</span><span class=\"about-paragraph\">Tiszta vektorgrafika. Átgondolt elrendezés. Pontos nyomdai előkészítés. <strong>Hogy a jó ötletből megvalósítható terv legyen.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>Looks right. Works beautifully.</strong> Identity, <a href=\"packaging.html\">packaging design</a>, print or a digital campaign: every touchpoint tells your brand’s story.</span><span class=\"about-paragraph\">Clean vector artwork. Considered layouts. Precise print preparation. <strong>Turning good ideas into designs ready for the real world.</strong></span>"
   },
   "24": {
-    "en": "Tell me your idea",
-    "hu": "Mesélj az ötletedről"
+    "hu": "Mesélj az ötletedről",
+    "en": "Tell me your idea"
   },
   "25": {
     "en": "03 / Contact",
     "hu": "03 / Kapcsolat"
   },
   "26": {
-    "en": "Have a project<br><span>in mind?</span>",
-    "hu": "Van egy<br><span>ötleted?</span>"
+    "hu": "A következő<br><span>jó ötlet?</span>",
+    "en": "Your next<br><span>great idea?</span>"
   },
   "27": {
-    "en": "Let's work together",
-    "hu": "Valósítsuk meg"
+    "hu": "Tervezzük meg",
+    "en": "Let’s design it"
   },
   "28": {
     "hu": "144p Group — Low resolution. High standards.",
@@ -120,116 +120,116 @@
     "hu": "Vissza az elejére ↑"
   },
   "30": {
-    "en": "Back to work",
-    "hu": "Vissza a munkákhoz"
+    "hu": "Vissza a szolgáltatásokhoz",
+    "en": "Back to services"
   },
   "31": {
-    "en": "Selected work / 01",
-    "hu": "Válogatott munkák / 01"
+    "hu": "Csomagolástervezés / Referencia",
+    "en": "Packaging design / Selected work"
   },
   "32": {
-    "en": "Packaging<br><em>design.</em>",
-    "hu": "Csomagolás<br><em>tervezés.</em>"
+    "hu": "Csomagolás,<br><em>jó benyomással.</em>",
+    "en": "Packaging.<br><em>With presence.</em>"
   },
   "33": {
-    "en": "Discipline",
-    "hu": "Terület"
+    "hu": "A feladat",
+    "en": "The discipline"
   },
   "34": {
-    "en": "Focus",
-    "hu": "Fókusz"
+    "hu": "A részletek",
+    "en": "The details"
   },
   "35": {
-    "en": "Production-ready Design",
-    "hu": "Gyártásra kész tervek"
+    "hu": "Pontos stancrajz. Gyártásra kész grafika.",
+    "en": "Precise dielines. Production-ready artwork."
   },
   "36": {
-    "en": "The project",
-    "hu": "A projekt"
+    "hu": "A csomagolás mögött",
+    "en": "Behind the packaging"
   },
   "37": {
-    "en": "From concept<br><span>to production.</span>",
-    "hu": "Az ötlettől<br><span>a gyártásig.</span>"
+    "hu": "A polcon is<br><span>számít.</span>",
+    "en": "Made for<br><span>the shelf.</span>"
   },
   "38": {
-    "en": "A selection of packaging design work focused on clear visual communication and production-ready execution.",
-    "hu": "Válogatás csomagolástervezési munkáimból, az egyértelmű vizuális kommunikáció és a gyárthatóság jegyében."
+    "hu": "A csomagolás a márkád első kézfogása. Úgy tervezem meg, hogy az üzenet, a forma és a gyárthatóság együtt működjön. Csomagolásgrafika, pontos stancrajz és nyomdai előkészítés — hogy a tervből a gyártásban is az legyen, amit elképzeltünk.",
+    "en": "Packaging is your brand’s first handshake. I bring message, form and production together through considered artwork, accurate dielines and careful prepress. So the finished pack stays true to the original idea."
   },
   "39": {
-    "en": "More work",
-    "hu": "További munkák"
+    "hu": "További szolgáltatások",
+    "en": "Explore the services"
   },
   "40": {
     "en": "Back to home ↑",
     "hu": "Vissza a kezdőlapra ↑"
   },
   "50": {
-    "en": "Logo vector reconstruction",
-    "hu": "Logók vektoros újrarajzolása"
+    "hu": "Logók vektoros újrarajzolása",
+    "en": "Logo vector reconstruction"
   },
   "51": {
-    "en": "Clean, editable artwork rebuilt from existing logo files.",
-    "hu": "Meglévő logók újrarajzolása tiszta, szerkeszthető vektorgrafikává."
+    "hu": "Éles minden méretben. A meglévő logód tiszta, szerkeszthető vektorgrafikaként.",
+    "en": "Sharp at every size. Your existing logo, rebuilt as clean, editable vector artwork."
   },
   "52": {
-    "en": "Packaging design & dielines",
-    "hu": "Csomagolástervezés és stancrajzok"
+    "hu": "Csomagolástervezés és stancrajzok",
+    "en": "Packaging design & dielines"
   },
   "53": {
-    "en": "Packaging artwork and dielines prepared for print production.",
-    "hu": "Csomagolásgrafikák és stancrajzok előkészítése nyomdai gyártáshoz."
+    "hu": "Az első benyomás a polcon kezdődik. Csomagolásgrafika és pontos stancrajz, nyomdára készen.",
+    "en": "First impressions start on the shelf. Considered packaging artwork and precise, print-ready dielines."
   },
   "54": {
     "hu": "POS-grafikák és displayek tervezése",
-    "en": "POS graphics and display design"
+    "en": "POS graphics & display design"
   },
   "55": {
-    "hu": "Eladáshelyi grafikák és displayek tervezése tiszta, gyártásra kész formában.",
-    "en": "Point-of-sale graphics and displays designed as clean, production-ready artwork."
+    "hu": "Közelebb a vásárlóhoz. Eladáshelyi grafikák és displayek, átgondoltan és gyártásra készen.",
+    "en": "Closer to the customer. Thoughtful point-of-sale graphics and displays, ready for production."
   },
   "56": {
-    "en": "Magazine & editorial layout",
-    "hu": "Magazin- és kiadványszerkesztés"
+    "hu": "Magazin- és kiadványszerkesztés",
+    "en": "Magazine & editorial design"
   },
   "57": {
-    "en": "Magazine layouts and editorial design for print.",
-    "hu": "Magazinok tördelése és nyomtatott kiadványok tervezése."
+    "hu": "Jó olvasni. Jó ránézni. Magazintördelés és kiadványszerkesztés, az első oldaltól az utolsóig.",
+    "en": "A pleasure to read. A pleasure to see. Magazine layouts and editorial design, from first page to last."
   },
   "58": {
-    "en": "Meta ad creatives",
-    "hu": "Meta hirdetési kreatívok"
+    "hu": "Meta hirdetési kreatívok",
+    "en": "Meta ad creatives"
   },
   "59": {
-    "en": "Static ad creatives for supplement and direct-to-consumer brands.",
-    "hu": "Statikus hirdetési kreatívok étrend-kiegészítő és DTC-márkáknak."
+    "hu": "Egy pillantásból figyelem. Facebook- és Instagram-hirdetési kreatívok, a márkádra hangolva.",
+    "en": "Make a moment count. Facebook and Instagram ad creatives shaped around your brand."
   },
   "60": {
-    "en": "Social media & campaign design",
-    "hu": "Közösségi média és kampánydesign"
+    "hu": "Közösségi média és kampánydesign",
+    "en": "Social media & campaign design"
   },
   "61": {
-    "en": "Visual content and coordinated social media campaign materials.",
-    "hu": "Vizuális tartalmak és összehangolt közösségimédia-kampányanyagok."
+    "hu": "Egy márka. Felismerhető hang. Közösségimédia-grafikák és egységes vizuális kampányok.",
+    "en": "One brand. A recognisable voice. Social media graphics and cohesive visual campaigns."
   },
   "62": {
-    "en": "Sports media & social campaigns",
-    "hu": "Sportkommunikáció és kampányok"
+    "hu": "Sportkommunikáció és kampányok",
+    "en": "Sports graphics & campaigns"
   },
   "63": {
-    "en": "Sports-focused media graphics and social campaign design.",
-    "hu": "Sporttémájú médiagrafikák és közösségimédia-kampányok tervezése."
+    "hu": "A játék lendülete. A márkád hangja. Sportgrafikák és kampánykreatívok digitális felületekre.",
+    "en": "The energy of the game. The voice of your brand. Sports graphics and digital campaign creatives."
   },
   "64": {
-    "en": "YouTube thumbnail design",
-    "hu": "YouTube-bélyegképek"
+    "hu": "YouTube-bélyegképek tervezése",
+    "en": "YouTube thumbnail design"
   },
   "65": {
-    "en": "Custom thumbnail graphics for YouTube videos.",
-    "hu": "Egyedi bélyegképek tervezése YouTube-videókhoz."
+    "hu": "Már a lejátszás előtt mesél. Egyedi YouTube-bélyegképek, a videód karakterére hangolva.",
+    "en": "Tell the story before it plays. Custom YouTube thumbnails that capture your video’s character."
   },
   "67": {
-    "hu": "Vektorgrafika, csomagolás, nyomtatott anyagok és digitális kampányok.",
-    "en": "Vector artwork, packaging, print materials and digital campaigns."
+    "hu": "A márkád minden felületen. Vektorgrafika, csomagolástervezés, nyomtatott anyagok és digitális kampányok.",
+    "en": "Your brand, across every touchpoint. Vector artwork, packaging design, print and digital campaigns."
   },
   "80": {
     "en": "The brief",
@@ -312,16 +312,16 @@
     "hu": "Rendezett, felhasználásra kész fájlok átadása nyomdai és digitális célokra."
   },
   "100": {
-    "hu": "Egy új arculat, csomagolás vagy digitális kampány? Mesélj a tervedről, és találjuk meg a hozzá illő vizuális megoldást.",
-    "en": "A new brand identity, packaging or digital campaign? Tell me about your project and let’s find the right visual direction."
+    "hu": "Új arculat. Új termék. Új fejezet. Meséld el, mire készülsz — találjuk meg hozzá a megfelelő vizuális megoldást.",
+    "en": "A new identity. A new product. A new chapter. Tell me what’s next — let’s give it the right visual direction."
   },
   "101": {
-    "hu": "Kezdjük egy beszélgetéssel",
-    "en": "Let’s start a conversation"
+    "hu": "Kezdjük egy jó beszélgetéssel.",
+    "en": "It starts with a conversation."
   },
   "102": {
-    "hu": "Írd meg röviden, min dolgozol, mire van szükséged és milyen határidővel tervezel. Elég egy ötlet. Innen együtt folytatjuk.",
-    "en": "Tell me what you’re working on, what you need and your timeline. An idea is all it takes. We’ll take it from here, together."
+    "hu": "Írd meg, mit szeretnél megvalósítani és mikorra. Elég egy ötlet. Innen együtt folytatjuk.",
+    "en": "Tell me what you’d like to create and when you need it. An idea is all it takes. We’ll take it from here, together."
   },
   "103": {
     "hu": "Upwork-profil",
@@ -332,8 +332,8 @@
     "en": "Brand identity · Packaging · Digital creatives"
   },
   "105": {
-    "hu": "Közvetlen kapcsolat",
-    "en": "Get in touch directly"
+    "hu": "Közvetlenül hozzám",
+    "en": "Talk to me directly"
   },
   "106": {
     "hu": "Egyeztetés",
@@ -388,63 +388,79 @@
     "en": "How we work together"
   },
   "119": {
-    "en": "Six simple steps from idea to finished design.",
-    "hu": "Hat egyszerű lépés az ötlettől a kész grafikáig."
+    "hu": "Jó ötletből.<br>Kész grafika.",
+    "en": "From a good idea.<br>To a finished design."
   },
   "120": {
-    "en": "Your idea",
-    "hu": "Az ötleted"
+    "hu": "Az ötleted",
+    "en": "Your idea"
   },
   "121": {
-    "en": "Share your idea. A rough sketch is enough.",
-    "hu": "Meséld el az ötleted. Egy vázlat is elég."
+    "hu": "Mondd el, mi jár a fejedben. Egy vázlat is elég.",
+    "en": "Share what’s on your mind. A rough sketch is enough."
   },
   "122": {
-    "en": "Let’s talk",
-    "hu": "Egyeztetés"
+    "hu": "Egyeztetés",
+    "en": "Let’s talk"
   },
   "123": {
-    "en": "We discuss your goals and deadline.",
-    "hu": "Egyeztetjük a célokat és a határidőt."
+    "hu": "Közös irány. Tiszta célok. Egyeztetett határidő.",
+    "en": "A shared direction. Clear goals. An agreed deadline."
   },
   "124": {
-    "en": "The proposal",
-    "hu": "Ajánlat"
+    "hu": "Ajánlat",
+    "en": "The proposal"
   },
   "125": {
-    "en": "You receive a clear quote.",
-    "hu": "Átlátható árajánlatot kapsz."
+    "hu": "Pontosan látod a feladatot és az árat.",
+    "en": "A clear view of the work and its price."
   },
   "126": {
-    "en": "Design",
-    "hu": "Tervezés"
+    "hu": "Tervezés",
+    "en": "Design"
   },
   "127": {
-    "en": "I create the first design.",
-    "hu": "Elkészítem az első tervet."
+    "hu": "Az ötleted formát, színt és karaktert kap.",
+    "en": "Your idea takes on shape, colour and character."
   },
   "128": {
-    "en": "Fine-tuning",
-    "hu": "Finomhangolás"
+    "hu": "Finomhangolás",
+    "en": "Refinement"
   },
   "129": {
-    "en": "We refine the details together.",
-    "hu": "Közösen finomítjuk a részleteket."
+    "hu": "Együtt csiszoljuk a részleteket.",
+    "en": "We refine the details together."
   },
   "130": {
-    "en": "Ready to use",
-    "hu": "Átadás"
+    "hu": "Átadás",
+    "en": "Ready to use"
   },
   "131": {
-    "en": "You receive the finished files.",
-    "hu": "Átadom a kész fájlokat."
+    "hu": "Rendezett fájlok. Készen a megvalósításra.",
+    "en": "Organised files. Ready to bring to life."
   },
   "132": {
-    "en": "Clear steps, no unnecessary complications. You always know what comes next.",
-    "hu": "Átlátható folyamat, felesleges bonyodalmak nélkül. Mindig tudod, mi a következő lépés."
+    "hu": "Hat átlátható lépés. Mindig tudod, hol tartunk, és mi következik.",
+    "en": "Six clear steps. You always know where we are and what comes next."
   },
   "133": {
     "en": "Tell me your idea ↗",
     "hu": "Mesélj az ötletedről ↗"
+  },
+  "134": {
+    "hu": "Répás János – Grafikai tervezés | jrepas.hu",
+    "en": "János Répás – Graphic Design | jrepas.hu"
+  },
+  "135": {
+    "hu": "Grafikai tervezés Répás Jánostól: logók vektorizálása, csomagolástervezés, magazintördelés és digitális kreatívok. Több mint tíz év tapasztalat.",
+    "en": "Graphic design by János Répás: vector logo reconstruction, packaging design, editorial layouts and digital creatives. Over ten years of experience."
+  },
+  "136": {
+    "hu": "Csomagolástervezés és stancrajzok | Répás János",
+    "en": "Packaging Design & Dielines | János Répás"
+  },
+  "137": {
+    "hu": "Csomagolásgrafika, pontos stancrajz és nyomdai előkészítés Répás Jánostól. Átgondolt csomagolástervezés az első ötlettől a gyártásra kész fájlokig.",
+    "en": "Packaging artwork, precise dielines and prepress by János Répás. Considered packaging design from the first idea to production-ready files."
   }
 }

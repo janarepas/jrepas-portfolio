@@ -5,6 +5,7 @@ if [[ "$(wasm-bindgen --version)" != 'wasm-bindgen 0.2.104' ]]; then
   echo 'Install wasm-bindgen-cli 0.2.104 (see README).' >&2
   exit 1
 fi
+python3 scripts/prepare-seo.py
 cargo build --locked --release --target wasm32-unknown-unknown
 build_stage=$(mktemp -d)
 trap 'rm -rf "$build_stage"' EXIT

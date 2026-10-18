@@ -1537,3 +1537,11 @@ html body section.about.process-section .process-heading .process-subtitle{margi
 html body section.about.process-section .process-flow>li.process-step .process-photo{display:block;width:calc(100% + 40px);max-width:none;height:178px;margin:-28px -20px 24px;object-fit:cover;object-position:center;border-radius:24px 24px 0 0}
 html body section.about.process-section .process-flow>li.process-step .flow-node{z-index:1}
 @media(max-width:700px){html body section.about.process-section .process-flow>li.process-step .process-photo{width:calc(100% + 56px);margin-left:-28px;margin-right:-28px}}
+.about-paragraph a{color:var(--text);text-decoration:underline;text-decoration-color:var(--yellow-gold);text-underline-offset:3px}
+/* A warmer, quieter footer in either appearance. */
+html[data-theme=light] footer.wrap{background:#faf9f6;color:#777165;border-color:#e7e3da}
+html[data-theme=dark] footer.wrap{color:#a6a092}
+html[data-theme=light] footer .footer-logo img{opacity:.72;filter:sepia(.16)}
+html[data-theme=dark] footer .footer-logo img{opacity:.52;filter:sepia(.16)}
+html[data-theme=light] footer .footer-copyright{color:#777165}
+html[data-theme=dark] footer .footer-copyright{color:#a6a092}
