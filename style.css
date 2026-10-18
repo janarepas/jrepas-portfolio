@@ -1367,3 +1367,20 @@ html[data-theme] body .contact-panel .contact-actions a.contact-link.button.butt
  outline:2px solid var(--text);
  outline-offset:4px;
 }
+
+/* Restore the original outlined navigation Contact button only. */
+html[data-theme] body .site-header nav .header-contact{
+ border:2px solid var(--yellow-main)!important;
+ background:transparent;
+ color:var(--text);
+ box-shadow:none;
+}
+html[data-theme] body .site-header nav .header-contact:hover{
+ border-color:var(--yellow-deep)!important;
+ background:transparent;
+ color:var(--black-deep);
+}
+html[data-theme] body .site-header nav .header-contact:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
