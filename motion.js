@@ -67,37 +67,3 @@ const artworkResize = new ResizeObserver(updateArtworkSpace);
 tileCovers.forEach(cover => artworkResize.observe(cover));
 document.fonts.ready.then(updateArtworkSpace);
 updateArtworkSpace();
-
-// Route a continuous path around the text, through all four stage markers.
-const processFlow = document.querySelector('.process-flow');
-if (processFlow) {
-  const connector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  connector.classList.add('process-connector');
-  connector.setAttribute('aria-hidden', 'true');
-  const path = document.createElementNS(connector.namespaceURI, 'path');
-  connector.append(path);
-  processFlow.append(connector);
-  function drawProcessConnector() {
-    const stages = [...processFlow.querySelectorAll('.process-step')];
-    if (stages.length !== 4 || innerWidth <= 700) return;
-    const points = stages.map(stage => {
-      const marker = stage.querySelector('.flow-number');
-      return {x:stage.offsetLeft + marker.offsetWidth / 2, y:stage.offsetTop + marker.offsetHeight / 2};
-    });
-    const [a,b,c,d] = points;
-    const radius = stages[0].querySelector('.flow-number').offsetWidth / 2;
-    const endOf = stage => stage.offsetLeft + stage.offsetWidth + 8;
-    const firstEnd = endOf(stages[0]);
-    const thirdEnd = endOf(stages[2]);
-    const middle = (stages[1].offsetTop + stages[1].offsetHeight + stages[2].offsetTop) / 2;
-    path.setAttribute('d',
-      `M ${firstEnd} ${a.y + 24} C ${firstEnd + 18} ${a.y + 24}, ${b.x - radius - 24} ${b.y}, ${b.x - radius - 8} ${b.y}` +
-      ` M ${b.x} ${b.y + radius + 8} C ${b.x} ${middle}, ${c.x} ${middle}, ${c.x} ${c.y - radius - 8}` +
-      ` M ${thirdEnd} ${c.y + 24} C ${thirdEnd + 18} ${c.y + 24}, ${d.x - radius - 24} ${d.y}, ${d.x - radius - 8} ${d.y}`);
-
-  }
-  const processResize = new ResizeObserver(drawProcessConnector);
-  processResize.observe(processFlow);
-  document.fonts.ready.then(drawProcessConnector);
-  drawProcessConnector();
-}

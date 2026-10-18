@@ -984,3 +984,25 @@ html[data-motion=true] .hero h1 em:after{transform:scaleX(var(--hero-underline,0
 .about .about-body .text-link{justify-self:center;min-height:56px;min-width:240px;margin-top:40px;padding:18px 32px;font-size:14px;font-weight:700;background:var(--yellow-main);border-color:var(--yellow-main);color:var(--black-deep)}
 .about .about-body .text-link:hover{background:var(--yellow-gold);border-color:var(--yellow-gold)}
 @media(max-width:700px){.about .about-body{row-gap:24px;margin-top:24px}.about .about-body>p{font-size:16px;line-height:1.7}.about .about-body .text-link{margin-top:8px;max-width:100%;min-width:min(240px,100%)}}
+/* Four generous, ordered panels replace the meandering diagram. */
+.about.process-section .process-diagram{padding:64px 24px;background:var(--surface)}
+.about.process-section .process-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--bg)}
+.about.process-section .process-step{position:relative;margin:0!important;padding:104px 32px 32px;min-height:238px;border:0;border-top:2px solid var(--yellow-main)}
+.about.process-section .process-step:nth-child(odd){border-right:1px solid var(--line)}
+.about.process-section .process-step:nth-child(n+3){border-top:1px solid var(--line)}
+.about.process-section .process-step:after,.about.process-section .flow-node:after{display:none!important}
+.about.process-section .flow-node{top:28px;left:32px;right:32px;height:44px;display:flex;align-items:center;justify-content:space-between}
+.about.process-section .flow-number{width:40px;height:40px;flex-basis:40px;font-size:12px}
+.about.process-section .flow-node svg{display:block;width:32px;height:32px;margin:0;color:var(--muted)}
+.about.process-section .process-step h3{font-size:38px;line-height:1.12;margin:0 0 12px;padding:0}
+.about.process-section .process-step p{max-width:none;font-size:17px;line-height:1.5;margin:0}
+@media(max-width:700px){
+ .about.process-section .process-diagram{padding:40px 24px}
+ .about.process-section .process-flow{grid-template-columns:1fr;border-radius:16px}
+ .about.process-section .process-step{min-height:208px;padding:90px 24px 28px}
+ .about.process-section .process-step:nth-child(odd){border-right:0}
+ .about.process-section .process-step:not(:first-child){border-top:1px solid var(--line)}
+ .about.process-section .flow-node{left:24px;right:24px;top:24px}
+ .about.process-section .process-step h3{font-size:34px}
+ .about.process-section .process-step p{font-size:16px}
+}
