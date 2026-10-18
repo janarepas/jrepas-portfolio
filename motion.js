@@ -89,22 +89,27 @@ if (aboutVectorSection) {
   updateVectorArtwork();
 }
 
-// The Rust bundle includes a snapshot of the translations. Keep client copy
-// current on deploy without requiring a local WebAssembly rebuild.
-fetch('./src/translations.json?v=flow6a')
-  .then(response => { if (!response.ok) throw new Error('Translation file unavailable'); return response.json(); })
-  .then(copy => {
-    const applyCopy = () => {
-      const lang = document.documentElement.getAttribute('lang') === 'hu' ? 'hu' : 'en';
-      document.querySelectorAll('[data-i18n]').forEach(node => {
-        const key = node.getAttribute('data-i18n');
-        const value = copy[key]?.[lang];
-        if (typeof value === 'string' && node.innerHTML !== value) node.innerHTML = value;
-      });
-    };
-    new MutationObserver(applyCopy).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-    document.querySelectorAll('[data-language]').forEach(button => {
-      button.addEventListener('click',() => queueMicrotask(applyCopy));
+// Override the embedded Rust translation snapshot after every language render.
+const localizedCopyUrl = './src/translations.json?v=processsoft2';
+fetch(localizedCopyUrl).then(response => {
+  if (!response.ok) throw new Error('Translation file unavailable');
+  return response.json();
+}).then(copy => {
+  let applying = false;
+  const applyCopy = () => {
+    if (applying) return;
+    applying = true;
+    const lang = document.documentElement.lang === 'hu' ? 'hu' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach(node => {
+      const value = copy[node.dataset.i18n]?.[lang];
+      if (typeof value === 'string' && node.innerHTML !== value) node.innerHTML = value;
     });
-    applyCopy();
-  }).catch(error => console.warn('Unable to load current translations:',error));
+    applying = false;
+  };
+  const observer = new MutationObserver(applyCopy);
+  observer.observe(document.documentElement,{attributes:true,attributeFilter:['lang'],subtree:false});
+  document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click',() => {
+    requestAnimationFrame(applyCopy);
+  }));
+  applyCopy();
+}).catch(error => console.warn('Translation update failed',error));
