@@ -1173,3 +1173,59 @@ html[data-theme=dark] .about.process-section .process-flow .process-step{backgro
 .about.process-section .process-step h3{font-size:clamp(25px,2.1vw,30px);margin-bottom:10px}
 .about.process-section .process-step p{font-size:14px;line-height:1.65}
 @media(max-width:600px){.about.process-section .process-panel{padding:34px 18px}.about.process-section .process-flow .process-step{min-height:0;padding:68px 20px 22px!important}.about.process-section .process-step .flow-node{top:15px}}
+
+/* Editorial process layout: no card frames, just six airy milestones. */
+.about.process-section .process-diagram{padding:76px 24px 88px}
+.about.process-section .process-panel{max-width:1220px;background:transparent;padding:44px 24px 38px}
+html[data-theme=dark] .about.process-section .process-panel{background:transparent}
+.about.process-section .process-heading{margin-bottom:64px}
+.about.process-section .process-flow{grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.about.process-section .process-flow .process-step,
+html[data-theme=dark] .about.process-section .process-flow .process-step{
+ background:transparent;border:0!important;border-top:0!important;box-shadow:none;border-radius:0;
+ padding:0 5px 12px!important;min-height:0;text-align:center
+}
+.about.process-section .process-step .flow-node{
+ position:relative;top:auto;left:auto;right:auto;width:100%;height:106px;
+ margin:0 auto 18px;display:flex;flex-direction:column;align-items:center;justify-content:space-between
+}
+.about.process-section .process-step .flow-number{width:30px;height:30px;flex:0 0 30px;background:rgba(255,221,0,.28);font-size:11px}
+.about.process-section .process-step .flow-node svg{
+ display:block;position:static;width:54px;height:54px;padding:15px;border-radius:50%;
+ background:rgba(127,127,127,.055);color:var(--text);opacity:.82;box-sizing:border-box
+}
+.about.process-section .process-step h3{font-size:clamp(22px,2vw,29px);line-height:1.12;text-align:center;margin:0 0 16px}
+.about.process-section .process-step p{font-size:14px;line-height:1.65;text-align:center;max-width:190px;margin:0 auto}
+.about.process-section .process-flow .process-step:not(:last-child):after{
+ content:'→'!important;display:block!important;position:absolute;top:51px;left:auto;right:-17px;
+ width:auto;height:auto;background:none;color:var(--muted);font:300 23px/1 Arial,sans-serif;opacity:.6
+}
+.about.process-section .process-cta{margin-top:50px}
+@media(max-width:950px){.about.process-section .process-flow{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 22px}.about.process-section .process-flow .process-step:nth-child(3):after{display:none!important}}
+@media(max-width:600px){.about.process-section .process-diagram{padding:46px 18px 60px}.about.process-section .process-panel{padding:20px 4px}.about.process-section .process-heading{margin-bottom:38px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 16px}.about.process-section .process-flow .process-step{padding:0 4px!important}.about.process-section .process-flow .process-step:nth-child(2n):after{display:none!important}.about.process-section .process-flow .process-step:nth-child(3):after{display:block!important}.about.process-section .process-step .flow-node{height:92px;margin-bottom:12px}.about.process-section .process-step .flow-node svg{width:48px;height:48px;padding:13px}.about.process-section .process-step h3{font-size:25px;margin-bottom:10px}.about.process-section .process-step p{font-size:13px}.about.process-section .process-cta{margin-top:36px}}
+/* All yellow calls-to-action use the same bottom-to-top fill as Contact. */
+html[data-theme] .hero .outline-button,
+html[data-theme] .about.process-section .process-cta{
+ position:relative;isolation:isolate;overflow:hidden;background:var(--yellow-main);
+ color:var(--black-deep);border-color:var(--yellow-main);
+ transition:border-color 220ms ease,color 220ms ease;
+}
+html[data-theme] .hero .outline-button:before,
+html[data-theme] .about.process-section .process-cta:before{
+ content:'';position:absolute;inset:0;border-radius:inherit;background:var(--yellow-deep);
+ transform:scaleY(0);transform-origin:center bottom;z-index:-1;
+ transition:transform 220ms ease;
+}
+html[data-theme] .hero .outline-button:hover,
+html[data-theme] .about.process-section .process-cta:hover{
+ background:var(--yellow-main);color:var(--black-deep);border-color:var(--yellow-deep);
+ transition:border-color 220ms ease,color 220ms ease 220ms;
+}
+html[data-theme] .hero .outline-button:hover:before,
+html[data-theme] .about.process-section .process-cta:hover:before{
+ transform:scaleY(1);transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms;
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme] .hero .outline-button,html[data-theme] .about.process-section .process-cta,
+ html[data-theme] .hero .outline-button:before,html[data-theme] .about.process-section .process-cta:before{transition:none}
+}
