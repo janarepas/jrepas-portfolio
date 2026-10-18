@@ -388,7 +388,63 @@
     "en": "How we work together"
   },
   "119": {
-    "hu": "Az ötlettől a kész anyagig.",
-    "en": "From an idea to the finished design."
+    "en": "Six simple steps from idea to finished design.",
+    "hu": "Hat egyszerű lépés az ötlettől a kész grafikáig."
+  },
+  "120": {
+    "en": "Your idea",
+    "hu": "Az ötleted"
+  },
+  "121": {
+    "en": "Tell me what you have in mind — even if it’s only a rough idea.",
+    "hu": "Meséld el, mit szeretnél megvalósítani. Egy vázlatos elképzelés is elég."
+  },
+  "122": {
+    "en": "Let’s talk",
+    "hu": "Egyeztetés"
+  },
+  "123": {
+    "en": "We discuss your goals, needs and deadline.",
+    "hu": "Átbeszéljük a célokat, az igényeket és a határidőt."
+  },
+  "124": {
+    "en": "The proposal",
+    "hu": "Ajánlat"
+  },
+  "125": {
+    "en": "You receive a clear proposal for the work and the price.",
+    "hu": "Átlátható ajánlatot kapsz a feladatról és az árról."
+  },
+  "126": {
+    "en": "Design",
+    "hu": "Tervezés"
+  },
+  "127": {
+    "en": "I turn the agreed direction into a visual concept.",
+    "hu": "Az egyeztetett irányból elkészítem a látványtervet."
+  },
+  "128": {
+    "en": "Fine-tuning",
+    "hu": "Finomhangolás"
+  },
+  "129": {
+    "en": "We review the design and refine the details together.",
+    "hu": "Átnézzük a tervet, és közösen pontosítjuk a részleteket."
+  },
+  "130": {
+    "en": "Ready to use",
+    "hu": "Átadás"
+  },
+  "131": {
+    "en": "You receive the final files, prepared for their intended use.",
+    "hu": "Megkapod a végleges, felhasználásra előkészített fájlokat."
+  },
+  "132": {
+    "en": "Clear steps, no unnecessary complications. You always know what comes next.",
+    "hu": "Átlátható folyamat, felesleges bonyodalmak nélkül. Mindig tudod, mi a következő lépés."
+  },
+  "133": {
+    "en": "Tell me your idea ↗",
+    "hu": "Mesélj az ötletedről ↗"
   }
 }
