@@ -127,7 +127,8 @@ select labels may truncate while their popup retains the full option text.
 ## Selected Behance work
 
 The about section shows four real local Behance covers as separate image tiles
-in a wider two-column grid (one full-width column on mobile), without captions. Each tile opens its own
+in a wider, gapless two-column grid (one full-width column on mobile). Tiles
+have square corners, no visible captions, no gallery heading and no quote CTA. Each tile opens its own
 project in a safe new tab. Accessible names are bilingual and 404/808px WebP
 sources load lazily. Source URLs are recorded in `docs/portfolio-sources.json`.
 Run `npm run test:portfolio` to verify image decoding, individual destinations,

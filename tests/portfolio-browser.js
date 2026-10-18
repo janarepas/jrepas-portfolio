@@ -14,6 +14,8 @@ try {
     await page.waitForSelector('html[data-runtime="rust-wasm"]');
     const tiles = page.locator('#about .work-tile');
     assert.equal(await tiles.count(), 4);
+    assert.equal(await page.locator('#selected-work-title,#about .about-actions,#about a[href="#contact"]').count(), 0);
+    assert.equal(await tiles.first().evaluate(el => getComputedStyle(el).borderRadius), '0px');
     assert.equal(await page.locator('.work-collage,.reference-card,.reference-caption').count(), 0);
     assert.equal(await page.locator('.portfolio-card a, a.portfolio-card').count(), 0);
     for (const language of ['hu', 'en']) {
@@ -33,13 +35,13 @@ try {
     const rects = await tiles.evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
     if (width > 700) {
       assert.ok(Math.abs(rects[0].top - rects[1].top) < 1);
-      assert.ok(rects[1].left > rects[0].right);
+      assert.ok(Math.abs(rects[1].left - rects[0].right) < 1);
       assert.ok(rects[0].width >= 600);
     } else {
-      assert.ok(rects[1].top > rects[0].bottom);
+      assert.ok(Math.abs(rects[1].top - rects[0].bottom) < 1);
       assert.ok(rects[0].width >= width - 48);
     }
-    assert.ok(rects[2].top > rects[0].bottom);
+    assert.ok(rects[2].top >= rects[0].bottom - 1);
     await context.route('https://www.behance.net/gallery/**', route => route.fulfill({ contentType: 'text/html', body: '<title>Project destination fixture</title>' }));
     const [popup] = await Promise.all([context.waitForEvent('page'), tiles.first().click()]);
     await popup.waitForURL(sources[0].project_url);

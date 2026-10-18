@@ -1880,3 +1880,7 @@ html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:mi
 }
 .work-tiles{gap:28px}
 @media(max-width:700px){.work-tiles{grid-template-columns:1fr;gap:24px}.work-tile{border-radius:16px}}
+/* An uninterrupted image mosaic without a heading or secondary quote action. */
+#about .work-tiles{gap:0}
+#about .work-tile{border-radius:0}
+#about .work-tile:hover>img{transform:none}
