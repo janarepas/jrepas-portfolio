@@ -114,3 +114,12 @@ quote selection and keyboard FAQ with `npm run test:ux`.
 The former `/packaging` and `/packaging.html` pages redirect permanently to
 `/#service-packaging`. Packaging design is presented only on the homepage and
 the sitemap contains only the homepage.
+
+## Responsive sizing checks
+
+Run `npm run test:sizing` against the local HTTP server (`TEST_BASE_URL` overrides
+the default port). This checks 18 viewport widths from 320 to 2560 CSS pixels in
+both languages and themes, including the 700/701 and 1000/1001 breakpoints. It
+asserts text/card containment, separation of service illustrations and titles,
+header item bounds and spacing above the hero. Tests run in Chromium; native
+select labels may truncate while their popup retains the full option text.
