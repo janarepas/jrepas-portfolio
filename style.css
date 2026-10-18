@@ -1269,3 +1269,16 @@ html[lang="hu"] .about.process-section .process-step h3{
 .about.process-section .process-cta{margin-top:90px}
 @media(max-width:950px){.about.process-section .process-diagram{padding-top:95px;padding-bottom:110px}.about.process-section .process-heading{margin-bottom:76px}.about.process-section .process-flow{column-gap:32px;row-gap:64px}.about.process-section .process-cta{margin-top:68px}}
 @media(max-width:600px){.about.process-section .process-diagram{padding:70px 18px 88px}.about.process-section .process-panel{padding:20px 4px 35px}.about.process-section .process-heading{margin-bottom:58px}.about.process-section .process-flow{column-gap:22px;row-gap:58px}.about.process-section .process-step .flow-node{height:105px;margin-bottom:22px}.about.process-section .process-step h3{margin-bottom:15px}.about.process-section .process-step p{line-height:1.75}.about.process-section .process-flow .process-step:not(:last-child):after{top:54px;right:-17px}.about.process-section .process-cta{margin-top:60px}}
+
+/* Single consistent editorial heading family throughout the site. */
+html body h1,html body h2,html body h3,
+html body .hero h1,html body .case-hero h1,
+html body .about h2,html body .contact h2,
+html body .about.process-section .process-heading h2,
+html body .about.process-section .process-step h3,
+html[lang="hu"] body .about.process-section .process-heading h2,
+html[lang="hu"] body .about.process-section .process-step h3{
+ font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-weight:400;
+ font-style:normal;
+}
