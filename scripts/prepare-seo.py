@@ -12,7 +12,7 @@ BASE = 'https://jrepas.hu'
 IMAGE = BASE + '/images/social-preview.jpg'
 PERSON = {'@type': 'Person', '@id': BASE + '/#janos-repas', 'name': 'Répás János',
           'url': BASE + '/', 'jobTitle': 'Grafikus és webdesigner',
-          'email': 'jrepas@icloud.com', 'sameAs': ['https://www.upwork.com/freelancers/jrepas'],
+          'email': 'jrepas@icloud.com', 'sameAs': ['https://www.upwork.com/freelancers/jrepas', 'https://www.behance.net/jrepas'],
           'knowsAbout': ['Grafikai tervezés', 'Vektorgrafika', 'Csomagolástervezés',
                          'Nyomdai előkészítés', 'Kiadványszerkesztés', 'Digitális kreatívok']}
 

@@ -1851,3 +1851,9 @@ html body section.about.process-section .process-flow>li.process-step>p{grid-row
 .contact-panel .contact-actions{display:flex;justify-content:center;margin-top:0}
 html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:min(260px,100%);padding:18px 36px}
 .contact-panel .contact-email{margin-top:24px}
+/* Direct access to the designer's actual portfolio. */
+#about .about-body .about-actions{grid-column:1/-1;grid-row:3;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 28px;margin-top:12px}
+#about .about-body .about-actions .text-link{margin:0}
+#about .behance-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;font-size:18px;font-weight:600;color:var(--text);text-decoration:underline;text-decoration-color:var(--yellow-gold);text-underline-offset:6px}
+#about .behance-link:hover{text-decoration-thickness:2px}
+@media(max-width:700px){#about .about-body .about-actions{grid-row:auto;flex-direction:column;gap:16px}#about .behance-link{font-size:17px}}

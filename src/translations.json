@@ -614,5 +614,9 @@
   "179": {
     "hu": "Csomagolástervezésre kérek ajánlatot",
     "en": "Request a packaging design quote"
+  },
+  "180": {
+    "hu": "Munkáim a Behance-en <span aria-hidden=\"true\">↗</span>",
+    "en": "View my work on Behance <span aria-hidden=\"true\">↗</span>"
   }
 }
