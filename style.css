@@ -919,3 +919,8 @@ html[data-theme] .work .portfolio-card .cover-retail .cover-mark{top:118px;right
 @media(max-width:700px){.about .about-body{grid-template-columns:1fr;gap:0}}
 /* The introduction precedes services; the process follows the service tiles. */
 .about.process-section{padding:0;border:0}
+/* The hero's double underline draws from left to right with the first scroll. */
+html[data-theme] .hero h1 em{position:relative;display:inline-block;text-decoration-line:none}
+.hero h1 em:after{content:'';position:absolute;left:0;right:0;bottom:-12px;height:9px;background:linear-gradient(to bottom,var(--yellow-main) 0 3px,transparent 3px 6px,var(--yellow-main) 6px 9px);transform-origin:left center;pointer-events:none}
+html[data-motion=true] .hero h1 em:after{transform:scaleX(var(--hero-underline,0));will-change:transform}
+@media(prefers-reduced-motion:reduce){.hero h1 em:after{transform:none}}

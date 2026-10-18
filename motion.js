@@ -43,6 +43,7 @@ glass.setAttribute('aria-hidden', 'true');
 glass.innerHTML = '<span></span><span></span><span></span>';
 document.body.append(glass);
 function updateGlass() {
+  root.style.setProperty('--hero-underline', String(Math.min(1, Math.max(0, scrollY / 200))));
   const state = String(scrollY > 24);
   if (root.getAttribute('data-scrolled') !== state) root.setAttribute('data-scrolled', state);
 }
