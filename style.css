@@ -766,8 +766,8 @@ html[data-theme] .site-header nav .header-contact:hover{
 /* The whole outline changes first, then the orange fill arrives. */
 html[data-theme] .site-header nav .header-contact{position:relative;isolation:isolate;overflow:hidden;transition:border-color 220ms ease,color 220ms ease}
 html[data-theme] .site-header nav .header-contact:hover{background:transparent;border-color:var(--yellow-deep);color:var(--black-deep);transition:border-color 220ms ease,color 220ms ease 220ms}
-.site-header nav .header-contact:before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--yellow-deep);transform:scaleX(0);transform-origin:left center;z-index:-1;transition:transform 220ms ease}
-.site-header nav .header-contact:hover:before{transform:scaleX(1);transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms}
+.site-header nav .header-contact:before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--yellow-deep);transform:scaleY(0);transform-origin:center bottom;z-index:-1;transition:transform 220ms ease}
+.site-header nav .header-contact:hover:before{transform:scaleY(1);transition:transform 360ms cubic-bezier(.2,.7,.2,1) 220ms}
 .contact-label{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){
  html[data-theme] .site-header nav .header-contact,html[data-theme] .site-header nav .header-contact:hover,.site-header nav .header-contact:before,.site-header nav .header-contact:hover:before{transition:none}
@@ -797,3 +797,19 @@ footer>span:not(.footer-agency){grid-column:1;grid-row:1}
 .contact>.contact-disciplines{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:-1;width:calc(100% - 48px);max-width:var(--content-width);margin:0;color:var(--text);opacity:.3;font-family:'DM Sans',Arial,sans-serif;font-size:clamp(36px,5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-.045em;text-transform:uppercase;pointer-events:none}
 .contact-disciplines>span{display:block}
 @media(max-width:700px){.contact{padding-bottom:190px}.contact>.contact-disciplines{font-size:clamp(28px,7vw,46px);bottom:28px}}
+
+/* Distinct retail and editorial environments, retaining all existing copy. */
+.work .portfolio-card:nth-child(3){--tile-end:#203a49;color:#fff}
+.work .portfolio-card:nth-child(4){--tile-end:#63363f;color:#fff}
+.work .portfolio-card .cover-retail{background:#3a5969;color:#edf6fa}
+.work .portfolio-card .cover-editorial{background:#955d63;color:#faece8}
+.work .portfolio-card .portfolio-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7;z-index:0}
+.work .portfolio-card .cover-retail .cover-mark,.work .portfolio-card .cover-retail .cover-pixels,.work .portfolio-card .cover-editorial .cover-mark,.work .portfolio-card .cover-editorial .cover-pixels{z-index:1}
+.work .portfolio-card .cover-pack .cover-mark{border:0;padding:0;transform:none;width:130px;height:130px;opacity:.7}
+.packaging-icon{display:block;width:100%;height:100%}
+@media(max-width:700px){.work .portfolio-card .cover-pack .cover-mark{width:110px;height:110px}}
+
+/* Background typography sits behind the contact content rather than below it. */
+.contact{padding-bottom:95px}
+.contact>.contact-disciplines{top:50%;bottom:auto;transform:translate(-50%,-50%);font-weight:300;font-size:clamp(42px,7vw,96px);line-height:1.1}
+@media(max-width:700px){.contact{padding-bottom:60px}.contact>.contact-disciplines{font-size:clamp(28px,7vw,46px)}}
