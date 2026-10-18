@@ -742,3 +742,5 @@ html[data-theme] .work>.section-heading>.small-link,html[data-theme] .work>.sect
 
 .language-flag{display:block;overflow:hidden;border-radius:3px;box-shadow:0 0 0 1px rgba(127,127,127,.2)}
 .site-controls .language-switch button{display:inline-flex;align-items:center;justify-content:center}
+
+.language-flag{width:20px;height:14px;filter:grayscale(1);border-radius:2px}
