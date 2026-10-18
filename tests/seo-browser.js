@@ -26,7 +26,7 @@ try {
     if (path === '/') {
       assert.equal(await page.locator('.portfolio-card').count(), 8);
       assert.match(await page.locator('.about-body').textContent(), /Répás János/);
-      assert.match(await page.locator('.work-intro').textContent(), /csomagolástervezés/);
+      assert.match(await page.locator('.work-intro').textContent(), /grafikai szolgáltatások/);
       assert.equal(await page.locator('a[href="/packaging"], a[href="packaging.html"]').count(), 0);
       const service = schema['@graph'].find(entity => entity['@type'] === 'Service');
       assert.equal(service.hasOfferCatalog.itemListElement.length, 8);

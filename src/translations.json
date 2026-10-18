@@ -32,8 +32,8 @@
     "en": "Graphic design.<br><em>Made to work.</em>"
   },
   "8": {
-    "hu": "Logó, csomagolás, kiadvány vagy online kampány. Átgondolt grafika, nyomtatásra és digitális használatra készen.",
-    "en": "Logos, packaging, publications and online campaigns. Considered graphic design, ready for print and digital use."
+    "hu": "Logó, csomagolás, kiadvány és digitális kreatívok. Átgondolva. Megvalósításra készen.",
+    "en": "Logos, packaging, publications and digital creatives. Considered design. Ready to use."
   },
   "9": {
     "hu": "Szolgáltatások",
@@ -88,12 +88,12 @@
     "en": "Every detail matters."
   },
   "22": {
-    "hu": "<span class=\"about-paragraph\"><strong>Répás János vagyok, grafikus és webdesigner.</strong> Több mint tíz éve adok formát ötleteknek. Márkáknak, termékeknek és a mögöttük álló embereknek.</span><span class=\"about-paragraph\">Az ALDI Magyarországnál és a TARSAGO-nál szerzett tapasztalatot minden munkába magammal hozom. <strong>Az első vázlattól az utolsó részletig.</strong></span>",
-    "en": "<span class=\"about-paragraph\"><strong>I’m János Répás, graphic designer and web designer.</strong> For over ten years, I’ve been shaping ideas for brands, products and the people behind them.</span><span class=\"about-paragraph\">Experience gained at ALDI Hungary and TARSAGO informs every project. <strong>From the first sketch to the final detail.</strong></span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Répás János vagyok, grafikus és webdesigner.</strong> Több mint tíz év tapasztalattal adok formát a márkádnak.</span><span class=\"about-paragraph\">Az ALDI Magyarországnál és a TARSAGO-nál szerzett tudással. <strong>Az első vázlattól az utolsó részletig.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>I’m János Répás, graphic designer and web designer.</strong> Over ten years of experience, shaping ideas for brands.</span><span class=\"about-paragraph\">With experience gained at ALDI Hungary and TARSAGO. <strong>From the first sketch to the final detail.</strong></span>"
   },
   "23": {
-    "hu": "<span class=\"about-paragraph\"><strong>Jól néz ki. És működik.</strong> Arculat, csomagolástervezés, nyomtatott kiadvány vagy digitális kampány: minden felületen a márkád története számít.</span><span class=\"about-paragraph\">Tiszta vektorgrafika. Átgondolt elrendezés. Pontos nyomdai előkészítés. <strong>Hogy a jó ötletből megvalósítható terv legyen.</strong></span>",
-    "en": "<span class=\"about-paragraph\"><strong>Looks right. Works beautifully.</strong> Identity, packaging design, print or a digital campaign: every touchpoint tells your brand’s story.</span><span class=\"about-paragraph\">Clean vector artwork. Considered layouts. Precise print preparation. <strong>Turning good ideas into designs ready for the real world.</strong></span>"
+    "hu": "<span class=\"about-paragraph\"><strong>Jól néz ki. És működik.</strong> Képernyőn, csomagoláson és nyomtatásban is.</span><span class=\"about-paragraph\">Tiszta vektorgrafika, átgondolt elrendezés és pontos nyomdai előkészítés. <strong>Hogy a tervből kész megoldás legyen.</strong></span>",
+    "en": "<span class=\"about-paragraph\"><strong>Looks right. Works beautifully.</strong> On screen, on packaging and in print.</span><span class=\"about-paragraph\">Clean vector artwork, considered layouts and precise prepress. <strong>Turning designs into finished work.</strong></span>"
   },
   "24": {
     "hu": "Ajánlatot kérek",
@@ -228,8 +228,8 @@
     "en": "Tell the story before it plays. Custom YouTube thumbnails that capture your video’s character."
   },
   "67": {
-    "hu": "A márkád minden felületen. Vektorgrafika, csomagolástervezés, nyomtatott anyagok és digitális kampányok.",
-    "en": "Your brand, across every touchpoint. Vector artwork, packaging design, print and digital campaigns."
+    "hu": "A márkád minden felületen. Válassz a grafikai szolgáltatások közül.",
+    "en": "Your brand, across every touchpoint. Find the design service you need."
   },
   "80": {
     "en": "The brief",
@@ -312,16 +312,16 @@
     "hu": "Rendezett, felhasználásra kész fájlok átadása nyomdai és digitális célokra."
   },
   "100": {
-    "hu": "Mondd el, milyen grafikára van szükséged, és hol fogod használni. A részleteket együtt pontosítjuk, az árat pedig egyedi ajánlatban rögzítjük.",
-    "en": "Tell me what you need and where the design will be used. We’ll clarify the details together, then agree the scope and price in a personalised quote."
+    "hu": "Meséld el, mire készülsz. A részleteket együtt pontosítjuk, majd egyedi ajánlatot kapsz.",
+    "en": "Tell me what you have in mind. We’ll clarify the details together, then agree a personalised quote."
   },
   "101": {
     "hu": "Mesélj a feladatról.",
     "en": "Tell me about your project."
   },
   "102": {
-    "hu": "Válassz szolgáltatást, vagy jelezd, ha még egyeztetnéd. Az e-mailben néhány mondat is elég az induláshoz.",
-    "en": "Choose a service, or let me know if you’re still deciding. A few sentences in your email are enough to get started."
+    "hu": "Néhány mondat is elég az induláshoz.",
+    "en": "A few sentences are enough to get started."
   },
   "103": {
     "hu": "Upwork-profil",
@@ -440,8 +440,8 @@
     "en": "You receive organised files prepared for their intended use."
   },
   "132": {
-    "hu": "Előbb egyeztetünk és ajánlatot kapsz. Jóváhagyás után indul a tervezés, az átadásig végig követhető lépésekben.",
-    "en": "First we discuss the project and agree a quote. Design begins after approval, with clear steps all the way to delivery."
+    "hu": "Egyeztetéstől az átadásig. A tervezés az ajánlat jóváhagyásával indul.",
+    "en": "From our first conversation to delivery. Design starts once you approve the quote."
   },
   "133": {
     "en": "Tell me your idea ↗",

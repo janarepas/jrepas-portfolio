@@ -1643,3 +1643,25 @@ html body .site-header nav .header-contact{min-height:44px;height:44px;padding:1
 }
 @media(max-width:360px){html body .site-header nav{gap:4px!important}html body .site-header nav a{font-size:12px}html body .site-header nav .header-contact{font-size:11px;padding:10px!important}}
 .site-header nav a{min-width:44px;justify-content:center}
+
+/* More breathing room, without adding empty screens between sections. */
+#about .about-body>p{font-size:18px;line-height:1.8}
+#about .about-body .about-paragraph+.about-paragraph{margin-top:28px}
+#about .about-body{row-gap:40px}
+.hero .hero-description{margin-bottom:36px;line-height:1.75}
+.hero .hero-trust{margin-top:26px}
+.work>.work-intro{line-height:1.7;margin-bottom:28px}
+.service-chooser{margin-bottom:40px}
+html[data-theme] .work .portfolio-card>p{font-size:17px;line-height:1.7;margin-top:18px}
+html body section.about.process-section .process-flow{gap:24px!important}
+html body section.about.process-section .process-flow>li.process-step h3{margin-bottom:20px!important}
+html body section.about.process-section .process-flow>li.process-step p{font-size:17px!important;line-height:1.7!important}
+.contact-layout{gap:56px}
+.contact-panel .contact-actions{margin-top:28px}
+@media(max-width:700px){
+ #about .about-body>p{font-size:17px;line-height:1.8}
+ #about .about-body{row-gap:30px}
+ .service-chooser{margin-bottom:32px}
+ .contact-layout{gap:32px}
+ html body section.about.process-section .process-flow{gap:20px!important}
+}
