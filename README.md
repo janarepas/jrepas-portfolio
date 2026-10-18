@@ -126,11 +126,10 @@ select labels may truncate while their popup retains the full option text.
 
 ## Selected Behance work
 
-The about section contains four local Behance covers in a responsive two-column
-gallery (one column on mobile). Each image opens its original project in a safe
-new tab. Titles and category labels are bilingual; 404/808px WebP sources load
-lazily. Source URLs and retrieval dates are recorded in
-`docs/portfolio-sources.json`. Run `npm run test:portfolio` to verify the gallery,
-image decoding, destinations and JavaScript-free fallback. The Behance pages
-may require a normal browser User-Agent and HTML Accept headers for read-only
-fetches; use the configured network proxy and keep TLS verification enabled.
+The about section combines four real local Behance covers into one responsive,
+clickable collage. It opens the Behance profile in a safe new tab. There are no
+individual project cards or captions. Its accessible label is bilingual and
+404/808px WebP sources load lazily. Source URLs are recorded in
+`docs/portfolio-sources.json`. Run `npm run test:portfolio` to verify the collage,
+image decoding, profile destination and JavaScript-free fallback. Keep TLS
+verification enabled when retrieving source images.
