@@ -903,3 +903,17 @@ html[data-theme] .work .portfolio-card .cover-retail .cover-mark{top:118px;right
 .process-step:not(:last-child) .flow-node:after{display:block}
 @media(max-width:900px) and (min-width:601px){.process-flow{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.process-step h3{font-size:25px}.flow-node svg{display:none}.process-step:not(:last-child) .flow-node:after{left:54px;right:-16px}}
 @media(max-width:600px){.process-flow{display:block}.process-step{padding-bottom:26px;min-height:96px}.process-step:not(:last-child) .flow-node:after{left:20px;right:auto}}
+/* Biography follows its heading; two stages form one vertical path. */
+.about .about-body{margin-top:20px;margin-bottom:36px}
+.about .process-flow{display:block}
+.about .process-step{padding:0 0 30px 104px;min-height:108px}
+.about .process-step:last-child{padding-bottom:0;min-height:0}
+.about .flow-node{position:absolute;left:0;top:0;display:flex;align-items:flex-start;height:100%;margin:0}
+.about .flow-node svg{display:block;margin-top:7px}
+.about .process-step:not(:last-child) .flow-node:after{display:block;top:42px;left:20px;right:auto;width:1px;height:calc(100% - 42px);background:#ffc20e}
+.about .process-step h3{padding-top:5px;margin-bottom:8px}
+.about .process-step p{max-width:540px}
+@media(max-width:600px){.about .process-step{padding-left:66px}.about .flow-node svg{display:none}}
+.about .about-body{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;padding-top:0}
+.about .about-body .text-link{grid-column:1 / -1;justify-self:start}
+@media(max-width:700px){.about .about-body{grid-template-columns:1fr;gap:0}}

@@ -29,8 +29,12 @@ try {
     assert.match(await page.locator('h1').textContent(), /Ideas/);
     await page.locator('[data-language="hu"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'hu');
-    assert.equal(await page.locator('.process-step').count(), 4);
+    assert.equal(await page.locator('.process-step').count(), 2);
     assert.equal(await page.locator('[data-carousel-next]').count(), 0);
+    assert.ok(await page.locator('.about-body').evaluate(el => !!(el.compareDocumentPosition(document.querySelector('.process-diagram')) & Node.DOCUMENT_POSITION_FOLLOWING)));
+    const stages = await page.locator('.process-step').evaluateAll(items => items.map(el => el.getBoundingClientRect().toJSON()));
+    assert.equal(stages[0].left, stages[1].left);
+    assert.ok(stages[1].top >= stages[0].bottom);
     for (const step of await page.locator('.process-step').all()) {
       assert.ok(await step.isVisible());
       assert.ok((await step.locator('h3').textContent()).length > 0);

@@ -366,5 +366,21 @@
   "113": {
     "hu": "Megkapod a kész, használható fájlokat.",
     "en": "You receive the finished, ready-to-use files."
+  },
+  "114": {
+    "hu": "Tervezés",
+    "en": "Design"
+  },
+  "115": {
+    "hu": "Egyeztetünk, megtervezem, majd együtt finomítjuk.",
+    "en": "We discuss your needs, then design and refine together."
+  },
+  "116": {
+    "hu": "Átadás",
+    "en": "Delivery"
+  },
+  "117": {
+    "hu": "Megkapod a kész, használható fájlokat.",
+    "en": "You receive the finished, ready-to-use files."
   }
 }
