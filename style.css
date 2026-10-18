@@ -1353,3 +1353,17 @@ html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:foc
 @media(prefers-reduced-motion:reduce){
  html[data-theme] .contact-panel .contact-actions .contact-link.button-yellow:before{transition:none}
 }
+
+/* Definitive contact button fix: remove the border itself, not only its color. */
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:hover,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:active{
+ border:0!important;
+ outline:0;
+ box-shadow:none!important;
+ background-clip:padding-box;
+}
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow:focus-visible{
+ outline:2px solid var(--text);
+ outline-offset:4px;
+}
