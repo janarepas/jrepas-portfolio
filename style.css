@@ -1889,3 +1889,9 @@ html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:mi
  padding:clamp(16px,2.5vw,32px);
  background:linear-gradient(135deg,#07143d 0 38%,#ed1c24 38% 54%,#f26522 54% 70%,#ffc20e 70% 100%);
 }
+/* Two campaign ribbons sweep across the full section, above the pictures. */
+#about .selected-work{padding:0;background:transparent}
+#about .about-ribbons{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;transform:translateY(calc((1 - var(--vector-progress,1)) * 18px))}
+#about>.eyebrow,#about .about-process>h2,#about .about-body>p{position:relative;z-index:3}
+@media(max-width:700px){#about .about-ribbons{mask-image:linear-gradient(to bottom,transparent 0 35%,#000 48%);-webkit-mask-image:linear-gradient(to bottom,transparent 0 35%,#000 48%)}}
+@media(prefers-reduced-motion:reduce){#about .about-ribbons{transform:none}}
