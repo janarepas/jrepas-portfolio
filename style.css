@@ -1859,3 +1859,11 @@ html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:mi
 @media(min-width:1601px){
  .hero .hero-image{left:50%;right:auto;width:1600px;transform:translateX(-50%)}
 }
+/* Continue the photo's studio backdrop beyond its centered frame on wide monitors. */
+@media(min-width:1601px){
+ .hero{--phone-edge:linear-gradient(to bottom,#d7cfc6 0%,#f9f1e8 15%,#e4dcd4 30%,#ebe3da 45%,#fefdf9 60%,#fefcfb 75%,#fefdf9 90%,#fffbf5 100%)}
+ html[data-theme=dark] .hero{--phone-edge:linear-gradient(to bottom,#070707 0%,#070707 15%,#050505 30%,#050505 45%,#030303 60%,#0e0e0e 75%,#0f0f0f 90%,#101010 100%)}
+ .hero .hero-image{overflow:visible;background-image:var(--phone-edge);background-size:40px 100%;background-repeat:no-repeat;background-position:right center}
+ .hero .hero-image img{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 16%,rgba(0,0,0,.6) 36%,#000 58%,#000 calc(100% - 24px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 16%,rgba(0,0,0,.6) 36%,#000 58%,#000 calc(100% - 24px),transparent 100%)}
+ .hero .hero-image:after{display:block;content:'';position:absolute;left:calc(100% - 1px);right:auto;top:0;bottom:auto;width:calc((100vw - 1600px)/2 + 2px);height:100%;background:var(--phone-edge);box-shadow:none;border-radius:0;pointer-events:none;z-index:0}
+}
