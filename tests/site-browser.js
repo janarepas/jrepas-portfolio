@@ -9,7 +9,7 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('html[data-runtime="rust-wasm"]');
+    await page.waitForSelector('html[data-runtime="javascript"]');
     assert.equal(await page.locator('.logo-intro').count(), 0);
     assert.ok(await page.locator('.hero').isVisible());
     assert.ok(await page.locator('.site-header').isVisible());
@@ -54,7 +54,7 @@ try {
     await page.locator('#contact').scrollIntoViewIfNeeded();
     assert.ok(await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().bottom < 0));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('html[data-runtime="rust-wasm"]');
+    await page.waitForSelector('html[data-runtime="javascript"]');
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
     assert.deepEqual(errors, []);
     await context.close();

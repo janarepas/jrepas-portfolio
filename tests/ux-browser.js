@@ -8,7 +8,7 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('html[data-runtime="rust-wasm"]');
+    await page.waitForSelector('html[data-runtime="javascript"]');
     for (const language of ['hu', 'en']) {
       await page.locator(`[data-language="${language}"]`).click();
       await page.waitForFunction(lang => document.documentElement.lang === lang, language);

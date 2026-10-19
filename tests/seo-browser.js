@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:8000';
-const copy = JSON.parse(await readFile(new URL('../src/translations.json', import.meta.url), 'utf8'));
+const copy = JSON.parse(await readFile(new URL('../content/translations.json', import.meta.url), 'utf8'));
 const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
 try {
   const context = await browser.newContext({ javaScriptEnabled: false });
@@ -37,7 +37,7 @@ try {
   const page = await browser.newPage({ locale: 'hu-HU' });
   for (const [path, titleKey, descriptionKey] of [['/', '134', '135']]) {
     await page.goto(base + path, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('html[data-runtime="rust-wasm"]');
+    await page.waitForSelector('html[data-runtime="javascript"]');
     await page.locator('[data-language="en"]').click();
     await page.waitForFunction(() => document.documentElement.lang === 'en');
     assert.equal(await page.title(), copy[titleKey].en);

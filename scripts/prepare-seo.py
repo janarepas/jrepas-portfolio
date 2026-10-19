@@ -7,7 +7,7 @@ import re
 from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
-COPY = json.loads((ROOT / 'src/translations.json').read_text())
+COPY = json.loads((ROOT / 'content/translations.json').read_text())
 BASE = 'https://jrepas.hu'
 IMAGE = BASE + '/images/social-preview.jpg'
 PERSON = {'@type': 'Person', '@id': BASE + '/#janos-repas', 'name': 'Répás János',
@@ -96,3 +96,11 @@ for filename, title_key, description_key in [('index.html', '134', '135')]:
 </urlset>
 ''')
 print('Prepared indexable Hungarian HTML, canonical metadata, schema, robots.txt and sitemap.xml.')
+
+# Serve the same copy to the browser without a compiler or JSON fetch.
+import hashlib
+module = 'export default ' + json.dumps(COPY, ensure_ascii=False, separators=(',', ':')) + ';\n'
+(ROOT / 'translations.js').write_text(module)
+revision = hashlib.sha256(module.encode()).hexdigest()[:12]
+site = ROOT / 'site.js'
+site.write_text(re.sub(r"from './translations.js(?:\?v=[^']*)?'", "from './translations.js?v=" + revision + "'", site.read_text()))

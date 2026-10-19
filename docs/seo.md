@@ -3,7 +3,7 @@
 ## Elkészült
 
 - A teljes látható magyar és angol szöveg újraírása, a tényleges grafikai szolgáltatások természetes megnevezésével.
-- JavaScript nélkül is olvasható magyar főoldal. A Rust/WASM a látogatónak továbbra is a kiválasztott nyelvet jeleníti meg.
+- JavaScript nélkül is olvasható magyar főoldal. A JavaScript a látogatónak továbbra is a kiválasztott nyelvet jeleníti meg.
 - Egyedi keresési cím és leírás a főoldalon, nyelvváltáskor frissülő közösségi metaadatokkal.
 - Kanonikus cím: `https://jrepas.hu/`.
 - Schema.org Person, WebSite, WebPage és Service adatok, valós névvel, elérhetőséggel és szolgáltatásokkal. Nincs kitalált cím, értékelés vagy díjazás.
@@ -12,7 +12,7 @@
 - A csomagolástervezés a főoldali kártyán szerepel, külön aloldal nélkül. A régi `/packaging` és `/packaging.html` címek 301-gyel a `/#service-packaging` szakaszra irányítanak. A sitemap csak a főoldalt tartalmazza.
 
 A generált HTML és a metaadatok frissítése: `python3 scripts/prepare-seo.py`.
-Ez a `scripts/build.sh` részeként is lefut. Ellenőrzés: `npm run test:seo`.
+Ez a `npm run build` részeként is lefut. Ellenőrzés: `npm run test:seo`.
 
 ## Teendők a Google Search Console-ban
 
@@ -38,6 +38,6 @@ A főcím közvetlenül megnevezi a grafikai tervezést. A szolgáltatások elő
 
 Az „Ajánlatot kérek” gombok a kapcsolat szakaszhoz vezetnek. Az egyetlen e-mail-gomb előre kitöltött tárggyal és a projektleírás kérdéseivel nyit levelet; a felhasználó saját levelezőjében küldi el az üzenetet. Ez ajánlatkérés, nem automatikus rendelés vagy fizetés. A cím és az alap e-mail-gomb JavaScript nélkül is használható.
 
-A mobilos menü és a vezérlők legalább 44 px magasak. A törzsszöveg kontrasztosabb, a címek kevésbé törnek, a mozgáscsökkentési beállítást a görgetés is követi. A dekoráció és a képek nem helyettesítik a szolgáltatások szöveges leírását. Az optimalizált, megfelelő méretváltozatban betöltött képek megmaradtak, a hajtás alatti képek késleltetve töltődnek. A verziózott WASM- és Lenis-fájlok tartós böngésző-gyorsítótárat kapnak; a szövegfrissítéshez szükségtelen külön JSON-lekérés megszűnt.
+A mobilos menü és a vezérlők legalább 44 px magasak. A törzsszöveg kontrasztosabb, a címek kevésbé törnek, a mozgáscsökkentési beállítást a görgetés is követi. A dekoráció és a képek nem helyettesítik a szolgáltatások szöveges leírását. Az optimalizált, megfelelő méretváltozatban betöltött képek megmaradtak, a hajtás alatti képek késleltetve töltődnek. A fordításmodul verziózott URL-ről töltődik be, a Lenis-fájlok tartós böngésző-gyorsítótárat kapnak; a szövegfrissítéshez szükségtelen külön JSON-lekérés megszűnt.
 
-Ellenőrzések: `npm test`, `npm run test:ux`, `npm run test:motion`, `npm run test:seo` és `cargo test --locked`. A UX-teszt 320, 390, 768 és 1440 px szélességen, mindkét témával és nyelvvel ellenőrzi a navigációt, a címeket, a egyszerű kapcsolatfelvételt, az e-mail tartalmát és a kérdések billentyűzetes használatát. Ezek funkcionális ellenőrzések; nem helyettesítik a valódi látogatói használat mérését vagy a Search Console adatait.
+Ellenőrzések: `npm test`, `npm run test:ux`, `npm run test:motion`, `npm run test:seo`. A UX-teszt 320, 390, 768 és 1440 px szélességen, mindkét témával és nyelvvel ellenőrzi a navigációt, a címeket, a egyszerű kapcsolatfelvételt, az e-mail tartalmát és a kérdések billentyűzetes használatát. Ezek funkcionális ellenőrzések; nem helyettesítik a valódi látogatói használat mérését vagy a Search Console adatait.

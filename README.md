@@ -1,124 +1,88 @@
-# JREPAS portfolio
+# JREPAS — Graphic design portfolio
 
-Bilingual graphic design portfolio for **jrepas.hu**. HTML and CSS provide the
-content and design; the interactive application is written in **Rust**, compiled
-to **WebAssembly** with wasm-bindgen. Cloudflare Pages serves the static files.
+**Thoughtful design. From a good idea.**
 
-## Develop
+The bilingual portfolio of **János Répás**, graphic designer and webdesigner. Branding, packaging, editorial design, and digital campaign creatives — with more than ten years of experience.
 
-Install Rust using rustup. `rust-toolchain.toml` pins the compiler and WebAssembly
-target. Install the matching binding generator once:
+[Visit the website](https://jrepas.hu/) · [Behance](https://www.behance.net/jrepas) · [Upwork](https://www.upwork.com/freelancers/jrepas)
+
+## A simple website
+
+The site uses **HTML, CSS, and plain JavaScript**. No application framework, Rust toolchain, WebAssembly, database, or application server is needed to serve the portfolio.
+
+- Hungarian and English copy, with accessible language controls.
+- Light and dark themes, system preferences, and saved manual choices.
+- Eight illustrated services and a six-step design process.
+- Animated FAQ answers, subtle scroll reveals, and reduced-motion support.
+- Direct email quote requests with a localized message draft.
+- Indexable HTML, structured data, canonical URLs, and social previews.
+- Responsive images and local font fallbacks.
+
+## Run locally
+
+Use any static HTTP server. For example, with Python 3:
 
 ```sh
-cargo install wasm-bindgen-cli --version 0.2.104 --locked
-```
-
-From the checkout root:
-
-```sh
-cargo test --locked
-./scripts/build.sh
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open the local server in a browser when developing locally. WebAssembly must be
-served over HTTP, not opened directly as a `file:` URL.
+Open **http://127.0.0.1:8000**. The checked-in files are ready to serve; no build is needed to preview the site.
 
-- `src/lib.rs`: country/browser language selection, translations, language and
-  theme controls, the six-step illustrated design process, accessibility labels, page titles,
-  metadata and persistence.
-- `src/translations.json`: Hungarian and English text, keyed by HTML `data-i18n`.
-- `index.html`: semantic content and indexable Hungarian copy.
-- `style.css`: responsive layout, both themes and self-hosted fonts.
-- `fonts/`: DM Serif Display 400 Italic for headings and DM Sans for body text; licenses included.
-- `scripts/build.sh`: locked release build and wasm-bindgen packaging.
-- `assets/rust/<content-hash>/`: generated JavaScript bindings and `.wasm` binary.
-- `site.js`: generated module loader; edit Rust instead of this file.
-- `functions/_middleware.js`: small Cloudflare-specific middleware that supplies
-  the visitor's country to Rust through the HTML `data-country` attribute.
+## Edit the site
 
-A Hungarian visitor starts in Hungarian; other known countries use English.
-Without country information, the browser language is used. The colour scheme
-follows the browser until explicitly changed. Manual choices persist in local
-storage. Static HTML remains readable if JavaScript/WebAssembly is unavailable.
+| File | Purpose |
+| --- | --- |
+| `index.html` | Semantic page structure and default Hungarian content |
+| `style.css` | Layout, typography, responsive styles, and themes |
+| `site.js` | Language, theme, metadata, and email-link interactions |
+| `content/translations.json` | Source for Hungarian and English copy |
+| `translations.js` | Generated browser translation module |
+| `motion.js` | Scroll effects and FAQ animations |
+| `images/`, `fonts/` | Images and local fallback fonts |
+| `assets/vendor/` | Locally served Lenis and its license |
+| `functions/_middleware.js` | Cloudflare country detection and canonical redirects |
 
-## Build and deploy
+After editing translations, run:
 
-After changing Rust or translations, run `./scripts/build.sh` and commit the
-updated `site.js` and generated assets alongside the sources. Keep previous
-hashed asset directories available for cached pages. The generated loader is
-served with a version query in the HTML file; bump that query on a new release.
+```sh
+npm run build
+```
 
-The generated files are checked in so the existing Cloudflare Pages configuration
-continues to work: **framework None, empty build command, output directory `.`**.
-Pushing to `main` triggers the existing automatic deployment. No Rust server or
-new hosting service is required. The root `functions/` directory retains the
-Cloudflare Pages country middleware.
+This requires **Python 3 and npm**. It synchronizes the default HTML, browser translations, search metadata, structured data, `robots.txt`, and `sitemap.xml`. Commit the generated files with the copy changes. JavaScript and CSS edits do not require compilation.
 
-The eight service entries are non-clickable illustrated cards. Their graphic
-covers illustrate the services. The about section is a concise text introduction.
-Contact: `jrepas@icloud.com`.
+The main domain for search engines is **https://jrepas.hu/**. Country information supplied by Cloudflare determines the initial language; browser language is the fallback. Manual choices are stored locally. The static Hungarian content and email link remain usable without JavaScript.
 
-## Typography
+## Checks
 
-The Adobe Fonts web-project stylesheet is `https://use.typekit.net/qtn2utl.css`,
-loaded by the main HTML page. Heading font stacks use `ivypresto-display` and body
-copy uses `freight-text-pro`. Bundled DM Serif Display Italic and DM Sans remain
-fallbacks if Adobe Fonts is unavailable. Font files supplied through Adobe Fonts
-are served by Adobe rather than copied into this repository.
+Browser checks require Node.js, npm dependencies, and Chromium at `/usr/bin/chromium`:
 
-Language changes use a short opacity fade. Theme changes apply immediately.
-The colour palette defines three yellows and three dark tones; each yellow/dark
-pair exceeds 4.5:1 text contrast.
+```sh
+npm ci
+npm test
+npm run test:runtime
+npm run test:seo
+npm run test:ux
+npm run test:motion
+npm run test:faq
+npm run test:sizing
+```
 
+Keep the local HTTP server running while testing. Set `TEST_BASE_URL` to use another address. The sizing checks cover 18 viewport widths from 320 to 2560 pixels in both languages and themes.
 
-## Content editing
+## Deployment
 
-The site runs without a database, admin panel or Cloudflare Access subscription.
-Edit bilingual text in `src/translations.json`, structure in the HTML files, and
-images in `images/`, then rebuild Rust assets when translations change.
-Run `npm test` against the local HTTP server to check the public site.
+Cloudflare Pages serves the committed files from the `main` branch:
 
-## Scroll and progressive display
+| Setting | Value |
+| --- | --- |
+| Framework | None |
+| Build command | Empty |
+| Output directory | `.` |
 
-`motion.js` adds locally served Lenis 1.3.27 for smooth mouse-wheel scrolling;
-touch scrolling stays native. Off-screen content reveals once as it enters the
-viewport. Reduced-motion preferences disable interpolation and reveals. A masked
-blur and theme-coloured fade soften the viewport top after scrolling. The transparent menu
-scrolls away with the page, without its own background, border or blur. The vendor bundle and MIT license live in
-`assets/vendor/lenis-1.3.27/`. Run `npm run test:motion` with the local server.
+Push to `main` to trigger the connected deployment. The root `functions/` directory provides the Pages middleware; local static preview does not simulate Cloudflare country detection. Packaging design is part of the homepage, with redirects for the former standalone page.
 
-## Search and indexability
+## Typography and assets
 
-`scripts/prepare-seo.py` runs during the Rust build. It syncs the visible Hungarian
-HTML from `src/translations.json`, with page-specific titles and descriptions,
-canonical URLs on `https://jrepas.hu`, Open Graph/Twitter metadata, Schema.org
-Person/WebSite/WebPage/Service data, `robots.txt` and `sitemap.xml`. The body is
-readable without JavaScript; Rust preserves the existing language/theme controls.
-The middleware only supplies visitor country, leaving the static HTML language
-consistent until the client applies the selected language.
+Headings use IvyPresto Display and body copy uses Freight Text Pro through Adobe Fonts, with bundled DM Serif Display and DM Sans fallbacks. Adobe Fonts domain authorization is managed in the Adobe web project. Third-party font and Lenis licenses accompany their bundled files.
 
-Run `npm run test:seo` against the local server. See [docs/seo.md](docs/seo.md) for
-the Google Search Console submission and the limits of local verification.
-
-## Quote-request journey
-
-The hero and about CTAs lead to `#contact`, a short invitation with one email
-button and a directly accessible email address. Rust prepares a localised
-`mailto:` draft; the visitor sends it in their own email app. There is no form,
-automatic submission, order checkout or payment. Static HTML includes the same
-working default mail draft for JavaScript-free visits. Test the journey and both
-languages/themes with `npm run test:ux`.
-
-The former `/packaging` and `/packaging.html` pages redirect permanently to
-`/#service-packaging`. Packaging design is presented only on the homepage and
-the sitemap contains only the homepage.
-
-## Responsive sizing checks
-
-Run `npm run test:sizing` against the local HTTP server (`TEST_BASE_URL` overrides
-the default port). This checks 18 viewport widths from 320 to 2560 CSS pixels in
-both languages and themes, including the 700/701 and 1000/1001 breakpoints. It
-asserts text/card containment, separation of service illustrations and titles,
-header item bounds and spacing above the hero. Tests run in Chromium; native
-select labels may truncate while their popup retains the full option text.
+Contact: [jrepas@icloud.com](mailto:jrepas@icloud.com). Search Console setup and verification notes are in [docs/seo.md](docs/seo.md).

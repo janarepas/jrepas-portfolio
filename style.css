@@ -222,7 +222,7 @@ h1,h2,h3,.graphic strong{letter-spacing:-.04em}
 body{font-family:'DM Sans',Arial,sans-serif}
 .cover-editorial .cover-mark{font-family:'DM Sans',Arial,sans-serif}
 
-/* Ten-step design process, controlled by the Rust application. */
+/* Illustrated design process. */
 .about-process{min-width:0;padding-top:0!important}
 .process-carousel{margin-top:28px;border:1px solid #35352e;border-radius:10px;overflow:hidden;background:#181816;color:#f5f2e8}
 html[data-theme=light] .process-carousel{background:#f8f8f4;border-color:#e5e5dd;color:#111}
