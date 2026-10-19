@@ -1855,3 +1855,7 @@ html[data-theme] .contact-panel .contact-actions .button{width:auto;min-width:mi
 #about .about-process{min-width:0}
 @supports(grid-template-rows:subgrid){#about .about-body{grid-template-rows:auto auto}}
 @media(max-width:700px){#about .about-body{grid-template-columns:minmax(0,1fr);grid-template-rows:none}}
+/* Keep the phone artwork in the centered content stage on ultrawide displays. */
+@media(min-width:1601px){
+ .hero .hero-image{left:50%;right:auto;width:1600px;transform:translateX(-50%)}
+}
