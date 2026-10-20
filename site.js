@@ -114,4 +114,4 @@ systemTheme.addEventListener('change', event => {
 render();
 // Keep the copyright current when the page stays open across New Year's midnight.
 setInterval(updateYear, 60_000);
-import('./motion.js?v=17').catch(error => console.error('Unable to start page motion:', error));
+import('./motion.js?v=18').catch(error => console.error('Unable to start page motion:', error));
