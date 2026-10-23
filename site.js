@@ -11,8 +11,8 @@ const save = (key, value) => { try { storage?.setItem(key, value); } catch { /* 
 const country = root.dataset.country;
 const knownCountry = /^[A-Z]{2}$/.test(country || '') && !['XX', 'T1'].includes(country);
 const savedLanguage = read('jrepas-language-choice');
-let language = country === 'HU' ? 'hu'
-  : ['hu', 'en'].includes(savedLanguage) ? savedLanguage
+let language = ['hu', 'en'].includes(savedLanguage) ? savedLanguage
+  : country === 'HU' ? 'hu'
   : knownCountry ? 'en' : navigator.language.toLowerCase().startsWith('hu') ? 'hu' : 'en';
 const savedTheme = read('jrepas-theme');
 let manualTheme = ['dark', 'light'].includes(savedTheme);

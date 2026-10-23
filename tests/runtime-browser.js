@@ -5,7 +5,9 @@ const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:8000';
 const browser = await launchBrowser();
 try {
   const cases = [
-    { country: 'HU', locale: 'en-US', saved: 'en', expected: 'hu' },
+    { country: 'HU', locale: 'en-US', saved: 'en', expected: 'en' },
+    { country: 'HU', locale: 'en-US', expected: 'hu' },
+    { country: 'HU', locale: 'en-US', saved: 'invalid', expected: 'hu' },
     { country: 'DE', locale: 'hu-HU', expected: 'en' },
     { country: 'DE', locale: 'en-US', saved: 'hu', expected: 'hu' },
     { country: 'XX', locale: 'hu-HU', expected: 'hu' },
@@ -17,7 +19,10 @@ try {
     const context = await browser.newContext({ locale: entry.locale, colorScheme: 'light' });
     await context.addInitScript(({ saved, blocked }) => {
       if (blocked) Object.defineProperty(window, 'localStorage', { get() { throw new Error('Storage unavailable'); } });
-      else if (saved) localStorage.setItem('jrepas-language-choice', saved);
+      else if (saved && !sessionStorage.getItem('test-initialized')) {
+        localStorage.setItem('jrepas-language-choice', saved);
+        sessionStorage.setItem('test-initialized', 'true');
+      }
     }, entry);
     const page = await context.newPage();
     const errors = [];
@@ -33,6 +38,10 @@ try {
     await page.goto(base);
     await page.waitForSelector('html[data-runtime="javascript"]');
     assert.equal(await page.locator('html').getAttribute('lang'), entry.expected);
+    for (const width of [390, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      assert.ok(await page.locator('.language-switch').isVisible());
+    }
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark');
     await page.locator('.theme-toggle').click();
@@ -51,6 +60,11 @@ try {
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
     assert.match(await page.title(), /Graphic Design/);
     assert.match(await page.locator('#quote-mail').getAttribute('href'), /mailto:jrepas@icloud.com/);
+    if (!entry.blocked) {
+      await page.reload();
+      await page.waitForSelector('html[data-runtime="javascript"]');
+      assert.equal(await page.locator('html').getAttribute('lang'), 'en');
+    }
     assert.deepEqual(errors, []);
     assert.deepEqual(wasmRequests, []);
     await context.close();

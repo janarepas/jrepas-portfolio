@@ -745,8 +745,6 @@ html[data-theme] .work>.section-heading>.small-link,html[data-theme] .work>.sect
 .work .portfolio-card .cover-vector .vector-reconstruction-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;z-index:0}
 .work .portfolio-card .cover-vector .cover-mark,.work .portfolio-card .cover-vector .cover-pixels{z-index:1}
 
-/* Cloudflare country detection controls language-selector availability. */
-html[data-country="HU"] .language-switch{display:none}
 
 /* The navigation contact CTA morphs from a yellow outline to orange fill. */
 html[data-theme] .site-header nav .header-contact{

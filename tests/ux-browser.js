@@ -57,6 +57,8 @@ try {
     console.log(`UX: ${width}px, both languages/themes, navigation, headings, minimal contact, quote email and keyboard FAQ passed.`);
     await page.close();
   }
+  const raw = await (await fetch(base)).text();
+  assert.match(raw, /<!--email_off-->[\s\S]*?id="quote-mail"[\s\S]*?class="contact-email"[\s\S]*?<!--\/email_off-->/);
   const page = await browser.newPage({ javaScriptEnabled: false });
   await page.goto(base);
   const mail = new URL(await page.locator('#quote-mail').getAttribute('href'));
