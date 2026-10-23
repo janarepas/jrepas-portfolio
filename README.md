@@ -12,6 +12,7 @@ The site uses **HTML, CSS, and plain JavaScript**. No application framework, Rus
 
 - Hungarian and English copy, with accessible language controls.
 - Light and dark themes, system preferences, and saved manual choices.
+- Four selected projects linking to their full Behance presentations.
 - Eight illustrated services and a six-step design process.
 - Animated FAQ answers, subtle scroll reveals, and reduced-motion support.
 - Direct email quote requests with a localized message draft.
