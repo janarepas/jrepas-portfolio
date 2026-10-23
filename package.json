@@ -10,7 +10,8 @@
     "test:faq": "node tests/faq-browser.js",
     "test:sizing": "node tests/sizing-browser.js",
     "build": "python3 scripts/prepare-seo.py",
-    "test:runtime": "node tests/runtime-browser.js"
+    "test:runtime": "node tests/runtime-browser.js",
+    "test:all": "node tests/run-all.js"
   },
   "devDependencies": {
     "playwright": "1.56.1",

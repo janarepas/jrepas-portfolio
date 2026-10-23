@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
-import { chromium } from 'playwright';
+import { launchBrowser } from './browser.js';
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:8000';
-const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
+const browser = await launchBrowser();
 try {
   for (const width of [320, 390, 768, 1440]) {
     const page = await browser.newPage({ locale: 'hu-HU', viewport: { width, height: 1000 }, reducedMotion: 'reduce' });

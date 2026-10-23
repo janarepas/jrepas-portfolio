@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
-import { chromium } from 'playwright';
-const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
+import { launchBrowser } from './browser.js';
+const browser = await launchBrowser();
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:8000';
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });

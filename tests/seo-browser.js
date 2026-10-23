@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { chromium } from 'playwright';
+import { launchBrowser } from './browser.js';
 
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:8000';
 const copy = JSON.parse(await readFile(new URL('../content/translations.json', import.meta.url), 'utf8'));
-const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
+const browser = await launchBrowser();
 try {
   const context = await browser.newContext({ javaScriptEnabled: false });
   for (const [path, titleKey, descriptionKey] of [['/', '134', '135']]) {
