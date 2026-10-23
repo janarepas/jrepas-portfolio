@@ -50,7 +50,7 @@ npm run build
 
 This requires **Python 3 and npm**. It synchronizes the default HTML, browser translations, search metadata, structured data, `robots.txt`, and `sitemap.xml`. Commit the generated files with the copy changes. JavaScript and CSS edits do not require compilation.
 
-The main domain for search engines is **https://jrepas.hu/**. Country information supplied by Cloudflare determines the initial language; browser language is the fallback. Manual choices are stored locally. The static Hungarian content and email link remain usable without JavaScript.
+The main domain for search engines is **https://jrepas.hu/**. Country information supplied by Cloudflare determines the initial language; browser language is the fallback. Manual choices are stored locally and take precedence over country and browser defaults. The language switch stays visible in every country. The static Hungarian content and email link remain usable without JavaScript. Cloudflare `email_off` markers exclude the contact section from email address obfuscation.
 
 ## Checks
 
