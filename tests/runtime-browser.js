@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
-import { chromium } from 'playwright';
+import { launchBrowser } from './browser.js';
 
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:8000';
-const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
+const browser = await launchBrowser();
 try {
   const cases = [
     { country: 'HU', locale: 'en-US', saved: 'en', expected: 'en' },

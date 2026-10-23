@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
-import { chromium } from 'playwright';
+import { launchBrowser } from './browser.js';
 
 const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:8000';
 const widths = [320, 360, 390, 430, 600, 700, 701, 768, 820, 950, 1000, 1001, 1024, 1100, 1280, 1440, 1920, 2560];
-const browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
+const browser = await launchBrowser();
 try {
   const page = await browser.newPage({ locale: 'hu-HU', reducedMotion: 'reduce' });
   await page.goto(base, { waitUntil: 'domcontentloaded' });

@@ -54,10 +54,11 @@ The main domain for search engines is **https://jrepas.hu/**. Country informatio
 
 ## Checks
 
-Browser checks require Node.js, npm dependencies, and Chromium at `/usr/bin/chromium`:
+Browser checks require Node.js 22 or newer, Python 3, npm dependencies, and Playwright Chromium:
 
 ```sh
 npm ci
+npx playwright install chromium
 npm test
 npm run test:runtime
 npm run test:seo
@@ -67,7 +68,13 @@ npm run test:faq
 npm run test:sizing
 ```
 
-Keep the local HTTP server running while testing. Set `TEST_BASE_URL` to use another address. The sizing checks cover 18 viewport widths from 320 to 2560 pixels in both languages and themes.
+Run all seven suites with `npm run test:all`. Every suite runs even if an earlier suite fails; the command exits nonzero if any suite fails.
+
+Keep the local HTTP server running while testing. Playwright uses its downloaded, version-matched Chromium on macOS, Linux, and Windows. On Linux, use `npx playwright install --with-deps chromium` to also install required system libraries. To use an existing browser explicitly, set `CHROMIUM_EXECUTABLE_PATH` to its executable path; custom browser versions may differ from the version tested by Playwright.
+
+GitHub Actions runs all seven suites on pushes to `main`, pull requests, and manual dispatch. The workflow installs Chromium and its Linux dependencies, starts a local static server, and uploads the test and server logs even on failure.
+
+Set `TEST_BASE_URL` to use another address. The sizing checks cover 18 viewport widths from 320 to 2560 pixels in both languages and themes.
 
 ## Deployment
 
