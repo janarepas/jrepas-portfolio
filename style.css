@@ -1880,22 +1880,25 @@ html[data-theme] #about{background:var(--bg)}
 html[data-theme=dark] .about-curves{opacity:.14}
 @media(max-width:700px){#about>.about-vectors{width:150%;left:-25%}.about-curves{opacity:.11}}
 
-/* Selected projects: large images and quiet, readable captions. */
-.references{background:var(--bg);padding:96px 0 104px}
-.references-inner{width:88%;max-width:1280px;margin-inline:auto}
+/* Edge-to-edge project tiles with readable image-overlay titles. */
+.references{background:var(--bg);padding:96px 0}
+.references-inner{width:88%;max-width:1440px;margin-inline:auto}
 .references-heading{margin-bottom:40px;max-width:800px}
 .references-heading .eyebrow{color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 24px}
 .references h2{font:italic 400 clamp(40px,5vw,64px)/1.12 'ivypresto-display','IvyPresto Display',Georgia,serif;letter-spacing:-.035em;margin:0 0 24px;color:var(--text)}
 .references-intro{font-size:20px;line-height:1.6;color:var(--muted);margin:0}
-.references-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 24px}
-.reference-card{display:block;min-width:0;color:var(--text)}
+.references-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.reference-card{display:block;position:relative;min-width:0;overflow:hidden;color:#fff;isolation:isolate}
 .reference-image{aspect-ratio:808/632;overflow:hidden;background:var(--surface)}
-.reference-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 450ms cubic-bezier(.2,.7,.2,1)}
-.reference-caption{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:20px}
-.references .reference-caption h3{font:500 24px/1.3 'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif;letter-spacing:-.015em;margin:0 0 6px;color:var(--text)}
-.reference-caption p{font-size:17px;line-height:1.5;color:var(--muted);margin:0}
-.reference-arrow{font:400 28px/1 Arial,sans-serif;flex-shrink:0;transition:transform 250ms ease}
+.reference-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 600ms cubic-bezier(.2,.7,.2,1)}
+.reference-card:after{content:'';position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78));pointer-events:none;z-index:1}
+.reference-caption{position:absolute;inset:auto 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:32px;z-index:2}
+.references .reference-caption h3{font:400 clamp(26px,3vw,40px)/1.12 'ivypresto-display','IvyPresto Display',Georgia,serif;letter-spacing:-.025em;margin:0;color:#fff;text-wrap:balance}
+.reference-caption p{font-size:16px;line-height:1.5;color:#f4f1e9;margin:10px 0 0}
+.reference-arrow{flex-shrink:0;margin-bottom:3px;transition:transform 250ms ease}
 .reference-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-@media(hover:hover){.reference-card:hover img{transform:scale(1.025)}.reference-card:hover .reference-arrow{transform:translate(3px,-3px)}}
-@media(max-width:700px){.references{padding:56px 0 64px}.references-heading{margin-bottom:28px}.references h2{font-size:40px}.references-intro{font-size:18px}.references-grid{grid-template-columns:minmax(0,1fr);gap:32px}.reference-caption{padding-top:16px}.references .reference-caption h3{font-size:23px}.reference-caption p{font-size:17px}}
+.reference-card:focus-visible{outline:3px solid #ffdd00;outline-offset:-5px}
+@media(hover:hover){.reference-card:hover img{transform:scale(1.04)}.reference-card:hover .reference-arrow{transform:translate(3px,-3px)}}
+@media(max-width:700px){.references{padding:56px 0}.references-heading{margin-bottom:28px}.references h2{font-size:40px}.references-intro{font-size:18px}.references-grid{grid-template-columns:minmax(0,1fr)}.reference-caption{padding:24px}.references .reference-caption h3{font-size:30px}.reference-caption p{font-size:16px}}
+@media(max-width:360px){.reference-caption{padding:20px}.references .reference-caption h3{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.reference-image img,.reference-arrow{transition:none}}
