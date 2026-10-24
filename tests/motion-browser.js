@@ -25,6 +25,26 @@ try {
   await reduced.waitForSelector('.top-glass', { state: 'attached' });
   assert.equal(await reduced.locator('html').getAttribute('data-motion'), null);
   assert.equal(await reduced.locator('[data-reveal=pending]').count(), 0);
+  // The introduction's curves and handles track scrolling in both directions.
+  await page.locator('#about').scrollIntoViewIfNeeded();
+  await page.evaluate(() => scrollTo(0, document.querySelector('#about').offsetTop));
+  await page.waitForTimeout(100);
+  const firstCurve = await page.locator('.about-curves path').first().getAttribute('d');
+  const firstNode = await page.locator('.about-nodes rect').first().getAttribute('y');
+  await page.evaluate(() => scrollBy(0, 180));
+  await page.waitForTimeout(100);
+  assert.notEqual(await page.locator('.about-curves path').first().getAttribute('d'), firstCurve);
+  assert.notEqual(await page.locator('.about-nodes rect').first().getAttribute('y'), firstNode);
+  await page.evaluate(() => scrollBy(0, -180));
+  await page.waitForTimeout(100);
+  assert.equal(await page.locator('.about-curves path').first().getAttribute('d'), firstCurve);
+  await reduced.locator('#about').scrollIntoViewIfNeeded();
+  const staticCurve = await reduced.locator('.about-curves path').first().getAttribute('d');
+  await reduced.evaluate(() => scrollBy(0, 180));
+  await reduced.waitForTimeout(100);
+  assert.equal(await reduced.locator('.about-curves path').first().getAttribute('d'), staticCurve);
+  assert.equal(await reduced.locator('.about-vectors').evaluate(e => e.style.transform), 'translate3d(0px, 0px, 0px)');
+  console.log('About: curves and nodes follow scroll, reverse correctly and stay still for reduced motion.');
   // Theme changes must animate the scene and decode the correct hero variant.
   const scene = await browser.newPage({ colorScheme: 'light' });
   await scene.goto(base);

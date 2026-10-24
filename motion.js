@@ -68,27 +68,6 @@ tileCovers.forEach(cover => artworkResize.observe(cover));
 document.fonts.ready.then(updateArtworkSpace);
 updateArtworkSpace();
 
-// Gently draw the introduction's Bezier artwork as it enters the viewport.
-const aboutVectorSection = document.querySelector('#about');
-if (aboutVectorSection) {
-  let vectorFrame = 0;
-  function updateVectorArtwork() {
-    vectorFrame = 0;
-    const bounds = aboutVectorSection.getBoundingClientRect();
-    const progress = reducedMotion.matches ? 1 : Math.min(1, Math.max(0,
-      (innerHeight - bounds.top) / (innerHeight * .85 + bounds.height * .25)));
-    aboutVectorSection.style.setProperty('--vector-progress', progress.toFixed(4));
-  }
-  function scheduleVectorArtwork() {
-    if (!vectorFrame) vectorFrame = requestAnimationFrame(updateVectorArtwork);
-  }
-  addEventListener('scroll', scheduleVectorArtwork, {passive:true});
-  addEventListener('resize', scheduleVectorArtwork);
-  addEventListener('pageshow', scheduleVectorArtwork);
-  reducedMotion.addEventListener('change', scheduleVectorArtwork);
-  updateVectorArtwork();
-}
-
 // Animate native FAQ disclosures in both directions, including rapid reversals.
 for (const details of document.querySelectorAll('.faq details')) {
   const summary = details.querySelector('summary');
@@ -135,9 +114,11 @@ function drawBrandCurves() {
  curveFrame = 0;
  if (!vectorArt) return;
  const rect = branding.getBoundingClientRect();
- if (rect.bottom < 0 || rect.top > innerHeight) return;
+ if (!reducedMotion.matches && (rect.bottom < 0 || rect.top > innerHeight)) return;
  const progress = reducedMotion.matches ? .5 : Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)));
- const wave = Math.sin((progress - .5) * Math.PI) * 42;
+ const wave = Math.sin((progress - .5) * Math.PI) * 90;
+ const drift = reducedMotion.matches ? 0 : (progress - .5) * 56;
+ vectorArt.style.transform = `translate3d(0, ${drift}px, 0)`;
  const paths = vectorArt.querySelectorAll('.about-curves path');
  paths[0].setAttribute('d', `M-240 230C100 ${65 + wave} 350 ${85 - wave} 700 230S1200 ${350 - wave} 1680 150`);
  paths[1].setAttribute('d', `M-240 150C100 ${350 - wave} 350 ${325 + wave} 700 170S1200 ${65 + wave} 1680 250`);
