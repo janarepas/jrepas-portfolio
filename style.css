@@ -1871,7 +1871,7 @@ html[data-theme] body .hero-actions .button,html[data-theme] body .contact-panel
 
 /* Match the 144p branding section's quiet vector background. */
 html[data-theme] #about{background:var(--bg)}
-#about>.about-vectors{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;color:#4b83f5}
+#about>.about-vectors{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;color:#ffc20e}
 #about>:not(.about-vectors){position:relative;z-index:1}
 .about-curves{stroke:currentColor;stroke-width:1;opacity:.3}
 .about-guides{stroke:currentColor;stroke-width:.75;opacity:.2}
