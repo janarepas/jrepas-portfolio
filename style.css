@@ -1893,15 +1893,14 @@ html[data-theme=dark] .about-curves{opacity:.14}
 .reference-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 600ms cubic-bezier(.2,.7,.2,1)}
 .reference-card:after{content:'';position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78));pointer-events:none;z-index:1}
 .reference-caption{position:absolute;inset:auto 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:32px;z-index:2}
-.references .reference-caption h3{font:400 clamp(26px,3vw,40px)/1.12 'ivypresto-display','IvyPresto Display',Georgia,serif;letter-spacing:-.025em;margin:0;color:#fff;text-wrap:balance}
+.references .reference-caption h3{font:italic 400 clamp(26px,3vw,40px)/1.12 'ivypresto-display','IvyPresto Display',Georgia,serif;letter-spacing:-.025em;margin:0;color:#fff;text-wrap:balance}
 .reference-caption p{font-size:16px;line-height:1.5;color:#f4f1e9;margin:10px 0 0}
-.reference-arrow{flex-shrink:0;margin-bottom:3px;transition:transform 250ms ease}
 .reference-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .reference-card:focus-visible{outline:3px solid #ffdd00;outline-offset:-5px}
-@media(hover:hover){.reference-card:hover img{transform:scale(1.04)}.reference-card:hover .reference-arrow{transform:translate(3px,-3px)}}
+@media(hover:hover){.reference-card:hover img{transform:scale(1.04)}}
 @media(max-width:700px){.references{padding:56px 0}.references-heading{margin-bottom:28px}.references h2{font-size:40px}.references-intro{font-size:18px}.references-grid{grid-template-columns:minmax(0,1fr)}.reference-caption{padding:24px}.references .reference-caption h3{font-size:30px}.reference-caption p{font-size:16px}}
 @media(max-width:360px){.reference-caption{padding:20px}.references .reference-caption h3{font-size:26px}}
-@media(prefers-reduced-motion:reduce){.reference-image img,.reference-arrow{transition:none}}
+@media(prefers-reduced-motion:reduce){.reference-image img{transition:none}}
 
 /* Match 144p.hu's scene-wide light/dark crossfade. */
 ::view-transition-old(root){animation:theme-scene-out 550ms ease-in-out both}
