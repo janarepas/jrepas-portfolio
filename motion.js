@@ -119,20 +119,27 @@ function drawBrandCurves() {
  const wave = Math.sin((progress - .5) * Math.PI) * 90;
  const drift = reducedMotion.matches ? 0 : (progress - .5) * 56;
  vectorArt.style.transform = `translate3d(0, ${drift}px, 0)`;
+ // Each square is an on-curve anchor; circles are the actual cubic control points.
+ const curves = [
+  [[100,240+wave*.2],[300,80+wave],[500,120-wave],[720,180-wave*.35],[940,240+wave*.3],[1140,360-wave],[1340,260+wave*.2]],
+  [[100,160-wave*.2],[300,340-wave],[500,340+wave],[720,280+wave*.35],[940,220-wave*.3],[1140,40+wave],[1340,140-wave*.2]],
+ ];
  const paths = vectorArt.querySelectorAll('.about-curves path');
- paths[0].setAttribute('d', `M-240 230C100 ${65 + wave} 350 ${85 - wave} 700 230S1200 ${350 - wave} 1680 150`);
- paths[1].setAttribute('d', `M-240 150C100 ${350 - wave} 350 ${325 + wave} 700 170S1200 ${65 + wave} 1680 250`);
- // Construction handles follow the same control points as the curves.
  const guides = vectorArt.querySelectorAll('.about-guides path');
- guides[0].setAttribute('d', `M-240 230 100 ${65 + wave}M350 ${85 - wave} 700 230 1050 ${375 + wave}`);
- guides[1].setAttribute('d', `M-240 150 100 ${350 - wave}M350 ${325 + wave} 700 170 1050 ${15 - wave}`);
  const nodes = vectorArt.querySelectorAll('.about-nodes rect');
- [[100,65+wave],[350,85-wave],[700,230],[350,325+wave]].forEach(([x,y],index) => {
-  nodes[index].setAttribute('x', x - 6); nodes[index].setAttribute('y', y - 6);
+ const handles = vectorArt.querySelectorAll('.about-nodes circle');
+ curves.forEach(([a,b,c,d,e,f,g], index) => {
+  paths[index].setAttribute('d', `M${a}C${b} ${c} ${d}C${e} ${f} ${g}`);
+  guides[index].setAttribute('d', `M${a}L${b}M${c}L${d}L${e}M${f}L${g}`);
+  [a,d,g].forEach(([x,y], n) => {
+   nodes[index*3+n].setAttribute('x', x-4);
+   nodes[index*3+n].setAttribute('y', y-4);
+  });
+  [b,c,e,f].forEach(([x,y], n) => {
+   handles[index*4+n].setAttribute('cx', x);
+   handles[index*4+n].setAttribute('cy', y);
+  });
  });
- const circles = vectorArt.querySelectorAll('.about-nodes circle');
- circles[0].setAttribute('cx',100);circles[0].setAttribute('cy',350-wave);
- circles[1].setAttribute('cx',700);circles[1].setAttribute('cy',170);
 }
 function scheduleBrandCurves() { if (!curveFrame) curveFrame = requestAnimationFrame(drawBrandCurves); }
 window.addEventListener('scroll', scheduleBrandCurves, { passive: true });

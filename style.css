@@ -1871,14 +1871,15 @@ html[data-theme] body .hero-actions .button,html[data-theme] body .contact-panel
 
 /* Match the 144p branding section's quiet vector background. */
 html[data-theme] #about{background:var(--bg)}
-#about>.about-vectors{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;color:#ffc20e}
+#about>.about-vectors{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;color:#4b83f5}
 #about>:not(.about-vectors){position:relative;z-index:1}
-.about-curves{stroke:currentColor;stroke-width:1.5;opacity:.15}
-.about-guides{stroke:var(--text);stroke-width:1;opacity:.06}
-.about-nodes{stroke:currentColor;stroke-width:1.5;fill:var(--bg);opacity:.18}
+.about-curves{stroke:currentColor;stroke-width:1;opacity:.3}
+.about-guides{stroke:currentColor;stroke-width:.75;opacity:.2}
+.about-nodes{stroke:currentColor;stroke-width:1;fill:var(--bg);opacity:.55}
+.about-nodes rect{fill:currentColor}
 .about-vectors path,.about-vectors rect,.about-vectors circle{vector-effect:non-scaling-stroke}
-html[data-theme=dark] .about-curves{opacity:.14}
-@media(max-width:700px){#about>.about-vectors{width:150%;left:-25%}.about-curves{opacity:.11}}
+html[data-theme=dark] .about-curves{opacity:.3}
+@media(max-width:700px){#about>.about-vectors{width:150%;left:-25%}.about-curves{opacity:.25}}
 
 /* Edge-to-edge project tiles with readable image-overlay titles. */
 .references{background:var(--bg);padding:96px 0}
