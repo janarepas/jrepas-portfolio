@@ -25,5 +25,37 @@ try {
   await reduced.waitForSelector('.top-glass', { state: 'attached' });
   assert.equal(await reduced.locator('html').getAttribute('data-motion'), null);
   assert.equal(await reduced.locator('[data-reveal=pending]').count(), 0);
+  // Theme changes must animate the scene and decode the correct hero variant.
+  const scene = await browser.newPage({ colorScheme: 'light' });
+  await scene.goto(base);
+  await scene.waitForSelector('html[data-runtime="javascript"]');
+  await scene.evaluate(() => {
+    window.transitionCount = 0;
+    const start = document.startViewTransition.bind(document);
+    document.startViewTransition = callback => { window.transitionCount++; return start(callback); };
+  });
+  await scene.locator('.theme-toggle').click();
+  await scene.waitForFunction(() => document.documentElement.dataset.theme === 'dark' && !document.querySelector('.theme-toggle').disabled);
+  assert.equal(await scene.evaluate(() => window.transitionCount), 1);
+  await scene.waitForFunction(() => document.querySelector('.hero-image img').currentSrc.includes('hero-fold-rear-dark-'));
+  await scene.locator('.theme-toggle').click();
+  await scene.waitForFunction(() => document.documentElement.dataset.theme === 'light' && !document.querySelector('.theme-toggle').disabled);
+  assert.equal(await scene.evaluate(() => window.transitionCount), 2);
+  const fallback = await browser.newPage({ colorScheme: 'light' });
+  await fallback.addInitScript(() => { document.startViewTransition = undefined; });
+  await fallback.goto(base);
+  await fallback.waitForSelector('html[data-runtime="javascript"]');
+  await fallback.locator('.theme-toggle').click();
+  await fallback.waitForSelector('.theme-transition-curtain', { state: 'attached' });
+  await fallback.waitForFunction(() => document.documentElement.dataset.theme === 'dark' && !document.querySelector('.theme-toggle').disabled);
+  assert.equal(await fallback.locator('.theme-transition-curtain').count(), 0);
+  await reduced.evaluate(() => {
+    document.startViewTransition = () => { throw new Error('Reduced motion must not animate'); };
+  });
+  const oldTheme = await reduced.locator('html').getAttribute('data-theme');
+  await reduced.locator('.theme-toggle').click();
+  assert.notEqual(await reduced.locator('html').getAttribute('data-theme'), oldTheme);
+  assert.equal(await reduced.locator('.theme-transition-curtain').count(), 0);
+  console.log('Theme: native scene crossfade, both photographs, older-browser curtain cleanup and instant reduced-motion switching passed.');
   console.log('Passed: interpolated wheel scrolling, progressive reveal, transparent menu scrolls away, top fade and reduced-motion fallback');
 } finally { await browser.close(); }

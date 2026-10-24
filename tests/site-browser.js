@@ -21,6 +21,7 @@ try {
     assert.equal(await page.locator('h1 em').evaluate(el => getComputedStyle(el).textDecorationStyle), 'double');
     assert.equal(await page.locator('[data-current-year]').textContent(), String(new Date().getFullYear()));
     await page.locator('.theme-toggle').click();
+    await page.waitForFunction(() => document.documentElement.dataset.theme === 'light' && !document.querySelector('.theme-toggle').disabled);
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
     await page.waitForFunction(() => { const image = document.querySelector('.hero-image img'); return image.complete && image.naturalWidth > 0 && image.currentSrc.includes('hero-fold-rear-light-'); });
     assert.equal(await page.locator('.theme-toggle').getAttribute('data-icon-theme'), 'moon');

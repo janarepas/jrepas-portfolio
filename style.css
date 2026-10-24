@@ -1902,3 +1902,11 @@ html[data-theme=dark] .about-curves{opacity:.14}
 @media(max-width:700px){.references{padding:56px 0}.references-heading{margin-bottom:28px}.references h2{font-size:40px}.references-intro{font-size:18px}.references-grid{grid-template-columns:minmax(0,1fr)}.reference-caption{padding:24px}.references .reference-caption h3{font-size:30px}.reference-caption p{font-size:16px}}
 @media(max-width:360px){.reference-caption{padding:20px}.references .reference-caption h3{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.reference-image img,.reference-arrow{transition:none}}
+
+/* Match 144p.hu's scene-wide light/dark crossfade. */
+::view-transition-old(root){animation:theme-scene-out 550ms ease-in-out both}
+::view-transition-new(root){animation:theme-scene-in 550ms ease-in-out both;mix-blend-mode:normal}
+@keyframes theme-scene-out{to{opacity:0}}
+@keyframes theme-scene-in{from{opacity:0}to{opacity:1}}
+.theme-transition-curtain{position:fixed;inset:0;z-index:2147483647;pointer-events:none;background:#080808;opacity:0}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}

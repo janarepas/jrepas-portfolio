@@ -11,7 +11,7 @@ The bilingual portfolio of **János Répás**, graphic designer and webdesigner.
 The site uses **HTML, CSS, and plain JavaScript**. No application framework, Rust toolchain, WebAssembly, database, or application server is needed to serve the portfolio.
 
 - Hungarian and English copy, with accessible language controls.
-- Light and dark themes, system preferences, and saved manual choices.
+- Light and dark themes, system preferences, and saved manual choices. Theme changes use the same 550 ms scene crossfade as 144p.hu, with a short dark fade in older browsers and instant switching for reduced motion.
 - Four selected projects linking to their full Behance presentations.
 - Eight illustrated services and a six-step design process.
 - Animated FAQ answers, subtle scroll reveals, and reduced-motion support.

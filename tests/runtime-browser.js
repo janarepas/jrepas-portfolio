@@ -45,6 +45,7 @@ try {
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark');
     await page.locator('.theme-toggle').click();
+    await page.waitForFunction(() => document.documentElement.dataset.theme === 'light' && !document.querySelector('.theme-toggle').disabled);
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
     await page.emulateMedia({ colorScheme: 'light' });
     await page.emulateMedia({ colorScheme: 'dark' });
@@ -56,7 +57,7 @@ try {
       document.querySelector('[data-language="en"]').click();
       document.querySelector('.theme-toggle').click();
     });
-    await page.waitForFunction(() => document.documentElement.lang === 'en' && !document.documentElement.hasAttribute('data-switching'));
+    await page.waitForFunction(() => document.documentElement.lang === 'en' && document.documentElement.dataset.theme === 'dark' && !document.querySelector('.theme-toggle').disabled && !document.documentElement.hasAttribute('data-switching'));
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
     assert.match(await page.title(), /Graphic Design/);
     assert.match(await page.locator('#quote-mail').getAttribute('href'), /mailto:jrepas@icloud.com/);

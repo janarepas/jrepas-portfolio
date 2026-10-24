@@ -96,13 +96,49 @@ for (const button of document.querySelectorAll('[data-language]')) {
     switchLanguage();
   });
 }
-themeToggle?.addEventListener('click', () => {
-  themeToggle.dataset.themeClicked = 'true';
-  dark = !dark;
+// Decode the next photograph before fading the whole scene, as on 144p.hu.
+async function transitionTheme() {
+  if (themeToggle.disabled) return;
+  const nextDark = !dark;
   manualTheme = true;
-  save('jrepas-theme', dark ? 'dark' : 'light');
-  if (!root.hasAttribute('data-switching')) render();
-});
+  themeToggle.dataset.themeClicked = 'true';
+  const apply = () => {
+    dark = nextDark;
+    save('jrepas-theme', dark ? 'dark' : 'light');
+    render();
+  };
+  if (reducedMotion.matches) { apply(); return; }
+  themeToggle.disabled = true;
+  try {
+    const source = document.querySelector('.hero-image source');
+    const image = document.querySelector('.hero-image img');
+    if (image) {
+      const preview = new Image();
+      preview.sizes = image.sizes || '100vw';
+      preview.srcset = nextDark && source ? source.srcset : image.srcset;
+      preview.src = image.src;
+      await Promise.race([preview.decode().catch(() => {}), new Promise(resolve => setTimeout(resolve, 2000))]);
+    }
+    if (document.startViewTransition) {
+      const transition = document.startViewTransition(apply);
+      await transition.finished.catch(() => {});
+    } else if (typeof Element.prototype.animate === 'function') {
+      const curtain = document.createElement('div');
+      curtain.className = 'theme-transition-curtain';
+      curtain.setAttribute('aria-hidden', 'true');
+      document.body.append(curtain);
+      try {
+        await curtain.animate([{ opacity: 0 }, { opacity: .85 }], { duration: 200, fill: 'forwards', easing: 'ease-in' }).finished;
+        apply();
+        await curtain.animate([{ opacity: .85 }, { opacity: 0 }], { duration: 320, fill: 'forwards', easing: 'ease-out' }).finished;
+      } finally { curtain.remove(); }
+    } else { apply(); }
+  } catch (error) {
+    apply();
+    console.error('Theme transition failed:', error);
+  } finally { themeToggle.disabled = false; }
+}
+themeToggle?.addEventListener('click', transitionTheme);
 for (const event of ['pointerenter', 'pointerleave']) {
   themeToggle?.addEventListener(event, () => themeToggle.removeAttribute('data-theme-clicked'));
 }
