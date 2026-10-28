@@ -12,7 +12,7 @@ BASE = 'https://jrepas.hu'
 IMAGE = BASE + '/images/social-preview.jpg'
 PERSON = {'@type': 'Person', '@id': BASE + '/#janos-repas', 'name': 'Répás János',
           'url': BASE + '/', 'jobTitle': 'Grafikus és webdesigner',
-          'email': 'jrepas@icloud.com', 'sameAs': ['https://www.upwork.com/freelancers/jrepas', 'https://www.behance.net/jrepas'],
+          'email': 'hello@jrepas.hu', 'sameAs': ['https://www.upwork.com/freelancers/jrepas', 'https://www.behance.net/jrepas'],
           'knowsAbout': ['Grafikai tervezés', 'Vektorgrafika', 'Csomagolástervezés',
                          'Nyomdai előkészítés', 'Kiadványszerkesztés', 'Digitális kreatívok']}
 
@@ -85,7 +85,7 @@ for filename, title_key, description_key in [('index.html', '134', '135')]:
         subject = COPY['166']['hu'] + ' – ' + service
         body = (COPY['167']['hu'] + '\n\n' + COPY['168']['hu'] + ': ' + service + '\n\n' +
                 COPY['169']['hu'] + ':\n\n' + COPY['170']['hu'] + ':\n\n' + COPY['171']['hu'] + ':\n')
-        href = 'mailto:jrepas@icloud.com?subject=' + quote(subject, safe='') + '&body=' + quote(body, safe='')
+        href = 'mailto:hello@jrepas.hu?subject=' + quote(subject, safe='') + '&body=' + quote(body, safe='')
         source = re.sub(r'(<a id="quote-mail"[^>]*href=")[^"]*', lambda m: m[1] + html.escape(href, quote=True), source)
     file.write_text(source)
 

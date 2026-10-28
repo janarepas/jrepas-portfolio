@@ -93,4 +93,4 @@ Push to `main` to trigger the connected deployment. The root `functions/` direct
 
 Headings use IvyPresto Display and body copy uses Freight Text Pro through Adobe Fonts, with bundled DM Serif Display and DM Sans fallbacks. Adobe Fonts domain authorization is managed in the Adobe web project. Third-party font and Lenis licenses accompany their bundled files.
 
-Contact: [jrepas@icloud.com](mailto:jrepas@icloud.com). Search Console setup and verification notes are in [docs/seo.md](docs/seo.md).
+Contact: [hello@jrepas.hu](mailto:hello@jrepas.hu). Search Console setup and verification notes are in [docs/seo.md](docs/seo.md).

@@ -60,7 +60,7 @@ try {
     await page.waitForFunction(() => document.documentElement.lang === 'en' && document.documentElement.dataset.theme === 'dark' && !document.querySelector('.theme-toggle').disabled && !document.documentElement.hasAttribute('data-switching'));
     assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
     assert.match(await page.title(), /Graphic Design/);
-    assert.match(await page.locator('#quote-mail').getAttribute('href'), /mailto:jrepas@icloud.com/);
+    assert.match(await page.locator('#quote-mail').getAttribute('href'), /mailto:hello@jrepas.hu/);
     if (!entry.blocked) {
       await page.reload();
       await page.waitForSelector('html[data-runtime="javascript"]');

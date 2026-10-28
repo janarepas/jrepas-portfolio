@@ -67,7 +67,7 @@ function render() {
   setAttribute('.service-jump', 'aria-label', localize('Szolgáltatás választása', 'Choose a service'));
   const subject = `${text('166')} – ${text('173')}`;
   const body = `${text('167')}\n\n${text('168')}: ${text('173')}\n\n${text('169')}:\n\n${text('170')}:\n\n${text('171')}:\n`;
-  setAttribute('#quote-mail', 'href', `mailto:jrepas@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+  setAttribute('#quote-mail', 'href', `mailto:hello@jrepas.hu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
   updateYear();
   root.dataset.runtime = 'javascript';
 }
