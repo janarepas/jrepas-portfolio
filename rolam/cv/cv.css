@@ -115,12 +115,12 @@ html body .cv-toolbar button.button:focus-visible{outline:2px solid var(--black-
 .cv-sheet .resume-software li{grid-template-columns:6mm minmax(0,1fr);column-gap:1.4mm;min-height:6mm;font-size:6.8pt;line-height:1.2}
 .cv-sheet .resume-software li .software-logo{
  display:grid!important;width:5.4mm!important;height:5.4mm!important;min-width:5.4mm;max-width:5.4mm;
- place-items:center;margin:0!important;padding:.45mm!important;border:.3mm solid #777!important;
+ place-items:center;margin:0!important;padding:.45mm!important;border:.3mm solid #444!important;
  border-radius:1mm!important;background:transparent!important;overflow:hidden;
 }
 .cv-sheet .resume-software li .software-logo img{
  display:block;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
- object-fit:contain;filter:grayscale(1) contrast(1.2);opacity:1;
+ object-fit:contain;filter:grayscale(1) contrast(6);opacity:1;
 }
 .cv-sheet .resume-languages>div{padding:1.6mm}
 @media screen and (max-width:820px){.cv-sheet .cv-print-section{margin-bottom:4mm!important}.cv-sheet .resume-software{grid-template-columns:repeat(2,minmax(0,1fr))}}
