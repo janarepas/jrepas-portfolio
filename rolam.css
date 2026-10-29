@@ -759,3 +759,26 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  html[data-theme] body.cv-page .resume-intro{order:1!important;width:100%!important;max-width:720px!important}
  html[data-theme=dark] body.cv-page .resume-portrait{background:#081a3a!important}
 }
+
+/* Compact About navigation action on tablet and phone screens. */
+@media screen and (max-width:1000px){
+ html[data-theme] body.cv-page .site-header nav{align-items:center!important}
+ html[data-theme] body.cv-page .site-header nav a.header-contact{
+  display:inline-flex!important;align-items:center;justify-content:center;
+  flex:0 0 auto!important;box-sizing:border-box;
+  width:auto!important;min-width:0!important;
+  height:34px!important;min-height:34px!important;
+  padding:0 11px!important;margin:0!important;
+  font-family:var(--font-sans);font-size:11px!important;font-weight:600!important;
+  line-height:1!important;letter-spacing:.035em!important;
+  border-width:1.5px!important;border-radius:999px!important;
+ }
+ html[data-theme] body.cv-page .site-header nav .header-contact .contact-label{
+  font:inherit!important;letter-spacing:inherit!important;white-space:nowrap;
+ }
+}
+@media screen and (max-width:360px){
+ html[data-theme] body.cv-page .site-header nav a.header-contact{
+  font-size:10px!important;padding-inline:8px!important;
+ }
+}
