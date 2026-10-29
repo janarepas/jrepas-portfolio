@@ -676,3 +676,12 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  .cv-page .site-header{margin-bottom:-125px!important}
  .cv-page .resume-top{padding-top:157px!important}
 }
+
+
+/* Align the full-bleed hero with the 112px desktop menu without moving its copy upward. */
+@media screen and (min-width:1001px){
+ .cv-page .site-header{margin-bottom:-112px!important}
+ .cv-page .resume-top{min-height:calc(min(640px,50vw) + 16px);padding-top:168px!important}
+ .cv-page .resume-portrait{height:calc(min(640px,50vw) + 16px)}
+ .cv-page .resume-portrait .resume-environment{object-fit:cover!important;object-position:center bottom!important}
+}
