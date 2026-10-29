@@ -71,7 +71,7 @@ function localizeSection(section) {
         node.childNodes.forEach(child => { if (child.nodeType === Node.TEXT_NODE && child.textContent.trim()) child.textContent = ` ${translate(label)}`; });
       } else node.textContent = translate(node.textContent.trim());
     });
-  section.querySelectorAll('.resume-job > div > p:not(.resume-role), .cv-background > p')
+  section.querySelectorAll('.resume-job > div > p:not(.resume-role), :scope > p')
     .forEach(node => {
       const original = node.textContent.trim();
       const translated = translate(original);
@@ -95,7 +95,10 @@ async function loadCV() {
       const original = findSection(title);
       if (!original) throw new Error(`Missing section: ${title}`);
       const section = original.cloneNode(true);
-      section.classList.add('cv-section');
+      // The website's .resume-section grid is tuned for the About page. Strip it
+      // from the print clone so CV layout stays controlled by cv.css alone.
+      section.classList.remove('resume-section', 'cv-section');
+      section.classList.add('cv-print-section');
       section.querySelectorAll('.software-logo').forEach(icon => icon.remove());
       return localizeSection(section);
     };
@@ -160,7 +163,7 @@ async function loadCV() {
 
     const sourceSkills = source.querySelector('.skills-showcase');
     if (!sourceSkills) throw new Error('Missing skills section');
-    const skills = make('section', '', 'resume-section cv-section cv-skills');
+    const skills = make('section', '', 'cv-print-section cv-skills');
     skills.append(make('h2', translate(sourceSkills.querySelector('h2')?.textContent.trim() || 'Szakmai készségek')));
     sourceSkills.querySelectorAll('.skill-card').forEach(card => {
       const entry = make('article', '', 'cv-skill-entry');

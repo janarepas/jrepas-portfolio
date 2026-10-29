@@ -88,3 +88,35 @@ html body .cv-toolbar button.button:hover:not(:disabled){background:var(--yellow
 html body .cv-toolbar button.button::before,html body .cv-toolbar button.button::after{content:none!important}
 html body .cv-toolbar button.button:focus-visible{outline:2px solid var(--black-deep);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){html body .cv-toolbar button.button{transition:none!important}}
+
+/* Isolate the printable CV from the website's .resume-section grid rules. */
+.cv-sheet .cv-print-section{
+ display:block!important;grid-template-columns:none!important;gap:0!important;
+ margin:0 0 4mm!important;padding:0!important;border:0!important;min-width:0;
+ break-inside:auto;
+}
+.cv-sheet .cv-print-section>h2{
+ display:block;margin:0 0 2.4mm!important;padding:0 0 1.3mm!important;
+ border-bottom:1px solid var(--cv-line);color:var(--cv-ink);
+ font:700 7.6pt/1.25 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+ letter-spacing:.105em;text-transform:uppercase;
+}
+.cv-sheet .cv-print-section>p{margin:0;color:#55544f;font-size:8pt;line-height:1.42}
+.cv-sheet .cv-secondary>.cv-print-section{margin-bottom:3.5mm!important}
+.cv-sheet .cv-experience .resume-job{margin-bottom:3.5mm}
+.cv-sheet .cv-experience .resume-job>div{padding-bottom:0}
+.cv-sheet .cv-experience .resume-job h3{font-size:11.5pt}
+.cv-sheet .cv-experience .resume-job p{line-height:1.42}
+.cv-sheet .cv-experience .resume-job p:not(.resume-role){margin-bottom:0}
+.cv-sheet .cv-background p{font-size:7.8pt;line-height:1.42}
+.cv-sheet .resume-education .education-entry{margin-bottom:1.8mm}
+.cv-sheet .cv-skill-entry{margin-bottom:2.2mm}
+.cv-sheet .resume-software{grid-template-columns:1fr 1fr;gap:.8mm 1.5mm;padding:0}
+.cv-sheet .resume-software li{min-height:4mm;font-size:7.5pt;line-height:1.25}
+.cv-sheet .resume-languages>div{padding:1.6mm}
+@media screen and (max-width:820px){.cv-sheet .cv-print-section{margin-bottom:4mm!important}}
+@media print{
+ .cv-sheet{height:auto;min-height:297mm;overflow:visible}
+ .cv-sheet .cv-print-section{break-inside:auto}
+ .cv-sheet .cv-experience .resume-job,.cv-sheet .resume-education .education-entry,.cv-sheet .cv-skill-entry{break-inside:avoid}
+}
