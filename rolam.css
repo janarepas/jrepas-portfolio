@@ -685,3 +685,13 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  .cv-page .resume-portrait{height:calc(min(640px,50vw) + 16px)}
  .cv-page .resume-portrait .resume-environment{object-fit:cover!important;object-position:center bottom!important}
 }
+
+
+/* No frosted-glass treatment on the About navigation. */
+.cv-page .site-header{
+ background:transparent!important;
+ -webkit-backdrop-filter:none!important;
+ backdrop-filter:none!important;
+ border-color:transparent!important;
+ box-shadow:none!important;
+}
