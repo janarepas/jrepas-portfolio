@@ -718,7 +718,7 @@ html[data-theme] body.cv-page .work-gallery-caption p{
 /* Keep the portrait fully visible and separate from navigation at every viewport. */
 @media screen and (min-width:1001px){
  html[data-theme] body.cv-page .resume-top{
-  min-height:clamp(872px,calc(52vw + 112px),1152px)!important;
+  min-height:clamp(620px,42vw,820px)!important;
  }
  html[data-theme] body.cv-page .resume-portrait{
   background:#83b5e5!important;
