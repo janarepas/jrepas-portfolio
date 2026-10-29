@@ -715,74 +715,18 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  }
 }
 
-/* About cover and navigation share the top edge; narrow layouts keep copy below the photo. */
-@media screen {
- html[data-theme] body.cv-page{--about-photo:url("/images/repas-janos-hero-day-full-retouch.webp?v=3a982810a84c")}
- html[data-theme=dark] body.cv-page{--about-photo:url("/images/repas-janos-hero-night-full-retouch.webp?v=d9c22b927b53")}
- html[data-theme] body.cv-page .resume{padding-top:0!important;margin-top:0!important}
- html[data-theme] body.cv-page .site-header{margin-bottom:0!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+/* Keep the full portrait clear of the overlaid navigation. */
+@media screen and (min-width:761px){
  html[data-theme] body.cv-page .resume-top{
-  width:100vw!important;margin-inline:calc(50% - 50vw)!important;min-height:0!important;overflow:hidden!important
- }
- html[data-theme] body.cv-page .resume-portrait{transform:none!important;overflow:hidden!important}
-}
-@media screen and (min-width:1101px){
- html[data-theme] body.cv-page .site-header{
-  position:absolute!important;top:0!important;left:0!important;right:0!important;
-  width:calc(100% - 48px)!important;max-width:960px!important;margin-inline:auto!important;
-  height:112px!important;min-height:112px!important;z-index:100
- }
- html[data-theme] body.cv-page .resume-top{
-  position:relative!important;isolation:isolate;
-  width:100vw!important;margin-inline:calc(50% - 50vw)!important;
-  min-height:clamp(760px,52vw,1040px)!important;
-  padding:168px max(24px,calc((100vw - 960px)/2)) 64px!important;
+  min-height:clamp(872px,calc(52vw + 112px),1152px)!important;
  }
  html[data-theme] body.cv-page .resume-portrait{
-  position:absolute!important;inset:0!important;width:100%!important;max-width:none!important;height:100%!important;margin:0!important;z-index:-2!important
+  background:#83b5e5!important;
  }
  html[data-theme] body.cv-page .resume-portrait .resume-environment{
-  width:100%!important;height:100%!important;object-fit:cover!important;object-position:center bottom!important
+  position:absolute!important;top:112px!important;left:0!important;
+  width:100%!important;height:calc(100% - 112px)!important;
+  object-fit:cover!important;object-position:center top!important;
  }
- html[data-theme] body.cv-page .resume-intro{width:43%!important;max-width:470px!important;background:transparent!important}
- html[data-theme] body.cv-page .resume-top:before{display:none!important}
- html[data-theme] body.cv-page .resume-top:after{
-  content:"";display:block!important;position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:linear-gradient(90deg,rgba(255,255,255,.96),rgba(255,255,255,.9) 32%,rgba(255,255,255,.65) 46%,rgba(255,255,255,.12) 62%,transparent 72%)!important
- }
- html[data-theme=dark] body.cv-page .resume-top:after{
-  background:linear-gradient(90deg,rgba(8,8,8,.96),rgba(8,8,8,.9) 32%,rgba(8,8,8,.65) 46%,rgba(8,8,8,.12) 62%,transparent 72%)!important
- }
- html[data-theme=light] body.cv-page .resume-intro{color:#191919!important}
- html[data-theme=light] body.cv-page .resume-intro .resume-summary{color:#454545!important}
- html[data-theme=light] body.cv-page .resume-intro .resume-summary strong{color:#191919!important}
- html[data-theme=dark] body.cv-page .resume-intro{color:#f5f5f0!important}
- html[data-theme=dark] body.cv-page .resume-intro .resume-summary{color:#d0d0cd!important}
- html[data-theme=dark] body.cv-page .resume-intro .resume-summary strong{color:#fff!important}
-}
-@media screen and (max-width:1100px){
- html[data-theme] body.cv-page .site-header{
-  position:relative!important;width:100%!important;max-width:none!important;
-  margin:0!important;padding-inline:24px!important;
-  background-image:var(--about-photo)!important;background-size:220% auto!important;background-position:left top!important;background-repeat:no-repeat!important;
- }
- html[data-theme] body.cv-page .site-header:before{display:none!important}
- html[data-theme] body.cv-page .resume-top{display:flex!important;flex-direction:column!important;align-items:stretch!important;padding:0!important;gap:0!important}
- html[data-theme] body.cv-page .resume-top:before,
- html[data-theme] body.cv-page .resume-top:after{display:none!important}
- html[data-theme] body.cv-page .resume-portrait{
-  position:relative!important;inset:auto!important;order:-1!important;z-index:0!important;
-  width:100%!important;max-width:none!important;height:auto!important;aspect-ratio:2/1!important;margin:0!important
- }
- html[data-theme] body.cv-page .resume-portrait .resume-environment{
-  position:relative!important;inset:auto!important;width:100%!important;height:auto!important;
-  aspect-ratio:2/1!important;object-fit:cover!important;object-position:center 28%!important
- }
- html[data-theme] body.cv-page .resume-intro{
-  width:100%!important;max-width:none!important;padding:28px 24px 36px!important;background:var(--bg)!important;color:var(--text)!important
- }
- html[data-theme] body.cv-page .resume-intro h1{font-size:clamp(42px,7vw,72px)!important;line-height:1.08!important}
- html[data-theme] body.cv-page .resume-intro .resume-title{font-size:17px!important;line-height:1.5!important}
- html[data-theme] body.cv-page .resume-intro .resume-summary{font-size:19px!important;line-height:1.55!important;max-width:38em!important;color:var(--muted)!important}
- html[data-theme] body.cv-page .resume-intro .resume-summary strong{color:var(--text)!important}
+ html[data-theme=dark] body.cv-page .resume-portrait{background:#081a3a!important}
 }
