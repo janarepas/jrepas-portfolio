@@ -37,10 +37,8 @@ try {
             }
           }
           const header = document.querySelector('.site-header').getBoundingClientRect();
-          const introHeading = document.querySelector('.hero-copy h1');
-          if (!introHeading) errors.push('Hero heading missing');
-          const intro = introHeading?.getBoundingClientRect();
-          if (intro && intro.top < header.bottom + 10) errors.push('Hero too close to header');
+          const intro = document.querySelector('.hero-copy>.eyebrow').getBoundingClientRect();
+          if (intro.top < header.bottom + 10) errors.push('Hero too close to header');
           for (const card of document.querySelectorAll('.portfolio-card:nth-child(-n+3)')) {
             const artwork = card.querySelector('.vector-reconstruction-art,.packaging-dielines-art,.cover-retail .cover-mark');
             const title = card.querySelector('.project-title');

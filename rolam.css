@@ -659,184 +659,152 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  html[data-theme] body.cv-page .work-gallery-caption{min-height:112px;padding-top:14px}
 }
 
-/* Let the single hero photograph continue behind the navigation. */
-.cv-page .site-header{
- position:relative!important;z-index:100;margin-bottom:-96px!important;
- background:color-mix(in srgb,var(--bg) 30%,transparent)!important;
- -webkit-backdrop-filter:blur(16px) saturate(130%)!important;backdrop-filter:blur(16px) saturate(130%)!important;
- border-bottom-color:transparent!important;box-shadow:none!important
-}
-.cv-page .site-header:before{display:none!important}
-.cv-page .resume-top{padding-top:152px!important}
-@media(min-width:761px) and (max-width:1000px){
- .cv-page .site-header{margin-bottom:-152px!important}
- .cv-page .resume-top{padding-top:208px!important}
-}
-@media(max-width:760px){
- .cv-page .site-header{margin-bottom:-125px!important}
- .cv-page .resume-top{padding-top:157px!important}
-}
-
-
-/* Align the full-bleed hero with the 112px desktop menu without moving its copy upward. */
-@media screen and (min-width:1001px){
- .cv-page .site-header{margin-bottom:-112px!important}
- .cv-page .resume-top{min-height:calc(min(640px,50vw) + 16px);padding-top:168px!important}
- .cv-page .resume-portrait{height:calc(min(640px,50vw) + 16px)}
- .cv-page .resume-portrait .resume-environment{object-fit:cover!important;object-position:center bottom!important}
-}
-
-
-/* No frosted-glass treatment on the About navigation. */
-.cv-page .site-header{
- background:transparent!important;
- -webkit-backdrop-filter:none!important;
- backdrop-filter:none!important;
- border-color:transparent!important;
- box-shadow:none!important;
-}
-
-
-/* Taller full-width hero: align the image exactly to the viewport edges. */
-@media screen and (min-width:1001px){
- .cv-page .resume-top{
-  width:auto!important;
-  margin-left:calc((100% - 100vw)/2)!important;
-  margin-right:calc((100% - 100vw)/2)!important;
-  min-height:min(720px,calc(50vw + 16px))!important;
-  padding-top:104px!important
- }
- .cv-page .resume-portrait{
-  left:auto!important;right:0!important;top:0!important;bottom:0!important;
-  width:min(100vw,1440px)!important;height:auto!important
- }
- .cv-page .resume-portrait .resume-environment{
-  width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important
- }
-}
-
-/* Keep the portrait fully visible and separate from navigation at every viewport. */
+/* Local preview: restore a centered copy column and keep the hero image within the frame. */
 @media screen and (min-width:1001px){
  html[data-theme] body.cv-page .resume-top{
-  min-height:clamp(620px,42vw,820px)!important;
- }
- html[data-theme] body.cv-page .resume-portrait{
-  background:#83b5e5!important;
- }
- html[data-theme] body.cv-page .resume-portrait .resume-environment{
-  position:absolute!important;top:112px!important;left:0!important;
-  width:100%!important;height:calc(100% - 112px)!important;
-  object-fit:cover!important;object-position:70% top!important;transform:none!important;
- }
- html[data-theme=dark] body.cv-page .resume-portrait{background:#081a3a!important}
-}
-
-/* At tablet and phone widths, keep navigation above a natural, uncropped photo. */
-@media screen and (max-width:1000px){
- html[data-theme] body.cv-page .site-header{
-  position:relative!important;margin-bottom:0!important;
-  background:var(--bg)!important;
- }
- html[data-theme] body.cv-page .resume-top{
-  display:flex!important;flex-direction:column!important;align-items:stretch!important;
-  width:auto!important;min-height:0!important;
-  margin-left:calc((100% - 100vw)/2)!important;
-  margin-right:calc((100% - 100vw)/2)!important;
-  padding:0 24px 42px!important;gap:30px!important;
- }
- html[data-theme] body.cv-page .resume-portrait{
-  position:relative!important;inset:auto!important;order:-1!important;
-  width:calc(100% + 48px)!important;max-width:none!important;
-  height:clamp(300px,48vw,480px)!important;margin:0 -24px!important;
-  background:#83b5e5!important;
- }
- html[data-theme] body.cv-page .resume-portrait .resume-environment{
-  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  object-fit:cover!important;object-position:70% top!important;
-  aspect-ratio:auto!important;border-radius:0!important;transform:none!important;
- }
- html[data-theme] body.cv-page .resume-top:after{display:none!important}
- html[data-theme] body.cv-page .resume-intro{order:1!important;width:100%!important;max-width:720px!important}
- html[data-theme=dark] body.cv-page .resume-portrait{background:#081a3a!important}
-}
-
-/* Compact About navigation action on tablet and phone screens. */
-@media screen and (max-width:1000px){
- html[data-theme] body.cv-page .site-header nav{align-items:center!important}
- html[data-theme] body.cv-page .site-header nav a.header-contact{
-  display:inline-flex!important;align-items:center;justify-content:center;
-  flex:0 0 auto!important;box-sizing:border-box;
-  width:auto!important;min-width:0!important;
-  height:34px!important;min-height:34px!important;
-  padding:0 11px!important;margin:0!important;
-  font-family:var(--font-sans);font-size:11px!important;font-weight:600!important;
-  line-height:1!important;letter-spacing:.035em!important;
-  border-width:1.5px!important;border-radius:999px!important;
- }
- html[data-theme] body.cv-page .site-header nav .header-contact .contact-label{
-  font:inherit!important;letter-spacing:inherit!important;white-space:nowrap;
- }
-}
-@media screen and (max-width:360px){
- html[data-theme] body.cv-page .site-header nav a.header-contact{
-  font-size:10px!important;padding-inline:8px!important;
- }
-}
-
-/* Keep the About hero proportionate on wide, high-resolution screens. */
-@media screen and (min-width:1600px){
- html[data-theme] body.cv-page .resume-top{
-  min-height:clamp(620px,34vw,780px)!important;
- }
- html[data-theme] body.cv-page .resume-portrait{
-  left:auto!important;right:0!important;width:min(58vw,1180px)!important;
-  max-width:1180px!important;overflow:hidden!important;
- }
- html[data-theme] body.cv-page .resume-portrait .resume-environment{
-  left:0!important;width:100%!important;height:calc(100% - 112px)!important;
-  object-fit:cover!important;object-position:70% top!important;transform:none!important;
- }
-}
-/* Keep the portrait inside the hero frame on wide displays. */
-@media screen and (min-width:1600px){
- html[data-theme] body.cv-page .resume-portrait{
-  right:clamp(24px,3vw,64px)!important;
-  width:min(52vw,1080px)!important;
-  max-width:1080px!important;
- }
- html[data-theme] body.cv-page .resume-portrait .resume-environment{
-  object-fit:contain!important;object-position:right top!important;
- }
-}
-/* Wide About hero: use a bounded two-column layout instead of a floating image. */
-@media screen and (min-width:1001px){
- html[data-theme] body.cv-page .resume-top{
-  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
-  align-items:stretch!important;gap:0!important;
+  display:flex!important;position:relative!important;align-items:center!important;
   width:100vw!important;max-width:none!important;
   margin-left:calc((100% - 100vw)/2)!important;margin-right:calc((100% - 100vw)/2)!important;
-  min-height:clamp(620px,38vw,760px)!important;
-  padding:112px 0 0!important;overflow:hidden!important;
+  min-height:clamp(620px,34vw,760px)!important;padding:0 max(24px,calc((100vw - 960px)/2)) 40px!important;
+  overflow:hidden!important;
  }
  html[data-theme] body.cv-page .resume-intro{
-  grid-column:1;grid-row:1;align-self:center;justify-self:center;
-  width:min(100% - 64px,520px)!important;max-width:520px!important;
-  margin:0!important;padding:24px 0 52px!important;
+  width:min(48%,560px)!important;max-width:560px!important;margin:0!important;
+  padding:0!important;position:relative;z-index:1;
  }
  html[data-theme] body.cv-page .resume-portrait{
-  position:relative!important;inset:auto!important;grid-column:2;grid-row:1;
-  align-self:stretch;justify-self:stretch;
-  width:100%!important;max-width:none!important;height:auto!important;
-  margin:0!important;overflow:hidden!important;transform:none!important;
+  position:absolute!important;inset:0!important;width:100%!important;height:auto!important;
+  max-width:none!important;margin:0!important;overflow:hidden!important;z-index:0!important;
   background:#83b5e5!important;
  }
  html[data-theme] body.cv-page .resume-portrait .resume-environment{
   position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  object-fit:cover!important;object-position:80% center!important;
-  aspect-ratio:auto!important;transform:none!important;border-radius:0!important;
+  object-fit:cover!important;object-position:72% center!important;transform:none!important;
  }
  html[data-theme] body.cv-page .resume-top:after{
-  left:0;right:50%;background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 76%,transparent 100%)!important;
+  inset:0!important;z-index:0!important;
+  background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 96%,transparent) 36%,color-mix(in srgb,var(--bg) 72%,transparent) 52%,transparent 75%)!important;
  }
  html[data-theme=dark] body.cv-page .resume-portrait{background:#081a3a!important}
+}
+
+/* About menu contact action matches neighboring links; retain the yellow outline. */
+html[data-theme] body.cv-page .site-header nav a.header-contact{
+ display:inline-flex!important;align-items:center;justify-content:center;
+ font-family:var(--font-sans)!important;font-size:13px!important;font-weight:500!important;
+ line-height:1.4!important;letter-spacing:0!important;text-transform:none!important;
+ min-height:0!important;height:auto!important;padding:10px 14px!important;
+ border:1.5px solid var(--yellow-main)!important;border-radius:999px!important;
+}
+html[data-theme] body.cv-page .site-header nav a.header-contact .contact-label{
+ font:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;
+}
+@media(max-width:700px){
+ html[data-theme] body.cv-page .site-header nav a.header-contact{font-size:13px!important;padding:6px 10px!important}
+}
+
+/* Let the hero photograph continue behind the transparent About navigation. */
+@media screen and (min-width:1001px){
+ html[data-theme] body.cv-page .site-header{
+  position:relative!important;z-index:20!important;margin-bottom:-96px!important;
+  background:transparent!important;border-color:transparent!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ }
+ html[data-theme] body.cv-page .resume-top{margin-top:0!important}
+}
+@media screen and (max-width:1000px){
+ html[data-theme] body.cv-page .site-header{
+  position:relative!important;z-index:20!important;margin-bottom:-120px!important;
+  background:transparent!important;border-color:transparent!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ }
+}
+
+/* Keep the hero photograph at a stable scale while the browser width changes. */
+@media screen and (min-width:1001px){
+ html[data-theme] body.cv-page .resume-top{
+  min-height:clamp(620px,70vh,760px)!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait{
+  inset:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  top:0!important;right:0!important;bottom:auto!important;left:auto!important;
+  width:auto!important;height:100%!important;max-width:none!important;
+  object-fit:contain!important;object-position:right center!important;transform:none!important;
+ }
+}
+
+/* Keep the portrait aligned beneath the contact control across desktop widths. */
+@media screen and (min-width:1001px){
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  right:clamp(-124px,calc(31.8vw - 530px),120px)!important;
+ }
+}
+
+/* Simple About hero: one original circular portrait beside the introduction. */
+@media screen and (min-width:1001px){
+ html[data-theme] body.cv-page .resume-top{
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(280px,360px)!important;
+  align-items:center!important;gap:clamp(48px,8vw,112px)!important;
+  width:min(960px,calc(100vw - 48px))!important;max-width:960px!important;
+  min-height:clamp(480px,44vw,600px)!important;margin:0 auto!important;
+  padding:112px 0 48px!important;overflow:visible!important;
+ }
+ html[data-theme] body.cv-page .resume-top:after{display:none!important;content:none!important}
+ html[data-theme] body.cv-page .resume-intro{width:100%!important;max-width:640px!important;margin:0!important;padding:0!important;position:relative!important;z-index:auto!important}
+ html[data-theme] body.cv-page .resume-portrait{
+  position:relative!important;inset:auto!important;justify-self:end!important;
+  width:min(100%,360px)!important;height:auto!important;aspect-ratio:1!important;
+  margin:0!important;overflow:hidden!important;border:1px solid var(--line)!important;
+  border-radius:50%!important;background:var(--surface)!important;box-shadow:none!important;z-index:auto!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:center 34%!important;border-radius:50%!important;
+  filter:none!important;opacity:1!important;transform:none!important;right:auto!important;
+ }
+}
+@media screen and (min-width:701px) and (max-width:1000px){
+ html[data-theme] body.cv-page .resume-top{
+  display:grid!important;grid-template-columns:minmax(0,1fr) 240px!important;
+  align-items:center!important;gap:36px!important;width:100%!important;
+  margin:0!important;padding:140px 0 40px!important;min-height:0!important;overflow:visible!important;
+ }
+ html[data-theme] body.cv-page .resume-top:after{display:none!important;content:none!important}
+ html[data-theme] body.cv-page .resume-portrait{
+  position:relative!important;inset:auto!important;width:240px!important;height:auto!important;
+  aspect-ratio:1!important;margin:0!important;overflow:hidden!important;border:1px solid var(--line)!important;
+  border-radius:50%!important;background:var(--surface)!important;box-shadow:none!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:center 34%!important;border-radius:50%!important;
+  filter:none!important;opacity:1!important;transform:none!important;right:auto!important;
+ }
+}
+@media screen and (max-width:700px){
+ html[data-theme] body.cv-page .resume-top{
+  display:grid!important;grid-template-columns:minmax(0,1fr) 104px!important;
+  grid-template-areas:"name portrait" "title portrait" "summary summary" "button button";
+  gap:8px 16px!important;width:100%!important;min-height:0!important;
+  margin:0!important;padding:146px 0 36px!important;overflow:visible!important;
+ }
+ html[data-theme] body.cv-page .resume-top:after{display:none!important;content:none!important}
+ html[data-theme] body.cv-page .resume-intro{display:contents!important}
+ html[data-theme] body.cv-page .resume-intro h1{grid-area:name!important;align-self:end!important;font-size:clamp(34px,9vw,48px)!important;line-height:1.05!important;margin:0!important}
+ html[data-theme] body.cv-page .resume-intro .resume-title{grid-area:title!important;align-self:start!important;font-size:14px!important;line-height:1.35!important;margin:0!important}
+ html[data-theme] body.cv-page .resume-intro .resume-summary{grid-area:summary!important;font-size:16px!important;line-height:1.55!important;margin:12px 0 8px!important}
+ html[data-theme] body.cv-page .resume-intro .cv-download{grid-area:button!important;justify-self:start!important;margin:8px 0 0!important}
+ html[data-theme] body.cv-page .resume-portrait{
+  grid-area:portrait!important;position:relative!important;inset:auto!important;align-self:center!important;
+  width:104px!important;height:auto!important;aspect-ratio:1!important;margin:0!important;
+  overflow:hidden!important;border:1px solid var(--line)!important;border-radius:50%!important;
+  background:var(--surface)!important;box-shadow:none!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:center 34%!important;border-radius:50%!important;
+  filter:none!important;opacity:1!important;transform:none!important;right:auto!important;
+ }
 }

@@ -1959,13 +1959,13 @@ html[data-theme] body footer{font-family:var(--font-sans);font-weight:500;line-h
 /* Shared link feedback; translate is independent of existing transforms. */
 @media screen{
  html body a[href]{transition:color 180ms ease,background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease,opacity 180ms ease,translate 180ms ease,text-underline-offset 180ms ease;text-underline-offset:4px}
- html body a[href]:not(.button,.outline-button,.process-cta,.text-link,.small-link,.cv-save,.header-contact,.contact-link,.brand,.footer-logo,[role=button]):focus-visible{translate:0 -2px;text-underline-offset:7px}
+ html body a[href]:not(.button,.outline-button,.process-cta,.text-link,.small-link,.cv-save,.header-contact,.contact-link,[role=button]):focus-visible{translate:0 -2px;text-underline-offset:7px}
  .resume-contact>a>span{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0 1px;padding-bottom:3px;transition:background-size 220ms ease}
  html body .resume-contact>a:is(:hover,:focus-visible){text-decoration:none}
  html body .resume-contact>a:is(:hover,:focus-visible)>span{background-size:100% 1px}
 }
 @media screen and (hover:hover) and (pointer:fine){
- html body a[href]:not(.button,.outline-button,.process-cta,.text-link,.small-link,.cv-save,.header-contact,.contact-link,.brand,.footer-logo,[role=button]):hover{translate:0 -2px;text-underline-offset:7px}
+ html body a[href]:not(.button,.outline-button,.process-cta,.text-link,.small-link,.cv-save,.header-contact,.contact-link,[role=button]):hover{translate:0 -2px;text-underline-offset:7px}
  html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip){text-decoration-line:underline;text-decoration-color:transparent;transition:text-decoration-color 180ms ease,text-underline-offset 180ms ease,color 180ms ease,translate 180ms ease}
  html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip):hover{text-decoration-color:currentColor}
 }
@@ -2057,27 +2057,4 @@ html[data-theme] body .work .portfolio-card .cover-retail .cover-mark{
  -webkit-text-fill-color:var(--yellow-main)!important;
  -webkit-text-stroke:0!important;
  opacity:1!important;
-}
-
-/* Keep the brand marks and CV download control fixed while their hover styling animates. */
-@media screen{html body :is(.brand,.footer-logo,.cv-toolbar button,#print,.cv-page .cv-save):is(:hover,:focus-visible){translate:none!important;transform:none!important}}
-
-
-/* Static, restrained navigation links matching the reference menu. */
-html body .site-header nav>a:not(.button){
- color:var(--muted)!important;opacity:.72;text-decoration:none!important;
- border-bottom:0!important;background:none!important;background-image:none!important;
- transition:none!important;animation:none!important;transform:none!important;translate:none!important
-}
-html body .site-header nav>a:not(.button):is([aria-current="page"],.current){color:var(--text)!important;opacity:1}
-html body .site-header nav>a:not(.button):hover{color:var(--text)!important;opacity:1}
-html body .site-header nav>a:not(.button):before,
-html body .site-header nav>a:not(.button):after{content:none!important;display:none!important;transition:none!important;animation:none!important}
-
-
-/* Keep all four navigation labels readable on very narrow screens. */
-@media screen and (max-width:360px){
- html body .site-header nav{gap:0!important;justify-content:space-between!important}
- html body .site-header nav>a{flex:0 0 auto!important;font-size:10px!important;letter-spacing:-.025em;padding-inline:0!important}
- html body .site-header nav .header-contact{flex:0 0 auto!important;font-size:10px!important;letter-spacing:.04em;padding:8px 6px!important}
 }
