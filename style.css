@@ -2133,7 +2133,7 @@ html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-ac
 }
 html[data-theme] body .hero .hero-actions a.outline-button:hover,
 html[data-theme] body .site-header nav a.header-contact:hover{
- background-color:transparent!important;border-color:var(--yellow-main)!important;color:var(--yellow-main)!important;filter:none!important;transform:none!important;translate:none!important
+ background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;filter:none!important;transform:none!important;translate:none!important
 }
 html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow)::before,
 html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow)::after{content:none!important}
