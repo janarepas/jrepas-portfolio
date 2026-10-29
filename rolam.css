@@ -714,3 +714,42 @@ html[data-theme] body.cv-page .work-gallery-caption p{
   width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important
  }
 }
+
+/* Stable hero layout with a separate navigation row and readable narrow layout. */
+@media screen{
+ html[data-theme] body.cv-page .site-header{margin-bottom:0!important}
+ html[data-theme] body.cv-page .resume-top{
+  width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;
+  min-height:720px!important;padding-top:56px!important;overflow:hidden!important
+ }
+ html[data-theme] body.cv-page .resume-portrait{
+  right:0!important;left:auto!important;top:0!important;bottom:0!important;
+  width:min(100vw,1440px)!important;height:100%!important;max-width:100%!important;
+  transform:none!important;overflow:hidden!important
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{object-fit:contain!important;object-position:right bottom!important}
+}
+@media screen and (max-width:1100px){
+ html[data-theme] body.cv-page .resume-top{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  min-height:0!important;padding:0!important;gap:0!important
+ }
+ html[data-theme] body.cv-page .resume-top:before,
+ html[data-theme] body.cv-page .resume-top:after{display:none!important}
+ html[data-theme] body.cv-page .resume-portrait{
+  position:relative!important;inset:auto!important;order:-1!important;z-index:0!important;
+  width:100%!important;height:auto!important;aspect-ratio:2/1!important;margin:0!important
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  position:relative!important;inset:auto!important;width:100%!important;height:auto!important;
+  aspect-ratio:2/1!important;object-fit:contain!important
+ }
+ html[data-theme] body.cv-page .resume-intro{
+  width:100%!important;max-width:none!important;padding:28px 24px 36px!important;
+  background:var(--bg)!important;color:var(--text)!important
+ }
+ html[data-theme] body.cv-page .resume-intro h1{font-size:clamp(42px,7vw,72px)!important;line-height:1.08!important}
+ html[data-theme] body.cv-page .resume-intro .resume-title{font-size:17px!important;line-height:1.5!important}
+ html[data-theme] body.cv-page .resume-intro .resume-summary{font-size:19px!important;line-height:1.55!important;max-width:38em!important;color:var(--muted)!important}
+ html[data-theme] body.cv-page .resume-intro .resume-summary strong{color:var(--text)!important}
+}
