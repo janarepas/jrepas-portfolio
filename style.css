@@ -2082,3 +2082,62 @@ html[data-theme] body .work .portfolio-card .cover-retail .cover-mark{
 }
 /* Keep Hungarian navigation labels from shrinking into clipped text on very narrow phones. */
 @media screen and (max-width:370px){html[data-theme] .site-header nav>a{flex:0 0 auto}}
+
+/* One shared pill-button system: yellow fill, black text, no movement or arrow decoration. */
+html body :is(.button.button-yellow,.outline-button,.process-cta,.text-link,.cv-save,.header-contact,.contact-link){
+ border-radius:999px!important;
+ font-family:var(--font-sans,"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif)!important;
+ font-weight:600!important;letter-spacing:0!important;text-transform:none!important;
+ box-shadow:none!important;translate:none!important;transform:none!important;
+ background-image:none!important;
+ transition:background-color 260ms ease,border-color 260ms ease,color 260ms ease!important;
+}
+html body :is(.button.button-yellow,.process-cta,.text-link,.cv-save,.contact-link){
+ border:2px solid var(--yellow-main)!important;
+ background-color:var(--yellow-main)!important;color:var(--black-deep)!important;
+}
+html body :is(.outline-button,.header-contact){
+ border:2px solid var(--yellow-main)!important;
+ background-color:transparent!important;color:var(--text)!important;
+}
+html body :is(.button.button-yellow,.process-cta,.text-link,.cv-save,.contact-link):is(:hover,:focus-visible){
+ background-color:var(--yellow-deep)!important;border-color:var(--yellow-deep)!important;color:var(--black-deep)!important;
+}
+html body :is(.outline-button,.header-contact):is(:hover,:focus-visible){
+ background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;
+}
+html body :is(.button.button-yellow,.outline-button,.process-cta,.text-link,.cv-save,.header-contact,.contact-link)::before,
+html body :is(.button.button-yellow,.outline-button,.process-cta,.text-link,.cv-save,.header-contact,.contact-link)::after{content:none!important}
+html body .site-header nav .header-contact{font-size:13px!important;min-height:44px;height:44px}
+html body :is(.button.button-yellow,.outline-button,.process-cta,.text-link,.cv-save,.contact-link):focus-visible,
+html body .site-header nav .header-contact:focus-visible{outline:2px solid var(--text);outline-offset:4px}
+html body :is(.button.button-yellow,.outline-button,.process-cta,.text-link,.cv-save,.contact-link):disabled{opacity:.55;cursor:not-allowed}
+@media(prefers-reduced-motion:reduce){html body :is(.button.button-yellow,.outline-button,.process-cta,.text-link,.cv-save,.header-contact,.contact-link){transition:none!important}}
+
+/* Final shared tokens override legacy page-specific CTA styles. */
+html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow){
+ border-radius:999px!important;border-width:2px!important;border-style:solid!important;
+ font-family:var(--font-sans,"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif)!important;
+ font-weight:600!important;letter-spacing:0!important;text-transform:none!important;
+ box-shadow:none!important;translate:none!important;transform:none!important;background-image:none!important;
+ transition:background-color 260ms ease,border-color 260ms ease,color 260ms ease,filter 260ms ease!important;
+}
+html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero .hero-actions .button:not(.outline-button),.about.process-section a.process-cta,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow:not(.outline-button):not(.header-contact)){
+ background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;
+}
+html[data-theme] body .hero .hero-actions a.outline-button,
+html[data-theme] body .site-header nav a.header-contact{
+ background-color:transparent!important;border-color:var(--yellow-main)!important;color:var(--text)!important;
+}
+html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero .hero-actions .button:not(.outline-button),.about.process-section a.process-cta,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow:not(.outline-button):not(.header-contact)):is(:hover,:focus-visible){
+ background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;filter:brightness(.96)
+}
+html[data-theme] body .hero .hero-actions a.outline-button:is(:hover,:focus-visible),
+html[data-theme] body .site-header nav a.header-contact:is(:hover,:focus-visible){
+ background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;filter:none
+}
+html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow)::before,
+html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow)::after{content:none!important}
+html body .site-header nav a.header-contact{font-size:13px!important;min-height:44px;height:44px}
+html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow):focus-visible{outline:2px solid var(--text);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow){transition:none!important}}
