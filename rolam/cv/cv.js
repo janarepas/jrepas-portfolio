@@ -71,7 +71,7 @@ function localizeSection(section) {
         node.childNodes.forEach(child => { if (child.nodeType === Node.TEXT_NODE && child.textContent.trim()) child.textContent = ` ${translate(label)}`; });
       } else node.textContent = translate(node.textContent.trim());
     });
-  section.querySelectorAll('.resume-job > div > p:not(.resume-role), .cv-background > p')
+  section.querySelectorAll('.resume-job > div > p:not(.resume-role), .resume-section > p')
     .forEach(node => {
       const original = node.textContent.trim();
       const translated = translate(original);
