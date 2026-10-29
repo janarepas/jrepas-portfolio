@@ -753,3 +753,25 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  html[data-theme] body.cv-page .resume-intro .resume-summary{font-size:19px!important;line-height:1.55!important;max-width:38em!important;color:var(--muted)!important}
  html[data-theme] body.cv-page .resume-intro .resume-summary strong{color:var(--text)!important}
 }
+
+/* Full-width photographic About hero: remove the blank side panels. */
+@media screen and (min-width:1101px){
+ html[data-theme] body.cv-page .resume-top{
+  min-height:clamp(720px,50vw,1000px)!important;
+  padding-top:56px!important;
+  background:#080808!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait{
+  width:100vw!important;max-width:none!important;left:0!important;right:auto!important;
+  top:0!important;bottom:0!important;height:100%!important
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  width:100%!important;height:100%!important;object-fit:cover!important;
+  object-position:center 42%!important
+ }
+}
+@media screen and (max-width:1100px){
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  object-fit:cover!important;object-position:center 28%!important
+ }
+}
