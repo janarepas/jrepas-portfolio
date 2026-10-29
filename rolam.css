@@ -809,3 +809,9 @@ html[data-theme] body.cv-page .skill-card .skill-competencies li:before{backgrou
 /* Motion & Video headline uses the requested two-tone treatment. */
 html[data-theme] body.cv-page .skill-card-1 .skill-lead{color:#fff!important}
 html[data-theme] body.cv-page .skill-card-1 .skill-lead>span{color:rgb(255,221,0)!important}
+
+/* Remaining skill headlines use the supplied exact brand colors. */
+html[data-theme] body.cv-page .skill-card-2 .skill-lead{color:#fff!important}
+html[data-theme] body.cv-page .skill-card-2 .skill-lead>span{color:rgb(255,194,14)!important}
+html[data-theme] body.cv-page .skill-card-3 .skill-lead{color:#fff!important}
+html[data-theme] body.cv-page .skill-card-3 .skill-lead>span{color:rgb(242,101,34)!important}
