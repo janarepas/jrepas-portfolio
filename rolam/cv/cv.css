@@ -82,9 +82,9 @@ html body .cv-toolbar button.button{
  font-family:var(--font-sans,"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif)!important;
  font-size:16px!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;
  box-shadow:none!important;translate:none!important;transform:none!important;
- transition:background-color 260ms ease,border-color 260ms ease,color 260ms ease!important;
+ transition:none!important;
 }
-html body .cv-toolbar button.button:hover:not(:disabled){background:var(--yellow-deep)!important;border-color:var(--yellow-deep)!important;color:var(--black-deep)!important}
+html body .cv-toolbar button.button:hover:not(:disabled){background:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;filter:none!important;transform:none!important;translate:none!important}
 html body .cv-toolbar button.button::before,html body .cv-toolbar button.button::after{content:none!important}
 html body .cv-toolbar button.button:focus-visible{outline:2px solid var(--black-deep);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){html body .cv-toolbar button.button{transition:none!important}}
