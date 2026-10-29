@@ -773,6 +773,28 @@ html[data-theme] .site-header nav .header-contact:hover{background:transparent;b
 /* Swap the technical artwork and Aa while keeping their separation. */
 .work .portfolio-card .cover-vector .vector-reconstruction-art{left:max(32px,calc((100vw - var(--content-width))/2));right:auto;width:min(45%,240px);-webkit-mask-image:linear-gradient(90deg,#000 62%,transparent);mask-image:linear-gradient(90deg,#000 62%,transparent)}
 .work .portfolio-card .cover-vector .cover-mark{left:auto;right:32px;font-size:clamp(110px,11vw,170px)}
+
+/* The header contact action uses the same label typography as the other nav links. */
+html[data-theme] body .site-header nav .header-contact{
+ border:2px solid var(--yellow-main)!important;
+ border-radius:999px!important;
+ background:transparent!important;
+ color:var(--text)!important;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+ font-size:13px!important;
+ font-weight:600!important;
+ letter-spacing:0!important;
+ line-height:1.2!important;
+ text-transform:none!important;
+ box-shadow:none!important;
+ transition:none!important;
+}
+html[data-theme] body .site-header nav .header-contact:hover{
+ border-color:var(--yellow-main)!important;
+ background:transparent!important;
+ color:var(--text)!important;
+}
+html[data-theme] body .site-header nav .header-contact:before{content:none!important}
 /* Keep the agency centered independently of the copyright on its left. */
 footer.wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
 footer>.footer-agency{grid-column:2;grid-row:1;justify-self:center;text-align:center}
