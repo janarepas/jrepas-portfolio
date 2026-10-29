@@ -782,3 +782,18 @@ html[data-theme] body.cv-page .work-gallery-caption p{
   font-size:10px!important;padding-inline:8px!important;
  }
 }
+
+/* Keep the About hero proportionate on wide, high-resolution screens. */
+@media screen and (min-width:1600px){
+ html[data-theme] body.cv-page .resume-top{
+  min-height:clamp(620px,34vw,780px)!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait{
+  left:auto!important;right:0!important;width:min(58vw,1180px)!important;
+  max-width:1180px!important;overflow:hidden!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  left:0!important;width:100%!important;height:calc(100% - 112px)!important;
+  object-fit:cover!important;object-position:70% top!important;transform:none!important;
+ }
+}
