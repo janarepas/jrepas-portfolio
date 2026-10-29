@@ -658,35 +658,3 @@ html[data-theme] body.cv-page .work-gallery-caption p{
 @media screen and (max-width:700px){
  html[data-theme] body.cv-page .work-gallery-caption{min-height:112px;padding-top:14px}
 }
-
-/* Extend the About hero image beneath the navigation. */
-.cv-page .site-header{
- position:relative!important;z-index:20;margin-bottom:-96px!important;
- background:color-mix(in srgb,var(--bg) 30%,transparent)!important;
- -webkit-backdrop-filter:blur(16px) saturate(130%)!important;backdrop-filter:blur(16px) saturate(130%)!important;
- border-bottom-color:transparent!important;box-shadow:none!important
-}
-.cv-page .resume-top{padding-top:152px!important}
-@media(min-width:761px) and (max-width:1000px){
- .cv-page .site-header{margin-bottom:-152px!important}
- .cv-page .resume-top{padding-top:208px!important}
-}
-@media(max-width:760px){
- .cv-page .site-header{margin-bottom:-125px!important}
- .cv-page .resume-top{padding-top:157px!important}
-}
-
-/* Make the photograph itself cover the entire hero, from its top edge. */
-.cv-page .resume-portrait{
- position:absolute!important;inset:0!important;top:0!important;right:0!important;bottom:0!important;left:0!important;
- width:100%!important;height:100%!important;max-width:none!important;aspect-ratio:auto!important;
- transform:none!important;overflow:hidden!important
-}
-.cv-page .resume-portrait .resume-environment{
- position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
- object-fit:cover!important;object-position:center center!important
-}
-@media(max-width:760px){
- .cv-page .resume-portrait{width:100%!important;height:100%!important;right:0!important;left:0!important;top:0!important;bottom:0!important}
- .cv-page .resume-portrait .resume-environment{object-position:center center!important}
-}
