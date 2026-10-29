@@ -815,3 +815,8 @@ html[data-theme] body.cv-page .skill-card-2 .skill-lead{color:#fff!important}
 html[data-theme] body.cv-page .skill-card-2 .skill-lead>span{color:rgb(255,194,14)!important}
 html[data-theme] body.cv-page .skill-card-3 .skill-lead{color:#fff!important}
 html[data-theme] body.cv-page .skill-card-3 .skill-lead>span{color:rgb(242,101,34)!important}
+
+/* Keep the second line of each skill headline dark in the light theme. */
+html[data-theme=light] body.cv-page .skill-card-1 .skill-lead,
+html[data-theme=light] body.cv-page .skill-card-2 .skill-lead,
+html[data-theme=light] body.cv-page .skill-card-3 .skill-lead{color:#151511!important}
