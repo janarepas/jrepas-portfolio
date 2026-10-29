@@ -93,6 +93,7 @@ for filename, title_key, description_key in [('index.html', '134', '135')]:
 (ROOT / 'sitemap.xml').write_text('''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jrepas.hu/</loc></url>
+  <url><loc>https://jrepas.hu/rolam/</loc></url>
 </urlset>
 ''')
 print('Prepared indexable Hungarian HTML, canonical metadata, schema, robots.txt and sitemap.xml.')

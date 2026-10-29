@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900">
+  <!-- Display mask only: the photograph itself remains unchanged. -->
+  <defs><filter id="edge" x="-2%" y="-2%" width="104%" height="104%"><feMorphology in="SourceGraphic" operator="erode" radius="3" result="trimmed"/><feGaussianBlur in="trimmed" stdDeviation="0.35"/></filter></defs>
+  <path fill="white" filter="url(#edge)" transform="translate(450 450) scale(.995) translate(-450 -450)" d="M454 29 C409 29 375 49 353 82 C334 111 333 155 336 210 C320 202 310 208 312 225 L324 275 C327 292 339 299 343 311 C349 341 354 361 351 379 L320 417 C292 426 267 434 241 446 C192 455 162 470 133 482 C108 493 92 519 76 543 L40 603 L0 629 L0 713 C15 732 38 744 75 757 C96 760 114 753 123 741 L147 719 C155 751 155 783 159 817 L171 920 L725 920 C730 838 728 781 730 736 C753 744 768 753 791 750 C814 749 832 737 846 722 L900 779 L900 636 C884 614 863 586 849 564 L812 506 C799 482 778 468 752 459 L694 435 C664 420 624 411 590 399 L550 379 C552 353 560 332 565 307 C582 306 588 294 590 274 L595 242 C599 228 589 216 579 222 C583 184 582 145 574 114 C562 66 516 29 454 27 Z"/>
+</svg>

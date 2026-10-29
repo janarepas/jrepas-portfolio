@@ -2,7 +2,7 @@
 @font-face{font-family:'DM Serif Display';src:url('fonts/dm-serif-display-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 :root{--bg:#080808;--text:#f6f4e9;--muted:#aaa99f;--accent:#ffdd00;--line:#34342e;--surface:#151511;--ink:#111;--paper:#f5f2e8;--gold:#ffdd00;color-scheme:dark}
 html[data-theme=light]{--bg:#ffdd00;--text:#111;--muted:#4e451c;--accent:#111;--line:#b59c23;--surface:#f5f2e8;color-scheme:light}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}.wrap{max-width:1600px;margin:auto;padding-left:6%;padding-right:6%}.site-header{min-height:112px;display:flex;align-items:center;gap:28px;border-bottom:1px solid var(--line)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}.wrap{max-width:1600px;margin:auto;padding-left:6%;padding-right:6%}.site-header{min-height:112px;display:flex;align-items:center;gap:28px;border-bottom:1px solid var(--line)}
 .brand{display:flex;flex-direction:column;position:relative;flex-shrink:0;width:126px;padding-left:9px;line-height:.8;isolation:isolate}.brand-main{font-size:49px;font-weight:900;letter-spacing:-5px}.brand-main>span{color:#e6a500}.brand-group{font-size:29px;letter-spacing:-1.8px;font-weight:900;margin-top:3px}.brand-pixels{position:absolute;left:-7px;top:-7px;width:6px;height:6px;background:#ffc20e;box-shadow:8px -8px #ffdd00,-7px 7px #ffdd00,1px 15px #e6a500,9px 8px #ffdd00,-6px 24px #e6a500,9px 23px #ffdd00,17px 16px #ffc20e;z-index:-1}.site-header nav{display:flex;gap:28px;margin-left:auto}.site-header nav a{font-size:13px;position:relative;padding:15px 0}.site-header nav .current:after{content:'';position:absolute;bottom:5px;left:0;right:0;height:2px;background:var(--accent)}.site-header nav a:hover{color:var(--accent)}.header-contact{font-size:10px;font-weight:800;letter-spacing:.08em}.site-controls{display:flex;align-items:center;gap:12px}.language-switch{display:flex}.site-controls button{min-height:40px;padding:10px;border:1px solid var(--line);background:transparent;color:var(--text);font-size:10px;font-weight:700;letter-spacing:.06em;cursor:pointer}.language-switch button+button{border-left:0}.language-switch button[aria-pressed=true]{background:var(--text);color:var(--bg)}.theme-toggle{min-width:100px}
 .hero{min-height:620px;display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;overflow:hidden}.hero-copy{padding:90px 0;position:relative;z-index:1}.eyebrow{font-size:10px;letter-spacing:.2em;font-weight:700;line-height:1.7}.hero h1,.case-hero h1{font-size:clamp(52px,7.8vw,120px);font-weight:900;letter-spacing:-.075em;line-height:.94;margin:28px 0}.hero h1 em,.case-hero h1 em{font-style:normal;color:var(--accent)}.hero-description{font-size:18px;line-height:1.6;max-width:440px;color:var(--muted);margin-bottom:30px}.outline-button{display:inline-flex;align-items:center;gap:45px;padding:20px 24px;background:var(--text);color:var(--bg);font-size:11px;font-weight:800;letter-spacing:.1em;border:1px solid var(--text)}.outline-button:hover{background:transparent;color:var(--text)}
 .pixel-art{height:470px;position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center}.pixel-letter{font-weight:900;font-size:480px;line-height:1;letter-spacing:-.1em;color:#f26522;transform:translateY(-30px);position:relative;z-index:-1}.pixel-grid{position:absolute;top:74px;left:30%;width:48px;height:48px;background:var(--text);box-shadow:-48px -48px #ffdd00,0 -96px #ffc20e,-96px 0 #f26522,48px 48px #ffdd00,-48px 96px var(--text),-96px 144px #ffc20e,-144px 192px #ffdd00,-48px 240px #f26522,-96px 288px var(--text),-144px -48px #f26522,-168px 72px #ffc20e,144px -24px var(--text);transform:rotate(0)}.art-label{position:absolute;bottom:12px;right:0;font-size:9px;letter-spacing:.22em;color:var(--muted)}
@@ -200,7 +200,7 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 .cover-vector{background:#171717;color:#f5f2e8}.cover-vector .cover-mark{-webkit-text-stroke:1px #ffdd00;color:transparent}
 .cover-pack{background:#ffdd00}.cover-pack .cover-mark{border:2px solid #111;font-size:85px;padding:20px;transform:rotate(-8deg);bottom:30px}
 .cover-retail{background:#efeee7}.cover-retail .cover-mark{font-size:90px}
-.cover-editorial{background:#f5f2e8}.cover-editorial .cover-mark{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-style:italic}
+.cover-editorial{background:#f5f2e8}.cover-editorial .cover-mark{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:400;font-style:italic}
 .cover-ads{background:#ffdd00}.cover-ads .cover-mark{font-size:180px;bottom:0}
 .cover-social{background:#171717;color:#ffdd00}
 .cover-sports{background:#e9e8e2}.cover-sports .cover-mark{font-size:210px;bottom:-25px}
@@ -210,17 +210,17 @@ html[data-theme=light] .site-header{background:rgba(255,255,255,.575)}
 @media(prefers-reduced-motion:reduce){}
 
 /* Serif typography, with system fonts and no external font requests. */
-body{font-family:'DM Sans',Arial,sans-serif}
-button{font-family:inherit}
-.brand-word,.cover-mark,.cover-number,.pixel-letter{font-family:Arial,Helvetica,sans-serif}
+body{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.brand-word,.cover-mark,.cover-number,.pixel-letter{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
 h1,h2,h3,.graphic strong{letter-spacing:-.04em}
 .site-header nav{gap:22px}
 @media(max-width:950px) and (min-width:701px){.site-header nav{gap:14px}}
 @media(max-width:700px){.site-header nav{gap:14px}}
 @media(max-width:370px){.site-header nav{gap:9px}}
 
-body{font-family:'DM Sans',Arial,sans-serif}
-.cover-editorial .cover-mark{font-family:'DM Sans',Arial,sans-serif}
+body{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.cover-editorial .cover-mark{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
 
 /* Illustrated design process. */
 .about-process{min-width:0;padding-top:0!important}
@@ -237,13 +237,13 @@ html[data-theme=light] .process-carousel{background:#f8f8f4;border-color:#e5e5dd
 .process-art[data-step="4"] .process-shape:after{content:'Aa';font:85px/1 'DM Serif Display',serif}
 .process-art[data-step="8"] .process-shape{border:3px dashed #111;background:transparent;transform:none}
 .process-art[data-step="9"] .process-shape{border:0;background:transparent;transform:none}
-.process-art[data-step="9"] .process-shape:after{content:'✓';font:90px/1 Arial,sans-serif}
+.process-art[data-step="9"] .process-shape:after{content:'✓';font:90px/1 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
 .process-copy{padding:20px 24px 0;min-height:155px}
-.process-copy .process-count{font:700 10px/1 Arial,sans-serif;letter-spacing:.12em;color:inherit;margin:0 0 12px}
+.process-copy .process-count{font:700 10px/1 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.12em;color:inherit;margin:0 0 12px}
 .process-copy h3{font-size:27px;line-height:1.15;margin:0 0 10px}
 .about-grid .process-copy>p:last-child{font-size:15px;line-height:1.6;color:inherit;margin:0}
 .process-controls{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:14px 18px 18px}
-.process-arrow{border:1px solid currentColor;border-radius:10px;width:34px;height:34px;flex-shrink:0;background:transparent;color:inherit;cursor:pointer;font-family:Arial,sans-serif;font-weight:800}
+.process-arrow{border:1px solid currentColor;border-radius:10px;width:34px;height:34px;flex-shrink:0;background:transparent;color:inherit;cursor:pointer;font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:800}
 .process-dots{display:flex;justify-content:center;gap:0;flex:1;min-width:0}
 .process-dots button{border:0;padding:0;width:22px;height:32px;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:inherit}
 .process-dots button span{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.3}
@@ -257,10 +257,10 @@ html[data-theme=light] .process-carousel{background:#f8f8f4;border-color:#e5e5dd
 .cover-mark .icon-arrow{width:1em;height:1em}
 
 /* Display serif headings paired with clean sans-serif reading text. */
-body,button{font-family:'DM Sans',Arial,Helvetica,sans-serif}
-h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.025em}
-.brand-word{font-family:'DM Sans',Arial,sans-serif}
-.cover-editorial .cover-mark{font-family:'DM Serif Display',Georgia,serif}
+body,button{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:400;letter-spacing:-.025em}
+.brand-word{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.cover-editorial .cover-mark{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
 
 /* Full-width process carousel between the About heading and its text. */
 .about-grid{display:block}
@@ -287,7 +287,7 @@ h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-desc
 
 /* Two shared pill button variants. */
 :root{--button-radius:999px}
-button,.button,.site-header nav .header-contact,.site-controls .language-switch button,.site-controls .theme-toggle,.process-arrow{border-radius:var(--button-radius);font-family:'DM Sans',Arial,sans-serif;font-weight:800}
+button,.button,.site-header nav .header-contact,.site-controls .language-switch button,.site-controls .theme-toggle,.process-arrow{border-radius:var(--button-radius);font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:800}
 .button,.site-header nav .button{display:inline-flex;align-items:center;justify-content:center;gap:0;text-transform:uppercase;letter-spacing:.045em;line-height:1.3;text-align:center;border:1px solid transparent;text-decoration:none}
 .button-yellow,html[data-theme=light] .button-yellow,.site-header nav .button-yellow{background:#ffdd00;color:#111;border-color:#ffdd00}
 .button-black,html[data-theme=light] .button-black{background:#111;color:#fff;border-color:#111}
@@ -299,7 +299,7 @@ html[data-theme=dark] .button-black{border-color:#555}
 @media(max-width:950px){.about .process-controls{flex-wrap:wrap;gap:12px;justify-content:space-between}.process-dots{order:3;flex-basis:100%}.process-arrow.button{min-width:78px}.process-controls [data-carousel-next]{margin-left:auto}}
 
 @font-face{font-family:'Cormorant Garamond';src:url('fonts/cormorant-garamond-latin.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
-h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;letter-spacing:-.025em}
+h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:300;letter-spacing:-.025em}
 .project-title h3,.portfolio-card .project-title h3{font-size:22px;font-weight:400;line-height:1.15}
 /* The process strip meets both edges of the viewport. */
 .about{max-width:none;padding-left:0;padding-right:0}
@@ -319,7 +319,7 @@ h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-desc
 .contact-panel{border:1px solid var(--line);border-top:4px solid #ffdd00;border-radius:18px;padding:38px;background:var(--surface);min-width:0}
 html[data-theme=light] .contact-panel{background:#fff}
 .contact-panel h3{font-size:clamp(30px,3vw,44px);line-height:1.1;margin:20px 0}
-.contact-email{display:inline-block;font-family:'DM Sans',Arial,sans-serif;font-size:clamp(18px,2vw,27px);font-weight:500;letter-spacing:-.03em;border-bottom:1px solid #c5aa12;padding-bottom:6px;overflow-wrap:anywhere}
+.contact-email{display:inline-block;font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:clamp(18px,2vw,27px);font-weight:500;letter-spacing:-.03em;border-bottom:1px solid #c5aa12;padding-bottom:6px;overflow-wrap:anywhere}
 .contact-panel>p:not(.eyebrow){font-size:14px;line-height:1.85;color:var(--muted);margin-top:25px}
 .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center}
 .contact-actions .button{padding:14px 20px;font-size:10px;margin:0;min-height:44px}
@@ -341,7 +341,7 @@ html[data-theme=light] .contact-panel{background:#fff}
 
 @font-face{font-family:'DM Serif Display';src:url('fonts/dm-serif-display-italic-latin.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
 h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3,.portfolio-card .project-title h3{
-  font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-style:italic;
+  font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:400;font-style:italic;
 }
 h1 em,h2 span,.hero h1 em,.case-hero h1 em{font-style:inherit;font-weight:inherit}
 
@@ -363,8 +363,8 @@ html[data-runtime] .button{transition:background-color 320ms ease,color 320ms ea
  --black-deep:#080808;--black-ink:#171717;--black-soft:#292929;
 }
 html[data-theme=dark]{--bg:var(--black-deep);--text:#faf8ef;--muted:#c3c0b5;--surface:var(--black-ink);--line:#48483e;--accent:var(--yellow-main)}
-body{font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif}
-button,.button,.site-header nav .header-contact,.site-controls .language-switch button,.site-controls .theme-toggle,.process-arrow{font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif}
+body{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button,.button,.site-header nav .header-contact,.site-controls .language-switch button,.site-controls .theme-toggle,.process-arrow{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
 h1,h2,h3,.hero h1,.case-hero h1,.graphic strong,.about h2,.contact h2,.case-description h2,.process-copy h3,.portfolio-card .project-title h3{
  font-family:'ivypresto-display','IvyPresto Display','DM Serif Display',Georgia,serif;
 }
@@ -390,7 +390,7 @@ html[data-theme=dark] .process-carousel,html[data-theme=dark] .contact-panel{bac
 html[data-runtime] body,html[data-runtime] .site-header,html[data-runtime] .work,html[data-runtime] .about,html[data-runtime] .contact,html[data-runtime] .contact-panel,html[data-runtime] .process-carousel,html[data-runtime] .portfolio-cover,html[data-runtime] footer{transition:none}
 html[data-runtime] .button{transition:opacity 130ms ease}
 @media(prefers-reduced-motion:reduce){html[data-runtime] .button{transition:none}}
-.contact-email{font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif}
+.contact-email{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
 
 /* Make the introductory line a clear part of the hero hierarchy. */
 .hero-copy>.eyebrow{
@@ -424,7 +424,7 @@ html[data-theme=dark] .hero:before{background:linear-gradient(90deg,rgba(8,8,8,.
 html[data-theme=light] .hero h1 em,html[data-theme=dark] .hero h1 em{background:none;text-decoration-line:underline;text-decoration-style:double;text-decoration-color:var(--yellow-main);text-decoration-thickness:3px;text-underline-offset:10px;text-decoration-skip-ink:none}
 /* Shared small-heading style, including section and contact-card labels. */
 html[data-theme] .eyebrow,html[data-theme] .hero-copy>.eyebrow,html[data-theme] .about>.eyebrow,html[data-theme] .section-heading .eyebrow{
- font-family:'freight-text-pro','Freight Text Pro','DM Sans',Arial,sans-serif;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
  font-size:13px;font-weight:500;font-style:normal;letter-spacing:.035em;line-height:1.5;text-transform:uppercase;color:#666660;
 }
 html[data-theme=dark] .eyebrow,html[data-theme=dark] .hero-copy>.eyebrow,html[data-theme=dark] .about>.eyebrow,html[data-theme=dark] .section-heading .eyebrow{color:#b8b8ae}
@@ -792,7 +792,7 @@ footer>span:not(.footer-agency){grid-column:1;grid-row:1}
 /* Oversized translucent disciplines sit behind the contact section. */
 .contact{position:relative;isolation:isolate;overflow:hidden;padding-bottom:300px}
 .contact-layout{position:relative;z-index:1}
-.contact>.contact-disciplines{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:-1;width:calc(100% - 48px);max-width:var(--content-width);margin:0;color:var(--text);opacity:.3;font-family:'DM Sans',Arial,sans-serif;font-size:clamp(36px,5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-.045em;text-transform:uppercase;pointer-events:none}
+.contact>.contact-disciplines{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:-1;width:calc(100% - 48px);max-width:var(--content-width);margin:0;color:var(--text);opacity:.3;font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:clamp(36px,5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-.045em;text-transform:uppercase;pointer-events:none}
 .contact-disciplines>span{display:block}
 @media(max-width:700px){.contact{padding-bottom:190px}.contact>.contact-disciplines{font-size:clamp(28px,7vw,46px);bottom:28px}}
 
@@ -1133,11 +1133,11 @@ html[data-theme=dark] .about.process-section .process-panel{background:#171717}
 .about.process-section .process-flow .process-step{margin:0!important;min-height:230px;padding:88px 24px 28px!important;border:1px solid var(--line)!important;border-top:3px solid var(--yellow-main)!important;border-radius:16px;background:var(--bg);text-align:left}
 .about.process-section .process-step:before,.about.process-section .process-step:after,.about.process-section .flow-node:after{content:none!important;display:none!important}
 .about.process-section .process-step .flow-node{position:absolute;top:22px;left:24px;right:24px;width:auto;height:44px;margin:0;display:flex;align-items:center;justify-content:space-between}
-.about.process-section .process-step .flow-number{position:static;transform:none;width:42px;height:42px;flex:0 0 42px;border:none;border-radius:50%;font:700 13px/1 'DM Sans',Arial,sans-serif;color:#111;background:var(--yellow-main)}
+.about.process-section .process-step .flow-number{position:static;transform:none;width:42px;height:42px;flex:0 0 42px;border:none;border-radius:50%;font:700 13px/1 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#111;background:var(--yellow-main)}
 .about.process-section .process-step .flow-node svg{display:block;position:static;transform:none;width:26px;height:26px;margin:0;color:var(--muted)}
 .about.process-section .process-step h3{margin:0 0 12px;padding:0!important;font-size:clamp(27px,2.4vw,34px);line-height:1.08;min-height:0;font-weight:400;text-align:left}
 .about.process-section .process-step p{max-width:none;margin:0;font-size:15px;line-height:1.6;text-align:left;color:var(--muted)}
-.about.process-section .process-cta{display:flex;align-items:center;justify-content:center;width:max-content;max-width:100%;margin:36px auto 0;padding:18px 30px;min-height:54px;background:var(--yellow-main);color:var(--black-deep);border:1px solid var(--yellow-main);border-radius:var(--button-radius);font:700 13px/1.4 'DM Sans',Arial,sans-serif;text-decoration:none}
+.about.process-section .process-cta{display:flex;align-items:center;justify-content:center;width:max-content;max-width:100%;margin:36px auto 0;padding:18px 30px;min-height:54px;background:var(--yellow-main);color:var(--black-deep);border:1px solid var(--yellow-main);border-radius:var(--button-radius);font:700 13px/1.4 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;text-decoration:none}
 .about.process-section .process-cta:hover{background:var(--yellow-gold)}
 @media(max-width:900px){.about.process-section .process-panel{padding:44px 30px}.about.process-section .process-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.about.process-section .process-diagram{padding:44px 16px 56px}.about.process-section .process-panel{padding:36px 18px 34px;border-radius:20px}.about.process-section .process-heading{margin-bottom:30px}.about.process-section .process-heading h2{font-size:clamp(34px,9vw,45px)}.about.process-section .process-subtitle{font-size:14px}.about.process-section .process-flow{grid-template-columns:1fr;gap:12px}.about.process-section .process-flow .process-step{min-height:0;padding:78px 20px 24px!important}.about.process-section .process-step .flow-node{left:20px;right:20px;top:18px}.about.process-section .process-step h3{font-size:30px}.about.process-section .process-step p{font-size:15px}.about.process-section .process-cta{width:100%}}
@@ -1196,7 +1196,7 @@ html[data-theme=dark] .about.process-section .process-flow .process-step{
 .about.process-section .process-step p{font-size:14px;line-height:1.65;text-align:center;max-width:190px;margin:0 auto}
 .about.process-section .process-flow .process-step:not(:last-child):after{
  content:'→'!important;display:block!important;position:absolute;top:51px;left:auto;right:-17px;
- width:auto;height:auto;background:none;color:var(--muted);font:300 23px/1 Arial,sans-serif;opacity:.6
+ width:auto;height:auto;background:none;color:var(--muted);font:300 23px/1 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;opacity:.6
 }
 .about.process-section .process-cta{margin-top:50px}
 @media(max-width:950px){.about.process-section .process-flow{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 22px}.about.process-section .process-flow .process-step:nth-child(3):after{display:none!important}}
@@ -1248,7 +1248,7 @@ html[data-theme] .about.process-section .process-cta:hover:before{
    mixing the Latin-only IvyPresto subset with fallback glyphs. */
 html[lang="hu"] .about.process-section .process-heading h2,
 html[lang="hu"] .about.process-section .process-step h3{
- font-family:Georgia,'Times New Roman',serif;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
  font-weight:400;
  font-style:italic;
  letter-spacing:-.045em;
@@ -1276,7 +1276,7 @@ html body .about.process-section .process-heading h2,
 html body .about.process-section .process-step h3,
 html[lang="hu"] body .about.process-section .process-heading h2,
 html[lang="hu"] body .about.process-section .process-step h3{
- font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
  font-weight:400;
  font-style:normal;
 }
@@ -1289,7 +1289,7 @@ html body .about.process-section .process-heading h2,
 html body .about.process-section .process-step h3,
 html[lang="hu"] body .about.process-section .process-heading h2,
 html[lang="hu"] body .about.process-section .process-step h3{
- font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
  font-weight:400;
  font-style:italic;
 }
@@ -1297,7 +1297,7 @@ html[lang="hu"] body .about.process-section .process-step h3{
 /* Compact supporting copy with more whitespace between milestones. */
 .about.process-section .process-flow{column-gap:48px}
 .about.process-section .process-step p{
- font-family:'DM Sans',Arial,sans-serif;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
  font-size:13px;line-height:1.75;max-width:190px;
  font-weight:400;letter-spacing:0;
 }
@@ -1445,7 +1445,7 @@ html[data-theme=dark] #about .about-vector-curves{opacity:.14}
 html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
  top:50%;left:50%;right:auto;
  transform:translate(-50%,-50%);
- font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
  font-style:italic;font-weight:400;
  font-size:clamp(110px,11vw,170px);
  line-height:1;letter-spacing:-.06em;
@@ -1456,7 +1456,7 @@ html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
 /* Retail POS: same yellow vector-outline lettering treatment as the first card. */
 html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
  top:50%;left:50%;right:auto;transform:translate(-50%,-50%);
- font-family:'DM Sans',Arial,sans-serif;font-style:normal;font-weight:800;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-style:normal;font-weight:800;
  font-size:clamp(78px,9vw,135px);letter-spacing:-.065em;line-height:1;
  color:transparent!important;-webkit-text-fill-color:transparent;
  -webkit-text-stroke:2px var(--yellow-main);
@@ -1510,7 +1510,7 @@ html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
 @media(max-width:700px){.about.process-section .process-flow{grid-template-columns:1fr!important}.about.process-section .process-step{padding:28px!important}}
 /* Match the POS ornament exactly to the outlined Aa lettering. */
 html[data-theme] .work .portfolio-card .cover-retail .cover-mark{
- font-family:Arial,Helvetica,sans-serif!important;font-weight:900!important;font-style:normal!important;
+ font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;font-weight:900!important;font-style:normal!important;
  letter-spacing:-.08em!important;-webkit-text-stroke:1px var(--yellow-main)!important;
  -webkit-text-fill-color:transparent!important;color:transparent!important;opacity:.55;
 }
@@ -1625,7 +1625,7 @@ html[data-theme] .work .portfolio-card>p{font-size:16px;line-height:1.6;opacity:
  .case-deliverables ul{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1 em:after{will-change:auto}}
-.work .section-heading h2.eyebrow{font-family:'DM Sans',Arial,sans-serif!important;font-style:normal!important;font-weight:500!important;font-size:13px!important;letter-spacing:.08em!important;line-height:1.5!important;margin:0}
+.work .section-heading h2.eyebrow{font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;font-style:normal!important;font-weight:500!important;font-size:13px!important;letter-spacing:.08em!important;line-height:1.5!important;margin:0}
 @media(max-width:700px){.case-hero{padding-top:152px}}
 
 /* Keep every navigation control comfortably tappable. */
@@ -1910,3 +1910,139 @@ html[data-theme=dark] .about-curves{opacity:.3}
 @keyframes theme-scene-in{from{opacity:0}to{opacity:1}}
 .theme-transition-curtain{position:fixed;inset:0;z-index:2147483647;pointer-events:none;background:#080808;opacity:0}
 @media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
+
+/* Restore the approved display headings; reading text stays SF Pro Text. */
+html body h1,html body h2,html body h3,
+html body .hero h1,html body .case-hero h1,
+html body .about h2,html body .contact h2,
+html body .about.process-section .process-heading h2,
+html body .about.process-section .process-step h3,
+html[lang="hu"] body .about.process-section .process-heading h2,
+html[lang="hu"] body .about.process-section .process-step h3{
+ font-family:'ivypresto-display','IvyPresto Display',Georgia,serif;
+ font-weight:400;font-style:italic;
+}
+
+/* Editorial artwork retains its display lettering. */
+.cover-editorial .cover-mark{font-family:'ivypresto-display','IvyPresto Display',Georgia,serif}
+
+/* Reference treatment: semibold grey prose, brighter inline emphasis. */
+:root{--reading-muted:#68686d;--reading-emphasis:#1d1d1f}
+html[data-theme=dark]{--reading-muted:#929296;--reading-emphasis:#f5f5f7}
+html[data-theme] body .hero .hero-description,
+html[data-theme] body .about .about-grid p{
+ color:var(--reading-muted);font-weight:600;line-height:1.4;letter-spacing:-.025em;
+}
+html[data-theme] body .hero .hero-description{font-size:clamp(20px,1.8vw,26px)}
+html[data-theme] body .about .about-grid p{font-size:clamp(20px,2vw,28px)}
+html[data-theme] body .hero .hero-description strong,
+html[data-theme] body .about .about-grid p strong{color:var(--reading-emphasis);font-weight:600}
+
+/* Unified sans typography: reading copy, supporting labels and controls. */
+:root{--font-sans:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--sans-copy-weight:600;--sans-copy-leading:1.5}
+html body{font-family:var(--font-sans)}
+html body :is(button,input,textarea,select){font-family:var(--font-sans)}
+html[data-theme] body :is(.work-intro,.process-subtitle,.contact-description),
+html[data-theme] body .about.process-section .process-step p,
+html[data-theme] body .faq p,
+html[data-theme] body .project-title p,
+html[data-theme] body .contact-panel p{
+ font-family:var(--font-sans);font-weight:var(--sans-copy-weight);line-height:var(--sans-copy-leading);letter-spacing:-.015em;color:var(--reading-muted);
+}
+html[data-theme] body :is(.work-intro,.process-subtitle,.contact-description,.process-step p,.faq p,.project-title p,.contact-panel p) strong{
+ font-weight:var(--sans-copy-weight);color:var(--reading-emphasis);
+}
+html[data-theme] body :is(.eyebrow,.hero-trust){font-family:var(--font-sans);font-weight:500;line-height:1.5}
+html[data-theme] body :is(.site-header nav a,.button,.small-link,.contact-link,.contact-email,.faq summary,.service-chooser a){font-family:var(--font-sans);font-weight:600}
+html[data-theme] body footer{font-family:var(--font-sans);font-weight:500;line-height:1.5}
+
+/* Shared link feedback; translate is independent of existing transforms. */
+@media screen{
+ html body a[href]{transition:color 180ms ease,background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease,opacity 180ms ease,translate 180ms ease,text-underline-offset 180ms ease;text-underline-offset:4px}
+ html body a[href]:focus-visible{translate:0 -2px;text-underline-offset:7px}
+ .resume-contact>a>span{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0 1px;padding-bottom:3px;transition:background-size 220ms ease}
+ html body .resume-contact>a:is(:hover,:focus-visible){text-decoration:none}
+ html body .resume-contact>a:is(:hover,:focus-visible)>span{background-size:100% 1px}
+}
+@media screen and (hover:hover) and (pointer:fine){
+ html body a[href]:hover{translate:0 -2px;text-underline-offset:7px}
+ html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip){text-decoration-line:underline;text-decoration-color:transparent;transition:text-decoration-color 180ms ease,text-underline-offset 180ms ease,color 180ms ease,translate 180ms ease}
+ html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip):hover{text-decoration-color:currentColor}
+}
+@media(prefers-reduced-motion:reduce){
+ html body a[href],.resume-contact>a>span{transition:none!important}
+ html body a[href]:is(:hover,:focus-visible){translate:none}
+}
+
+/* Primary CTA labels use the compact, sentence-case CV-button typography. */
+html[data-theme] body .hero a.outline-button,
+html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow,
+html[data-theme] body .about.process-section a.process-cta{
+ font-family:var(--font-sans)!important;font-size:14px!important;font-weight:800!important;
+ line-height:1.4!important;letter-spacing:0!important;text-transform:none!important;
+}
+
+/* Text links: one travelling underline, with no positional movement. */
+@media screen{
+ html body a[href]:not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.footer-logo,.skip-link,.cv-skip){translate:none!important}
+ html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip){
+ text-decoration:none!important;border-bottom:0;
+ background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0 1px;
+ transition:background-size 220ms ease!important;
+ }
+ html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip):is(:hover,:focus-visible){background-size:100% 1px}
+ html body .resume-contact>a:is(:hover,:focus-visible){translate:none!important;text-decoration:none!important}
+}
+@media(prefers-reduced-motion:reduce){html body a[href]{transition:none!important}}
+
+/* One semibold weight for sans copy, labels and controls across the site. */
+html body{font-weight:600}
+html body *:not(:is(h1,h2,h3,h1 *,h2 *,h3 *)){font-weight:600!important}
+html body :is(h1,h2,h3).eyebrow,
+html body .resume-section-upright>h2,
+html body .work-gallery-caption h3{font-weight:600!important}
+
+html body .work .section-heading h2.eyebrow{font-weight:600!important}
+
+
+/* Homepage sans copy follows the About page's readable SF Pro Text hierarchy. */
+@media screen{
+ html[data-theme] body .hero .hero-description,
+ html[data-theme] body #about .about-grid p{
+  font-family:var(--font-sans);font-size:clamp(20px,1.7vw,24px);font-weight:600;
+  line-height:1.45;letter-spacing:-.015em;color:var(--reading-muted);
+ }
+ html[data-theme] body .hero .hero-description strong,
+ html[data-theme] body #about .about-grid p strong{font-weight:600;color:var(--reading-emphasis)}
+ html[data-theme] body .hero .hero-trust{font-family:var(--font-sans);font-size:15px;font-weight:600;line-height:1.5;letter-spacing:0}
+ html[data-theme] body .work-intro{font-family:var(--font-sans);font-size:22px;font-weight:600;line-height:1.5;letter-spacing:-.015em}
+ html[data-theme] body .work .portfolio-card>p{font-family:var(--font-sans);font-size:16px;font-weight:600;line-height:1.55;letter-spacing:-.012em}
+ html[data-theme] body .process-subtitle,
+ html[data-theme] body .contact-description{font-family:var(--font-sans);font-size:20px;font-weight:600;line-height:1.5;letter-spacing:-.015em}
+ html[data-theme] body .process-step>p,
+ html[data-theme] body .faq-list p,
+ html[data-theme] body .contact-panel p{font-family:var(--font-sans);font-size:16px;font-weight:600;line-height:1.55;letter-spacing:-.012em}
+ html[data-theme] body .hero-actions .button,
+ html[data-theme] body .contact-panel .contact-actions .button{font-weight:600!important}
+}
+@media screen and (max-width:700px){
+ html[data-theme] body .hero .hero-description,
+ html[data-theme] body #about .about-grid p{font-size:20px;line-height:1.5}
+ html[data-theme] body .work-intro{font-size:20px;line-height:1.5}
+ html[data-theme] body .process-subtitle,
+ html[data-theme] body .contact-description{font-size:19px;line-height:1.5}
+}
+
+/* Resolve the older high-specificity process and CTA overrides. */
+@media screen{
+ html[data-theme] body section.about.process-section .process-subtitle{font-size:20px!important;line-height:1.5!important;letter-spacing:-.015em!important}
+ html[data-theme] body section.about.process-section .process-flow>li.process-step>p{font-size:16px!important;line-height:1.55!important;letter-spacing:-.012em!important}
+ html[data-theme] body .hero .hero-actions a.button,
+ html[data-theme] body .contact-panel .contact-actions a.button{font-weight:600!important}
+}
+@media screen and (max-width:700px){
+ html[data-theme] body section.about.process-section .process-subtitle{font-size:19px!important}
+ html[data-theme] body section.about.process-section .process-flow>li.process-step>p{font-size:16px!important}
+}
+
+@media screen{html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{font-weight:600!important}}

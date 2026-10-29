@@ -1,4 +1,4 @@
-import copy from './translations.js?v=20c9749f05ca';
+import copy from './translations.js?v=a2e357e5a088';
 
 const root = document.documentElement;
 const themeToggle = document.querySelector('.theme-toggle');
