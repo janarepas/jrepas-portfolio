@@ -797,3 +797,14 @@ html[data-theme] body.cv-page .work-gallery-caption p{
   object-fit:cover!important;object-position:70% top!important;transform:none!important;
  }
 }
+/* Keep the portrait inside the hero frame on wide displays. */
+@media screen and (min-width:1600px){
+ html[data-theme] body.cv-page .resume-portrait{
+  right:clamp(24px,3vw,64px)!important;
+  width:min(52vw,1080px)!important;
+  max-width:1080px!important;
+ }
+ html[data-theme] body.cv-page .resume-portrait .resume-environment{
+  object-fit:contain!important;object-position:right top!important;
+ }
+}
