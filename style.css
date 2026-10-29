@@ -2122,18 +2122,18 @@ html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-ac
  transition:none!important;
 }
 html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero .hero-actions .button:not(.outline-button),.about.process-section a.process-cta,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow:not(.outline-button):not(.header-contact)){
- background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;
+ background-color:var(--yellow-gold)!important;border-color:var(--yellow-gold)!important;color:var(--black-deep)!important;
 }
 html[data-theme] body .hero .hero-actions a.outline-button,
 html[data-theme] body .site-header nav a.header-contact{
- background-color:transparent!important;border-color:var(--yellow-main)!important;color:var(--yellow-main)!important;
+ background-color:transparent!important;border-color:var(--yellow-gold)!important;color:var(--text)!important;
 }
 html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero .hero-actions .button:not(.outline-button),.about.process-section a.process-cta,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow:not(.outline-button):not(.header-contact)):hover{
- background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;filter:none!important;transform:none!important;translate:none!important
+ background-color:var(--yellow-gold)!important;border-color:var(--yellow-gold)!important;color:var(--black-deep)!important;filter:none!important;transform:none!important;translate:none!important
 }
 html[data-theme] body .hero .hero-actions a.outline-button:hover,
 html[data-theme] body .site-header nav a.header-contact:hover{
- background-color:var(--yellow-main)!important;border-color:var(--yellow-main)!important;color:var(--black-deep)!important;filter:none!important;transform:none!important;translate:none!important
+ background-color:var(--yellow-gold)!important;border-color:var(--yellow-gold)!important;color:var(--black-deep)!important;filter:none!important;transform:none!important;translate:none!important
 }
 html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow)::before,
 html body :is(#about .about-body a.text-link,#contact .contact-panel .contact-actions a.contact-link.button.button-yellow,.hero a.outline-button,.about.process-section a.process-cta,.site-header nav a.header-contact,.cv-page .resume a.cv-save,.cv-toolbar button.button,.button.button-yellow)::after{content:none!important}
@@ -2970,4 +2970,18 @@ html[data-theme] body.cv-page .skill-heading .skill-programs img.skill-software-
  display:block;width:32px;height:32px;flex:0 0 32px;margin:0;object-fit:contain;
  padding:0;box-sizing:border-box;background:transparent;border:0;border-radius:0;
  filter:none;opacity:1
+}
+
+/* Keep the header and footer marks still; contact details stay clean and unadorned. */
+.site-header .brand,
+.site-header .brand *,
+footer .footer-logo,
+footer .footer-logo *{
+ animation:none!important;transition:none!important;transform:none!important;translate:none!important;
+}
+.resume-contact a[href^="mailto:"],
+.resume-contact a[href^="tel:"],
+.resume-contact a[href^="mailto:"]:hover,
+.resume-contact a[href^="tel:"]:hover{
+ text-decoration:none!important;text-decoration-line:none!important;
 }
