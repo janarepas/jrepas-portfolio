@@ -675,3 +675,18 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  .cv-page .site-header{margin-bottom:-125px!important}
  .cv-page .resume-top{padding-top:157px!important}
 }
+
+/* Make the photograph itself cover the entire hero, from its top edge. */
+.cv-page .resume-portrait{
+ position:absolute!important;inset:0!important;top:0!important;right:0!important;bottom:0!important;left:0!important;
+ width:100%!important;height:100%!important;max-width:none!important;aspect-ratio:auto!important;
+ transform:none!important;overflow:hidden!important
+}
+.cv-page .resume-portrait .resume-environment{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center center!important
+}
+@media(max-width:760px){
+ .cv-page .resume-portrait{width:100%!important;height:100%!important;right:0!important;left:0!important;top:0!important;bottom:0!important}
+ .cv-page .resume-portrait .resume-environment{object-position:center center!important}
+}
