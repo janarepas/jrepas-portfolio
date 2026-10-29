@@ -805,3 +805,7 @@ html[data-theme] body.cv-page .skill-card .skill-lead>span{
  color:var(--skill-accent)!important;text-decoration:none!important;-webkit-text-decoration:none!important
 }
 html[data-theme] body.cv-page .skill-card .skill-competencies li:before{background:var(--skill-accent)!important}
+
+/* Motion & Video headline uses the requested two-tone treatment. */
+html[data-theme] body.cv-page .skill-card-1 .skill-lead{color:#fff!important}
+html[data-theme] body.cv-page .skill-card-1 .skill-lead>span{color:rgb(255,221,0)!important}
