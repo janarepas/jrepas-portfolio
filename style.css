@@ -2073,3 +2073,11 @@ html body .site-header nav>a:not(.button):is([aria-current="page"],.current){col
 html body .site-header nav>a:not(.button):hover{color:var(--text)!important;opacity:1}
 html body .site-header nav>a:not(.button):before,
 html body .site-header nav>a:not(.button):after{content:none!important;display:none!important;transition:none!important;animation:none!important}
+
+
+/* Keep all four navigation labels readable on very narrow screens. */
+@media screen and (max-width:360px){
+ html body .site-header nav{gap:0!important;justify-content:space-between!important}
+ html body .site-header nav>a{flex:0 0 auto!important;font-size:10px!important;letter-spacing:-.025em;padding-inline:0!important}
+ html body .site-header nav .header-contact{flex:0 0 auto!important;font-size:10px!important;letter-spacing:.04em;padding:8px 6px!important}
+}
