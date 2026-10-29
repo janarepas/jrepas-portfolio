@@ -820,3 +820,10 @@ html[data-theme] body.cv-page .skill-card-3 .skill-lead>span{color:rgb(242,101,3
 html[data-theme=light] body.cv-page .skill-card-1 .skill-lead,
 html[data-theme=light] body.cv-page .skill-card-2 .skill-lead,
 html[data-theme=light] body.cv-page .skill-card-3 .skill-lead{color:#151511!important}
+
+/* Reuse the original full-color software marks in the capability cards. */
+html[data-theme] body.cv-page .skill-heading .skill-programs img.skill-software-icon{
+ display:block;width:32px;height:32px;flex:0 0 32px;margin:0;object-fit:contain;
+ padding:0;box-sizing:border-box;background:transparent;border:0;border-radius:0;
+ filter:none;opacity:1
+}
