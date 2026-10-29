@@ -775,3 +775,14 @@ html[data-theme] body.cv-page .work-gallery-caption p{
   object-fit:cover!important;object-position:center 28%!important
  }
 }
+
+
+/* Let the hero photograph remain visible beneath the copy column. */
+@media screen and (min-width:761px){
+ html[data-theme=light] body.cv-page .resume-top:after{
+  background:linear-gradient(90deg,rgba(255,255,255,.36) 0%,rgba(255,255,255,.28) 30%,rgba(255,255,255,.12) 50%,rgba(255,255,255,.03) 62%,transparent 70%)!important;
+ }
+ html[data-theme=dark] body.cv-page .resume-top:after{
+  background:linear-gradient(90deg,rgba(8,8,8,.46) 0%,rgba(8,8,8,.34) 30%,rgba(8,8,8,.16) 50%,rgba(8,8,8,.04) 62%,transparent 70%)!important;
+ }
+}
