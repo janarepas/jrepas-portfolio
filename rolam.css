@@ -507,7 +507,7 @@ html[data-theme] body.cv-page .resume a.cv-save{
  background-image:linear-gradient(var(--yellow-deep),var(--yellow-deep))!important;
  background-position:center bottom!important;background-repeat:no-repeat!important;
  background-size:100% 0%!important;
- transition:background-size 360ms cubic-bezier(.2,.7,.2,1) 220ms,translate 180ms ease!important;
+ transition:background-size 360ms cubic-bezier(.2,.7,.2,1) 220ms!important;
 }
 html[data-theme] body.cv-page .resume a.cv-save:is(:hover,:focus-visible){background-size:100% 100%!important;opacity:1}
 html[data-theme] body.cv-page .resume a.cv-save:focus-visible{outline:2px solid var(--text);outline-offset:4px}
