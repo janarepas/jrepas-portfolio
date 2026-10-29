@@ -1959,13 +1959,13 @@ html[data-theme] body footer{font-family:var(--font-sans);font-weight:500;line-h
 /* Shared link feedback; translate is independent of existing transforms. */
 @media screen{
  html body a[href]{transition:color 180ms ease,background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease,opacity 180ms ease,translate 180ms ease,text-underline-offset 180ms ease;text-underline-offset:4px}
- html body a[href]:focus-visible{translate:0 -2px;text-underline-offset:7px}
+ html body a[href]:not(.button,.outline-button,.process-cta,.text-link,.small-link,.cv-save,.header-contact,.contact-link,[role=button]):focus-visible{translate:0 -2px;text-underline-offset:7px}
  .resume-contact>a>span{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0 1px;padding-bottom:3px;transition:background-size 220ms ease}
  html body .resume-contact>a:is(:hover,:focus-visible){text-decoration:none}
  html body .resume-contact>a:is(:hover,:focus-visible)>span{background-size:100% 1px}
 }
 @media screen and (hover:hover) and (pointer:fine){
- html body a[href]:hover{translate:0 -2px;text-underline-offset:7px}
+ html body a[href]:not(.button,.outline-button,.process-cta,.text-link,.small-link,.cv-save,.header-contact,.contact-link,[role=button]):hover{translate:0 -2px;text-underline-offset:7px}
  html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip){text-decoration-line:underline;text-decoration-color:transparent;transition:text-decoration-color 180ms ease,text-underline-offset 180ms ease,color 180ms ease,translate 180ms ease}
  html body a[href]:not(:has(img,svg)):not(.button,.portfolio-card,.skill-card,.resume-job,.education-entry,.brand,.skip-link,.cv-skip):hover{text-decoration-color:currentColor}
 }
@@ -1997,6 +1997,9 @@ html[data-theme] body .about.process-section a.process-cta{
 
 /* One semibold weight for sans copy, labels and controls across the site. */
 html body{font-weight:600}
+@media screen{
+ html body :is(button,input[type=button],input[type=submit],[role=button],a.button,a.outline-button,a.text-link,a.small-link,a.process-cta,a.cv-save,a.header-contact,a.contact-link):is(:hover,:focus-visible){translate:none!important}
+}
 html body *:not(:is(h1,h2,h3,h1 *,h2 *,h3 *)){font-weight:600!important}
 html body :is(h1,h2,h3).eyebrow,
 html body .resume-section-upright>h2,
@@ -2047,7 +2050,11 @@ html body .work .section-heading h2.eyebrow{font-weight:600!important}
 
 @media screen{html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{font-weight:600!important}}
 
-/* Keep primary buttons stationary; their color and fill animations remain active. */
-@media screen{
- html body :is(button,input[type=button],input[type=submit],[role=button],a.button,a.outline-button,a.text-link,a.small-link,a.process-cta,a.cv-save,a.header-contact,a.contact-link):is(:hover,:focus-visible){translate:none!important}
+/* Use solid lettering for the homepage Aa and POS marks. */
+html[data-theme] body .work .portfolio-card .cover-vector .cover-mark,
+html[data-theme] body .work .portfolio-card .cover-retail .cover-mark{
+ color:var(--yellow-main)!important;
+ -webkit-text-fill-color:var(--yellow-main)!important;
+ -webkit-text-stroke:0!important;
+ opacity:1!important;
 }
