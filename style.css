@@ -2501,8 +2501,8 @@ html[data-theme=dark] .cv-page .resume-portrait .resume-environment{filter:satur
 
 /* Restore the user's real photograph in full: no generated person or face overlay. */
 .cv-page .resume-top{min-height:620px;padding-block:60px}
-.cv-page .resume-top:before{content:'';position:absolute;inset:0;z-index:-2;background:url(/images/repas-janos-seaside-wide.webp) center/cover no-repeat}
-html[data-theme=dark] .cv-page .resume-top:before{background-image:url(/images/repas-janos-seaside-dark.webp)}
+.cv-page .resume-top:before{content:'';position:absolute;inset:0;z-index:-2;background:url(/images/repas-janos-seaside-wide.webp?v=optimized-20261029) center/cover no-repeat}
+html[data-theme=dark] .cv-page .resume-top:before{background-image:url(/images/repas-janos-seaside-dark.webp?v=optimized-20261029)}
 .cv-page .resume-portrait.resume-authentic{position:relative;inset:auto;margin:0 0 0 auto;width:min(44vw,520px);height:auto;max-width:100%;aspect-ratio:1;z-index:0;transform:none!important;filter:none!important;overflow:hidden;border-radius:12px}
 .cv-page .resume-authentic .resume-authentic-photo{position:static;display:block;width:100%!important;height:auto!important;aspect-ratio:1;object-fit:contain!important;object-position:center!important;mask-image:none!important;-webkit-mask-image:none!important;filter:none!important;transform:none!important;opacity:1!important;border-radius:0}
 @media(max-width:760px){.cv-page .resume-top{display:flex;flex-direction:column-reverse;align-items:stretch;gap:28px;padding:28px 24px 40px;min-height:0}.cv-page .resume-portrait.resume-authentic{width:min(100%,440px);margin:0 auto;flex:none}.cv-page .resume-intro{width:100%}}
