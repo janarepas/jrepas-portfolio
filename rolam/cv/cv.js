@@ -4,9 +4,11 @@ const printButton = document.querySelector('#print');
 let language = 'hu';
 try { language = localStorage.getItem('jrepas-language-choice') === 'en' ? 'en' : 'hu'; } catch {}
 document.documentElement.lang = language;
+document.title = language === 'en'
+  ? 'János Répás – Professional CV | jrepas.hu'
+  : 'Répás János – Szakmai önéletrajz | jrepas.hu';
 if (language === 'en') {
   printButton.firstChild.textContent = 'Download CV ';
-  document.title = 'János Répás – Professional CV | jrepas.hu';
   const backLink = document.querySelector('.cv-toolbar a');
   if (backLink) backLink.textContent = '← Back to About';
 }
@@ -18,7 +20,7 @@ const make = (tag, text = '', className = '') => {
 };
 
 const en = {
-  'Szakmai önéletrajz': 'Professional CV',
+  'Szakmai Önéletrajz': 'Professional CV',
   'Senior grafikus és mozgógrafikai tervező': 'Senior Graphic & Motion Designer',
   'Szakmai tapasztalat': 'Experience', 'Tanulmányok': 'Education',
   'Szakmai háttér': 'Professional background', 'Szakmai készségek': 'Design capabilities',
@@ -99,20 +101,13 @@ async function loadCV() {
       // from the print clone so CV layout stays controlled by cv.css alone.
       section.classList.remove('resume-section', 'cv-section');
       section.classList.add('cv-print-section');
-      section.querySelectorAll('.software-logo').forEach(icon => icon.remove());
       return localizeSection(section);
-    };
-    const softwareGlyphs = {
-      Photoshop: 'Ps', Illustrator: 'Ai', InDesign: 'Id', Figma: 'Fg',
-      'Adobe XD': 'Xd', 'After Effects': 'Ae', 'Premiere Pro': 'Pr',
-      'Final Cut Pro': 'Fc', Affinity: 'Af', SketchUp: 'Sk',
-      Shopify: 'Sh', Shoprenter: 'Sr', HTML5: 'H5', CSS3: 'C3'
     };
 
     const sheet = make('article', '', 'cv-sheet');
     const header = make('header', '', 'cv-heading');
     const kicker = make('div', '', 'cv-kicker-row');
-    kicker.append(make('p', translate('Szakmai önéletrajz'), 'cv-kicker'));
+    kicker.append(make('p', translate('Szakmai Önéletrajz'), 'cv-kicker'));
     const wordmark = make('img');
     wordmark.src = '/images/jrepas-logo.svg';
     wordmark.alt = '';
@@ -174,12 +169,6 @@ async function loadCV() {
       skills.append(entry);
     });
     const software = cloneSection('Szoftverismeret');
-    software.querySelectorAll('.resume-software li').forEach(item => {
-      const label = item.textContent.trim();
-      const icon = make('span', softwareGlyphs[label] || '•', 'cv-software-icon');
-      icon.setAttribute('aria-hidden', 'true');
-      item.prepend(icon);
-    });
     secondary.append(background, skills, software, cloneSection('Nyelvtudás'));
     columns.append(primary, secondary);
 
