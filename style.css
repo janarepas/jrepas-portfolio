@@ -2061,3 +2061,15 @@ html[data-theme] body .work .portfolio-card .cover-retail .cover-mark{
 
 /* Keep the brand marks and CV download control fixed while their hover styling animates. */
 @media screen{html body :is(.brand,.footer-logo,.cv-toolbar button,#print,.cv-page .cv-save):is(:hover,:focus-visible){translate:none!important;transform:none!important}}
+
+
+/* Static, restrained navigation links matching the reference menu. */
+html body .site-header nav>a:not(.button){
+ color:var(--muted)!important;opacity:.72;text-decoration:none!important;
+ border-bottom:0!important;background:none!important;background-image:none!important;
+ transition:none!important;animation:none!important;transform:none!important;translate:none!important
+}
+html body .site-header nav>a:not(.button):is([aria-current="page"],.current){color:var(--text)!important;opacity:1}
+html body .site-header nav>a:not(.button):hover{color:var(--text)!important;opacity:1}
+html body .site-header nav>a:not(.button):before,
+html body .site-header nav>a:not(.button):after{content:none!important;display:none!important;transition:none!important;animation:none!important}

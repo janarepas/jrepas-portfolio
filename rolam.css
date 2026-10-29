@@ -695,3 +695,22 @@ html[data-theme] body.cv-page .work-gallery-caption p{
  border-color:transparent!important;
  box-shadow:none!important;
 }
+
+
+/* Taller full-width hero: align the image exactly to the viewport edges. */
+@media screen and (min-width:1001px){
+ .cv-page .resume-top{
+  width:auto!important;
+  margin-left:calc((100% - 100vw)/2)!important;
+  margin-right:calc((100% - 100vw)/2)!important;
+  min-height:min(720px,calc(50vw + 16px))!important;
+  padding-top:104px!important
+ }
+ .cv-page .resume-portrait{
+  left:auto!important;right:0!important;top:0!important;bottom:0!important;
+  width:min(100vw,1440px)!important;height:auto!important
+ }
+ .cv-page .resume-portrait .resume-environment{
+  width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important
+ }
+}
