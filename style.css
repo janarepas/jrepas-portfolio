@@ -2046,3 +2046,8 @@ html body .work .section-heading h2.eyebrow{font-weight:600!important}
 }
 
 @media screen{html[data-theme] body .contact-panel .contact-actions a.contact-link.button.button-yellow{font-weight:600!important}}
+
+/* Keep primary buttons stationary; their color and fill animations remain active. */
+@media screen{
+ html body :is(button,input[type=button],input[type=submit],[role=button],a.button,a.outline-button,a.text-link,a.small-link,a.process-cta,a.cv-save,a.header-contact,a.contact-link):is(:hover,:focus-visible){translate:none!important}
+}
