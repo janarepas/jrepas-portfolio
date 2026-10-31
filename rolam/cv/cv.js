@@ -62,7 +62,7 @@ const en = {
   'Kampányanyagok készítése az ALDI Magyarország és a ROKSH számára, valamint nagy fesztiválmegjelenésekhez. Hosszú távú arculat-, web- és kiadványtervezés a Tarsagónál, vizuális kommunikáció a Lévai Medical Centre-nél.':
     'Produced campaign assets for ALDI Hungary, ROKSH and major festivals, alongside long-term brand, web and editorial design for Tarsago and visual communication for Lévai Medical Centre.'
 };
-const translate = value => en[value] || value;
+const translate = value => language === 'en' ? (en[value] || value) : value;
 
 function localizeSection(section) {
   if (language !== 'en') return section;

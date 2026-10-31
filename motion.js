@@ -42,8 +42,16 @@ glass.className = 'top-glass';
 glass.setAttribute('aria-hidden', 'true');
 glass.innerHTML = '<span></span><span></span><span></span>';
 document.body.append(glass);
-function updateGlass() {
-  root.style.setProperty('--hero-underline', String(Math.min(1, Math.max(0, scrollY / 200))));
+const heroUnderline = document.querySelector('.hero h1 em');
+let underlinePlayed = false;
+let previousScrollY = window.scrollY;
+function updateGlass(event) {
+  const currentScrollY = window.scrollY;
+  if (heroUnderline && !underlinePlayed && event?.type === 'scroll' && currentScrollY > previousScrollY) {
+    underlinePlayed = true;
+    root.style.setProperty('--hero-underline', '1');
+  }
+  previousScrollY = currentScrollY;
   const state = String(scrollY > 24);
   if (root.getAttribute('data-scrolled') !== state) root.setAttribute('data-scrolled', state);
 }

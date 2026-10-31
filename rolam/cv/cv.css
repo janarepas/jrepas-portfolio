@@ -1,7 +1,7 @@
 @page{size:A4 portrait;margin:0}
 :root{--cv-ink:#111;--cv-muted:#555;--cv-line:#c8c8c8;--cv-accent:#666;--cv-paper:#fff;--cv-ground:#fff}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--cv-ground);color:var(--cv-ink);font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color-scheme:light}
+html,body{margin:0;background:var(--cv-ground);color:var(--cv-ink);font-family:var(--font-sans);color-scheme:light}
 .cv-toolbar{width:min(210mm,calc(100% - 32px));margin:22px auto 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .cv-toolbar a{font-size:14px;font-weight:600;color:var(--cv-ink);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
 .cv-toolbar .button{min-height:52px;margin:0;padding:15px 25px;color:#111;font-size:14px;font-weight:800!important;letter-spacing:0!important;text-transform:none!important;cursor:pointer}
@@ -21,13 +21,13 @@ html,body{margin:0;background:var(--cv-ground);color:var(--cv-ink);font-family:"
 .cv-sheet{position:relative;display:flex;flex-direction:column;width:210mm;min-height:297mm;height:auto;margin:16px auto;padding:12mm 13mm 14mm;background:var(--cv-paper);box-shadow:0 4px 26px #17171712;overflow:visible}
 .cv-heading{margin:0 0 9mm}
 .cv-kicker-row{position:relative;display:flex;align-items:center;justify-content:center;margin:0 0 4.5mm;padding-top:1mm;min-height:8mm}
-.cv-kicker{margin:0;color:var(--cv-ink);font:700 11pt/1.3 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.12em;text-align:center;text-transform:uppercase}
+.cv-kicker{margin:0;color:var(--cv-ink);font:700 11pt/1.3 var(--font-sans);letter-spacing:.12em;text-align:center;text-transform:uppercase}
 .cv-kicker-row img{position:absolute;left:0;top:50%;display:block;width:24mm;height:auto;max-height:7mm;object-fit:contain;object-position:left center;transform:translateY(-50%);filter:grayscale(1) contrast(1.25)}
 .cv-profile{display:grid;grid-template-columns:minmax(0,1fr) 29mm;gap:6mm;align-items:center}
 .cv-portrait{display:block;width:29mm;height:34mm;object-fit:cover;object-position:center 20%;border-radius:3mm}
 .cv-identity{min-width:0}
-.cv-identity h1{margin:0 0 1mm;font:italic 400 28pt/1.05 "ivypresto-display","IvyPresto Display",Georgia,serif;letter-spacing:-.035em}
-.cv-role{margin:0 0 2mm;font:600 10pt/1.3 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.cv-identity h1{margin:0 0 1mm;font:600 28pt/1.05 var(--font-sans);letter-spacing:-.035em}
+.cv-role{margin:0 0 2mm;font:600 10pt/1.3 var(--font-sans)}
 .cv-contact-line{display:flex;align-items:center;flex-wrap:wrap;gap:2mm 5mm;margin:0 0 2.5mm;color:var(--cv-muted);font-size:7.8pt;font-weight:600;line-height:1.4;letter-spacing:.01em}
 .cv-contact-item{display:inline-flex;align-items:center;gap:1.5mm;min-width:0}
 .cv-contact-item svg{display:block;width:4mm;height:4mm;flex:0 0 4mm;color:var(--cv-muted)}
@@ -36,7 +36,7 @@ html,body{margin:0;background:var(--cv-ground);color:var(--cv-ink);font-family:"
 .cv-columns{display:grid;grid-template-columns:1.12fr .88fr;gap:7mm;align-items:start;flex:1}
 .cv-primary,.cv-secondary{min-width:0}
 .cv-section{margin:0 0 6.1mm;min-width:0;break-inside:avoid}
-.cv-section>h2{margin:0 0 3.4mm;padding:0 0 1.7mm;border-bottom:1px solid var(--cv-line);font:700 8.2pt/1.35 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.105em;text-transform:uppercase;color:var(--cv-ink)}
+.cv-section>h2{margin:0 0 3.4mm;padding:0 0 1.7mm;border-bottom:1px solid var(--cv-line);font:700 8.2pt/1.35 var(--font-sans);letter-spacing:.105em;text-transform:uppercase;color:var(--cv-ink)}
 .cv-experience-timeline{position:relative;display:flow-root}
 .cv-experience-timeline:before{content:"";position:absolute;z-index:0;left:19.5mm;top:1mm;bottom:1mm;width:.25mm;background:#b8b8b8}
 .resume-job{position:relative;display:grid;grid-template-columns:18mm minmax(0,1fr);gap:3mm;margin:0 0 5.8mm;break-inside:avoid}
@@ -44,24 +44,24 @@ html,body{margin:0;background:var(--cv-ground);color:var(--cv-ink);font-family:"
 .resume-job .resume-date{margin:.6mm 0 0;color:var(--cv-muted);font-size:8pt;line-height:1.45;font-weight:600;white-space:nowrap}
 .cv-experience .resume-job:before{content:"";position:absolute;z-index:1;left:18.75mm;top:1.5mm;width:1.5mm;height:1.5mm;border:.25mm solid #fff;border-radius:50%;background:#444}
 .cv-experience .resume-job>div{position:relative;z-index:1;border-left:0;padding:0 0 0 3mm}
-.cv-experience .resume-job h3{margin:0 0 1.3mm;font:italic 400 12.2pt/1.18 "ivypresto-display","IvyPresto Display",Georgia,serif}
+.cv-experience .resume-job h3{margin:0 0 1.3mm;font:600 12.2pt/1.18 var(--font-sans)}
 .cv-experience .resume-job p{margin:0;color:#5a5a5a;font-size:8.1pt;font-weight:400!important;line-height:1.55}
 .cv-experience .resume-job p.resume-role{margin:0 0 1.8mm;font-size:8.5pt;font-weight:700!important;line-height:1.35;color:var(--cv-ink)}
 .cv-experience .resume-job p:not(.resume-role) strong{font-weight:650!important;color:#303030}
 .cv-secondary>.cv-section{margin-bottom:5mm}
 .cv-background p{margin:0;color:#55544f;font-size:8.4pt;font-weight:600;line-height:1.5}
 .cv-skill-entry{margin:0 0 3.5mm;break-inside:avoid}
-.cv-skill-entry h3{margin:0 0 1mm;font:italic 400 10pt/1.32 "ivypresto-display","IvyPresto Display",Georgia,serif}
+.cv-skill-entry h3{margin:0 0 1mm;font:600 10pt/1.32 var(--font-sans)}
 .cv-competencies{display:grid;grid-template-columns:minmax(0,1fr);row-gap:.75mm;list-style:none;margin:0;padding:0}
 .cv-competencies li{position:relative;margin:0;padding-left:2.8mm;font-size:8.2pt;line-height:1.5;color:#55544f;overflow-wrap:break-word}
 .cv-competencies li:before{content:"";position:absolute;left:0;top:.52em;width:1mm;height:1mm;border-radius:50%;background:var(--cv-accent)}
 .resume-software{display:grid;grid-template-columns:1fr 1fr;column-gap:2mm;row-gap:1.5mm;list-style:none;margin:0;padding:0}
 .resume-software li{display:grid;grid-template-columns:4.6mm minmax(0,1fr);align-items:center;column-gap:1.5mm;min-height:4.8mm;font-size:8.2pt;line-height:1.4;font-weight:600;color:#4f4e49}
-.cv-software-icon{display:inline-grid;width:4.2mm;height:4.2mm;place-items:center;border:0.3mm solid var(--cv-accent);border-radius:.8mm;color:var(--cv-ink);font:700 5.4pt/1 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:-.035em}
+.cv-software-icon{display:inline-grid;width:4.2mm;height:4.2mm;place-items:center;border:0.3mm solid var(--cv-accent);border-radius:.8mm;color:var(--cv-ink);font:700 5.4pt/1 var(--font-sans);letter-spacing:-.035em}
 .resume-education .education-entry{display:grid;grid-template-columns:15mm minmax(0,1fr);gap:0 1.5mm;margin:0 0 2.8mm;break-inside:avoid}
 .resume-education .education-entry:last-child{margin-bottom:0}
 .resume-education .education-date{grid-column:1;grid-row:1/span 2;margin:0;padding-top:.3mm;color:var(--cv-muted);font-size:7.4pt;font-weight:600;line-height:1.4;white-space:nowrap}
-.resume-education .education-entry h3{grid-column:2;margin:0 0 .5mm;font:600 8.2pt/1.4 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.resume-education .education-entry h3{grid-column:2;margin:0 0 .5mm;font:600 8.2pt/1.4 var(--font-sans)}
 .resume-education .education-course{grid-column:2;margin:0;color:#55544f;font-size:7.8pt;line-height:1.4}
 .resume-languages{display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin:0}
 .resume-languages>div{--language-fill:33%;--language-accent:#777;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:1.2mm 2mm;padding:2.6mm;border:1px solid var(--cv-line);border-radius:2mm;background:#fff;color:var(--cv-ink);min-width:0}
@@ -79,7 +79,7 @@ html,body{margin:0;background:var(--cv-ground);color:var(--cv-ink);font-family:"
 html body .cv-toolbar button.button{
  border:2px solid var(--yellow-main)!important;border-radius:999px!important;
  background:var(--yellow-main)!important;background-image:none!important;color:var(--black-deep)!important;
- font-family:var(--font-sans,"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif)!important;
+ font-family:var(--font-sans);
  font-size:16px!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;
  box-shadow:none!important;translate:none!important;transform:none!important;
  transition:none!important;
@@ -98,7 +98,7 @@ html body .cv-toolbar button.button:focus-visible{outline:2px solid var(--black-
 .cv-sheet .cv-print-section>h2{
  display:block;margin:0 0 2.4mm!important;padding:0 0 1.3mm!important;
  border-bottom:1px solid var(--cv-line);color:var(--cv-ink);
- font:700 7.6pt/1.25 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+ font:700 7.6pt/1.25 var(--font-sans);
  letter-spacing:.105em;text-transform:uppercase;
 }
 .cv-sheet .cv-print-section>p{margin:0;color:#55544f;font-size:8pt;line-height:1.42}
@@ -129,3 +129,5 @@ html body .cv-sheet .resume-software li .software-logo img{
  .cv-sheet .cv-print-section{break-inside:auto}
  .cv-sheet .cv-experience .resume-job,.cv-sheet .resume-education .education-entry,.cv-sheet .cv-skill-entry{break-inside:avoid}
 }
+
+html body .cv-toolbar>a{border-bottom:0!important;text-decoration:none!important}
