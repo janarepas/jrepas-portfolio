@@ -12,7 +12,8 @@
     "build": "python3 scripts/prepare-seo.py",
     "test:runtime": "node tests/runtime-browser.js",
     "test:all": "node tests/run-all.js",
-    "test:about": "node tests/about-cv-browser.js"
+    "test:about": "node tests/about-cv-browser.js",
+    "test:language": "node tests/language-browser.js"
   },
   "devDependencies": {
     "playwright": "1.56.1",

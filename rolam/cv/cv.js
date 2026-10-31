@@ -1,8 +1,8 @@
 // Build the one-page printable CV in the language selected on the About page.
 const target = document.querySelector('#cv');
 const printButton = document.querySelector('#print');
-let language = 'hu';
-try { language = localStorage.getItem('jrepas-language-choice') === 'en' ? 'en' : 'hu'; } catch {}
+const languagePreference = window.jrepasLanguage;
+let language = languagePreference.resolve();
 document.documentElement.lang = language;
 document.title = language === 'en'
   ? 'János Répás – Professional CV | jrepas.hu'
@@ -176,14 +176,17 @@ async function loadCV() {
     footer.setAttribute('aria-hidden', 'true');
     sheet.append(header, columns, footer);
     target.replaceChildren(sheet);
+    languagePreference.ready();
     await document.fonts.ready;
     await Promise.all([...target.querySelectorAll('img')].map(img => img.decode().catch(() => {})));
     printButton.disabled = false;
     document.documentElement.dataset.ready = 'true';
+    languagePreference.ready();
   } catch (error) {
     target.replaceChildren(make('p', language === 'en'
       ? 'The CV could not be loaded. Return to the About page and try again.'
       : 'Az önéletrajz nem tölthető be. Térj vissza a Rólam oldalra, és próbáld újra.'));
+    languagePreference.ready();
     console.error(error);
   }
 }

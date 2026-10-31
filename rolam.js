@@ -66,8 +66,8 @@ while (walker.nextNode()) {
   if (english[key]) textNodes.push({node,hu:node.textContent,en:node.textContent.replace(key,english[key])});
  }
 }
-let language = 'hu';
-try { language = localStorage.getItem('jrepas-language-choice') === 'en' ? 'en' : 'hu'; } catch {}
+const languagePreference = window.jrepasLanguage;
+let language = languagePreference.resolve();
 function renderLanguage() {
  root.lang = language;
  textNodes.forEach(item => item.node.textContent = item[language]);
@@ -75,12 +75,17 @@ function renderLanguage() {
  document.title = language === 'hu' ? 'Rólam – Répás János | jrepas.hu' : 'About – János Répás | jrepas.hu';
  button.setAttribute('aria-label', language === 'hu' ? (dark ? 'Világos mód' : 'Sötét mód') : (dark ? 'Light mode' : 'Dark mode'));
  button.title = button.getAttribute('aria-label');
+ languagePreference.ready();
 }
 document.querySelectorAll('[data-language]').forEach(control => control.addEventListener('click', () => {
+ if (!languagePreference.choose(control.dataset.language)) return;
  language = control.dataset.language;
- try { localStorage.setItem('jrepas-language-choice',language); } catch {}
  renderLanguage();
 }));
+addEventListener('languagechange', () => {
+ language = languagePreference.resolve();
+ renderLanguage();
+});
 renderLanguage();
 // Native scrolling keeps the gallery usable with touch, keyboard and trackpad.
 {

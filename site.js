@@ -8,12 +8,8 @@ let storage;
 try { storage = localStorage; } catch { /* Storage is optional. */ }
 const read = key => { try { return storage?.getItem(key); } catch { return null; } };
 const save = (key, value) => { try { storage?.setItem(key, value); } catch { /* Keep working without persistence. */ } };
-const country = root.dataset.country;
-const knownCountry = /^[A-Z]{2}$/.test(country || '') && !['XX', 'T1'].includes(country);
-const savedLanguage = read('jrepas-language-choice');
-let language = ['hu', 'en'].includes(savedLanguage) ? savedLanguage
-  : country === 'HU' ? 'hu'
-  : knownCountry ? 'en' : navigator.language.toLowerCase().startsWith('hu') ? 'hu' : 'en';
+const languagePreference = window.jrepasLanguage;
+let language = languagePreference.resolve();
 const savedTheme = read('jrepas-theme');
 let manualTheme = ['dark', 'light'].includes(savedTheme);
 let dark = manualTheme ? savedTheme === 'dark' : systemTheme.matches;
@@ -70,6 +66,7 @@ function render() {
   setAttribute('#quote-mail', 'href', `mailto:hello@jrepas.hu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
   updateYear();
   root.dataset.runtime = 'javascript';
+  languagePreference.ready();
 }
 
 // Apply the latest language after a short fade; rapid clicks replace the pending update.
@@ -90,9 +87,8 @@ function switchLanguage() {
 for (const button of document.querySelectorAll('[data-language]')) {
   button.addEventListener('click', () => {
     const next = button.dataset.language;
-    if (!['hu', 'en'].includes(next) || next === language) return;
+    if (!languagePreference.choose(next) || next === language) return;
     language = next;
-    save('jrepas-language-choice', language);
     switchLanguage();
   });
 }
@@ -146,6 +142,10 @@ systemTheme.addEventListener('change', event => {
   if (manualTheme || dark === event.matches) return;
   dark = event.matches;
   if (!root.hasAttribute('data-switching')) render();
+});
+addEventListener('languagechange', () => {
+  language = languagePreference.resolve();
+  switchLanguage();
 });
 render();
 // Keep the copyright current when the page stays open across New Year's midnight.
