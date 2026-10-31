@@ -6,9 +6,9 @@ const browser = await launchBrowser();
 try {
   const cases = [
     { country: 'HU', locale: 'en-US', saved: 'en', expected: 'en' },
-    { country: 'HU', locale: 'en-US', expected: 'hu' },
-    { country: 'HU', locale: 'en-US', saved: 'invalid', expected: 'hu' },
-    { country: 'DE', locale: 'hu-HU', expected: 'en' },
+    { country: 'HU', locale: 'en-US', expected: 'en' },
+    { country: 'HU', locale: 'en-US', saved: 'invalid', expected: 'en' },
+    { country: 'DE', locale: 'hu-HU', expected: 'hu' },
     { country: 'DE', locale: 'en-US', saved: 'hu', expected: 'hu' },
     { country: 'XX', locale: 'hu-HU', expected: 'hu' },
     { locale: 'hu-HU', saved: 'invalid', expected: 'hu' },
@@ -70,5 +70,5 @@ try {
     assert.deepEqual(wasmRequests, []);
     await context.close();
   }
-  console.log('JavaScript runtime: country/browser language, saved choices, unavailable storage, system theme, rapid switching and no WASM requests passed.');
+  console.log('JavaScript runtime: browser language (country-independent), saved choices, unavailable storage, system theme, rapid switching and no WASM requests passed.');
 } finally { await browser.close(); }
